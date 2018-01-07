@@ -5,7 +5,7 @@ Tato práce popisuje 2 související věci?.
 Finanční analýza podniku je proces, při kterém jsou získaná data (...?) podrobena rozboru a s využitím různých metod jsou vypočtena nová data s novou vypovídající hodnotou, mimo jiné i o finančním zdraví podniku. Tato data se nazývají finanční ukazatele. Lze je využít k nalezení příčin současného stavu podniku, ..., a do jisté míry? i k predikci stavu podniku v budoucnu.
 různý výstup analýzy - čísla, grafy, peníze, textová forma
 
-Text práce je rozdělen do X kapitol. Jelikož je finanční analýza poměrně rozsáhlá oblast, celá příští kapitola je věnována teorii. Nejprve je nezbytné vysvětlit specifické termíny?, jelikož se některé z nich budou v textu objevovat často a běžný čtenář? se s nimi nemusel dosud setkat. + fungování podniku, zákon , ...
+Text práce je členěn do X kapitol. Jelikož je finanční analýza poměrně rozsáhlá oblast, celá příští kapitola je věnována teorii. Nejprve je nezbytné vysvětlit , jelikož se některé z nich budou v textu objevovat často a běžný čtenář? se s nimi nemusel dosud setkat. + fungování podniku, zákon , ...
 Ve třetí kapitole bude popsán návrh zvolených metod vyhodnocování finančního zdraví podniku, jeho interpretace a také návrh programového řešení - architektura, implementační jazyk, formát vstupu a výstupu. Čtvrtá kapitola se zabývá realizací návrhu, implementačními detaily. V závěrečné kapitole jsou shrnuty a zhodnoceny dosažené výsledky, přínosy této práce a návrhy na její možná rozšíření.
 
 Pro lepší demonstraci budou v této práci analyzovány výsledky hospodaření společnosti Krajči plus s.r.o., která se zabývá... Výsledky hospodaření lze najít ... .
@@ -13,19 +13,13 @@ Pro lepší demonstraci budou v této práci analyzovány výsledky hospodařen�
 %=========================================================================
 \chapter{Problematika finanční analýzy}
 
-
-\section{Pojmy, zkratky}
-V oblasti finanční analýzy se objevuje množství termínů a zkratek, jež mají původ v různých jazycích.
-\begin{itemize}
-	\item \textbf{EAT} (earnings after taxes) - čistý zisk, výsledek hospodaření za účetní obdob po zdanění; rozdělí se mezi vlastníky a podnik
-\end{itemize}
-
 vykaz zisku a ztraty + rozvaha - z uctove osnovy na konci roku
 vynosy, naklady X prijmy, vydaje (to jsou uz primo penize)
 hruby\_zisk=vynosy-naklady
 rozvaha=majetek firmy (at vim, k cemu pribude zisk)
 
-Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budeme vycházet. Množina vstupních dat není nijak omezena a může být vskutku rozsáhlá -- při výpočtu lze zohlednit nejrůznější faktory. Stěžejní jsou však především data o vlastním hospodaření podniku, za jejichž evidenci je zodpovědná účetní jednotka podniku, která je v průběhu roku zapisuje do tzv účtové osnovy.
+\section{Vstupní data}
+Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budeme vycházet. Množina vstupních dat není nijak omezena a může být vskutku rozsáhlá -- při výpočtu lze zohlednit nejrůznější faktory. Klíčová jsou však především data o vlastním hospodaření podniku, za jejichž evidenci je zodpovědná účetní jednotka podniku, která je v průběhu roku zapisuje do tzv účtové osnovy.
 \section{Účtová osnova}
 Účtová osnova je 
 Větší? společnosti jsou ze zákona povinny dělat? každoročně účetní závěrku. Ta má v ČR dvě povinné části - výkaz zisku a ztráty a rozvaha. 
@@ -51,21 +45,53 @@ Přívlastek vertikální vychází tak jako u horizontální analýzy ze způso
 Existuje několik různých ukazatelů. Různé ukazatele slouží různým účelům, různé společnosti se řídí různými ukazateli. Ukazatele se počítají z výsledovky a rozvahy. Většina ukazatelů je vyjádřena poměrem výstupu k nějaké základní jednotce, kterou je 1 Kč položky? ve jmenovateli.
 
 \subsection{Ukazatelé rentability}
-\subsection{ROA -- rentabilita aktiv}
+\begin{itemize}
+\item{ROA -- rentabilita aktiv}
+
+return on assets
 ROA = zisková marže $*$ obrat celkových aktiv = $\dfrac{\text{čistý zisk}}{\text{tržby}} * \dfrac{\text{tržby}}{\text{celková aktiva}}$
 
-\subsection{ROE -- rentabilita vlastního kapitálu}
+\item{ROE -- rentabilita vlastního kapitálu}
+
 return on equity
 Vyjadřuje míru zhodnocení kapitálu -- kolik korun čistého zisku připadá na 1 korunu vlastního kapitálu. Pro akcionáře je tedy jedním z klíčových ukazatelů.
 
+\item{ROCE -- rentabilita investovaného kapitálu}
+
+return on capital employed
+
+\item{ROS -- rentabilita tržeb}
+
+return on sales
+
+\item{ROC -- rentabilita nákladů}
+
+return on costs
+\end{itemize}
+
 
 \subsection{Ukazatelé likvidity}
+\begin{itemize}
+\item{Běžná likvidita}
+\item{Pohotová likvidita}
+\item{Peněžní likvidita}
+\end{itemize}
+
 
 \subsection{Ukazatelé aktivity}
+\begin{itemize}
+\item{Obrat celkových aktiv}
+\item{Obrat zásob}
+\item{Obrat pohledávek}
+\item{Obrat závazků}
+\end{itemize}
 
-\subsection{Ukazatelé rentability}
+\subsection{Ukazatelé produktivity}
 
-\subsection{Ukazatelé rentability}
+\subsection{Ukazatelé zadluženosti}
+\begin{itemize}
+\item{Úrokové krytí}
+\end{itemize}
 
 
 \subsection{IRR -- vnitřní výnosové procento}
