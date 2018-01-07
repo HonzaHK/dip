@@ -10,30 +10,71 @@ Ve třetí kapitole bude popsán návrh zvolených metod vyhodnocování finanč
 
 Pro lepší demonstraci budou v této práci analyzovány výsledky hospodaření společnosti Krajči plus s.r.o., která se zabývá... Výsledky hospodaření lze najít ... .
 
-%===========================================================================
+%=========================================================================
 \chapter{Problematika finanční analýzy}
 
-vykaz zisku a ztraty + rozvaha - z ucetni osnovy na konci roku
+
+\section{Pojmy, zkratky}
+V oblasti finanční analýzy se objevuje množství termínů a zkratek, jež mají původ v různých jazycích.
+\begin{itemize}
+	\item \textbf{EAT} (earnings after taxes) - čistý zisk, výsledek hospodaření za účetní obdob po zdanění; rozdělí se mezi vlastníky a podnik
+\end{itemize}
+
+vykaz zisku a ztraty + rozvaha - z uctove osnovy na konci roku
 vynosy, naklady X prijmy, vydaje (to jsou uz primo penize)
 hruby\_zisk=vynosy-naklady
 rozvaha=majetek firmy (at vim, k cemu pribude zisk)
 
-Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budeme vycházet. Stěžejní jsou především data o vlastním hospodaření podniku, za jejichž evidenci je zodpovědná účetní jednotka podniku, která je v průběhu roku zapisuje do tzv účtové osnovy.
+Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budeme vycházet. Množina vstupních dat není nijak omezena a může být vskutku rozsáhlá -- při výpočtu lze zohlednit nejrůznější faktory. Stěžejní jsou však především data o vlastním hospodaření podniku, za jejichž evidenci je zodpovědná účetní jednotka podniku, která je v průběhu roku zapisuje do tzv účtové osnovy.
 \section{Účtová osnova}
 Účtová osnova je 
 Větší? společnosti jsou ze zákona povinny dělat? každoročně účetní závěrku. Ta má v ČR dvě povinné části - výkaz zisku a ztráty a rozvaha. 
 \section{Výkaz zisku a ztráty}
 \section{Rozvaha}
-Narozdíl od výkazu zisku a ztráty jsou při sestavování? rozvahy data? vázána k jednomu určitému okamžiku, takzvanému rozvahovému dni, který bývá zpravidla posledním dnem účetního období.
+Narozdíl od výkazu zisku a ztráty jsou při sestavování? rozvahy data? vázána k jednomu určitému okamžiku, takzvanému rozvahovému dni, který je posledním dnem účetního období, zpravidla tedy posledním dnem kalendářního roku.
+-aktiva
+-pasiva
 
-\section{Horizontální analýza}
-Určitá položka (řádek) je porovnávána se stejnou položkou za jiné časové období. Při výpočtu se tedy pohybujeme pouze v rámci daného řádku (pouze měníme rok), odtud horizontální analýza. U jednotlivých položek zvlášť je vypočtena meziroční změna a její procentuální vyjádření. Tento postup je proti ostatním velmi? přímočarý?.
+%#########################################################################
+\section{Absolutní ukazatele}
+
+\subsection{Horizontální analýza}
+Při horizontální analýze je určitá položka (řádek) uzávěrky? porovnávána se stejnou položkou za jiné časové období. Při výpočtu tedy porovnáváme výsledky jedné položky napříč různými obdobími - proto horizontální analýza. U jednotlivých položek zvlášť je vypočtena meziroční změna a její procentuální vyjádření. Tento postup je proti ostatním velmi? přímočarý?
+-používá se především pro ...
+-nezohledňuje inflaci, ...
+
+\subsection{Vertikální analýza}
+Přívlastek vertikální vychází tak jako u horizontální analýzy ze způsobu výpočtu z uzávěrky. Při vertikální analýze jsou počítány ukazatele vycházející z poměru jednotlivých položek (řádků) v rámci jednoho roku.
+%#########################################################################
+
+\section{Poměrové ukazatele}
+Existuje několik různých ukazatelů. Různé ukazatele slouží různým účelům, různé společnosti se řídí různými ukazateli. Ukazatele se počítají z výsledovky a rozvahy. Většina ukazatelů je vyjádřena poměrem výstupu k nějaké základní jednotce, kterou je 1 Kč položky? ve jmenovateli.
+
+\subsection{Ukazatelé rentability}
+\subsection{ROA -- rentabilita aktiv}
+ROA = zisková marže $*$ obrat celkových aktiv = $\dfrac{\text{čistý zisk}}{\text{tržby}} * \dfrac{\text{tržby}}{\text{celková aktiva}}$
+
+\subsection{ROE -- rentabilita vlastního kapitálu}
+return on equity
+Vyjadřuje míru zhodnocení kapitálu -- kolik korun čistého zisku připadá na 1 korunu vlastního kapitálu. Pro akcionáře je tedy jedním z klíčových ukazatelů.
 
 
-\section{Ukazatele}
-Existuje několik různých ukazatelů. Různé ukazatele slouží různým účelům, různé společnosti se řídí různými ukazateli. Ukazatele se počítají z výsledovky a rozvahy. Většina ukazatelů je vyjádřena číslem nebo poměrem?.
-\subsection{Rentabilita aktiv}
-\subsection{Vnitřní výnosové procento}
+\subsection{Ukazatelé likvidity}
+
+\subsection{Ukazatelé aktivity}
+
+\subsection{Ukazatelé rentability}
+
+\subsection{Ukazatelé rentability}
+
+
+\subsection{IRR -- vnitřní výnosové procento}
+internal rate of return
+
+\subsection{EVA}
+economic value added
+
+
 
 \section{Interpretace výsledků}
 Vzorce a postupy pro výpočet jednotlivých ukazatelů jsou jasně (matematicky) dané. Ukazatel je však jen číslo a problémem tak může být jeho interpretace -- v některých případech nelze jednoznačně určit příčinu, důsledek nebo obecně význam jeho hodnoty. 
@@ -41,17 +82,34 @@ Vzorce a postupy pro výpočet jednotlivých ukazatelů jsou jasně (matematicky
 \section{Existující software}
 \subsection{Equanta\sffamily\textregistered}
 
-%===========================================================================
+%=========================================================================
 \chapter{Návrh řešení}
 \section{Vybrané metody vyhodnocování finančního zdraví}
 Ukazatele jsou ve skutečnosti jen čísla, kterým rozumí spíše ekonomové - běžný uživatel by z nich nejspíš nic nevydedukoval. Proto je žádoucí, aby byly výstupem nejen tato čísla, ale i nějaký srozumitelný závěr?.
 Porovnání s minulým rokem
 Porovnání s ukazateli v odvětví
 
-\section{Návrh programového řešení}
-Program bude mít webové rozhraní, což má samozřejmě své výhody - uživatel může k programu přistupovat odkudkoliv (i z různých platforem), používání programu není podmíněno jeho instalací a z pohledu vývojáře je mnohem jednodušší jeho údržba (vydávání nových verzí).
+Horizontální analýza
+- sloupcový nebo spojnicový graf
+- vyber polozky vysledovky (checkbox/selectbox ...?)
+- checkboxy pro roky
 
-%===========================================================================
+- co nejvice ukazatelu - komplexni
+
+\section{Návrh programového řešení}
+Program bude mít webové rozhraní, což má samozřejmě své výhody - uživatel může k programu přistupovat odkudkoliv (a to z různých platforem), používání programu není podmíněno jeho instalací a z pohledu vývojáře je mnohem jednodušší jeho údržba (vydávání nových verzí).
+
+- defaultni nastaveni, ale vysoka uroven prizbusobeni, vse svazano s uctem
+ nekolik ruznych podniku na uziv(financni analytik)
+ nekolik uzaverek na podnik (ruzne roky)
+ zobrazene/preferovane ukazatele
+ 
+
+Uživateli bude pro snadnější práci umožněno vytoření vlastního účtu. Systém tak bude schopen personalizovat obsah dle nastavených předvoleb. S účtem budou svázana i data za jednotlivá časová obdoví v minulosti, která lze nahrát a uchovat pro další použití, například porovnání nebo zpřesnění analýzy v budoucnu.
+
+-React(Redux,Navigation,bootstrap)
+-Firebase?
+%=========================================================================
 \chapter{Implementace a testování}
-%===========================================================================
+%=========================================================================
 \chapter{Závěr}
