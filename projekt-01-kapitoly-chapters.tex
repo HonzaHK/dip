@@ -1,14 +1,14 @@
 \chapter{Úvod}
 Tato práce popisuje 2 související věci?. 
-1)Prvním tématem je provádění finanční analýzy obecně -- shrnutí cílů a motivace, popis používaných metod, vstupních a výstupních dat, výpočtu samotného a intepretaci výsledků a omezení při dedukci?. Druhým tématem je popis programu, který takovou analýzu realizuje a který bude v rámci této diplomové práce implementován.
+1)Prvním tématem je provádění finanční analýzy obecně -- shrnutí motivace a cílů, popis pojmů, používaných metod a strategií, vstupních a výstupních dat, výpočtu samotného a intepretaci výsledků. Druhým tématickým celkem je popis implementace a fungování software, který finanční analýzu realizuje a který bude v rámci této diplomové práce implementován.
 
 Finanční analýza podniku je proces, při kterém jsou získaná data (...?) podrobena rozboru a s využitím různých metod jsou vypočtena nová data s novou vypovídající hodnotou, mimo jiné i o finančním zdraví podniku. Tato data se nazývají finanční ukazatele. Lze je využít k nalezení příčin současného stavu podniku, ..., a do jisté míry? i k predikci stavu podniku v budoucnu.
 různý výstup analýzy - čísla, grafy, peníze, textová forma
 
-Text práce je členěn do X kapitol. Jelikož je finanční analýza poměrně rozsáhlá oblast, celá příští kapitola je věnována teorii. Nejprve je nezbytné vysvětlit , jelikož se některé z nich budou v textu objevovat často a běžný čtenář? se s nimi nemusel dosud setkat. + fungování podniku, zákon , ...
+Text práce je členěn do pěti kapitol. Jelikož je finanční analýza poměrně rozsáhlá oblast, celá příští kapitola je věnována teorii. Nejprve je nezbytné vysvětlit , jelikož se některé z nich budou v textu objevovat často a běžný čtenář? se s nimi nemusel dosud setkat. + fungování podniku, zákon , ...
 Ve třetí kapitole bude popsán návrh zvolených metod vyhodnocování finančního zdraví podniku, jeho interpretace a také návrh programového řešení - architektura, implementační jazyk, formát vstupu a výstupu. Čtvrtá kapitola se zabývá realizací návrhu, implementačními detaily. V závěrečné kapitole jsou shrnuty a zhodnoceny dosažené výsledky, přínosy této práce a návrhy na její možná rozšíření.
 
-Pro lepší demonstraci budou v této práci analyzovány výsledky hospodaření společnosti Krajči plus s.r.o., která se zabývá... Výsledky hospodaření lze najít ... .
+Pro lepší demonstraci budou v této práci analyzovány výsledky hospodaření společnosti ?, která se zabývá ?. Výsledky hospodaření lze najít ?.
 
 %=========================================================================
 \chapter{Problematika finanční analýzy}
@@ -46,31 +46,40 @@ Existuje několik různých ukazatelů. Různé ukazatele slouží různým úč
 
 \subsection{Ukazatelé rentability}
 
-Ukazatelé rentability (výnosnosti, ziskovosti) patří v praxi mezi nejsledovanější ukazatele. Vyjadřují míru výnosnosti hospodaření podniku, nikoliv však z pohledu vlastníka. pomocí poměru  jaké bylo dosaženo na základě vloženého kapitálu. Obecný tvar výpočtu je tedy $$\zl{výnos}{prostředky}$$
+Ukazatelé rentability (výnosnosti, ziskovosti, návratnosti) patří v praxi mezi nejsledovanější ukazatele. Vyjadřují míru výnosnosti hospodaření podniku, spíše však z pohledu podniku samotného, nežli vlastníka. Obecný tvar výpočtu je tedy 
+$$\zl{výnos}{prostředky}$$
 
-\begin{itemize}
-\item{ROA -- rentabilita aktiv}
+\subsubsection{ROA -- rentabilita aktiv}
 
 return on assets
-ROA = zisková marže $*$ obrat celkových aktiv = $\zl{čistý zisk}{tržby} * \zl{tržby}{celková aktiva}$
 
-\item{ROE -- rentabilita vlastního kapitálu}
+ROA dává do poměru zisk s celkovými aktivy podniku, bez ohledu na to, zda jsou aktiva vlastní nebo cizí, dlouhodobá nebo krátkodobá. Tím vyjadřuje, jak efektivně dokáže podnik naložit se svým majetkem?. V čitateli se může objevit zisk před i po zdanění respektive zúročení.
+
+$$\text{ROA} = \zl{EBIT}{A}  \text{ROA} = \zl{EBIT $*(1-t)$}{A}$$ 
+$$\text{ROA} = \zl{EAT}{A}  \text{ROA} = \zl{EAT $+$ úroky $*(1-t)$}{A}$$
+
+\subsubsection{ROE -- rentabilita vlastního kapitálu}
 
 return on equity
-Vyjadřuje míru zhodnocení kapitálu -- kolik korun čistého zisku připadá na 1 korunu vlastního kapitálu. Pro akcionáře je tedy jedním z klíčových ukazatelů.
+Při výpočtu ROE je ve jmenovateli místo všech aktiv hodnota vlastního kapitálu. Tím vyjadřuje míru jeho zhodnocení -- kolik korun (čistého) zisku připadá na 1 korunu vlastního kapitálu. Pro vlastníky je tedy jedním z klíčových ukazatelů. Ve srovnání s ROA
 
-\item{ROCE -- rentabilita investovaného kapitálu}
+$$\text{ROE} = \zl{čistý zisk}{vlastní kapitál}$$ 
+
+\subsubsection{ROCE -- rentabilita investovaného kapitálu}
 
 return on capital employed
 
-\item{ROS -- rentabilita tržeb}
+$$\text{ROCE} = \zl{EBIT}{vl. kapitál + rezervy + dlouhodobé závazky + bankovní úvěry dlouhodobé}$$ 
+
+\subsubsection{ROS -- rentabilita tržeb}
 
 return on sales
 
-\item{ROC -- rentabilita nákladů}
+$$\text{ROS} = \zl{EBIT}{tržby} \text{ROS} = \zl{EAT}{tržby}$$ 
+
+\subsubsection{ROC -- rentabilita nákladů}
 
 return on costs
-\end{itemize}
 
 
 \subsection{Ukazatelé likvidity}
@@ -78,57 +87,81 @@ Pojem likvidita bývá nesprávně zaměňován s úzce souvisejícími pojmy li
 
 Solventnost neboli platební schopnost je definována jako schopnost subjektu, v našem případě podniku, včas splácet své finanční závazky.
 
-Likvidita podniku dává tyto pojmy do souvislosti -- vyjadřuje schopnost přeměnit aktiva podniku na peněžní prostředky (využít jejich likvidnosti) za účelem včasného uhrazení všech splatných závazků (a tím pádem být solventní).
+Likvidita podniku dává tyto pojmy do souvislosti -- ukazatelé likvidity vyjadřují schopnost přeměnit vybraná aktiva podniku na peněžní prostředky (využít jejich likvidnosti) za účelem včasného uhrazení všech splatných závazků (a tím pádem být solventní).
 
-Ukazatelé likvidity potom udávají poměr toho, čím je možné platit to co se musi zaplatit
+Všechny ukazatele se počítají jako poměr toho, čím je možné platit, k tomu, co se musí zaplatit.
 
-\begin{itemize}
-\item{Běžná likvidita} 
+\subsubsection{Běžná likvidita} 
 
 CR - Current Ratio
 
-Poměr ukazuje, kolikrát pokrývají oběžná aktiva krátkodobé závazky, jinými slovy, kolikrát je podnik schopen splnit své krátkodobé závazky z peněžních prostředků, které by získal přeměnou z oběžných aktiv.
+Poměr ukazuje, kolikrát pokrývají oběžná aktiva krátkodobé závazky, jinými slovy, kolikrát je podnik schopen uhradit své krátkodobé závazky z peněžních prostředků, které by získal přeměnou z oběžných aktiv.
 
 Výpočet zahrnuje i zásoby, jejichž konkrétní ocenění ve velké míře ovlivňuje výsledek.
-Ukazatel se tak dá považovat za měřítko budoucí solventnosti podniku, optimální hodnota je CR $= 1.5$
+Ukazatel se tak dá považovat za měřítko budoucí solventnosti podniku, Uváděná optimální hodnota se v literaturách různí, zřejmě se bude lišit i v závisloti na typu podniku. Hodnota ukazatele by určitě neměla být menší než 1, což by znamenalo nutnost financovat závazky z dlouhodobých zdrojů financování a jinými nevhodnými způsoby. Také berme v potaz, že po pokrytí závazků by měly zbýt prostředky pro další činnost podniku.
+Optimální hodnota uvedená v preferovaném zdroji je CR $\geq 1.5$. 
+
 $$\zl{oběžná aktiva}{krátkodobé závazky}$$
 
-\item{Pohotová likvidita} 
+\subsubsection{Pohotová likvidita} 
+
+QR - Quick Ratio
 
 stejný výpočet, pouze bez zásob. U podniku z oblasti služeb se blíží běžné likviditě, u výrobních podniků se naopak spíše liší.
-QR - Quick Ratio
+
 $$\zl{oběžná aktiva $-$ zásoby}{krátkodobé závazky}$$
 
-\item{Peněžní (okamžitá) likvidita}
+\subsubsection{Peněžní (okamžitá) likvidita}
 
 CR - Cash Ratio
 
-$$\zl{peněžní prostředky $+$ ekvivalenty}{krátkodobé závazky}$$
 pěněžními prostředky se myslí peníze v hotovosti a na běžných účtech, ekvivalenty mohou být například šeky nebo obchdovatelné cenné papíry. Pro podnik je žádoucí, aby platilo CR > 0,2, čímž je zajištěna likvidita.
-\end{itemize}
+
+$$\zl{peněžní prostředky $+$ ekvivalenty}{krátkodobé závazky}$$
 
 
-\subsection{Ukazatelé aktivity}
-\begin{itemize}
-\item{Obrat celkových aktiv}
-\item{Obrat zásob}
-\item{Obrat pohledávek}
-\item{Obrat závazků}
-\end{itemize}
+\subsection{Ukazatele aktivity}
+Patří k tzv. mezivýkazových ukazatelům -- vstupními daty jsou položky jak z výkazu zisku a ztrát tak z rozvahy. Ukazatele aktivity vyjadřují, jak efektivně podnik nakládá se svými aktivy. Pokud jich vlastní více, než je nutné, vznikají zbytečné náklady a dochází ke snižení zisku. Jestliže jich má nedostatek, přichází o výnosy z potenciálních zakázek, o které se kvůli nedostatku aktiv nemůže ucházet.
 
-\subsection{Ukazatelé produktivity}
+Výsledkem je hodnota udávající rychlost nebo dobu obratu. Rychlost obratu vyjadřuje, kolikrát se určitá složka aktiv přemění za sledované období na peněžní prostředky. Doba obratu nám říká, jak dlouho trvá přeměna.
 
-\subsection{Ukazatelé zadluženosti}
-Zadluženost podniku je vyjádřena poměrem vlastních a cizích zdrojů financování podniku. Cizí zdroje pro podnik zpravidla znamenají dluh, závazek. Zadluženost obecně nemusí být negativní charakteristikou -- využití cizích zdrojů vede k zesílení tzv. finančního pákového efektu?vysvetl, který pozitivně přispívá k rentabilitě vlastního kapitálu\cite{uk_zadl}.
-\begin{itemize}
-\item{Úrokové krytí}
-\end{itemize}
+\subsubsection{Obrat celkových aktiv}
+
+total assets turnover
+
+Udává, kolikrát se obrátí celková aktiva za sledované časové období. Nevýhodou tohoto a některých dalších ukazatelů je povaha vstupních dat: tržby jsou zachyceny jejich sumou za celé období, kdežto hodnota aktiv se vztahuje ke konkrétnímu časovému okamžiku, kdy byla rozvaha vytvořena. Přesnějšího výsledku by se dalo dosáhnout použitím průměrné hodnoty celkových aktiv. 
+
+$$\text{obrat celkových aktiv} = \zl{tržby}{celková aktiva}$$
+
+\subsubsection{Obrat stálých aktiv}
+
+fixed assets turnover
+
+$$\text{obrat stálých aktiv} = \zl{tržby}{dlouhodobý hmotný majetek}$$
+
+\subsubsection{Obrat zásob}
+
+inventory turnover
+
+$$\text{obrat zásob} = \zl{tržby}{zásoby}$$
 
 
-\subsection{IRR -- vnitřní výnosové procento}
+\subsubsection{Obrat pohledávek}
+\subsubsection{Obrat závazků}
+
+
+\subsection{Ukazatele zadluženosti}
+Zadluženost podniku je vyjádřena poměrem vlastních a cizích zdrojů financování podniku. Cizí zdroje pro podnik zpravidla znamenají dluh, závazek. Zadluženost obecně nemusí být negativní charakteristikou -- využití cizích zdrojů vede k zesílení tzv. finančního pákového efektu\footnote{finanční pákový efekt: bla bla bla?}, který pozitivně přispívá k rentabilitě vlastního kapitálu\cite{uk_zadl}.
+\subsubsection{Úrokové krytí}
+
+\subsection{Ukazatele produktivity}
+
+\subsection{Další ukazatele}
+
+\subsubsection{IRR -- vnitřní výnosové procento}
 internal rate of return
 
-\subsection{EVA}
+\subsubsection{EVA}
 economic value added
 
 
@@ -161,11 +194,18 @@ Program bude mít webové rozhraní, což má samozřejmě své výhody - uživa
  nekolik uzaverek na podnik (ruzne roky)
  zobrazene/preferovane ukazatele
  
-- vstup - moznost vyplnit rucne, krome pdf na MPO? se odevzdava ZZ a R v xml na financak
+VSTUP
+- moznost vyplnit rucne, krome pdf na MPO? se odevzdava ZZ a R v xml na financak (k danovemu priz)
 - vstup - parametrizace parseru
+
+
+VYPOCET
+- nastaveni optimalnich hodnot (rozmezi) pro ukazatele likvidity
+- vypocet obrat celkovych aktiv - prumerna hodnota celkovych aktiv
 
 Uživateli bude pro snadnější práci umožněno vytoření vlastního účtu. Systém tak bude schopen personalizovat obsah dle nastavených předvoleb. S účtem budou svázana i data za jednotlivá časová obdoví v minulosti, která lze nahrát a uchovat pro další použití, například porovnání nebo zpřesnění analýzy v budoucnu.
 
+TECHNOLOGIE, KNIHOVNY
 -React(Redux,Navigation,bootstrap)
 -Firebase?
 
