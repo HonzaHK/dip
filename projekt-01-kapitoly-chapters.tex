@@ -45,11 +45,14 @@ Přívlastek vertikální vychází tak jako u horizontální analýzy ze způso
 Existuje několik různých ukazatelů. Různé ukazatele slouží různým účelům, různé společnosti se řídí různými ukazateli. Ukazatele se počítají z výsledovky a rozvahy. Většina ukazatelů je vyjádřena poměrem výstupu k nějaké základní jednotce, kterou je 1 Kč položky? ve jmenovateli.
 
 \subsection{Ukazatelé rentability}
+
+Ukazatelé rentability (výnosnosti, ziskovosti) patří v praxi mezi nejsledovanější ukazatele. Vyjadřují míru výnosnosti hospodaření podniku, nikoliv však z pohledu vlastníka. pomocí poměru  jaké bylo dosaženo na základě vloženého kapitálu. Obecný tvar výpočtu je tedy $$\zl{výnos}{prostředky}$$
+
 \begin{itemize}
 \item{ROA -- rentabilita aktiv}
 
 return on assets
-ROA = zisková marže $*$ obrat celkových aktiv = $\dfrac{\text{čistý zisk}}{\text{tržby}} * \dfrac{\text{tržby}}{\text{celková aktiva}}$
+ROA = zisková marže $*$ obrat celkových aktiv = $\zl{čistý zisk}{tržby} * \zl{tržby}{celková aktiva}$
 
 \item{ROE -- rentabilita vlastního kapitálu}
 
@@ -71,10 +74,37 @@ return on costs
 
 
 \subsection{Ukazatelé likvidity}
+Pojem likvidita bývá nesprávně zaměňován s úzce souvisejícími pojmy likvidnost a solventnost. Likvidnost je vlastnost jednotlivých složek aktiv podniku vyjadřující schopnost přeměny těchto složek v peněžní prostředky v co nejkratším čase a s minimálními ztrátami\cite{uk_likv}. Přeměnou můžeme rozumět například prodej zásob nebo inkasování pohledávek. 
+
+Solventnost neboli platební schopnost je definována jako schopnost subjektu, v našem případě podniku, včas splácet své finanční závazky.
+
+Likvidita podniku dává tyto pojmy do souvislosti -- vyjadřuje schopnost přeměnit aktiva podniku na peněžní prostředky (využít jejich likvidnosti) za účelem včasného uhrazení všech splatných závazků (a tím pádem být solventní).
+
+Ukazatelé likvidity potom udávají poměr toho, čím je možné platit to co se musi zaplatit
+
 \begin{itemize}
-\item{Běžná likvidita}
-\item{Pohotová likvidita}
-\item{Peněžní likvidita}
+\item{Běžná likvidita} 
+
+CR - Current Ratio
+
+Poměr ukazuje, kolikrát pokrývají oběžná aktiva krátkodobé závazky, jinými slovy, kolikrát je podnik schopen splnit své krátkodobé závazky z peněžních prostředků, které by získal přeměnou z oběžných aktiv.
+
+Výpočet zahrnuje i zásoby, jejichž konkrétní ocenění ve velké míře ovlivňuje výsledek.
+Ukazatel se tak dá považovat za měřítko budoucí solventnosti podniku, optimální hodnota je CR $= 1.5$
+$$\zl{oběžná aktiva}{krátkodobé závazky}$$
+
+\item{Pohotová likvidita} 
+
+stejný výpočet, pouze bez zásob. U podniku z oblasti služeb se blíží běžné likviditě, u výrobních podniků se naopak spíše liší.
+QR - Quick Ratio
+$$\zl{oběžná aktiva $-$ zásoby}{krátkodobé závazky}$$
+
+\item{Peněžní (okamžitá) likvidita}
+
+CR - Cash Ratio
+
+$$\zl{peněžní prostředky $+$ ekvivalenty}{krátkodobé závazky}$$
+pěněžními prostředky se myslí peníze v hotovosti a na běžných účtech, ekvivalenty mohou být například šeky nebo obchdovatelné cenné papíry. Pro podnik je žádoucí, aby platilo CR > 0,2, čímž je zajištěna likvidita.
 \end{itemize}
 
 
@@ -89,6 +119,7 @@ return on costs
 \subsection{Ukazatelé produktivity}
 
 \subsection{Ukazatelé zadluženosti}
+Zadluženost podniku je vyjádřena poměrem vlastních a cizích zdrojů financování podniku. Cizí zdroje pro podnik zpravidla znamenají dluh, závazek. Zadluženost obecně nemusí být negativní charakteristikou -- využití cizích zdrojů vede k zesílení tzv. finančního pákového efektu?vysvetl, který pozitivně přispívá k rentabilitě vlastního kapitálu\cite{uk_zadl}.
 \begin{itemize}
 \item{Úrokové krytí}
 \end{itemize}
@@ -130,11 +161,16 @@ Program bude mít webové rozhraní, což má samozřejmě své výhody - uživa
  nekolik uzaverek na podnik (ruzne roky)
  zobrazene/preferovane ukazatele
  
+- vstup - moznost vyplnit rucne, krome pdf na MPO? se odevzdava ZZ a R v xml na financak
+- vstup - parametrizace parseru
 
 Uživateli bude pro snadnější práci umožněno vytoření vlastního účtu. Systém tak bude schopen personalizovat obsah dle nastavených předvoleb. S účtem budou svázana i data za jednotlivá časová obdoví v minulosti, která lze nahrát a uchovat pro další použití, například porovnání nebo zpřesnění analýzy v budoucnu.
 
 -React(Redux,Navigation,bootstrap)
 -Firebase?
+
+-navrh testů (rozvaha,ZZ,vypočítané uk)
+
 %=========================================================================
 \chapter{Implementace a testování}
 %=========================================================================
