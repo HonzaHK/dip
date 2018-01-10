@@ -44,6 +44,7 @@ Přívlastek vertikální vychází tak jako u horizontální analýzy ze způso
 \section{Poměrové ukazatele}
 Existuje několik různých ukazatelů. Různé ukazatele slouží různým účelům, různé společnosti se řídí různými ukazateli. Ukazatele se počítají z výsledovky a rozvahy. Většina ukazatelů je vyjádřena poměrem výstupu k nějaké základní jednotce, kterou je 1 Kč položky? ve jmenovateli.
 
+
 \subsection{Ukazatelé rentability}
 
 Ukazatelé rentability (výnosnosti, ziskovosti, návratnosti) patří v praxi mezi nejsledovanější ukazatele. Vyjadřují míru výnosnosti hospodaření podniku, spíše však z pohledu podniku samotného, nežli vlastníka. Obecný tvar výpočtu je tedy 
@@ -55,27 +56,27 @@ return on assets
 
 ROA dává do poměru zisk s celkovými aktivy podniku, bez ohledu na to, zda jsou aktiva vlastní nebo cizí, dlouhodobá nebo krátkodobá. Tím vyjadřuje, jak efektivně dokáže podnik naložit se svým majetkem?. V čitateli se může objevit zisk před i po zdanění respektive zúročení.
 
-$$\text{ROA} = \zl{EBIT}{A}  \text{ROA} = \zl{EBIT $*(1-t)$}{A}$$ 
-$$\text{ROA} = \zl{EAT}{A}  \text{ROA} = \zl{EAT $+$ úroky $*(1-t)$}{A}$$
+$$\vz{ROA}{EBIT}{A}  \vz{ROA}{EBIT $*(1-t)$}{A}$$ 
+$$\vz{ROA}{EAT}{A}  \vz{ROA}{EAT $+$ úroky $*(1-t)$}{A}$$
 
 \subsubsection{ROE -- rentabilita vlastního kapitálu}
 
 return on equity
 Při výpočtu ROE je ve jmenovateli místo všech aktiv hodnota vlastního kapitálu. Tím vyjadřuje míru jeho zhodnocení -- kolik korun (čistého) zisku připadá na 1 korunu vlastního kapitálu. Pro vlastníky je tedy jedním z klíčových ukazatelů. Ve srovnání s ROA
 
-$$\text{ROE} = \zl{čistý zisk}{vlastní kapitál}$$ 
+$$\vz{ROE}{čistý zisk}{vlastní kapitál}$$ 
 
 \subsubsection{ROCE -- rentabilita investovaného kapitálu}
 
 return on capital employed
 
-$$\text{ROCE} = \zl{EBIT}{vl. kapitál + rezervy + dlouhodobé závazky + bankovní úvěry dlouhodobé}$$ 
+$$\vz{ROCE}{EBIT}{vl. kapitál + rezervy + dlouhodobé závazky + bankovní úvěry dlouhodobé}$$ 
 
 \subsubsection{ROS -- rentabilita tržeb}
 
 return on sales
 
-$$\text{ROS} = \zl{EBIT}{tržby} \text{ROS} = \zl{EAT}{tržby}$$ 
+$$\vz{ROS}{EBIT}{tržby} \vz{ROS}{EAT}{tržby}$$ 
 
 \subsubsection{ROC -- rentabilita nákladů}
 
@@ -120,39 +121,110 @@ pěněžními prostředky se myslí peníze v hotovosti a na běžných účtech
 $$\zl{peněžní prostředky $+$ ekvivalenty}{krátkodobé závazky}$$
 
 
+
+
+
+
 \subsection{Ukazatele aktivity}
 Patří k tzv. mezivýkazových ukazatelům -- vstupními daty jsou položky jak z výkazu zisku a ztrát tak z rozvahy. Ukazatele aktivity vyjadřují, jak efektivně podnik nakládá se svými aktivy. Pokud jich vlastní více, než je nutné, vznikají zbytečné náklady a dochází ke snižení zisku. Jestliže jich má nedostatek, přichází o výnosy z potenciálních zakázek, o které se kvůli nedostatku aktiv nemůže ucházet.
 
 Výsledkem je hodnota udávající rychlost nebo dobu obratu. Rychlost obratu vyjadřuje, kolikrát se určitá složka aktiv přemění za sledované období na peněžní prostředky. Doba obratu nám říká, jak dlouho trvá přeměna.
 
+Pokud známe hodnotu rychlosti obratu sledovaných aktiv X, dobu obratu X (výsledkem budou dny) vypočítáme jednoduše jako 
+
+$$\vz{doba obratu}{365}{rychlost obratu X}$$
+
 \subsubsection{Obrat celkových aktiv}
 
 total assets turnover
 
-Udává, kolikrát se obrátí celková aktiva za sledované časové období. Nevýhodou tohoto a některých dalších ukazatelů je povaha vstupních dat: tržby jsou zachyceny jejich sumou za celé období, kdežto hodnota aktiv se vztahuje ke konkrétnímu časovému okamžiku, kdy byla rozvaha vytvořena. Přesnějšího výsledku by se dalo dosáhnout použitím průměrné hodnoty celkových aktiv. 
+Udává, kolikrát se obrátí celková aktiva za sledované časové období. Nevýhodou tohoto a některých dalších ukazatelů je povaha vstupních veličin: tržby jsou zachyceny jejich sumou za celé období, kdežto hodnota aktiv se vztahuje ke konkrétnímu časovému okamžiku, kdy byla rozvaha vytvořena. Přesnějšího výsledku by se dalo dosáhnout použitím průměrné hodnoty sledovaných aktiv. 
 
-$$\text{obrat celkových aktiv} = \zl{tržby}{celková aktiva}$$
+$$\vz{obrat celkových aktiv}{tržby}{celková aktiva}$$
 
 \subsubsection{Obrat stálých aktiv}
 
 fixed assets turnover
 
-$$\text{obrat stálých aktiv} = \zl{tržby}{dlouhodobý hmotný majetek}$$
+Stálá aktiva jsou taková, která slouží podniku déle než jeden rok a jsou spotřebovávána postupně, nikoliv jednorázově. Konkrétně je to součet dlouhodobého hmotného, nehmotného a finančního majetku, t.j. například budovy, pozemky, vozidla, stroje, software, know-how a mnoho dalších.
+
+Ukazatel potom vyjadřuje míru využití těchto aktiv. Pokud při analýze vyjde hodnota nižší, než je průměr v odvětví, může to znamenat nedostatečné využití stávajících fixních (dlouhodobých) aktiv a manažeři by tak měli zvážit, jak jejich využití zefektivnit namísto investování do aktiv nových.
+
+$$\vz{obrat stálých aktiv}{tržby}{dlouhodobý hmotný majetek}$$
 
 \subsubsection{Obrat zásob}
 
 inventory turnover
 
-$$\text{obrat zásob} = \zl{tržby}{zásoby}$$
+Říká, kolikrát je za sledované období položka zásob prodána a opět naskladněna.
+
+Při použití tohoto ukazatele je nutné si uvědomit, že tržby vyjadřují tržní hodnotu (za kolik se prodalo), kdežto hodnota zásob bývá vyjádřena jejich pořizovací cenou (za kolik se nakoupilo). Přesnějšího výsledku obratovosti může být dosaženo umístěním nákladů na prodané zboží do čitatele namísto tržeb.
+
+Ukazatel pro zásoby výrobků nebo zboží je rovněž ukazatelem likvidnosti těchto zásob (udává, jak dlouho trvá přeměna zásob na finanční prostředky).
+
+$$\vz{obrat zásob}{tržby}{zásoby}$$
 
 
-\subsubsection{Obrat pohledávek}
-\subsubsection{Obrat závazků}
+\subsubsection{Doba obratu pohledávek}
+V tomto případě je směrodatnější spíše doba trvání pohledávky než počet obratů pohledávek. Doba se vypočítá jako poměr průměrného stavu pohledávek k průměrné denní tržbě na obchodní úvěr (fakturu, \uv{sekeru}).
+
+Hodnota ukazatele dlouhodobě vyšší než hodnota stanovená platebními podmínkami pro klienta může znamenat problémové portfolio odběratelů, kteří nejsou schopni plnit své závazky včas.
+
+mozna spojit tyto sekce? + ruzne vzorce, sedlacek vynechava rychlost
+
+\subsubsection{Doba obratu závazků}
+Průměrná doba odkladu plnění závazků. Nabízí se porovnání s dobou obratu pohledávky. 
+
+
+
 
 
 \subsection{Ukazatele zadluženosti}
-Zadluženost podniku je vyjádřena poměrem vlastních a cizích zdrojů financování podniku. Cizí zdroje pro podnik zpravidla znamenají dluh, závazek. Zadluženost obecně nemusí být negativní charakteristikou -- využití cizích zdrojů vede k zesílení tzv. finančního pákového efektu\footnote{finanční pákový efekt: bla bla bla?}, který pozitivně přispívá k rentabilitě vlastního kapitálu\cite{uk_zadl}.
+
+Zadluženost podniku je svázána? s velikostí podílu cizích zdrojů na všech zdrojích financování podniku, jelikož cizí zdroje pro podnik zpravidla znamenají dluh, závazek.
+
+V praxi se běžně nesetkáme s většími podniky, které by byly financovány výhradně z vlastních nebo výhradně z cizích zdrojů, jsou tedy do jisté míry zadluženy. Zadluženost obecně není negativní charakteristikou -- využití cizích zdrojů vede k zesílení tzv. finančního pákového efektu\footnote{finanční pákový efekt: bla bla bla?}, který pozitivně přispívá k rentabilitě vlastního kapitálu\cite{uk_zadl}. Jedním z důležitých cílů finanční analýzy je nalezení ideální míry zadluženosti respektive ideálního rozložení kapitálové struktury.
+
+
+\subsubsection{Celková zadluženost}
+debt ratio
+
+Základním ukazatelem zadluženosti je celková zadluženost jako podíl cizího kapitálu na celkových aktivech. S rostoucí hodnotou tohoto ukazatele roste i riziko věřitelů. Věřitelé proto preferují nižší hodnoty -- v případě likvidace podniku mohou být pohledávky (nejen) věřitelů uhrazeny z vlastního kapitálu podniku.
+Z hlediska vlastníků akcií jsou vysoké hodnoty ukazatele příznivé, dokud podnik dosahuje vyššího procenta rentability než je procento úroku na cizí kapitál
+
+$$\vz{DR}{cizí kapitál}{celková aktiva}$$
+
+spojit?
+\subsubsection{Poměr vlastního kapitálu}
+equity ratio
+
+Je doplňkovým ukazatelem k celkové zadluženosti. Součet by měl být přibližně 1 -- přibližně, jelikož kapitál nepředstauje veškerá pasiva.
+
+$$\vz{ER}{vlastní kapitál}{celková aktiva}$$
+
+\subsubsection{Koeficient (míra) zadluženosti}
+debt to equity ratio
+
+Dá se spočítat jako poměr hodnoty cízího kapitálu k hodnotě vlastního. Stejný výsledek bychom získali poměrem předchozích dvou ukazatelů. V případě, že podnik využívá ve větším objemu? leasingového financování?, musíme tuto skutečnost zohlednit přičtením objemu k cizímu kapitálu. 
+
+??POZOR - leasingove financovani z rozvahy nevyčtete?
+
+$$\vz{DtE}{cizí kapitál}{vlastní kapitál}$$
+
+Při analýze se používá i převrácená hodnota ukazatele, která by se dala nazvat jako míra finanční samostatnosti podniku.
+
 \subsubsection{Úrokové krytí}
+interest coverage
+
+Ukazatel vy
+
+$$\vz{IC}{EBIT}{nákladové úroky}$$
+
+
+
+
+
+
 
 \subsection{Ukazatele produktivity}
 
@@ -190,9 +262,10 @@ Horizontální analýza
 Program bude mít webové rozhraní, což má samozřejmě své výhody - uživatel může k programu přistupovat odkudkoliv (a to z různých platforem), používání programu není podmíněno jeho instalací a z pohledu vývojáře je mnohem jednodušší jeho údržba (vydávání nových verzí).
 
 - defaultni nastaveni, ale vysoka uroven prizbusobeni, vse svazano s uctem
- nekolik ruznych podniku na uziv(financni analytik)
- nekolik uzaverek na podnik (ruzne roky)
- zobrazene/preferovane ukazatele
+- nekolik ruznych podniku na uziv(financni analytik)
+- nekolik uzaverek na podnik (ruzne roky)
+- zobrazene/preferovane ukazatele
+- vysvetlivky, alternativni oznaceni ekonomickych pojmu
  
 VSTUP
 - moznost vyplnit rucne, krome pdf na MPO? se odevzdava ZZ a R v xml na financak (k danovemu priz)
