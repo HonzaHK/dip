@@ -13,18 +13,15 @@ Pro lepší demonstraci budou v této práci analyzovány výsledky hospodařen�
 %=========================================================================
 \chapter{Problematika finanční analýzy}
 
-vykaz zisku a ztraty + rozvaha - z uctove osnovy na konci roku
-vynosy, naklady X prijmy, vydaje (to jsou uz primo penize)
-hruby\_zisk=vynosy-naklady
-rozvaha=majetek firmy (at vim, k cemu pribude zisk)
-
+\section{Podnik, ...}
+\section{Motivace a cíle}
 \section{Vstupní data}
-Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budeme vycházet. Množina vstupních dat není nijak omezena a může být vskutku rozsáhlá -- při výpočtu lze zohlednit nejrůznější faktory. Klíčová jsou však především data o vlastním hospodaření podniku, za jejichž evidenci je zodpovědná účetní jednotka podniku, která je v průběhu roku zapisuje do tzv účtové osnovy.
-\section{Účtová osnova}
+Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budeme vycházet. Množina vstupních dat není nijak omezena a může být vskutku rozsáhlá -- při výpočtu a odvozování závěrů lze zohlednit nejrůznější faktory. Klíčová jsou však především data o vlastním hospodaření podniku, za jejichž evidenci je zodpovědná účetní jednotka podniku, která je v průběhu roku zapisuje do tzv. účtové osnovy.
+\subsubsection{Účtová osnova}
 Účtová osnova je 
 Větší? společnosti jsou ze zákona povinny dělat? každoročně účetní závěrku. Ta má v ČR dvě povinné části - výkaz zisku a ztráty a rozvaha. 
-\section{Výkaz zisku a ztráty}
-\section{Rozvaha}
+\subsubsection{Výkaz zisku a ztráty}
+\subsubsection{Rozvaha}
 Narozdíl od výkazu zisku a ztráty jsou při sestavování? rozvahy data? vázána k jednomu určitému okamžiku, takzvanému rozvahovému dni, který je posledním dnem účetního období, zpravidla tedy posledním dnem kalendářního roku.
 -aktiva
 -pasiva
@@ -33,12 +30,14 @@ Narozdíl od výkazu zisku a ztráty jsou při sestavování? rozvahy data? váz
 \section{Absolutní ukazatele}
 
 \subsection{Horizontální analýza}
-Při horizontální analýze je určitá položka (řádek) uzávěrky? porovnávána se stejnou položkou za jiné časové období. Při výpočtu tedy porovnáváme výsledky jedné položky napříč různými obdobími - proto horizontální analýza. U jednotlivých položek zvlášť je vypočtena meziroční změna a její procentuální vyjádření. Tento postup je proti ostatním velmi? přímočarý?
--používá se především pro ...
--nezohledňuje inflaci, ...
+Při horizontální analýze je určitá položka (řádek) finančního výkazu porovnávána se stejnou položkou za jiné časové období. Při výpočtu tedy porovnáváme výsledky jedné položky napříč různými obdobími - proto horizontální analýza. U jednotlivých položek zvlášť je vypočtena absolutní hodnota meziroční změny a její procentuální vyjádření. Tento postup je proti ostatním velmi? přímočarý?, ilustrativní a působivý. Při posuzování výsledků by měl analytik zohlednit významné meziroční změny, které mají vliv na výsledek -- změny v daňové soustavě, podmínek na trhu, změna politické situace, míra inflace a podobně. 
+
+Výsledek je běžně interpretován pomocí sloupcového nebo spojnicového grafu. 
+
 
 \subsection{Vertikální analýza}
-Přívlastek vertikální vychází tak jako u horizontální analýzy ze způsobu výpočtu z uzávěrky. Při vertikální analýze jsou počítány ukazatele vycházející z poměru jednotlivých položek (řádků) v rámci jednoho roku.
+Přívlastek vertikální vychází tak jako u horizontální analýzy ze způsobu zpracování finančních výkazů. Dáváme tak do poměru jednotlivé položky výkazů. Narozdíl od poměrových ukazatelů zmíněných dále se však při vertikální analýze dává do poměru část celku k celku samotnému. Dalo by se tedy říct, že vyčíslováním podílu vybrané části na celku vertikální analýza popisuje strukturální rozložení sledované veličiny? (například aktiv nebo pasiv). 
+Výhodou vertikální analýzy je, že není ovlivněna meziroční inflací a výsledky se tak dají provnávat s výsledky za jiné časové období, mimo to i s výsledky jiných podniků\cite{sedl}.
 %#########################################################################
 
 \section{Poměrové ukazatele}
@@ -46,23 +45,39 @@ Existuje několik různých ukazatelů. Různé ukazatele slouží různým úč
 
 
 \subsection{Ukazatelé rentability}
+profitability ratios
 
-Ukazatelé rentability (výnosnosti, ziskovosti, návratnosti) patří v praxi mezi nejsledovanější ukazatele. Vyjadřují míru výnosnosti hospodaření podniku, spíše však z pohledu podniku samotného, nežli vlastníka. Obecný tvar výpočtu je tedy 
-$$\zl{výnos}{prostředky}$$
+Ukazatelé rentability (výnosnosti, ziskovosti, návratnosti) patří v praxi mezi nejsledovanější ukazatele. Vyjadřují míru efektivity hospodaření podniku poměřením výsledku hospodaření se zdroji.
+
+$$\zl{výsledek hospodaření}{zdroje}$$
+
+Ukazatele rentability jsou mezivýkazovými ukazateli, což znamená, že jsou při jejich výpočtu použity hodnoty z výsledovky i rozvahy. Konstrukce jednotlivých ukazatelů rentability se liší především tím, jaký typ zisku je dosazen do čitatele a také tím, co je chápáno pod pojmem zdroje ve jmenovateli\cite{mendelu}.
 
 \subsubsection{ROA -- rentabilita aktiv}
 
 return on assets
 
-ROA dává do poměru zisk s celkovými aktivy podniku, bez ohledu na to, zda jsou aktiva vlastní nebo cizí, dlouhodobá nebo krátkodobá. Tím vyjadřuje, jak efektivně dokáže podnik naložit se svým majetkem?. V čitateli se může objevit zisk před i po zdanění respektive zúročení.
+ROA je ukazatel, který ve jmenovateli obsahuje celkový objem aktiv. Při výpočtu se tedy nebere ohled na to, zda jsou aktiva vlastní nebo cizí, dlouhodobá nebo krátkodobá. Tím vyjadřuje, jak efektivně dokáže podnik naložit s aktivy, které se do něj vloží (odtud zřejmě plyne označení produkční síla). Pro 
+
+Existuje několik variant výpočtu. Ty se vzájemně liší složkou v čitateli, která zachycuje zisk v rozdílných fazích -- před nebo po zdanění, odečtení úroků, provedení odpisů a amortizace.
+
+EAT -- earnings after taxes -- zisk po zdanění, zúročení, odpisech a amortizaci (čistý zisk)
+
+EBT -- earnings before taxes -- zisk před zdaněním, po zúročení, odpisech a amortizaci (hrubý zisk)
+
+EBIT -- earnings before interest and taxes -- zisk před zdaněním a zúročením. Uzití této hodnoty je vhodné například při srovnávání dvou podniků s různou výší daně z příjmu a různou kapitálovou strukturou\footnote{kapitalova struktura footnote?}
+
+EBITDA -- earnings before interest, taxes, depreciation and amortization -- zisk před zdaněním, úroky, odpisy a amortizací
 
 $$\vz{ROA}{EBIT}{A}  \vz{ROA}{EBIT $*(1-t)$}{A}$$ 
 $$\vz{ROA}{EAT}{A}  \vz{ROA}{EAT $+$ úroky $*(1-t)$}{A}$$
 
+
+
 \subsubsection{ROE -- rentabilita vlastního kapitálu}
 
 return on equity
-Při výpočtu ROE je ve jmenovateli místo všech aktiv hodnota vlastního kapitálu. Tím vyjadřuje míru jeho zhodnocení -- kolik korun (čistého) zisku připadá na 1 korunu vlastního kapitálu. Pro vlastníky je tedy jedním z klíčových ukazatelů. Ve srovnání s ROA
+ROE vyjadřuje míru zhodnocení vlastního kapitálu. Vlastníci podniku pomocí něj mohou zjistit, zda jimi vložený kapitál přináší výnos odpovídající velikosti jejich investičního rizika\cite{sedl}.-- kolik korun zisku připadá na 1 korunu vlastního kapitálu. Pro vlastníky je tedy jedním z klíčových ukazatelů. Ve srovnání s ROA
 
 $$\vz{ROE}{čistý zisk}{vlastní kapitál}$$ 
 
@@ -82,9 +97,16 @@ $$\vz{ROS}{EBIT}{tržby} \vz{ROS}{EAT}{tržby}$$
 
 return on costs
 
+\subsubsection{ROI -- rentabilita nákladů}
+
+
+
+
+
+
 
 \subsection{Ukazatelé likvidity}
-Pojem likvidita bývá nesprávně zaměňován s úzce souvisejícími pojmy likvidnost a solventnost. Likvidnost je vlastnost jednotlivých složek aktiv podniku vyjadřující schopnost přeměny těchto složek v peněžní prostředky v co nejkratším čase a s minimálními ztrátami\cite{uk_likv}. Přeměnou můžeme rozumět například prodej zásob nebo inkasování pohledávek. 
+Pojem likvidita bývá nesprávně zaměňován s úzce souvisejícími pojmy likvidnost a solventnost. Likvidnost je vlastnost jednotlivých složek aktiv podniku vyjadřující schopnost přeměny těchto složek v peněžní prostředky v co nejkratším čase a s minimálními ztrátami\cite{nyvlt}. Přeměnou můžeme rozumět například prodej zásob nebo inkasování pohledávek. 
 
 Solventnost neboli platební schopnost je definována jako schopnost subjektu, v našem případě podniku, včas splácet své finanční závazky.
 
@@ -93,7 +115,7 @@ Likvidita podniku dává tyto pojmy do souvislosti -- ukazatelé likvidity vyjad
 Všechny ukazatele se počítají jako poměr toho, čím je možné platit, k tomu, co se musí zaplatit.
 
 \subsubsection{Běžná likvidita} 
-
+likvidita III. stupně
 CR - Current Ratio
 
 Poměr ukazuje, kolikrát pokrývají oběžná aktiva krátkodobé závazky, jinými slovy, kolikrát je podnik schopen uhradit své krátkodobé závazky z peněžních prostředků, které by získal přeměnou z oběžných aktiv.
@@ -105,7 +127,7 @@ Optimální hodnota uvedená v preferovaném zdroji je CR $\geq 1.5$.
 $$\zl{oběžná aktiva}{krátkodobé závazky}$$
 
 \subsubsection{Pohotová likvidita} 
-
+likvidita II. stupně
 QR - Quick Ratio
 
 stejný výpočet, pouze bez zásob. U podniku z oblasti služeb se blíží běžné likviditě, u výrobních podniků se naopak spíše liší.
@@ -113,12 +135,14 @@ stejný výpočet, pouze bez zásob. U podniku z oblasti služeb se blíží bě
 $$\zl{oběžná aktiva $-$ zásoby}{krátkodobé závazky}$$
 
 \subsubsection{Peněžní (okamžitá) likvidita}
-
+likvidita I. stupně
 CR - Cash Ratio
 
 pěněžními prostředky se myslí peníze v hotovosti a na běžných účtech, ekvivalenty mohou být například šeky nebo obchdovatelné cenné papíry. Pro podnik je žádoucí, aby platilo CR > 0,2, čímž je zajištěna likvidita.
 
 $$\zl{peněžní prostředky $+$ ekvivalenty}{krátkodobé závazky}$$
+
+
 
 
 
@@ -181,15 +205,16 @@ Průměrná doba odkladu plnění závazků. Nabízí se porovnání s dobou obr
 
 \subsection{Ukazatele zadluženosti}
 
-Zadluženost podniku je svázána? s velikostí podílu cizích zdrojů na všech zdrojích financování podniku, jelikož cizí zdroje pro podnik zpravidla znamenají dluh, závazek.
+Zadluženost podniku souvísí s velikostí podílu cizích zdrojů na všech zdrojích financování podniku, jelikož cizí zdroje pro podnik zpravidla znamenají dluh, závazek. Využití cizích zdrojů se vyplácí, pokud zajistí výnos vyšší, než jsou náklady na tyto zdroje -- úroky. 
 
-V praxi se běžně nesetkáme s většími podniky, které by byly financovány výhradně z vlastních nebo výhradně z cizích zdrojů, jsou tedy do jisté míry zadluženy. Zadluženost obecně není negativní charakteristikou -- využití cizích zdrojů vede k zesílení tzv. finančního pákového efektu\footnote{finanční pákový efekt: bla bla bla?}, který pozitivně přispívá k rentabilitě vlastního kapitálu\cite{uk_zadl}. Jedním z důležitých cílů finanční analýzy je nalezení ideální míry zadluženosti respektive ideálního rozložení kapitálové struktury.
+V praxi se běžně nesetkáme s většími podniky, které by byly financovány výhradně z vlastních nebo výhradně z cizích zdrojů, jsou tedy do jisté míry zadluženy. Zadluženost obecně není negativní charakteristikou -- využití cizích zdrojů vede k zesílení tzv. finančního pákového efektu\footnote{finanční pákový efekt: bla bla bla?}, který pozitivně přispívá k rentabilitě vlastního kapitálu\cite{kisling}. Jedním z důležitých cílů finanční analýzy je nalezení ideální míry zadluženosti respektive ideálního rozložení kapitálové struktury.
 
+cizí kapitál je levnější - úroky se počítají do nákladů, platí se z nezdaněného zisku
 
 \subsubsection{Celková zadluženost}
 debt ratio
 
-Základním ukazatelem zadluženosti je celková zadluženost jako podíl cizího kapitálu na celkových aktivech. S rostoucí hodnotou tohoto ukazatele roste i riziko věřitelů. Věřitelé proto preferují nižší hodnoty -- v případě likvidace podniku mohou být pohledávky (nejen) věřitelů uhrazeny z vlastního kapitálu podniku.
+Základním ukazatelem zadluženosti je celková zadluženost jako podíl cizího kapitálu na celkových aktivech. S rostoucí hodnotou tohoto ukazatele roste i riziko věřitelů a cena za cizí kapitál (výše úroků). Věřitelé preferují nižší hodnoty -- v případě likvidace podniku mohou být pohledávky (nejen) věřitelů uhrazeny z vlastního kapitálu podniku.
 Z hlediska vlastníků akcií jsou vysoké hodnoty ukazatele příznivé, dokud podnik dosahuje vyššího procenta rentability než je procento úroku na cizí kapitál
 
 $$\vz{DR}{cizí kapitál}{celková aktiva}$$
@@ -216,7 +241,7 @@ Při analýze se používá i převrácená hodnota ukazatele, která by se dala
 \subsubsection{Úrokové krytí}
 interest coverage
 
-Ukazatel vy
+Ukazatel vyjadřuje, kolikrát zisk pokryje úroky plynoucí ze závazků věřitelům. Obecně platí -- čím vyšší hodnota, tím . Pokud by byla hodnota IC$<1$, znamená to, že podnik hospodaří se ztrátou (není schopen ani pokrýt úroky). Pokud by vyšla hodnota ukazatele IC$=1$, znamená to, že se veškerý zisk použije k uhrazení úroků za vypůjčený kapitál a k vyplacení vlastních investorů nebo k reinvestici do kapitálu nezbudou žádné prostředky.
 
 $$\vz{IC}{EBIT}{nákladové úroky}$$
 
@@ -257,15 +282,20 @@ Horizontální analýza
 - checkboxy pro roky
 
 - co nejvice ukazatelu - komplexni
+- kolacovy graf pro kapitalovou strukturu
+- osetreni krajinich, extremnich pripadu (hospodaření se ztrátou, ...)
 
 \section{Návrh programového řešení}
 Program bude mít webové rozhraní, což má samozřejmě své výhody - uživatel může k programu přistupovat odkudkoliv (a to z různých platforem), používání programu není podmíněno jeho instalací a z pohledu vývojáře je mnohem jednodušší jeho údržba (vydávání nových verzí).
 
 - defaultni nastaveni, ale vysoka uroven prizbusobeni, vse svazano s uctem
 - nekolik ruznych podniku na uziv(financni analytik)
-- nekolik uzaverek na podnik (ruzne roky)
+- nekolik uzaverek na podnik (ruzne roky),
+- moznost srovnani mezi roky / podniky
 - zobrazene/preferovane ukazatele
 - vysvetlivky, alternativni oznaceni ekonomickych pojmu
+
+
  
 VSTUP
 - moznost vyplnit rucne, krome pdf na MPO? se odevzdava ZZ a R v xml na financak (k danovemu priz)
