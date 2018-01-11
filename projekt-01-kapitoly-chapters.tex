@@ -26,6 +26,7 @@ Narozdíl od výkazu zisku a ztráty jsou při sestavování? rozvahy data? váz
 -aktiva
 -pasiva
 
+-spousta zkratek, názvů, překladů
 %#########################################################################
 \section{Absolutní ukazatele}
 
@@ -37,7 +38,6 @@ Při horizontální analýze je určitá položka (řádek) finančního výkazu
 Přívlastek vertikální vychází tak jako u horizontální analýzy ze způsobu zpracování finančních výkazů. Dáváme tak do poměru jednotlivé položky výkazů. Narozdíl od poměrových ukazatelů zmíněných dále se však při vertikální analýze dává do poměru část celku k celku samotnému. Dalo by se tedy říct, že vyčíslováním podílu vybrané části na celku vertikální analýza popisuje strukturální rozložení sledované entity? (například aktiv nebo pasiv). 
 Výhodou vertikální analýzy je, že není ovlivněna meziroční inflací a výsledky se tak dají provnávat s výsledky za jiné časové období, mimo to i s výsledky jiných podniků\cite{sedl}.
 %#########################################################################
-
 \section{Poměrové ukazatele}
 Výpočet je opět založen na datech z rozvahy a výsledovky. Narozdíl od horizontální a vertikální analýzy, při kterých je sledován vývoj jedné veličiny v čase případně vývoj ve vztahu k určité vztažné veličině (nadřazenému celku), při výpočtu poměrových ukazatelů zkoumáme vztah mezi jednotlivými veličinami navzájem, čímž získáváme zase jinou vypovídající hodnotu?.
 
@@ -49,10 +49,9 @@ hospodarsky vysledek ve schvalovacim rizeni - tj po zdaneni
 cast z toho se usi automaticky investovat do fondů (ze zákona pripadne stanov spolecnosti)
 valná hromada rozhodne co se zbytkem - muze navysit vlastní jmnění podniku nebo rozdělit mezi vlastníky podniku
 
-
+%-------------------------------------------------------
 \subsection{Ukazatelé rentability}
 profitability ratios
-
 Ukazatelé rentability (výnosnosti, ziskovosti, návratnosti) patří v praxi mezi nejsledovanější ukazatele. Vyjadřují míru efektivity hospodaření podniku poměřením výsledku hospodaření se zdroji, které byly na hospodaření vynaloženy.
 
 $$\zl{výsledek hospodaření}{zdroje}$$
@@ -68,7 +67,7 @@ vyjde rentabilita 5proc, ale kdybychom dali prachy do banky, urok je 6proc, navi
 
 \item EBT -- earnings before taxes, hrubý zisk -- zisk před zdaněním, t.j. po odečtení úroků, odpisech a amortizaci
 
-\item EBIT -- earnings before interest and taxes, provozní zisk -- zisk před zdaněním a zúročením. Uzití této hodnoty je vhodné například při srovnávání dvou podniků s různou výší daně z příjmu a různou kapitálovou strukturou\footnote{kapitalova struktura footnote?}
+\item EBIT -- earnings before interest and taxes, provozní zisk -- zisk před zdaněním a zúročením. Uzití této hodnoty je vhodné například při srovnávání dvou podniků s různou výší daně z příjmu a různou kapitálovou strukturou
 
 \item EBITDA -- earnings before interest, taxes, depreciation and amortization -- zisk před zdaněním, úroky, odpisy a amortizací
 
@@ -77,8 +76,8 @@ vyjde rentabilita 5proc, ale kdybychom dali prachy do banky, urok je 6proc, navi
 
 provozní CF
 
+%-------------------------------------------------------
 \subsubsection{ROA -- rentabilita aktiv}
-
 return on assets
 
 ROA je ukazatel, který do jmenovatele dosazuje celkový objem aktiv (potažmo pasiv, jelikož jsou jimi kryta). Při výpočtu se tedy nebere ohled na to, zda jsou aktiva vlastní nebo cizí, dlouhodobá nebo krátkodobá. Tím vyjadřuje, jak efektivně dokáže podnik naložit s aktivy, které se do něj vloží (odtud zřejmě plyne označení produkční síla nebo výkonnost podniku).
@@ -92,9 +91,10 @@ Další používanou variantou je s hodnotou NOPAT v čitateli. Výsledkem je re
 $$\vz{ROA}{EBIT $*(1-t)$}{A}$$ 
 
 
+%-------------------------------------------------------
 \subsubsection{ROE -- rentabilita vlastního kapitálu}
-
 return on equity
+
 ROE do jmenovatelele dosazuje hodnotu vlastního kapitálu, čímž vyjadřuje míru jeho zhodncení. Jinými slovy udává, kolik korun zisku připadá na 1 korunu vlastního kapitálu. Pro vlastníky (akcionáře, společníky a další investory) podniku je jedním z klíčových ukazatelů, neboť pomocí něj mohou zjistit, zda jimi vložený kapitál přináší výnos odpovídající velikosti jejich investičního rizika\cite{sedl}.
 
 Investor by se měl také zajímat, zda je procentuální hodnota ROE vyšší než bezriziková úroková míra (úroková sazba státních dluhopisů), v praxi spíše vyšší než nejvyšší úroková sazba nabízená bankami. Pokud by byla nižší, obnos investovaný do podniku by mohl raději vložit do banky a téměř bez námahy a bez rizika dosáhnout většího výnosu.
@@ -105,64 +105,70 @@ tabulka? zmeny kapitalove struktury a vliv na ROE
 
 $$\vz{ROE}{čistý zisk}{vlastní kapitál}$$ 
 
-\subsubsection{ROCE -- rentabilita investovaného kapitálu}
 
-return on capital employed
-
-$$\vz{ROCE}{EBIT}{vl. kapitál + rezervy + dlouhodobé závazky + bankovní úvěry dlouhodobé}$$ 
-
+%-------------------------------------------------------
 \subsubsection{ROS -- rentabilita tržeb}
-
 return on sales
 
-$$\vz{ROS}{EBIT}{tržby} \vz{ROS}{EAT}{tržby}$$ 
+Ukazatel poměřuje zisk podniku a tržby (tržby za prodej zboží a výkony).
 
-\subsubsection{ROC -- rentabilita nákladů}
-
-return on costs
-
-\subsubsection{ROI -- rentabilita nákladů}
+V čitateli se používají hodnoty EBIT a EAT
 
 
+%-------------------------------------------------------
+\subsubsection{Některé další ukazatele:}
+\begin{itemize}
+\item{ROC -- rentabilita nákladů} -- return on costs
+\item{ROCE -- rentabilita investovaného kapitálu} -- return on capital employed
+\end{itemize}
 
 
 
 
 
+
+
+%-------------------------------------------------------
 \subsection{Ukazatelé likvidity}
 Pojem likvidita bývá nesprávně zaměňován s úzce souvisejícími pojmy likvidnost a solventnost. Likvidnost je vlastnost jednotlivých složek aktiv podniku vyjadřující schopnost přeměny těchto složek v peněžní prostředky v co nejkratším čase a s minimálními ztrátami\cite{nyvlt}. Přeměnou můžeme rozumět například prodej zásob nebo inkasování pohledávek. 
 
-Solventnost neboli platební schopnost je definována jako schopnost subjektu, v našem případě podniku, včas splácet své finanční závazky.
+Solventnost neboli platební schopnost je definována jako schopnost subjektu, v našem případě podniku, včas splácet své finanční závazky. Má-li být podnik solventní, musí kromě stálého generování zisku také zajistit, aby byla část aktiv vázána ve formě, kterou může uhradit své závazky.
 
-Likvidita podniku dává tyto pojmy do souvislosti -- ukazatelé likvidity vyjadřují schopnost přeměnit vybraná aktiva podniku na peněžní prostředky (využít jejich likvidnosti) za účelem včasného uhrazení všech splatných závazků (a tím pádem být solventní).
+Likvidita podniku dává tyto pojmy do souvislosti -- ukazatelé likvidity vyjadřují schopnost podniku přeměnit vybraná aktiva na peněžní prostředky (využít jejich likvidnosti) za účelem včasného uhrazení všech splatných závazků (a tím pádem být dočasně solventní)\cite{schol}. Proto bývají také označovány jako ukazatele platební schopnosti.
 
-Všechny ukazatele se počítají jako poměr toho, čím je možné platit, k tomu, co se musí zaplatit.
+Všechny ukazatele likvidity se počítají jako poměr toho, čím je možné platit (disponibilní prostředky), k tomu, co se musí zaplatit. Disponibilními prostředky můžeme přitom chápat různou množinu aktiv. Je samozřejmě nesmysl, aby byla zahrnuta ta aktiva, jejichž ztráta by ohrozila chod podniku.
 
+%-------------------------------------------------------
 \subsubsection{Běžná likvidita} 
 likvidita III. stupně
 CR - Current Ratio
 
 Poměr ukazuje, kolikrát pokrývají oběžná aktiva krátkodobé závazky, jinými slovy, kolikrát je podnik schopen uhradit své krátkodobé závazky z peněžních prostředků, které by získal přeměnou z oběžných aktiv.
 
-Výpočet zahrnuje i zásoby, jejichž konkrétní ocenění ve velké míře ovlivňuje výsledek.
-Ukazatel se tak dá považovat za měřítko budoucí solventnosti podniku, Uváděná optimální hodnota se v literaturách různí, zřejmě se bude lišit i v závisloti na typu podniku. Hodnota ukazatele by určitě neměla být menší než 1, což by znamenalo nutnost financovat závazky z dlouhodobých zdrojů financování a jinými nevhodnými způsoby. Také berme v potaz, že po pokrytí závazků by měly zbýt prostředky pro další činnost podniku.
-Optimální hodnota uvedená v preferovaném zdroji je CR $\geq 1.5$. 
+Uváděná optimální hodnota se v literaturách různí, zřejmě se bude lišit i v závisloti na typu podniku. Hodnota ukazatele by určitě neměla být menší než 1, což by znamenalo nutnost financovat závazky z dlouhodobých zdrojů financování a jinými nevhodnými způsoby. Také berme v potaz, že po pokrytí závazků by měly zbýt prostředky pro další činnost podniku.
+Optimální hodnota uvedená v preferovaném zdroji je CR$\geq 1.5$, ale obecně lze tvrdit, že čím stabilnější jsou příjmy a čím jistější jsou zdroje těchto příjmů, tím více se může hodnota běžné likvidity blížit jedné\cite{businessvize_bez_likv}.
 
 $$\zl{oběžná aktiva}{krátkodobé závazky}$$
 
+%-------------------------------------------------------
 \subsubsection{Pohotová likvidita} 
 likvidita II. stupně
-QR - Quick Ratio
+QAR - Quick Asset Ratio
 
-stejný výpočet, pouze bez zásob. U podniku z oblasti služeb se blíží běžné likviditě, u výrobních podniků se naopak spíše liší.
+Pokud bychom zkoumali strukturu oběžných aktiv, zjistili bychom, že se likvidnost jednotlivých složek liší. Výpočet běžné likvidity zahrnuje i zásoby, nicméně ty při výpočtu pohotové likvidity nejsou zahrnuty, jelikož většinou bývají nezbytné pro zachování chodu podniku a navíc jejich likvidnost nemusí být dostačující.
+V čitateli tak zbude součet objemu peněžních prostředků, ekvivalentů a pohledávek. Pro zpřesnění výsledku je vhodné odečíst nedobytné pohledávky.
+Dá se předpokládat, že podniky z oblasti služeb nebudou mít v zásobách mnoho aktiv a proto se bude hodnota ukazatele blížit hodnotě běžné likvidity. U výrobních podniků se naopak tyto dvě hodnoty budou spíše lišit. Poměrem livkdity III. a II. se dá nakonec zjistit, jak velkou část oběžných aktiv tvoří zásoby.
 
 $$\zl{oběžná aktiva $-$ zásoby}{krátkodobé závazky}$$
 
-\subsubsection{Peněžní (okamžitá) likvidita}
+%-------------------------------------------------------
+\subsubsection{hotovostní (okamžitá) likvidita}
 likvidita I. stupně
-CR - Cash Ratio
+CPR - Cash Position Ratio
 
-pěněžními prostředky se myslí peníze v hotovosti a na běžných účtech, ekvivalenty mohou být například šeky nebo obchdovatelné cenné papíry.
+Při výpočtu hotovostní likvidity dosazujeme do čitatele součet jen těch nejlikvidnější složek oběžných aktiv, kterými jsou pěněžní prostředky (peníze v hotovosti a na běžných účtech) a jejich ekvivalenty (například šeky nebo obchdovatlné cenné papíry).
+Přestože tento ukazatel nejlépe vypovídá o platební schopnosti podniku k určitému datu, nebere v potaz strkuturu krátkodobých závazků, především z pohledu jejich skutečné splatnosti\cite{mendel}. Pokud bychom chtěli tuto skutečnost zohlednit, měli bychom do jmenovatele zahrnout pouze okamžitě splatné závazky.
+
 
 $$\zl{peněžní prostředky $+$ ekvivalenty}{krátkodobé závazky}$$
 
@@ -173,6 +179,7 @@ $$\zl{peněžní prostředky $+$ ekvivalenty}{krátkodobé závazky}$$
 
 
 
+%-------------------------------------------------------
 \subsection{Ukazatele aktivity}
 Další z mezivýkazových ukazatelů -- vstupními daty jsou položky jak z výkazu zisku a ztrát tak z rozvahy. Ukazatele aktivity vyjadřují, jak efektivně podnik nakládá se svými aktivy. Pokud jich vlastní více, než je nutné, vznikají zbytečné náklady a dochází ke snižení zisku. Jestliže jich má nedostatek, přichází o výnosy z potenciálních zakázek, o které se kvůli nedostatku aktiv nemůže ucházet.
 
@@ -182,16 +189,16 @@ Pokud známe hodnotu rychlosti obratu sledovaných aktiv X, dobu obratu X (výsl
 
 $$\vz{doba obratu}{365}{rychlost obratu X}$$
 
+%-------------------------------------------------------
 \subsubsection{Obrat celkových aktiv}
-
 total assets turnover
 
 Udává, kolikrát se obrátí celková aktiva za sledované časové období. Nevýhodou tohoto a některých dalších ukazatelů je povaha vstupních veličin: tržby jsou zachyceny jejich sumou za celé období, kdežto hodnota aktiv se vztahuje ke konkrétnímu časovému okamžiku, kdy byla rozvaha vytvořena. Přesnějšího výsledku by se dalo dosáhnout použitím průměrné hodnoty sledovaných aktiv. 
 
 $$\vz{obrat celkových aktiv}{tržby}{celková aktiva}$$
 
+%-------------------------------------------------------
 \subsubsection{Obrat stálých aktiv}
-
 fixed assets turnover
 
 Stálá aktiva jsou taková, která slouží podniku déle než jeden rok a jsou spotřebovávána postupně, nikoliv jednorázově. Konkrétně je to součet dlouhodobého hmotného, nehmotného a finančního majetku, t.j. například budovy, pozemky, vozidla, stroje, software, know-how a mnoho dalších.
@@ -200,8 +207,8 @@ Ukazatel potom vyjadřuje míru využití těchto aktiv. Pokud při analýze vyj
 
 $$\vz{obrat stálých aktiv}{tržby}{dlouhodobý hmotný majetek}$$
 
+%-------------------------------------------------------
 \subsubsection{Obrat zásob}
-
 inventory turnover
 
 Říká, kolikrát je za sledované období položka zásob prodána a opět naskladněna.
@@ -213,6 +220,7 @@ Ukazatel pro zásoby výrobků nebo zboží je rovněž ukazatelem likvidnosti t
 $$\vz{obrat zásob}{tržby}{zásoby}$$
 
 
+%-------------------------------------------------------
 \subsubsection{Doba obratu pohledávek}
 V tomto případě je směrodatnější spíše doba trvání pohledávky než počet obratů pohledávek. Doba se vypočítá jako poměr průměrného stavu pohledávek k průměrné denní tržbě na obchodní úvěr (fakturu, \uv{sekeru}).
 
@@ -227,6 +235,7 @@ Průměrná doba odkladu plnění závazků. Nabízí se porovnání s dobou obr
 
 
 
+%-------------------------------------------------------
 \subsection{Ukazatele zadluženosti}
 
 Zadluženost podniku souvísí s velikostí podílu cizích zdrojů na všech zdrojích financování podniku, jelikož cizí zdroje pro podnik zpravidla znamenají dluh, závazek. Využití cizích zdrojů se vyplácí, pokud zajistí výnos vyšší, než jsou náklady na tyto zdroje -- úroky. 
@@ -235,6 +244,7 @@ V praxi se běžně nesetkáme s většími podniky, které by byly financovány
 
 cizí kapitál je levnější - úroky se počítají do nákladů, platí se z nezdaněného zisku
 
+%-------------------------------------------------------
 \subsubsection{Celková zadluženost}
 debt ratio
 
@@ -244,6 +254,7 @@ Z hlediska vlastníků akcií jsou vysoké hodnoty ukazatele příznivé, dokud 
 $$\vz{DR}{cizí kapitál}{celková aktiva}$$
 
 spojit?
+%-------------------------------------------------------
 \subsubsection{Poměr vlastního kapitálu}
 equity ratio
 
@@ -251,6 +262,7 @@ Je doplňkovým ukazatelem k celkové zadluženosti. Součet by měl být přibl
 
 $$\vz{ER}{vlastní kapitál}{celková aktiva}$$
 
+%-------------------------------------------------------
 \subsubsection{Koeficient (míra) zadluženosti}
 debt to equity ratio
 
@@ -262,16 +274,13 @@ $$\vz{DtE}{cizí kapitál}{vlastní kapitál}$$
 
 Při analýze se používá i převrácená hodnota ukazatele, která by se dala nazvat jako míra finanční samostatnosti podniku.
 
+%-------------------------------------------------------
 \subsubsection{Úrokové krytí}
 interest coverage
 
 Ukazatel vyjadřuje, kolikrát zisk pokryje úroky plynoucí ze závazků věřitelům. Obecně platí, že čím vyšší je jeho hodnota, tím lépe pro podnik. Pokud by byla hodnota IC$<1$, znamená to, že podnik hospodaří se ztrátou (není schopen ani pokrýt úroky). Pokud by vyšla hodnota ukazatele IC$=1$, znamená to, že se veškerý zisk použije k uhrazení úroků za vypůjčený kapitál a k vyplacení vlastních investorů nebo k reinvestici do kapitálu nezbudou žádné prostředky.
 
 $$\vz{IC}{EBIT}{nákladové úroky}$$
-
-
-
-
 
 
 
@@ -284,11 +293,6 @@ internal rate of return
 
 \subsubsection{EVA}
 economic value added
-
-
-
-\section{Interpretace výsledků}
-Vzorce a postupy pro výpočet jednotlivých ukazatelů jsou jasně (matematicky) dané. Ukazatel je však jen číslo a problémem tak může být jeho interpretace -- v některých případech nelze jednoznačně určit příčinu, důsledek nebo obecně význam jeho hodnoty. 
 
 \section{Existující software}
 \subsection{Equanta\sffamily\textregistered}
