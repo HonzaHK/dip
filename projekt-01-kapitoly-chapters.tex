@@ -2,7 +2,7 @@
 Tato práce popisuje 2 související věci?. 
 1)Prvním tématem je provádění finanční analýzy obecně -- shrnutí motivace a cílů, popis pojmů, používaných metod a strategií, vstupních a výstupních dat, výpočtu samotného a intepretaci výsledků. Druhým tématickým celkem je popis implementace a fungování software, který finanční analýzu realizuje a který bude v rámci této diplomové práce implementován.
 
-Finanční analýza podniku je proces, při kterém jsou získaná data (...?) podrobena rozboru a s využitím různých metod jsou vypočtena nová data s novou vypovídající hodnotou, mimo jiné i o finančním zdraví podniku. Tato data se nazývají finanční ukazatele. Lze je využít k nalezení příčin současného stavu podniku, ..., a do jisté míry? i k predikci stavu podniku v budoucnu.
+Finanční analýza podniku je proces, při kterém jsou získaná data (...?) podrobena rozboru a s využitím různých metod jsou vypočtena nová data s novou vypovídací hodnotou, mimo jiné i o finančním zdraví podniku. Tato data se nazývají finanční ukazatele. Lze je využít k nalezení příčin současného stavu podniku, ..., a do jisté míry? i k predikci stavu podniku v budoucnu.
 různý výstup analýzy - čísla, grafy, peníze, textová forma
 
 Text práce je členěn do pěti kapitol. Jelikož je finanční analýza poměrně rozsáhlá oblast, celá příští kapitola je věnována teorii. Nejprve je nezbytné vysvětlit , jelikož se některé z nich budou v textu objevovat často a běžný čtenář? se s nimi nemusel dosud setkat. + fungování podniku, zákon , ...
@@ -30,54 +30,78 @@ Narozdíl od výkazu zisku a ztráty jsou při sestavování? rozvahy data? váz
 \section{Absolutní ukazatele}
 
 \subsection{Horizontální analýza}
-Při horizontální analýze je určitá položka (řádek) finančního výkazu porovnávána se stejnou položkou za jiné časové období. Při výpočtu tedy porovnáváme výsledky jedné položky napříč různými obdobími - proto horizontální analýza. U jednotlivých položek zvlášť je vypočtena absolutní hodnota meziroční změny a její procentuální vyjádření. Tento postup je proti ostatním velmi? přímočarý?, ilustrativní a působivý. Při posuzování výsledků by měl analytik zohlednit významné meziroční změny, které mají vliv na výsledek -- změny v daňové soustavě, podmínek na trhu, změna politické situace, míra inflace a podobně. 
-
-Výsledek je běžně interpretován pomocí sloupcového nebo spojnicového grafu. 
+Při horizontální analýze je určitá položka (řádek) finančního výkazu porovnávána se stejnou položkou za jiné časové období. Při výpočtu tedy porovnáváme výsledky jedné položky napříč různými obdobími - proto horizontální analýza. U jednotlivých položek zvlášť je vypočtena absolutní hodnota meziroční změny a její procentuální vyjádření. Tento postup je proti ostatním velmi? přímočarý?, ilustrativní a působivý. Při posuzování výsledků by měl analytik zohlednit významné meziroční změny, které mají vliv na výsledek -- změny v daňové soustavě, podmínek na trhu, změna politické situace, míra inflace a podobně. Výsledek je běžně interpretován pomocí sloupcového nebo spojnicového grafu. 
 
 
 \subsection{Vertikální analýza}
-Přívlastek vertikální vychází tak jako u horizontální analýzy ze způsobu zpracování finančních výkazů. Dáváme tak do poměru jednotlivé položky výkazů. Narozdíl od poměrových ukazatelů zmíněných dále se však při vertikální analýze dává do poměru část celku k celku samotnému. Dalo by se tedy říct, že vyčíslováním podílu vybrané části na celku vertikální analýza popisuje strukturální rozložení sledované veličiny? (například aktiv nebo pasiv). 
+Přívlastek vertikální vychází tak jako u horizontální analýzy ze způsobu zpracování finančních výkazů. Dáváme tak do poměru jednotlivé položky výkazů. Narozdíl od poměrových ukazatelů zmíněných dále se však při vertikální analýze dává do poměru část celku k celku samotnému. Dalo by se tedy říct, že vyčíslováním podílu vybrané části na celku vertikální analýza popisuje strukturální rozložení sledované entity? (například aktiv nebo pasiv). 
 Výhodou vertikální analýzy je, že není ovlivněna meziroční inflací a výsledky se tak dají provnávat s výsledky za jiné časové období, mimo to i s výsledky jiných podniků\cite{sedl}.
 %#########################################################################
 
 \section{Poměrové ukazatele}
-Existuje několik různých ukazatelů. Různé ukazatele slouží různým účelům, různé společnosti se řídí různými ukazateli. Ukazatele se počítají z výsledovky a rozvahy. Většina ukazatelů je vyjádřena poměrem výstupu k nějaké základní jednotce, kterou je 1 Kč položky? ve jmenovateli.
+Výpočet je opět založen na datech z rozvahy a výsledovky. Narozdíl od horizontální a vertikální analýzy, při kterých je sledován vývoj jedné veličiny v čase případně vývoj ve vztahu k určité vztažné veličině (nadřazenému celku), při výpočtu poměrových ukazatelů zkoumáme vztah mezi jednotlivými veličinami navzájem, čímž získáváme zase jinou vypovídající hodnotu?.
+
+Existuje několik různých ukazatelů. Různé ukazatele slouží různým účelům, různé společnosti se řídí různými ukazateli. Podle účelu a povahy ukazatele ho lze zařadit do některé ze skupin soustavy ukazatelů. V této práci budou zmíněny jednotlivé ukazatele rentability, likvidity, aktivity, zadluženosti, dále ...?
+
+Jak plyne z názvu, při výpočtu hodnoty ukazatele se obecně používá nějakého poměru, tedy zlomku. Ukazatel tedy většinou říká, kolikrát 
+
+hospodarsky vysledek ve schvalovacim rizeni - tj po zdaneni
+cast z toho se usi automaticky investovat do fondů (ze zákona pripadne stanov spolecnosti)
+valná hromada rozhodne co se zbytkem - muze navysit vlastní jmnění podniku nebo rozdělit mezi vlastníky podniku
 
 
 \subsection{Ukazatelé rentability}
 profitability ratios
 
-Ukazatelé rentability (výnosnosti, ziskovosti, návratnosti) patří v praxi mezi nejsledovanější ukazatele. Vyjadřují míru efektivity hospodaření podniku poměřením výsledku hospodaření se zdroji.
+Ukazatelé rentability (výnosnosti, ziskovosti, návratnosti) patří v praxi mezi nejsledovanější ukazatele. Vyjadřují míru efektivity hospodaření podniku poměřením výsledku hospodaření se zdroji, které byly na hospodaření vynaloženy.
 
 $$\zl{výsledek hospodaření}{zdroje}$$
 
-Ukazatele rentability jsou mezivýkazovými ukazateli, což znamená, že jsou při jejich výpočtu použity hodnoty z výsledovky i rozvahy. Konstrukce jednotlivých ukazatelů rentability se liší především tím, jaký typ zisku je dosazen do čitatele a také tím, co je chápáno pod pojmem zdroje ve jmenovateli\cite{mendelu}.
+Ukazatele rentability jsou mezivýkazovými ukazateli, což znamená, že jsou při jejich výpočtu použity hodnoty z výsledovky i rozvahy. Jednotlivé ukazatele rentability se liší především tím, co je chápáno pod pojmem zdroje ve jmenovateli\cite{mendelu}. Podle volby jmenovatele je vytvořeno také následující rozdělení ukazatelů rentability. 
+
+V rámci jednoho ukazatele však existuje několik dalších variant výpočtu. Ty se vzájemně liší složkou v čitateli, která zachycuje výsledek hospodaření (zisk) v rozdílných fazích -- před nebo po zdanění, odečtení úroků, provedení odpisů a amortizace. Do čitatele může být dosazen i jiný ukazatel firemní výkonosti, jako například provozní cashflow. Volíme takové hodnoty, které mají pro danou situaci největší vypovídací hodnotu.
+
+vyjde rentabilita 5proc, ale kdybychom dali prachy do banky, urok je 6proc, navic mene rizika, tak proc to davat do podniku
+
+\begin{itemize}
+\item EAT -- earnings after taxes, čistý zisk -- zisk po zdanění, zúročení, odpisech a amortizaci
+
+\item EBT -- earnings before taxes, hrubý zisk -- zisk před zdaněním, t.j. po odečtení úroků, odpisech a amortizaci
+
+\item EBIT -- earnings before interest and taxes, provozní zisk -- zisk před zdaněním a zúročením. Uzití této hodnoty je vhodné například při srovnávání dvou podniků s různou výší daně z příjmu a různou kapitálovou strukturou\footnote{kapitalova struktura footnote?}
+
+\item EBITDA -- earnings before interest, taxes, depreciation and amortization -- zisk před zdaněním, úroky, odpisy a amortizací
+
+\item NOPAT = EBIT$*(1-t)$, kde $t$ je sazba daně z příjmů  -- zdaněný (čistý) zisk bez odečtení úroků, t.j. kolik by dělal čistý zisk, kdyby podnik nemusel platit úroky (kdyby nečerpal žádný úvěr)
+\end{itemize}
+
+provozní CF
 
 \subsubsection{ROA -- rentabilita aktiv}
 
 return on assets
 
-ROA je ukazatel, který ve jmenovateli obsahuje celkový objem aktiv. Při výpočtu se tedy nebere ohled na to, zda jsou aktiva vlastní nebo cizí, dlouhodobá nebo krátkodobá. Tím vyjadřuje, jak efektivně dokáže podnik naložit s aktivy, které se do něj vloží (odtud zřejmě plyne označení produkční síla). Pro 
+ROA je ukazatel, který do jmenovatele dosazuje celkový objem aktiv (potažmo pasiv, jelikož jsou jimi kryta). Při výpočtu se tedy nebere ohled na to, zda jsou aktiva vlastní nebo cizí, dlouhodobá nebo krátkodobá. Tím vyjadřuje, jak efektivně dokáže podnik naložit s aktivy, které se do něj vloží (odtud zřejmě plyne označení produkční síla nebo výkonnost podniku).
 
-Existuje několik variant výpočtu. Ty se vzájemně liší složkou v čitateli, která zachycuje zisk v rozdílných fazích -- před nebo po zdanění, odečtení úroků, provedení odpisů a amortizace.
+Nejčastějšími variantami uváděnými v literatuře jsou ty, které mají v čitateli hodnotu EBIT, tedy zisk před odečtením nákladových úroků (rentabilita celkových aktiv by neměla brát v potaz původ zdrojů) a zdaněním. Tato volba nám zároveň umožňuje porovnat podniky s rozdílnými zdroji financování a různým daňovým zatížením.
 
-EAT -- earnings after taxes -- zisk po zdanění, zúročení, odpisech a amortizaci (čistý zisk)
+$$\vz{ROA}{EBIT}{A}$$
 
-EBT -- earnings before taxes -- zisk před zdaněním, po zúročení, odpisech a amortizaci (hrubý zisk)
+Další používanou variantou je s hodnotou NOPAT v čitateli. Výsledkem je rentabilita, která by plynula z čistého zisku, pokud by byly veškeré zdroje financování vlastní. Dochází zde k fiktivnímu zdanění úroků, jelikož EBIT$*(1-t)$ se dá zapsat také jako EAT$+$Ú$*(1-t)$.
 
-EBIT -- earnings before interest and taxes -- zisk před zdaněním a zúročením. Uzití této hodnoty je vhodné například při srovnávání dvou podniků s různou výší daně z příjmu a různou kapitálovou strukturou\footnote{kapitalova struktura footnote?}
-
-EBITDA -- earnings before interest, taxes, depreciation and amortization -- zisk před zdaněním, úroky, odpisy a amortizací
-
-$$\vz{ROA}{EBIT}{A}  \vz{ROA}{EBIT $*(1-t)$}{A}$$ 
-$$\vz{ROA}{EAT}{A}  \vz{ROA}{EAT $+$ úroky $*(1-t)$}{A}$$
-
+$$\vz{ROA}{EBIT $*(1-t)$}{A}$$ 
 
 
 \subsubsection{ROE -- rentabilita vlastního kapitálu}
 
 return on equity
-ROE vyjadřuje míru zhodnocení vlastního kapitálu. Vlastníci podniku pomocí něj mohou zjistit, zda jimi vložený kapitál přináší výnos odpovídající velikosti jejich investičního rizika\cite{sedl}.-- kolik korun zisku připadá na 1 korunu vlastního kapitálu. Pro vlastníky je tedy jedním z klíčových ukazatelů. Ve srovnání s ROA
+ROE do jmenovatelele dosazuje hodnotu vlastního kapitálu, čímž vyjadřuje míru jeho zhodncení. Jinými slovy udává, kolik korun zisku připadá na 1 korunu vlastního kapitálu. Pro vlastníky (akcionáře, společníky a další investory) podniku je jedním z klíčových ukazatelů, neboť pomocí něj mohou zjistit, zda jimi vložený kapitál přináší výnos odpovídající velikosti jejich investičního rizika\cite{sedl}.
+
+Investor by se měl také zajímat, zda je procentuální hodnota ROE vyšší než bezriziková úroková míra (úroková sazba státních dluhopisů), v praxi spíše vyšší než nejvyšší úroková sazba nabízená bankami. Pokud by byla nižší, obnos investovaný do podniku by mohl raději vložit do banky a téměř bez námahy a bez rizika dosáhnout většího výnosu.
+
+Výpočet má pochopitelně smysl zejména s čistým ziskem (EAT) v čitateli, avšak ve jmenovateli můžeme uvažovat nad odečtením fondů, ze kterých investor ve výsledku těžit nebude.
+
+tabulka? zmeny kapitalove struktury a vliv na ROE
 
 $$\vz{ROE}{čistý zisk}{vlastní kapitál}$$ 
 
@@ -138,7 +162,7 @@ $$\zl{oběžná aktiva $-$ zásoby}{krátkodobé závazky}$$
 likvidita I. stupně
 CR - Cash Ratio
 
-pěněžními prostředky se myslí peníze v hotovosti a na běžných účtech, ekvivalenty mohou být například šeky nebo obchdovatelné cenné papíry. Pro podnik je žádoucí, aby platilo CR > 0,2, čímž je zajištěna likvidita.
+pěněžními prostředky se myslí peníze v hotovosti a na běžných účtech, ekvivalenty mohou být například šeky nebo obchdovatelné cenné papíry.
 
 $$\zl{peněžní prostředky $+$ ekvivalenty}{krátkodobé závazky}$$
 
@@ -150,7 +174,7 @@ $$\zl{peněžní prostředky $+$ ekvivalenty}{krátkodobé závazky}$$
 
 
 \subsection{Ukazatele aktivity}
-Patří k tzv. mezivýkazových ukazatelům -- vstupními daty jsou položky jak z výkazu zisku a ztrát tak z rozvahy. Ukazatele aktivity vyjadřují, jak efektivně podnik nakládá se svými aktivy. Pokud jich vlastní více, než je nutné, vznikají zbytečné náklady a dochází ke snižení zisku. Jestliže jich má nedostatek, přichází o výnosy z potenciálních zakázek, o které se kvůli nedostatku aktiv nemůže ucházet.
+Další z mezivýkazových ukazatelů -- vstupními daty jsou položky jak z výkazu zisku a ztrát tak z rozvahy. Ukazatele aktivity vyjadřují, jak efektivně podnik nakládá se svými aktivy. Pokud jich vlastní více, než je nutné, vznikají zbytečné náklady a dochází ke snižení zisku. Jestliže jich má nedostatek, přichází o výnosy z potenciálních zakázek, o které se kvůli nedostatku aktiv nemůže ucházet.
 
 Výsledkem je hodnota udávající rychlost nebo dobu obratu. Rychlost obratu vyjadřuje, kolikrát se určitá složka aktiv přemění za sledované období na peněžní prostředky. Doba obratu nám říká, jak dlouho trvá přeměna.
 
@@ -241,7 +265,7 @@ Při analýze se používá i převrácená hodnota ukazatele, která by se dala
 \subsubsection{Úrokové krytí}
 interest coverage
 
-Ukazatel vyjadřuje, kolikrát zisk pokryje úroky plynoucí ze závazků věřitelům. Obecně platí -- čím vyšší hodnota, tím . Pokud by byla hodnota IC$<1$, znamená to, že podnik hospodaří se ztrátou (není schopen ani pokrýt úroky). Pokud by vyšla hodnota ukazatele IC$=1$, znamená to, že se veškerý zisk použije k uhrazení úroků za vypůjčený kapitál a k vyplacení vlastních investorů nebo k reinvestici do kapitálu nezbudou žádné prostředky.
+Ukazatel vyjadřuje, kolikrát zisk pokryje úroky plynoucí ze závazků věřitelům. Obecně platí, že čím vyšší je jeho hodnota, tím lépe pro podnik. Pokud by byla hodnota IC$<1$, znamená to, že podnik hospodaří se ztrátou (není schopen ani pokrýt úroky). Pokud by vyšla hodnota ukazatele IC$=1$, znamená to, že se veškerý zisk použije k uhrazení úroků za vypůjčený kapitál a k vyplacení vlastních investorů nebo k reinvestici do kapitálu nezbudou žádné prostředky.
 
 $$\vz{IC}{EBIT}{nákladové úroky}$$
 
@@ -296,15 +320,22 @@ Program bude mít webové rozhraní, což má samozřejmě své výhody - uživa
 - vysvetlivky, alternativni oznaceni ekonomickych pojmu
 
 
+\subsection{Architektura}
  
-VSTUP
+\subsection{Vstup}
+
+Uživateli bude samozřejmě ponechána možnost hodnotu všech položek rozvahy a výsledovky vyplnit ručně. 
 - moznost vyplnit rucne, krome pdf na MPO? se odevzdava ZZ a R v xml na financak (k danovemu priz)
 - vstup - parametrizace parseru
+
+\subsection{Výstup}
 
 
 VYPOCET
 - nastaveni optimalnich hodnot (rozmezi) pro ukazatele likvidity
 - vypocet obrat celkovych aktiv - prumerna hodnota celkovych aktiv
+- kazdy chce do citatele/jmenovatele zahrnout ruzne polozky - to bude umozneno
+
 
 Uživateli bude pro snadnější práci umožněno vytoření vlastního účtu. Systém tak bude schopen personalizovat obsah dle nastavených předvoleb. S účtem budou svázana i data za jednotlivá časová obdoví v minulosti, která lze nahrát a uchovat pro další použití, například porovnání nebo zpřesnění analýzy v budoucnu.
 
