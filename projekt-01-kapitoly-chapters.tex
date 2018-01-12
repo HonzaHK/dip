@@ -61,6 +61,7 @@ Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budem
 \subsubsection{Účtová osnova}
 Právnické osoby, fyzické osoby zapsané v obchodním rejistříku a některé další subjekty jsou ze zákona o účetnictví? povinny vést podvojné účetnictví (proti daňová evidence), což zároveň implikuje povinnost účtovat podle účtové osnovy.
 
+google - zverejneni ucetni uzaverky
 každoročně účetní závěrku. Ta má v ČR dvě povinné části - výkaz zisku a ztráty a rozvaha. Hodnoty jejich položek jsou vypočítány právě z dat jednotlivých účtů.
 \subsubsection{Výkaz zisku a ztráty}
 Tuto skutečnost vyjadřujeme označením toková data.
@@ -159,8 +160,7 @@ V praxi velmi často používaný ukazatel. Poměřuje zisk podniku a tržby (tr
 Pokud by byla výsledkem relativně malá, dlouhodobě klesající hodnota (např. 2\%), je vhodné zpozornit. Pokud by došlo k náhlému poklesu tržeb při zachování nákladů (což je běžné), je zřejmé, že se podnik dostane do finančních potíží. Stejnětak se může dostat do potíží při zvýšení nákladů (zdražení materiálu, energií, pracovní síly) se současným zachováním objemu tržeb (zvýšení nákladů se však na tržby zpravidla promítne). 
 V čitateli se nejčastěji používá hodnota EBIT nebo EAT
 
-$$\vz{ROS}{EBIT}{}$$ 
-$$\vz{ROS}{EAT}{vlastní kapitál}$$ 
+$$\vz{ROS}{EBIT}{tržby} \vz{ROS}{EAT}{tržby}$$ 
 
 %-------------------------------------------------------
 \subsubsection{Některé další ukazatele:}
@@ -326,7 +326,10 @@ $$\vz{IC}{EBIT}{nákladové úroky}$$
 
 
 
-\subsection{Ukazatele produktivity}
+
+
+
+
 
 \subsection{Další ukazatele}
 
@@ -335,14 +338,6 @@ internal rate of return
 
 \subsubsection{EVA}
 economic value added
-
-\section{Existující software}
-Před návrhem vlastního řešení bylo vhodné prozkoumat již existující řešení. 
-
-\subsubsection{Equanta\sffamily\textregistered}
-\subsubsection{FinAnalysis}
-\subsubsection{FAF -- Finanční analýza firmy}
-
 
 
 
@@ -383,15 +378,32 @@ Před návrhem vlastního řešení bylo vhodné prozkoumat již existující ř
 
 
 \chapter{Návrh řešení}
-\section{Vybrané metody vyhodnocování finančního zdraví}
 
-Hned jako první se nabízí porovnání s hodnotami za předchozí období. 
+
+
+\section{Existující software}
+Před návrhem vlastního řešení bylo vhodné prozkoumat existující řešení. Všechny testované nástroje byly dostupné pouze v omezené verzi. 
+
+\subsubsection{Equanta}
+\subsubsection{FinAnalysis}
+\subsubsection{FAF -- Finanční analýza firmy}
+Software nelze bez zakoupení jakkoliv používat, nicméně na stránkách 
+
+
+
+
+
+
+%--------------------------------------------------------
+\section{Vybrané metody vyhodnocování}
+Nástroj by měl být schopen provádět alespoň výpočty zmíněné v teoretické části.
+
+Hned jako první se nabízí porovnání s hodnotami za předchozí období, tedy horizontální analýza. Při horizontální analýze jedné položky VZZ nebo R se nejčastěji používá sloupcového (v případě více sledovaných období spojnicového) grafu. Nástroj bude umožňovat i hromadnou horizontální analýzu -- výsledek bude interpretován tabulkou; meziroční změna u jednotlivých položek bude vyjádřena absolutní i procentuální hodnotou. 
+
+Dalším ? je vertikální analýza.
+
+
 Porovnání s ukazateli v odvětví
-
-Horizontální analýza
-- sloupcový nebo spojnicový graf
-- vyber polozky vysledovky (checkbox/selectbox ...?)
-- checkboxy pro roky
 
 - co nejvice ukazatelu - komplexni
 - kolacovy graf pro kapitalovou strukturu
@@ -399,7 +411,10 @@ Horizontální analýza
 - moznost naklikani vlastniho ukazatele? js math input
 
 
-\section{Načítání zdrojových dat}
+
+%---------------------------------------------------------
+\section{Návrh programového řešení}
+\subsection{Načítání zdrojových dat}
 Vstupem finanční analýzy jsou data z dokumentů výkaz zisku a ztráty a rozvaha. Při hledání vhodného způsobu automatizace načítání vstupních dat bylo zjištěno, že jsou obchodní subjekty? ze zákona povinny každoročně tyto dva dokumenty odevzdávat pro evidenci? státu?. Odevzdávají se ve dvou formách?: ve formátu PDF na krajský soud, pod kterým na Ministerstvo průmyslu a obchodu? obchodní rejistřík? (MPO) citace? a za druhé? ve strukturovaném formátu XML jako příloha k daňovému přiznání citace?.
 
 Přestože se pro účtování používají v podnicích různé nástroje (Pohoda, MRP, \dots), dá se očekávat, že většina z nich bude schopna tyto dva dokumenty vytvořit ve zmíněném formátu a xmlns?.
@@ -407,12 +422,12 @@ Přestože se pro účtování používají v podnicích různé nástroje (Poho
 V našem nástroji tedy bude umožněno automatické načítání těchto souborů implementací parseru daného xmlns?, čímž výrazně usnadníme zadávání.
 Uživateli bude samozřejmě ponechána možnost hodnotu všech položek rozvahy a výsledovky vyplnit ručně. Údaje zadané všemi společnostmi jsou sice zveřejňovány, nicméně už jen ve formátu PDF.
 
-\section{Návrh uživatelského rozhraní}
+\subsection{Uživatelské rozhraní}
 Program bude mít webové rozhraní, což má samozřejmě své výhody - uživatel může k programu přistupovat odkudkoliv (a to z různých platforem), používání programu není podmíněno jeho instalací a z pohledu vývojáře je mnohem jednodušší jeho údržba (vydávání nových verzí). Nutnost připojení k internetu by neměla být v dnešní době problém.
 
 Vzhledem k nejedotné terminologii napříč celou finanční analýzou je žádoucí, aby při zobrazování výstupu uživatel bezpečně zjistil, o jaký ukazatel se jedná. To bude zajištěno zobrazením alternativních označení, případně možností přímo přejít do sekce, kde jsou jednotlivé ukazatele detailně vysvětleny. K tomuto účelu může být použit text z teoretické části této práce.
 
-
+Nástroj tedy bude obsahovat obrazovku s přehledem podniků, pro konkrétní podnik 
 
 Uživateli bude pro snadnější práci umožněno vytoření vlastního účtu. Systém tak bude schopen personalizovat obsah dle nastavených předvoleb. S účtem budou svázana i data za jednotlivá časová obdoví v minulosti, která lze nahrát a uchovat pro další použití, například porovnání nebo zpřesnění analýzy v budoucnu.
 
@@ -420,7 +435,6 @@ Přihlášením k uživatelskému účtu systém pozná, kdo s ním pracuje, co�
 
 
 - vysvetlivky, alternativni oznaceni ekonomickych pojmu
-
 
 
 \subsection{Personalizace}
@@ -431,11 +445,17 @@ Jelikož různé podniky sledují různé ukazatele, je žádoucí, aby nástroj
 
 Kromě používání různých ukazatelů se pro odvětví nebo konkrétní podnik mohou lišit také hraniční hodnoty jednotlivých ukazatelů.
 
-\section{Fyzická (datová) vrstva}
 
-\section{Knihovny a technologie}
+- vyber polozky vysledovky (checkbox/selectbox ...?)
+- checkboxy pro roky
+
+\subsection{Fyzická (datová) vrstva}
+
+\subsection{Knihovny a technologie}
 HTML, CSS, JavaScript, PHP?, MySQL?
+
 \subsubsection{React}
+
 (Redux,Navigation,bootstrap)
 
 \subsubsection{Chart.js}
