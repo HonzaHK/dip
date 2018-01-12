@@ -49,18 +49,19 @@ Finanční analýza podniku je metoda hodnocení finančního hospodaření podn
 
 Motivací je zhodnocení hospodaření, vyvozování závěrů o vlastnostech podniku, zhodnocení podniku a vyvozování dalších užitečných informací.
 
-Finanční analýza obsahuje dvě navzájem popojené části\cite{kova}:
+Při finanční analýze se používají dva navzájem propojené přístupy\cite{kova}:
 \begin{enumerate}
-	\item kvalitativní (fundamentální) analýzu založenou na znalostech souvislostí mezi ekonomickými i mimoekonomickými jevy, zkušenostech odborníků a na jejich subjektivních odhadech
-	\item kvantitativní (technickou) analýzu, která využívá matematické, statistické a jiné algoritmizovatelné postupy
+	\item kvalitativní (fundamentální) analýza, založená na znalostech souvislostí mezi ekonomickými i mimoekonomickými jevy, zkušenostech odborníků a na jejich subjektivních odhadech
+	\item kvantitativní (technickou) analýza, která využívá matematické, statistické a jiné algoritmizovatelné postupy
 \end{enumerate}
 V této práci se budeme zabývat především kvantitativní analýzou právě z důvodu možnosti její algoritmizace. 
 
 \section{Vstupní data}
-Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budeme vycházet. Množina vstupních dat není nijak omezena a může být vskutku rozsáhlá -- při výpočtu a odvozování závěrů lze zohlednit nejrůznější faktory. Klíčová jsou však především data o vlastním hospodaření podniku, za jejichž evidenci je zodpovědná účetní jednotka podniku, která je v průběhu roku zapisuje do tzv. účtové osnovy.
+Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budeme vycházet. Množina vstupních dat není nijak omezena a může být vskutku rozsáhlá -- při výpočtu a odvozování závěrů lze zohlednit nejrůznější faktory. Pro nás budou však klíčová především data o vlastním hospodaření podniku, za jejichž evidenci je zodpovědná účetní jednotka podniku, která je v průběhu roku zapisuje do takzvané účtové osnovy.
 \subsubsection{Účtová osnova}
-Účtová osnova je 
-Větší? společnosti jsou ze zákona povinny dělat? každoročně účetní závěrku. Ta má v ČR dvě povinné části - výkaz zisku a ztráty a rozvaha. 
+Společnosti zapsané v obchodním rejistříku jsou povinny vést podvojné účetnictví, z čehož zároveň vyplývá povinnost útovat podle účtové osnovy.
+
+každoročně účetní závěrku. Ta má v ČR dvě povinné části - výkaz zisku a ztráty a rozvaha. Hodnoty jejich položek jsou vypočítány právě z dat jednotlivých účtů.
 \subsubsection{Výkaz zisku a ztráty}
 \subsubsection{Rozvaha}
 Narozdíl od výkazu zisku a ztráty jsou při sestavování? rozvahy data? vázána k jednomu určitému okamžiku, takzvanému rozvahovému dni, který je posledním dnem účetního období, zpravidla tedy posledním dnem kalendářního roku.
@@ -393,39 +394,52 @@ Horizontální analýza
 - co nejvice ukazatelu - komplexni
 - kolacovy graf pro kapitalovou strukturu
 - osetreni krajinich, extremnich pripadu (hospodaření se ztrátou, ...)
-
-\section{Návrh programového řešení}
-Program bude mít webové rozhraní, což má samozřejmě své výhody - uživatel může k programu přistupovat odkudkoliv (a to z různých platforem), používání programu není podmíněno jeho instalací a z pohledu vývojáře je mnohem jednodušší jeho údržba (vydávání nových verzí). 
-
-- defaultni nastaveni, ale vysoka uroven prizbusobeni, vse svazano s uctem
-- nekolik ruznych podniku na uziv(financni analytik)
-- nekolik uzaverek na podnik (ruzne roky),
-- moznost srovnani mezi roky / podniky
-- zobrazene/preferovane ukazatele
-- vysvetlivky, alternativni oznaceni ekonomickych pojmu
-
-\subsection{Architektura}
- 
-\subsection{Vstup}
-
-Uživateli bude samozřejmě ponechána možnost hodnotu všech položek rozvahy a výsledovky vyplnit ručně. 
-- moznost vyplnit rucne, krome pdf na MPO? se odevzdava ZZ a R v xml na financak (k danovemu priz)
-- vstup - parametrizace parseru
-
-\subsection{Výstup}
+- moznost naklikani vlastniho ukazatele? js math input
 
 
-VYPOCET
-- nastaveni optimalnich hodnot (rozmezi) pro ukazatele likvidity
-- vypocet obrat celkovych aktiv - prumerna hodnota celkovych aktiv
-- kazdy chce do citatele/jmenovatele zahrnout ruzne polozky - to bude umozneno
+\section{Načítání zdrojových dat}
+Vstupem finanční analýzy jsou data z dokumentů výkaz zisku a ztráty a rozvaha. Při hledání vhodného způsobu automatizace načítání vstupních dat bylo zjištěno, že jsou obchodní subjekty? ze zákona povinny každoročně tyto dva dokumenty odevzdávat pro evidenci? státu?. Odevzdávají se ve dvou formách?: ve formátu PDF na Ministerstvo průmyslu a obchodu (MPO) citace? a za druhé? ve strukturovaném formátu XML jako příloha k daňovému přiznání citace?.
+
+Přestože se pro účtování používají v podnicích různé nástroje (Pohoda, MRP, \dots), dá se očekávat, že většina z nich bude schopna tyto dva dokumenty vytvořit ve zmíněném formátu a xmlns?.
+
+V našem nástroji tedy bude umožněno automatické načítání těchto souborů implementací parseru daného xmlns?, čímž výrazně usnadníme zadávání.
+Uživateli bude samozřejmě ponechána možnost hodnotu všech položek rozvahy a výsledovky vyplnit ručně. Údaje zadané všemi společnostmi jsou sice zveřejňovány, nicméně už jen ve formátu PDF.
+
+\section{Návrh uživatelského rozhraní}
+Program bude mít webové rozhraní, což má samozřejmě své výhody - uživatel může k programu přistupovat odkudkoliv (a to z různých platforem), používání programu není podmíněno jeho instalací a z pohledu vývojáře je mnohem jednodušší jeho údržba (vydávání nových verzí). Nutnost připojení k internetu by neměla být v dnešní době problém.
+
+Vzhledem k nejedotné terminologii napříč celou finanční analýzou je žádoucí, aby při zobrazování výstupu uživatel bezpečně zjistil, o jaký ukazatel se jedná. To bude zajištěno zobrazením alternativních označení, případně možností přímo přejít do sekce, kde jsou jednotlivé ukazatele detailně vysvětleny.
+
 
 
 Uživateli bude pro snadnější práci umožněno vytoření vlastního účtu. Systém tak bude schopen personalizovat obsah dle nastavených předvoleb. S účtem budou svázana i data za jednotlivá časová obdoví v minulosti, která lze nahrát a uchovat pro další použití, například porovnání nebo zpřesnění analýzy v budoucnu.
 
-TECHNOLOGIE, KNIHOVNY
--React(Redux,Navigation,bootstrap)
+Přihlášením k uživatelskému účtu systém pozná, kdo s ním pracuje, což přináší mnoho možností personalizace.
+
+
+- vysvetlivky, alternativni oznaceni ekonomickych pojmu
+
+
+
+\subsection{Personalizace}
+Uživatelský účet je představuje finančního analytika. Pod uživatelským účtem bude možno evidovat různé podniky. V rámci podniku bude umožněno uložit libovolný počet uzávěrek. Ty mohou být použity k meziročnímu srovnání.
+Uživatel bude mít možnost provádět i porovnání mezi podniky.
+
+Jelikož různé podniky sledují různé ukazatele, je žádoucí, aby nástroj uživateli umožnil vybrat zobrazované/preferované ukazatele. 
+
+Kromě používání různých ukazatelů se pro odvětví nebo konkrétní podnik mohou lišit také hraniční hodnoty jednotlivých ukazatelů.
+
+\section{Fyzická (datová) vrstva}
+
+\section{Knihovny a technologie}
+HTML, CSS, JavaScript, PHP?, MySQL?
+\subsubsection{React}
+(Redux,Navigation,bootstrap)
+
+\subsubsection{Chart.js}
+
+
+
 -Firebase?
--popis knihovny pro grafy
 
 -navrh testů (rozvaha,ZZ,vypočítané uk)
