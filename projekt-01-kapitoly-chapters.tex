@@ -1,20 +1,61 @@
 \chapter{Úvod}
-Tato práce popisuje 2 související věci?. 
-1)Prvním tématem je provádění finanční analýzy obecně -- shrnutí motivace a cílů, popis pojmů, používaných metod a strategií, vstupních a výstupních dat, výpočtu samotného a intepretaci výsledků. Druhým tématickým celkem je popis implementace a fungování software, který finanční analýzu realizuje a který bude v rámci této diplomové práce implementován.
+Tato práce se ze zabývá dvěma celky. Prvním tématem je teorie spojená s prováděním finanční analýzy -- co je to finanční analýza, jaké jsou její cíle, jaká jsou vstupní data a co je výstupem, vysvětlení pojmů, používaných metod a strategií, konstrukcí a vypočtů jednotlivých ukazatelů finanční analýzy a intepretací jejich hodnot. 
+Druhým tématickým celkem je popis nástroje, který finanční analýzu provádí a který bude v rámci této diplomové práce implementován. 
+
+Text práce je členěn do pěti kapitol. Jelikož je finanční analýza poměrně rozsáhlá oblast, celá příští kapitola je věnována prvnímu celku, teorii. 
+
+Ve třetí kapitole jsou ještě před vytvářením návrhu podrobeny testování již existující nástroje, abychom si mohli udělat obrázek o tom, jak tuto problematiku řešili jiní. Následně je na základě zjištěných poznatků vypracován návrh programového řešení vlastního nástroje -- architektura, entity?, implementační jazyk, užitečné knihovny, podoba vstupu a výstupu.
+
+Čtvrtá kapitola se zabývá realizací návrhu, implementačními detaily, fungováním nástroje a také jeho testováním. 
+
+V závěrečné kapitole jsou shrnuty a zhodnoceny dosažené výsledky, přínosy této práce a návrhy na její možná rozšíření.
+
+Pro lepší demonstraci budou v této práci analyzovány výsledky hospodaření společnosti ?, která se zabývá ?. Výsledky hospodaření lze najít ?.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Problematika finanční analýzy}
+
 
 Finanční analýza podniku je proces, při kterém jsou získaná data (...?) podrobena rozboru a s využitím různých metod jsou vypočtena nová data s novou vypovídací hodnotou, mimo jiné i o finančním zdraví podniku. Tato data se nazývají finanční ukazatele. Lze je využít k nalezení příčin současného stavu podniku, ..., a do jisté míry? i k predikci stavu podniku v budoucnu.
 různý výstup analýzy - čísla, grafy, peníze, textová forma
 
-Text práce je členěn do pěti kapitol. Jelikož je finanční analýza poměrně rozsáhlá oblast, celá příští kapitola je věnována teorii. Nejprve je nezbytné vysvětlit , jelikož se některé z nich budou v textu objevovat často a běžný čtenář? se s nimi nemusel dosud setkat. + fungování podniku, zákon , ...
-Ve třetí kapitole bude popsán návrh zvolených metod vyhodnocování finančního zdraví podniku, jeho interpretace a také návrh programového řešení - architektura, implementační jazyk, formát vstupu a výstupu. Čtvrtá kapitola se zabývá realizací návrhu, implementačními detaily. V závěrečné kapitole jsou shrnuty a zhodnoceny dosažené výsledky, přínosy této práce a návrhy na její možná rozšíření.
+\section{Předmět, motivace a cíle}
+Finanční analýza podniku je metoda hodnocení finančního hospodaření podniku, při které se získaná data třídí, agregují, poměřují mezi sebou navzájem, kvantifikují se vztahy mezi nimi, hledají se mezi nimi kauzální souvisloti a určuje se jejich vývoj. Tím se zvyšuje vypovídací schopnost zpracovávaných dat, zvyšuje se jejich informační hodnota\cite{sedl}.
 
-Pro lepší demonstraci budou v této práci analyzovány výsledky hospodaření společnosti ?, která se zabývá ?. Výsledky hospodaření lze najít ?.
+Motivací je zhodnocení hospodaření, vyvozování závěrů o vlastnostech podniku, zhodnocení podniku a vyvozování dalších užitečných informací.
 
-%=========================================================================
-\chapter{Problematika finanční analýzy}
+Finanční analýza obsahuje dvě navzájem popojené části\cite{kova}:
+\begin{enumerate}
+	\item kvalitativní (fundamentální) analýzu založenou na znalostech souvislostí mezi ekonomickými i mimoekonomickými jevy, zkušenostech odborníků a na jejich subjektivních odhadech
+	\item kvantitativní (technickou) analýzu, která využívá matematické, statistické a jiné algoritmizovatelné postupy
+\end{enumerate}
+V této práci se budeme zabývat především kvantitativní analýzou právě z důvodu možnosti její algoritmizace. 
 
-\section{Podnik, ...}
-\section{Motivace a cíle}
 \section{Vstupní data}
 Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budeme vycházet. Množina vstupních dat není nijak omezena a může být vskutku rozsáhlá -- při výpočtu a odvozování závěrů lze zohlednit nejrůznější faktory. Klíčová jsou však především data o vlastním hospodaření podniku, za jejichž evidenci je zodpovědná účetní jednotka podniku, která je v průběhu roku zapisuje do tzv. účtové osnovy.
 \subsubsection{Účtová osnova}
@@ -43,16 +84,16 @@ Výpočet je opět založen na datech z rozvahy a výsledovky. Narozdíl od hori
 
 Existuje několik různých ukazatelů. Různé ukazatele slouží různým účelům, různé společnosti se řídí různými ukazateli. Podle účelu a povahy ukazatele ho lze zařadit do některé ze skupin soustavy ukazatelů. V této práci budou zmíněny jednotlivé ukazatele rentability, likvidity, aktivity, zadluženosti, dále ...?
 
-Jak plyne z názvu, při výpočtu hodnoty ukazatele se obecně používá nějakého poměru, tedy zlomku. Ukazatel tedy většinou říká, kolikrát 
+Jak plyne z názvu, při výpočtu hodnoty ukazatele se obecně používá nějakého poměru, tedy zlomku. Možností, které hodnoty dát do poměru, je takřka neomezeně. Nicméně při konstrukci jednotlivých ukazatelů bychom se měli zamyslet nad tím, co při vybraných entitách vlastně vztah vyčísluje -- zda má konkrétní volba význam pro účel analýzy\cite{kisling}.
 
 hospodarsky vysledek ve schvalovacim rizeni - tj po zdaneni
 cast z toho se usi automaticky investovat do fondů (ze zákona pripadne stanov spolecnosti)
 valná hromada rozhodne co se zbytkem - muze navysit vlastní jmnění podniku nebo rozdělit mezi vlastníky podniku
 
 %-------------------------------------------------------
-\subsection{Ukazatelé rentability}
+\subsection{Ukazatele rentability}
 profitability ratios
-Ukazatelé rentability (výnosnosti, ziskovosti, návratnosti) patří v praxi mezi nejsledovanější ukazatele. Vyjadřují míru efektivity hospodaření podniku poměřením výsledku hospodaření se zdroji, které byly na hospodaření vynaloženy.
+Ukazatele rentability (výnosnosti, ziskovosti, návratnosti) patří v praxi mezi nejsledovanější ukazatele. Vyjadřují míru efektivity hospodaření podniku poměřením výsledku hospodaření se zdroji, které byly na hospodaření vynaloženy.
 
 $$\zl{výsledek hospodaření}{zdroje}$$
 
@@ -110,10 +151,13 @@ $$\vz{ROE}{čistý zisk}{vlastní kapitál}$$
 \subsubsection{ROS -- rentabilita tržeb}
 return on sales
 
-Ukazatel poměřuje zisk podniku a tržby (tržby za prodej zboží a výkony).
+V praxi velmi často používaný ukazatel. Poměřuje zisk podniku a tržby (tržby za prodej zboží, výrobků a provedení výkonů), tedy kolik procent tržeb tvoří zisk.
 
-V čitateli se používají hodnoty EBIT a EAT
+Pokud by byla výsledkem relativně malá, dlouhodobě klesající hodnota (např. 2\%), je vhodné zpozornit. Pokud by došlo k náhlému poklesu tržeb při zachování nákladů (což je běžné), je zřejmé, že se podnik dostane do finančních potíží. Stejnětak se může dostat do potíží při zvýšení nákladů (zdražení materiálu, energií, pracovní síly) se současným zachováním objemu tržeb (zvýšení nákladů se však na tržby zpravidla promítne). 
+V čitateli se nejčastěji používá hodnota EBIT nebo EAT
 
+$$\vz{ROS}{EBIT}{}$$ 
+$$\vz{ROS}{EAT}{vlastní kapitál}$$ 
 
 %-------------------------------------------------------
 \subsubsection{Některé další ukazatele:}
@@ -129,12 +173,12 @@ V čitateli se používají hodnoty EBIT a EAT
 
 
 %-------------------------------------------------------
-\subsection{Ukazatelé likvidity}
+\subsection{Ukazatele likvidity}
 Pojem likvidita bývá nesprávně zaměňován s úzce souvisejícími pojmy likvidnost a solventnost. Likvidnost je vlastnost jednotlivých složek aktiv podniku vyjadřující schopnost přeměny těchto složek v peněžní prostředky v co nejkratším čase a s minimálními ztrátami\cite{nyvlt}. Přeměnou můžeme rozumět například prodej zásob nebo inkasování pohledávek. 
 
 Solventnost neboli platební schopnost je definována jako schopnost subjektu, v našem případě podniku, včas splácet své finanční závazky. Má-li být podnik solventní, musí kromě stálého generování zisku také zajistit, aby byla část aktiv vázána ve formě, kterou může uhradit své závazky.
 
-Likvidita podniku dává tyto pojmy do souvislosti -- ukazatelé likvidity vyjadřují schopnost podniku přeměnit vybraná aktiva na peněžní prostředky (využít jejich likvidnosti) za účelem včasného uhrazení všech splatných závazků (a tím pádem být dočasně solventní)\cite{schol}. Proto bývají také označovány jako ukazatele platební schopnosti.
+Likvidita podniku dává tyto pojmy do souvislosti -- ukazatele likvidity vyjadřují schopnost podniku přeměnit vybraná aktiva na peněžní prostředky (využít jejich likvidnosti) za účelem včasného uhrazení všech splatných závazků (a tím pádem být dočasně solventní)\cite{schol}. Proto bývají také označovány jako ukazatele platební schopnosti.
 
 Všechny ukazatele likvidity se počítají jako poměr toho, čím je možné platit (disponibilní prostředky), k tomu, co se musí zaplatit. Disponibilními prostředky můžeme přitom chápat různou množinu aktiv. Je samozřejmě nesmysl, aby byla zahrnuta ta aktiva, jejichž ztráta by ohrozila chod podniku.
 
@@ -157,17 +201,17 @@ QAR - Quick Asset Ratio
 
 Pokud bychom zkoumali strukturu oběžných aktiv, zjistili bychom, že se likvidnost jednotlivých složek liší. Výpočet běžné likvidity zahrnuje i zásoby, nicméně ty při výpočtu pohotové likvidity nejsou zahrnuty, jelikož většinou bývají nezbytné pro zachování chodu podniku a navíc jejich likvidnost nemusí být dostačující.
 V čitateli tak zbude součet objemu peněžních prostředků, ekvivalentů a pohledávek. Pro zpřesnění výsledku je vhodné odečíst nedobytné pohledávky.
-Dá se předpokládat, že podniky z oblasti služeb nebudou mít v zásobách mnoho aktiv a proto se bude hodnota ukazatele blížit hodnotě běžné likvidity. U výrobních podniků se naopak tyto dvě hodnoty budou spíše lišit. Poměrem livkdity III. a II. se dá nakonec zjistit, jak velkou část oběžných aktiv tvoří zásoby.
+Dá se předpokládat, že podniky z oblasti služeb nebudou mít v zásobách mnoho aktiv a proto se bude hodnota ukazatele blížit hodnotě běžné likvidity. U výrobních podniků se naopak tyto dvě hodnoty budou spíše lišit.
 
 $$\zl{oběžná aktiva $-$ zásoby}{krátkodobé závazky}$$
 
 %-------------------------------------------------------
-\subsubsection{hotovostní (okamžitá) likvidita}
+\subsubsection{Hotovostní likvidita}
 likvidita I. stupně
 CPR - Cash Position Ratio
 
 Při výpočtu hotovostní likvidity dosazujeme do čitatele součet jen těch nejlikvidnější složek oběžných aktiv, kterými jsou pěněžní prostředky (peníze v hotovosti a na běžných účtech) a jejich ekvivalenty (například šeky nebo obchdovatlné cenné papíry).
-Přestože tento ukazatel nejlépe vypovídá o platební schopnosti podniku k určitému datu, nebere v potaz strkuturu krátkodobých závazků, především z pohledu jejich skutečné splatnosti\cite{mendel}. Pokud bychom chtěli tuto skutečnost zohlednit, měli bychom do jmenovatele zahrnout pouze okamžitě splatné závazky.
+Přestože tento ukazatel nejlépe vypovídá o platební schopnosti podniku k určitému datu, nebere v potaz strkuturu krátkodobých závazků, především z pohledu jejich skutečné splatnosti\cite{mendelu}. Pokud bychom chtěli tuto skutečnost zohlednit, měli bychom do jmenovatele zahrnout pouze okamžitě splatné závazky. Taková varianta bývá označována jako okamžitá likvidita.
 
 
 $$\zl{peněžní prostředky $+$ ekvivalenty}{krátkodobé závazky}$$
@@ -238,9 +282,9 @@ Průměrná doba odkladu plnění závazků. Nabízí se porovnání s dobou obr
 %-------------------------------------------------------
 \subsection{Ukazatele zadluženosti}
 
-Zadluženost podniku souvísí s velikostí podílu cizích zdrojů na všech zdrojích financování podniku, jelikož cizí zdroje pro podnik zpravidla znamenají dluh, závazek. Využití cizích zdrojů se vyplácí, pokud zajistí výnos vyšší, než jsou náklady na tyto zdroje -- úroky. 
+Zadluženost podniku souvísí s velikostí podílu cizích zdrojů na všech zdrojích financování podniku, jelikož cizí zdroje pro podnik zpravidla znamenají dluh, závazek. Měří tedy dopady financování cizími zdroji. Využití cizích zdrojů se vyplácí, dokud zajistí výnos vyšší, než jsou náklady na tyto zdroje -- úroky.
 
-V praxi se běžně nesetkáme s většími podniky, které by byly financovány výhradně z vlastních nebo výhradně z cizích zdrojů, jsou tedy do jisté míry zadluženy. Zadluženost obecně není negativní charakteristikou -- využití cizích zdrojů vede k zesílení tzv. finančního pákového efektu\footnote{finanční pákový efekt: bla bla bla?}, který pozitivně přispívá k rentabilitě vlastního kapitálu\cite{kisling}. Jedním z důležitých cílů finanční analýzy je nalezení ideální míry zadluženosti respektive ideálního rozložení kapitálové struktury.
+V praxi se běžně nesetkáme s většími podniky, které by byly financovány výhradně z vlastních nebo výhradně z cizích zdrojů, jsou tedy do jisté míry zadluženy. Zadluženost obecně není negativní charakteristikou -- využití cizích zdrojů vede k zesílení tzv. finančního pákového efektu, který pozitivně přispívá k rentabilitě vlastního kapitálu\cite{kisling}. S rostoucím procentem vyjadřujícím zadluženost však roste i riziko věřitelů. Čím vyšší bude riziko věřitelů, tím obtížněji bude podnik další cizí zdroje získávat a tím nevýhodnější budou podmínky jeho poskytnutí\cite{mendelu}. Jedním z důležitých cílů finanční analýzy je nalezení ideální míry zadluženosti respektive ideálního rozložení finanční struktury. Vzhledem k poměrně rozšířenému leasingovému financování zmíním, že by bylo vhodné takto pořízený majetek zohlednit a přičíst k cizímu kapitálu, má-li významnější objem.
 
 cizí kapitál je levnější - úroky se počítají do nákladů, platí se z nezdaněného zisku
 
@@ -248,17 +292,13 @@ cizí kapitál je levnější - úroky se počítají do nákladů, platí se z 
 \subsubsection{Celková zadluženost}
 debt ratio
 
-Základním ukazatelem zadluženosti je celková zadluženost jako podíl cizího kapitálu na celkových aktivech. S rostoucí hodnotou tohoto ukazatele roste i riziko věřitelů a cena za cizí kapitál (výše úroků). Věřitelé preferují nižší hodnoty -- v případě likvidace podniku mohou být pohledávky (nejen) věřitelů uhrazeny z vlastního kapitálu podniku.
-Z hlediska vlastníků akcií jsou vysoké hodnoty ukazatele příznivé, dokud podnik dosahuje vyššího procenta rentability než je procento úroku na cizí kapitál
+Základním ukazatelem zadluženosti je celková zadluženost jako podíl cizího kapitálu na celkových aktivech. S rostoucí hodnotou tohoto ukazatele roste i riziko věřitelů a cena za cizí kapitál (výše úroků). Věřitelé preferují nižší hodnoty -- v případě likvidace podniku mohou být pohledávky (nejen) věřitelů uhrazeny z vlastního kapitálu podniku (takzvaný finanční polštář).
+Z hlediska vlastníků akcií jsou vysoké hodnoty ukazatele příznivé, dokud podnik dosahuje vyššího procenta rentability než je procento úroku na cizí kapitál, což znamená, že výsledné zhodnocení kapitálu je vyšší než jeho pořizovací cena\cite{such}. 
 
 $$\vz{DR}{cizí kapitál}{celková aktiva}$$
 
-spojit?
-%-------------------------------------------------------
-\subsubsection{Poměr vlastního kapitálu}
-equity ratio
-
-Je doplňkovým ukazatelem k celkové zadluženosti. Součet by měl být přibližně 1 -- přibližně, jelikož kapitál nepředstauje veškerá pasiva.
+\vspace{3mm}
+Doplňkovým ukazatelem k celkové zadluženosti je ukazatel poměru vlastního kapitálu (equity ratio, ER). Jejich součet by měl být DR$+$ER$=1$
 
 $$\vz{ER}{vlastní kapitál}{celková aktiva}$$
 
@@ -268,17 +308,16 @@ debt to equity ratio
 
 Dá se spočítat jako poměr hodnoty cízího kapitálu k hodnotě vlastního. Stejný výsledek bychom získali poměrem předchozích dvou ukazatelů. V případě, že podnik využívá ve větším objemu? leasingového financování?, musíme tuto skutečnost zohlednit přičtením objemu k cizímu kapitálu. 
 
-??POZOR - leasingove financovani z rozvahy nevyčtete?
-
 $$\vz{DtE}{cizí kapitál}{vlastní kapitál}$$
 
-Při analýze se používá i převrácená hodnota ukazatele, která by se dala nazvat jako míra finanční samostatnosti podniku.
+\vspace{3mm}
+Ve finanční analýze se používá i převrácená hodnota ukazatele, která by se dala nazvat jako míra finanční samostatnosti podniku.
 
 %-------------------------------------------------------
 \subsubsection{Úrokové krytí}
 interest coverage
 
-Ukazatel vyjadřuje, kolikrát zisk pokryje úroky plynoucí ze závazků věřitelům. Obecně platí, že čím vyšší je jeho hodnota, tím lépe pro podnik. Pokud by byla hodnota IC$<1$, znamená to, že podnik hospodaří se ztrátou (není schopen ani pokrýt úroky). Pokud by vyšla hodnota ukazatele IC$=1$, znamená to, že se veškerý zisk použije k uhrazení úroků za vypůjčený kapitál a k vyplacení vlastních investorů nebo k reinvestici do kapitálu nezbudou žádné prostředky.
+Ukazatel vyjadřuje, kolikrát podnik pokryje úroky plynoucí ze závazků věřitelům poté, co uhradí všechny náklady na provoz (tzn. z provozního zisku). Dá se tedy chápat jako dopad zadlužení na zisk. Obecně platí, že čím vyšší je jeho hodnota, tím lépe pro podnik. Pokud by byla hodnota IC$<1$, znamená to, že podnik hospodaří se ztrátou (není schopen ani pokrýt úroky). Pokud by vyšla hodnota ukazatele IC$=1$, znamená to, že se veškerý zisk použije k uhrazení úroků za vypůjčený kapitál a k vyplacení vlastních investorů nebo k reinvestici do kapitálu nezbudou žádné prostředky.
 
 $$\vz{IC}{EBIT}{nákladové úroky}$$
 
@@ -295,9 +334,51 @@ internal rate of return
 economic value added
 
 \section{Existující software}
-\subsection{Equanta\sffamily\textregistered}
+Před návrhem vlastního řešení bylo vhodné prozkoumat již existující řešení. 
 
-%=========================================================================
+\subsubsection{Equanta\sffamily\textregistered}
+\subsubsection{FinAnalysis}
+\subsubsection{FAF -- Finanční analýza firmy}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \chapter{Návrh řešení}
 \section{Vybrané metody vyhodnocování finančního zdraví}
 Ukazatele jsou ve skutečnosti jen čísla, kterým rozumí spíše ekonomové - běžný uživatel by z nich nejspíš nic nevydedukoval. Proto je žádoucí, aby byly výstupem nejen tato čísla, ale i nějaký srozumitelný závěr?.
@@ -314,7 +395,7 @@ Horizontální analýza
 - osetreni krajinich, extremnich pripadu (hospodaření se ztrátou, ...)
 
 \section{Návrh programového řešení}
-Program bude mít webové rozhraní, což má samozřejmě své výhody - uživatel může k programu přistupovat odkudkoliv (a to z různých platforem), používání programu není podmíněno jeho instalací a z pohledu vývojáře je mnohem jednodušší jeho údržba (vydávání nových verzí).
+Program bude mít webové rozhraní, což má samozřejmě své výhody - uživatel může k programu přistupovat odkudkoliv (a to z různých platforem), používání programu není podmíněno jeho instalací a z pohledu vývojáře je mnohem jednodušší jeho údržba (vydávání nových verzí). 
 
 - defaultni nastaveni, ale vysoka uroven prizbusobeni, vse svazano s uctem
 - nekolik ruznych podniku na uziv(financni analytik)
@@ -322,7 +403,6 @@ Program bude mít webové rozhraní, což má samozřejmě své výhody - uživa
 - moznost srovnani mezi roky / podniky
 - zobrazene/preferovane ukazatele
 - vysvetlivky, alternativni oznaceni ekonomickych pojmu
-
 
 \subsection{Architektura}
  
@@ -346,10 +426,6 @@ Uživateli bude pro snadnější práci umožněno vytoření vlastního účtu.
 TECHNOLOGIE, KNIHOVNY
 -React(Redux,Navigation,bootstrap)
 -Firebase?
+-popis knihovny pro grafy
 
 -navrh testů (rozvaha,ZZ,vypočítané uk)
-
-%=========================================================================
-\chapter{Implementace a testování}
-%=========================================================================
-\chapter{Závěr}
