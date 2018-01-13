@@ -503,7 +503,7 @@ U všech poměrových ukazatelů se dá určit nějaká optimální hodnota. Tyt
 Serverová část bude sloužit především k uchovávání persisentních dat. Těmi jsou uživatelem nahrané výkazy a jeho nastavení, taktéž databáze uživatelů samotných.
 Kromě toho bude vyřizovat požadavky klientů. Vzhledem k tomu, že je nástroj koncipován jako SPA (single page application), ke stažení javascriptového kódu ke klientovi bude sloužit jeden jediný endpoint. Klient tak bude moci s nástrojem pracovat bez dodatečného volání serveru. Server bude dále zpřístupňovat rozhraní pro CRUD operace s persistentními daty, jimiž jsou pouze výkazy a uživatelské předolby. V poslední řadě budou na serverové části endpointy pro pro práci s uživatelskými účty (vytváření, přihlašování, mazání).
 
-Zda se budou výpočty provádět na straně serveru nebo klienta se rozhodne až při implementaci a testování. Preferovaný je výpočet na straně klienta, je však potřeba dbát na to, abychom nespotřebovali přemíru výpočetní síly.
+Zda se budou výpočty provádět na straně serveru nebo klienta se rozhodne až při implementaci a testování. Preferovaný je výpočet na straně klienta, je však potřeba dbát na to, aby zátež na klientovi nebyla znát.
 
 single page application, API pro kod aplikace, logovani, praci s VZZ a R, nastavenimi
 
