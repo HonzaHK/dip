@@ -54,7 +54,7 @@ Při finanční analýze se používají dva navzájem propojené přístupy\cit
 	\item kvalitativní (fundamentální) analýza, založená na znalostech souvislostí mezi ekonomickými i mimoekonomickými jevy, zkušenostech odborníků a na jejich subjektivních odhadech
 	\item kvantitativní (technickou) analýza, která využívá matematické, statistické a jiné algoritmizovatelné postupy
 \end{enumerate}
-V této práci se budeme zabývat především kvantitativní analýzou právě z důvodu možnosti její algoritmizace. 
+V této práci se budeme zabývat především kvantitativní analýzou právě z důvodu možnosti její algoritmizace.
 
 \section{Vstupní data}
 Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budeme vycházet. Množina vstupních dat není nijak omezena a může být vskutku rozsáhlá -- při výpočtu a odvozování závěrů lze zohlednit nejrůznější faktory. Pro nás budou však klíčová především data o vlastním hospodaření podniku, za jejichž evidenci je zodpovědná účetní jednotka podniku, která je v průběhu roku zapisuje do takzvané účtové osnovy.
@@ -397,7 +397,7 @@ Ukazatele jsou i na obrazovce s trendy, ta mimo ukazatele obsahuje i trendy polo
 
 Nástroj dále umožňuje vertikální analýzu, horizontální analýzu, analýzu cash flow a výpočet hodnoty firmy.
 
-Funkcionalita, která mě nejvíce zaujala, byla zvaná \uv{Co když}. Spočívá v umožnění uživateli manipulovat se vstupními daty analýzy a sledovat, jak by se měnily ukazatele.
+Funkcionalita, která mě nejvíce zaujala, byla zvaná \uv{Co když}. Spočívá v umožnění uživateli jednoduše manipulovat se vstupními daty analýzy a zároveň sledovat, jak by se měnily ukazatele.
 
 Hodnoty z VZZ a R jsou zadávány do tabulky. Instruktážní video ani uživatelská příručka nehovoří o tom, zda nástroj podporuje automatizované načítání výstupních dat z některých jiných nástrojů z oblasti financí (např. účetních).
 
@@ -413,6 +413,13 @@ Nástroj si pamatuje naposledy ovtevřené dokumenty a má různá nastavení a 
 
 
 \subsubsection{FinAnalysis}
+Nástroj je realizován v jako přednastavená šablona v tabulkovém prostředí MS Excel. Toto řešení může být rýchlé a efektivní, nicméně pro naše účely naprosto nevyhovující, jelikož jeho používání je podmíněno používáním MS Excel.
+
+Přesto se lze v nástroji inspirovat možnostmi provádení základních analýz, výpočty mnoha ukazatelů a interpretací výsledků. Jednotlivé sekce jsou realizovány jako listy v Excelu. První tři listy (list s VZZ, rozvahou a list se základními údaji jako například počet zaměstnanců) tedy slouží k zadávání dat. Zbývající listy s výsledky jsou pouze pro čtení a představují rozdělení podle jednotlivých typů analýzy.  
+
+Je třeba si však uvědomit, že je omezen prostředím svého běhu -- veškerá rozšíření je nutné implementovat funkcemi Excelu. Toto řešení se mi jeví jako nevhodné i z důvodu, že ne všechna data v analýze jsou tabulkového charakteru.
+
+
 
 %--------------------------------------------------------
 \section{Vybrané metody vyhodnocování}
@@ -434,16 +441,20 @@ Porovnání s ukazateli v odvětví
 
 %---------------------------------------------------------
 \section{Návrh programového řešení}
+
+Nástoroj nebude sloužit jen pro dávkové zpracování souborů. Půjde o systém pro manažery a analytiky, ve kterém bude možné pod určitým uživatelským účtem vést informace o hospodaření různých podniků za různá časová období. Nástroj bude schopen načtená data uložit a svázat s daným uživatelským účtem, což umožní nejen jednoduchý přístup k těmto datům, ale i meziroční a mezipodnikové srovnání.
+
 \subsection{Načítání zdrojových dat}
 Vstupem finanční analýzy jsou data z dokumentů výkaz zisku a ztráty a rozvaha. Při hledání vhodného způsobu automatizace načítání vstupních dat bylo zjištěno, že jsou obchodní subjekty? ze zákona povinny každoročně tyto dva dokumenty odevzdávat pro evidenci? státu?. Odevzdávají se ve dvou formách?: ve formátu PDF na krajský soud, pod kterým na Ministerstvo průmyslu a obchodu? obchodní rejistřík? (MPO) citace? a za druhé? ve strukturovaném formátu XML jako příloha k daňovému přiznání citace?.
 
 Přestože se pro účtování používají v podnicích různé nástroje (Pohoda, MRP, \dots), dá se očekávat, že většina z nich bude schopna tyto dva dokumenty vytvořit ve zmíněném formátu a xmlns?.
 
-V našem nástroji tedy bude umožněno automatické načítání těchto souborů implementací parseru daného xmlns?, čímž výrazně usnadníme zadávání.
-Uživateli bude samozřejmě ponechána možnost hodnotu všech položek rozvahy a výsledovky vyplnit ručně. Údaje zadané všemi společnostmi jsou sice zveřejňovány, nicméně už jen ve formátu PDF.
+V nástroji tedy bude umožněno automatické načítání těchto souborů implementací parseru daného xmlns?, čímž výrazně usnadníme zadávání.
+
+Uživateli bude samozřejmě ponechána možnost hodnotu všech položek rozvahy a výsledovky vyplnit ručně. Údaje ostatních společností jsou sice zveřejňovány, nicméně už jen ve formátu PDF, v tomto případě je tedy ruční zadávání nezbytné.
 
 \subsection{Uživatelské rozhraní}
-Program bude mít webové rozhraní, což má samozřejmě své výhody - uživatel může k programu přistupovat odkudkoliv (a to z různých platforem), používání programu není podmíněno jeho instalací a z pohledu vývojáře je mnohem jednodušší jeho údržba (vydávání nových verzí). Nutnost připojení k internetu by neměla být v dnešní době problém.
+Program bude mít webové rozhraní, což má samozřejmě své výhody -- uživatel může k programu přistupovat odkudkoliv (a to z různých platforem), používání programu není podmíněno jeho instalací a z pohledu vývojáře je mnohem jednodušší jeho údržba (vydávání nových verzí). Nutnost připojení k internetu by neměla být v dnešní době problém.
 
 Vzhledem k nejedotné terminologii napříč celou finanční analýzou je žádoucí, aby při zobrazování výstupu uživatel bezpečně zjistil, o jaký ukazatel se jedná. To bude zajištěno zobrazením alternativních označení, případně možností přímo přejít do sekce, kde jsou jednotlivé ukazatele detailně vysvětleny. K tomuto účelu může být použit text z teoretické části této práce.
 
