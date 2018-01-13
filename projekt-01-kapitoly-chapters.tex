@@ -61,6 +61,8 @@ Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budem
 \subsubsection{Účtová osnova}
 Právnické osoby, fyzické osoby zapsané v obchodním rejistříku a některé další subjekty jsou ze zákona o účetnictví? povinny vést podvojné účetnictví (proti daňová evidence), což zároveň implikuje povinnost účtovat podle účtové osnovy.
 
+finanční výkazy tvořící účetní uzávěrku - VZZ a R.
+
 google - zverejneni ucetni uzaverky
 každoročně účetní závěrku. Ta má v ČR dvě povinné části - výkaz zisku a ztráty a rozvaha. Hodnoty jejich položek jsou vypočítány právě z dat jednotlivých účtů.
 \subsubsection{Výkaz zisku a ztráty}
@@ -333,11 +335,8 @@ $$\vz{IC}{EBIT}{nákladové úroky}$$
 
 \subsection{Další ukazatele}
 
-\subsubsection{IRR -- vnitřní výnosové procento}
+\subsubsection{IRR -- Vnitřní výnosové procento}
 internal rate of return
-
-\subsubsection{EVA}
-economic value added
 
 
 
@@ -423,15 +422,30 @@ Je třeba si však uvědomit, že je omezen prostředím svého běhu -- vešker
 
 %--------------------------------------------------------
 \section{Vybrané metody vyhodnocování}
-Nástroj by měl být schopen provádět alespoň výpočty zmíněné v teoretické části.
+Nástroj by měl být schopen provádět analýzu alespoň v rozsahu teoretické části této práce.
 
+
+\subsubsection{Vertikální a horizontální analýza}
 Hned jako první se nabízí porovnání s hodnotami za předchozí období, tedy horizontální analýza. Při horizontální analýze jedné položky VZZ nebo R se nejčastěji používá sloupcového (v případě více sledovaných období spojnicového) grafu. Nástroj bude umožňovat i hromadnou horizontální analýzu -- výsledek bude interpretován tabulkou; meziroční změna u jednotlivých položek bude vyjádřena absolutní i procentuální hodnotou. 
 
-Dalším ? je vertikální analýza.
+Podobně i pro vertikální analýzu. Pokud bychom chtěli analyzovat pouze užší část VZZ nebo R, můžeme výsledky interpretovat v grafech. Výsledky hromadné analýzy budou zobrazeny v tabulce s vyjádřením změn absolutní i procentuální hodnotou.
 
+\subsubsection{Poměrové ukazatele}
+Možnosti zobrazení poměrových ukazatelů budou podobné jako v testovaných nástrojích. Ukazatele budou na
+Pro interpretaci výsledků budou využity:
+\begin{itemize}
+	\item stupnice
+	\item společné srovnávací tabulky
+	\item tabulky s trendy
+	\item grafy (sloupcové, spojnicové, koláčové a další)
+\end{itemize}
 
-Porovnání s ukazateli v odvětví
+Kromě toho bude nástroj schopen sledovat a upozorňovat na rizikové faktory.
 
+V nástroji bude také sekce, kde bude možné s hodnotami libobolně manipulovat a sledovat, jak se výsledné hodnoty ukazatelů mění, což může být využito při rozhodování a plánování.
+
+- porovnání s ukazateli v odvětví
+- mezipodnikove porovnani
 - co nejvice ukazatelu - komplexni
 - kolacovy graf pro kapitalovou strukturu
 - osetreni krajinich, extremnich pripadu (hospodaření se ztrátou, ...)
@@ -442,23 +456,25 @@ Porovnání s ukazateli v odvětví
 %---------------------------------------------------------
 \section{Návrh programového řešení}
 
-Nástoroj nebude sloužit jen pro dávkové zpracování souborů. Půjde o systém pro manažery a analytiky, ve kterém bude možné pod určitým uživatelským účtem vést informace o hospodaření různých podniků za různá časová období. Nástroj bude schopen načtená data uložit a svázat s daným uživatelským účtem, což umožní nejen jednoduchý přístup k těmto datům, ale i meziroční a mezipodnikové srovnání.
+Nástoroj nebude sloužit vyloženě jen pro dávkové zpracování souborů. Půjde o systém pro manažery a analytiky, ve kterém bude možné pod určitým uživatelským účtem vést informace o hospodaření různých podniků za různá časová období. Nástroj bude schopen načtená data uložit a svázat s daným uživatelským účtem, což umožní nejen jednoduchý přístup k těmto datům a jejich kvantitativní analýze, ale i jednoduchou správu dat pro meziroční a mezipodnikové srovnání. Díky webovému rozhraní, což činí tento nástroj jedinečným, bude možné přistupovat k systému a využívat jeho služeb kdykoliv a odkudkoliv.
 
 \subsection{Načítání zdrojových dat}
-Vstupem finanční analýzy jsou data z dokumentů výkaz zisku a ztráty a rozvaha. Při hledání vhodného způsobu automatizace načítání vstupních dat bylo zjištěno, že jsou obchodní subjekty? ze zákona povinny každoročně tyto dva dokumenty odevzdávat pro evidenci? státu?. Odevzdávají se ve dvou formách?: ve formátu PDF na krajský soud, pod kterým na Ministerstvo průmyslu a obchodu? obchodní rejistřík? (MPO) citace? a za druhé? ve strukturovaném formátu XML jako příloha k daňovému přiznání citace?.
+Vstupem kvantitativní finanční analýzy jsou data z dokumentů výkaz zisku a ztráty a rozvaha. Při hledání vhodného způsobu automatizace načítání vstupních dat bylo zjištěno, že jsou subjekty zapsané v obchodním rejistříku ze zákona povinny každoročně tyto dva dokumenty odevzdávat pro evidenci státním orgánům. 
+Odevzdávají se ve dvou formách. Pvní z nich je ve formátu PDF na krajský soud, v jehož obchodním rejistříku je subjekt evidován. Naštěstí pro nás jsou odevzdávány na daňovém portálu spolu s daňovým přiznáním ve strukturovaném formátu XML. Přestože se pro účtování používají v podnicích různé nástroje (Pohoda, MRP, \dots), dá se očekávat, že většina z nich bude schopna tyto dva dokumenty vytvořit ve shodě s uváděnou specifikací.
 
-Přestože se pro účtování používají v podnicích různé nástroje (Pohoda, MRP, \dots), dá se očekávat, že většina z nich bude schopna tyto dva dokumenty vytvořit ve zmíněném formátu a xmlns?.
+Vzhledem k této skutečnosti bude v nástroji umožněno automatické načítání těchto souborů implementací odpovídajícího parseru,  čímž výrazně usnadníme zadávání.
 
-V nástroji tedy bude umožněno automatické načítání těchto souborů implementací parseru daného xmlns?, čímž výrazně usnadníme zadávání.
-
-Uživateli bude samozřejmě ponechána možnost hodnotu všech položek rozvahy a výsledovky vyplnit ručně. Údaje ostatních společností jsou sice zveřejňovány, nicméně už jen ve formátu PDF, v tomto případě je tedy ruční zadávání nezbytné.
+Uživateli bude samozřejmě ponechána možnost hodnotu všech položek rozvahy a výsledovky vyplnit ručně. Údaje ostatních společností jsou sice zveřejňovány, nicméně už jen ve formátu PDF, v tomto případě je tedy ruční zadávání nezbytné pro mezipodnikové srovnání.
 
 \subsection{Uživatelské rozhraní}
-Program bude mít webové rozhraní, což má samozřejmě své výhody -- uživatel může k programu přistupovat odkudkoliv (a to z různých platforem), používání programu není podmíněno jeho instalací a z pohledu vývojáře je mnohem jednodušší jeho údržba (vydávání nových verzí). Nutnost připojení k internetu by neměla být v dnešní době problém.
+Program bude mít webové rozhraní, což má samozřejmě své výhody -- uživatel může k programu přistupovat odkudkoliv (i z různých platforem), používání programu není podmíněno jeho instalací a z pohledu vývojáře je mnohem jednodušší jeho údržba (vydávání nových verzí). Nutnost připojení k internetu by v dnešní době neměla být výrazným omezením.
 
-Vzhledem k nejedotné terminologii napříč celou finanční analýzou je žádoucí, aby při zobrazování výstupu uživatel bezpečně zjistil, o jaký ukazatel se jedná. To bude zajištěno zobrazením alternativních označení, případně možností přímo přejít do sekce, kde jsou jednotlivé ukazatele detailně vysvětleny. K tomuto účelu může být použit text z teoretické části této práce.
+Vzhledem k nejedotné terminologii napříč celou finanční analýzou je žádoucí, aby při zobrazování výstupu uživatel bezpečně zjistil, co se daným pojmem myslí, co daný výsledek reprezentuje. To bude zajištěno výčtem alternativních označení (a možností výběru vlastního označení), případně možností přímo přejít do sekce, kde jsou jednotlivé ukazatele detailně vysvětleny. K tomuto účelu může být použit text z teoretické části této práce.
 
-Nástroj tedy bude obsahovat obrazovku s přehledem podniků, pro konkrétní podnik 
+Pokud bude se systémem pracovat nepřihlášený uživatel, bude mu umožněno pouze jednorázové zpracování dat - načtení vstupu a prohlížení výsledků, případně dodatečné upravení vsutpu.
+
+Domovskou stránkou pro přihlášeného uživatele bude obrazovka s přehledem podniků, které jsou pod jeho účtem evidovány. Podniky mohou být přidávány a odebírány, slouží jen pro seskupování uzávěrek.
+Po výběru podniku se uživatel dostane na obrazovku s přehledem nahraných uzávěrek. Uzávěrky lze přidávat, upravovat a odebírat. Při přidávání lze zvolit mezi načtením z XML souboru nebo ručním vyplněním buněk tabulky. Ta bude použita i pro editaci již zadaných dat.  
 
 Uživateli bude pro snadnější práci umožněno vytoření vlastního účtu. Systém tak bude schopen personalizovat obsah dle nastavených předvoleb. S účtem budou svázana i data za jednotlivá časová obdoví v minulosti, která lze nahrát a uchovat pro další použití, například porovnání nebo zpřesnění analýzy v budoucnu.
 
@@ -482,16 +498,24 @@ U všech poměrových ukazatelů se dá určit nějaká optimální hodnota. Tyt
 - vyber polozky vysledovky (checkbox/selectbox ...?)
 - checkboxy pro roky
 
-\subsection{Fyzická (datová) vrstva}
+
+\subsection{Serverová část}
+Serverová část bude sloužit především k uchovávání persisentních dat. Těmi jsou uživatelem nahrané výkazy a jeho nastavení, taktéž databáze uživatelů samotných.
+Kromě toho bude vyřizovat požadavky klientů. Vzhledem k tomu, že je nástroj koncipován jako SPA (single page application), ke stažení javascriptového kódu ke klientovi bude sloužit jeden jediný endpoint. Klient tak bude moci s nástrojem pracovat bez dodatečného volání serveru. Server bude dále zpřístupňovat rozhraní pro CRUD operace s persistentními daty, jimiž jsou pouze výkazy a uživatelské předolby. V poslední řadě budou na serverové části endpointy pro pro práci s uživatelskými účty (vytváření, přihlašování, mazání).
+
+Zda se budou výpočty provádět na straně serveru nebo klienta se rozhodne až při implementaci a testování. Preferovaný je výpočet na straně klienta, je však potřeba dbát na to, abychom nespotřebovali přemíru výpočetní síly.
+
+single page application, API pro kod aplikace, logovani, praci s VZZ a R, nastavenimi
 
 \subsection{Knihovny a technologie}
 HTML, CSS, JavaScript, PHP?, MySQL?
 
 \subsubsection{React}
 
-(Redux,Navigation,bootstrap)
+(Redux,Navigation,bootstrap,nextjs)
 
 \subsubsection{Chart.js}
+\subsubsection{Typescript}
 
 
 
