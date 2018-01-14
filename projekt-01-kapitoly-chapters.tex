@@ -1,10 +1,12 @@
 \chapter{Úvod}
-Tato práce se ze zabývá dvěma celky. Prvním tématem je teorie spojená s prováděním finanční analýzy -- co je to finanční analýza, jaké jsou její cíle, jaká jsou vstupní data a co je výstupem, vysvětlení pojmů, používaných metod a strategií, konstrukcí a vypočtů jednotlivých ukazatelů finanční analýzy a intepretací jejich hodnot. 
-Druhým tématickým celkem je popis nástroje, který finanční analýzu provádí a který bude v rámci této diplomové práce implementován. 
+Cílem práce je navrhnout nástroj, který podporuje provádění finanční analýzy podniku. Finanční analýza je v podnikové sféře technika umožňující zjistit a vyhodnotit finanční situaci podniku na základě dat o jeho hospodaření. Její provádění a zkoumání výsledků je jedním z předpokladů pro kvalitní a komplexní vedení podniku. Cílovou skupinu produktu tedy tvoří finanční analytici, manažeři společností i běžní podnikatelé, jimž má provádění této činnosti usnadnit.
+
+Tato práce obsahuje dva tematické celky. Nejprve bude provedeno shrnutí teorie spojené s prováděním finanční analýzy -- co je to finanční analýza, jaké jsou její cíle, jaká jsou vstupní data a co je výstupem, vysvětlení pojmů, používaných metod a strategií, konstrukcí a vypočtů jednotlivých ukazatelů finanční analýzy a intepretací jejich hodnot. 
+Druhým tematickým celkem je popis nástroje, který finanční analýzu provádí a který bude v rámci této diplomové práce implementován. 
 
 Text práce je členěn do pěti kapitol. Jelikož je finanční analýza poměrně rozsáhlá oblast, celá příští kapitola je věnována prvnímu celku, teorii. 
 
-Ve třetí kapitole jsou ještě před vytvářením návrhu podrobeny testování již existující nástroje, abychom si mohli udělat obrázek o tom, jak tuto problematiku řešili jiní. Na základě zjištěných poznatků je vypracován návrh programového řešení vlastního nástroje -- architektura, entity?, implementační jazyk, užitečné knihovny, podoba prostředí, vstupu a výstupu.
+Ve třetí kapitole jsou ještě před vytvářením návrhu podrobeny testování již existující nástroje, abychom si mohli udělat obrázek o tom, jak tuto problematiku řešili jiní. Na základě zjištěných poznatků je vypracován návrh programového řešení vlastního nástroje.
 
 Čtvrtá kapitola se zabývá realizací návrhu, implementačními detaily, fungováním nástroje a také jeho testováním. 
 
@@ -54,7 +56,7 @@ Mimo to se v praxi můžeme setkat s případ kdy po nás banka chce fin uk
 Při finanční analýze se používají dva navzájem propojené přístupy\cite{kova}:
 \begin{enumerate}
 	\item kvalitativní (fundamentální) analýza, založená na znalostech souvislostí mezi ekonomickými i mimoekonomickými jevy, zkušenostech odborníků a na jejich subjektivních odhadech
-	\item kvantitativní (technickou) analýza, která využívá matematické, statistické a jiné algoritmizovatelné postupy
+	\item kvantitativní (technická) analýza, která využívá matematické, statistické a jiné algoritmizovatelné postupy
 \end{enumerate}
 V této práci se budeme zabývat především kvantitativní analýzou právě z důvodu kvůli možnosti její algoritmizace.
 
@@ -71,7 +73,7 @@ Výkaz zisku a ztráty, také výsledovka, se vztahuje k určitému časovému o
 
 \subsubsection{Rozvaha}
 Narozdíl od výkazu zisku a ztráty jsou při sestavování rozvahy data vázána k jednomu určitému okamžiku, takzvanému rozvahovému dni, který je posledním dnem účetního období, zpravidla tedy posledním dnem kalendářního roku. Data mají tedy statickou povahu.
-Hlavními složkami rozvahy jsou aktiva a pasiva. Aktiva představují majetek společnosti (budovy, stroje, materiál, vozidla, \dots, ale i software nebo know-how), pasiva jsou zdrojem krytí těchto aktiv (kapitál).
+Hlavními složkami rozvahy jsou aktiva a pasiva. Zatímco aktiva představují majetek společnosti (budovy, stroje, materiál, vozidla, \dots, ale i software nebo know-how), pasiva jsou zdrojem krytí těchto aktiv (kapitál).
 
 %#########################################################################
 \section{Absolutní ukazatele}
@@ -87,7 +89,7 @@ Výhodou vertikální analýzy je, že není ovlivněna meziroční inflací a v
 \section{Poměrové ukazatele}
 Výpočet je opět založen na datech z rozvahy a výsledovky. Narozdíl od horizontální a vertikální analýzy, při kterých je sledován vývoj jedné veličiny v čase případně vývoj ve vztahu k určité vztažné veličině (nadřazenému celku), při výpočtu poměrových ukazatelů zkoumáme vztah mezi jednotlivými veličinami navzájem, čímž získáváme zase jinou vypovídající hodnotu?.
 
-Existuje několik různých ukazatelů. Různé ukazatele slouží různým účelům, různé společnosti se řídí různými ukazateli. Podle účelu a povahy ukazatele ho lze zařadit do některé ze skupin soustavy ukazatelů. V této práci budou zmíněny jednotlivé ukazatele rentability, likvidity, aktivity, zadluženosti, dále ...?
+Existuje několik různých ukazatelů. Různé ukazatele slouží různým účelům, různé společnosti se řídí různými ukazateli. Podle účelu a povahy ukazatele ho lze zařadit do některé ze skupin soustavy ukazatelů. V této práci budou zmíněny základní skupiny ukazatelů -- rentability, likvidity, aktivity, a zadluženosti, v rámci nichž budou popsány i jednotlivé ukazatele.
 
 Jak plyne z názvu, při výpočtu hodnoty ukazatele se obecně používá nějakého poměru, tedy zlomku. Možností, které hodnoty dát do poměru, je takřka neomezeně. Nicméně při konstrukci jednotlivých ukazatelů bychom se měli zamyslet nad tím, co při vybraných entitách vlastně vztah vyčísluje -- zda má konkrétní volba význam pro účel analýzy\cite{kisling}.
 
@@ -106,8 +108,6 @@ Ukazatele rentability jsou mezivýkazovými ukazateli, což znamená, že jsou p
 
 V rámci jednoho ukazatele však existuje několik dalších variant výpočtu. Ty se vzájemně liší složkou v čitateli, která zachycuje výsledek hospodaření (zisk) v rozdílných fazích -- před nebo po zdanění, odečtení úroků, provedení odpisů a amortizace. Do čitatele může být dosazen i jiný ukazatel firemní výkonosti, jako například provozní cashflow. Volíme takové hodnoty, které mají pro danou situaci největší vypovídací hodnotu.
 
-vyjde rentabilita 5proc, ale kdybychom dali prachy do banky, urok je 6proc, navic mene rizika, tak proc to davat do podniku
-
 \begin{itemize}
 \item EAT -- earnings after taxes, čistý zisk -- zisk po zdanění, zúročení, odpisech a amortizaci
 
@@ -120,7 +120,12 @@ vyjde rentabilita 5proc, ale kdybychom dali prachy do banky, urok je 6proc, navi
 \item NOPAT = EBIT$*(1-t)$, kde $t$ je sazba daně z příjmů  -- zdaněný (čistý) zisk bez odečtení úroků, t.j. kolik by dělal čistý zisk, kdyby podnik nemusel platit úroky (kdyby nečerpal žádný úvěr)
 \end{itemize}
 
-provozní CF
+
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm]{img/zisk.eps}
+  \caption{Grafická intepretace jednotlivých druhů zisku}
+\end{figure}
 
 %-------------------------------------------------------
 \subsubsection{ROA -- rentabilita aktiv}
@@ -130,11 +135,11 @@ ROA je ukazatel, který do jmenovatele dosazuje celkový objem aktiv (potažmo p
 
 Nejčastějšími variantami uváděnými v literatuře jsou ty, které mají v čitateli hodnotu EBIT, tedy zisk před odečtením nákladových úroků (rentabilita celkových aktiv by neměla brát v potaz původ zdrojů) a zdaněním. Tato volba nám zároveň umožňuje porovnat podniky s rozdílnými zdroji financování a různým daňovým zatížením.
 
-$$\vz{ROA}{EBIT}{A}$$
+$$\vz{ROA}{EBIT}{A} \scite{sedl}$$
 
 Další používanou variantou je s hodnotou NOPAT v čitateli. Výsledkem je rentabilita, která by plynula z čistého zisku, pokud by byly veškeré zdroje financování vlastní. Dochází zde k fiktivnímu zdanění úroků, jelikož EBIT$*(1-t)$ se dá zapsat také jako EAT$+$Ú$*(1-t)$.
 
-$$\vz{ROA}{EBIT $*(1-t)$}{A}$$ 
+$$\vz{ROA}{EBIT $*(1-t)$}{A} \scite{sedl}$$ 
 
 
 %-------------------------------------------------------
@@ -149,7 +154,7 @@ Výpočet má pochopitelně smysl zejména s čistým ziskem (EAT) v čitateli, 
 
 tabulka? zmeny kapitalove struktury a vliv na ROE
 
-$$\vz{ROE}{čistý zisk}{vlastní kapitál}$$ 
+$$\vz{ROE}{čistý zisk}{vlastní kapitál} \scite{sedl}$$ 
 
 
 %-------------------------------------------------------
@@ -161,7 +166,7 @@ V praxi velmi často používaný ukazatel. Poměřuje zisk podniku a tržby (tr
 Pokud by byla výsledkem relativně malá, dlouhodobě klesající hodnota (např. 2\%), je vhodné zpozornit. Pokud by došlo k náhlému poklesu tržeb při zachování nákladů (což je běžné), je zřejmé, že se podnik dostane do finančních potíží. Stejnětak se může dostat do potíží při zvýšení nákladů (zdražení materiálu, energií, pracovní síly) se současným zachováním objemu tržeb (zvýšení nákladů se však na tržby zpravidla promítne). 
 V čitateli se nejčastěji používá hodnota EBIT nebo EAT
 
-$$\vz{ROS}{EBIT}{tržby} \vz{ROS}{EAT}{tržby}$$ 
+$$\vz{ROS}{EBIT}{tržby} \scite{sedl} \hspace{2cm} \vz{ROS}{EAT}{tržby} \scite{sedl}$$ 
 
 %-------------------------------------------------------
 \subsubsection{Některé další ukazatele:}
@@ -187,8 +192,7 @@ Likvidita podniku dává tyto pojmy do souvislosti -- ukazatele likvidity vyjad�
 Všechny ukazatele likvidity se počítají jako poměr toho, čím je možné platit (disponibilní prostředky), k tomu, co se musí zaplatit. Disponibilními prostředky můžeme přitom chápat různou množinu aktiv. Je samozřejmě nesmysl, aby byla zahrnuta ta aktiva, jejichž ztráta by ohrozila chod podniku.
 
 %-------------------------------------------------------
-\subsubsection{Běžná likvidita} 
-likvidita III. stupně
+\subsubsection{Běžná likvidita (likvidita III. stupně)} 
 CR - Current Ratio
 
 Poměr ukazuje, kolikrát pokrývají oběžná aktiva krátkodobé závazky, jinými slovy, kolikrát je podnik schopen uhradit své krátkodobé závazky z peněžních prostředků, které by získal přeměnou z oběžných aktiv.
@@ -196,29 +200,27 @@ Poměr ukazuje, kolikrát pokrývají oběžná aktiva krátkodobé závazky, ji
 Uváděná optimální hodnota se v literaturách různí, zřejmě se bude lišit i v závisloti na typu podniku. Hodnota ukazatele by určitě neměla být menší než 1, což by znamenalo nutnost financovat závazky z dlouhodobých zdrojů financování a jinými nevhodnými způsoby. Také berme v potaz, že po pokrytí závazků by měly zbýt prostředky pro další činnost podniku.
 Optimální hodnota uvedená v preferovaném zdroji je CR$\geq 1.5$, ale obecně lze tvrdit, že čím stabilnější jsou příjmy a čím jistější jsou zdroje těchto příjmů, tím více se může hodnota běžné likvidity blížit jedné\cite{businessvize_bez_likv}.
 
-$$\zl{oběžná aktiva}{krátkodobé závazky}$$
+$$\vz{CR}{oběžná aktiva}{krátkodobé závazky} \scite{sedl}$$
 
 %-------------------------------------------------------
-\subsubsection{Pohotová likvidita} 
-likvidita II. stupně
+\subsubsection{Pohotová likvidita (likvidita II. stupně)} 
 QAR - Quick Asset Ratio
 
 Pokud bychom zkoumali strukturu oběžných aktiv, zjistili bychom, že se likvidnost jednotlivých složek liší. Výpočet běžné likvidity zahrnuje i zásoby, nicméně ty při výpočtu pohotové likvidity nejsou zahrnuty, jelikož většinou bývají nezbytné pro zachování chodu podniku a navíc jejich likvidnost nemusí být dostačující.
 V čitateli tak zbude součet objemu peněžních prostředků, ekvivalentů a pohledávek. Pro zpřesnění výsledku je vhodné odečíst nedobytné pohledávky.
 Dá se předpokládat, že podniky z oblasti služeb nebudou mít v zásobách mnoho aktiv a proto se bude hodnota ukazatele blížit hodnotě běžné likvidity. U výrobních podniků se naopak tyto dvě hodnoty budou spíše lišit.
 
-$$\zl{oběžná aktiva $-$ zásoby}{krátkodobé závazky}$$
+$$\vz{QAR}{oběžná aktiva $-$ zásoby}{krátkodobé závazky} \scite{sedl}$$
 
 %-------------------------------------------------------
-\subsubsection{Hotovostní likvidita}
-likvidita I. stupně
+\subsubsection{Hotovostní likvidita (likvidita I. stupně)}
 CPR - Cash Position Ratio
 
 Při výpočtu hotovostní likvidity dosazujeme do čitatele součet jen těch nejlikvidnější složek oběžných aktiv, kterými jsou pěněžní prostředky (peníze v hotovosti a na běžných účtech) a jejich ekvivalenty (například šeky nebo obchdovatlné cenné papíry).
 Přestože tento ukazatel nejlépe vypovídá o platební schopnosti podniku k určitému datu, nebere v potaz strkuturu krátkodobých závazků, především z pohledu jejich skutečné splatnosti\cite{mendelu}. Pokud bychom chtěli tuto skutečnost zohlednit, měli bychom do jmenovatele zahrnout pouze okamžitě splatné závazky. Taková varianta bývá označována jako okamžitá likvidita.
 
 
-$$\zl{peněžní prostředky $+$ ekvivalenty}{krátkodobé závazky}$$
+$$\vz{CPR}{peněžní prostředky $+$ ekvivalenty}{krátkodobé závazky} \scite{sedl}$$
 
 
 
@@ -243,7 +245,7 @@ total assets turnover
 
 Udává, kolikrát se obrátí celková aktiva za sledované časové období. Nevýhodou tohoto a některých dalších ukazatelů je povaha vstupních veličin: tržby jsou zachyceny jejich sumou za celé období, kdežto hodnota aktiv se vztahuje ke konkrétnímu časovému okamžiku, kdy byla rozvaha vytvořena. Přesnějšího výsledku by se dalo dosáhnout použitím průměrné hodnoty sledovaných aktiv. 
 
-$$\vz{obrat celkových aktiv}{tržby}{celková aktiva}$$
+$$\vz{obrat celkových aktiv}{tržby}{celková aktiva} \scite{mendelu}$$
 
 %-------------------------------------------------------
 \subsubsection{Obrat stálých aktiv}
@@ -253,7 +255,7 @@ Stálá aktiva jsou taková, která slouží podniku déle než jeden rok a jsou
 
 Ukazatel potom vyjadřuje míru využití těchto aktiv. Pokud při analýze vyjde hodnota nižší, než je průměr v odvětví, může to znamenat nedostatečné využití stávajících fixních (dlouhodobých) aktiv a manažeři by tak měli zvážit, jak jejich využití zefektivnit namísto investování do aktiv nových.
 
-$$\vz{obrat stálých aktiv}{tržby}{dlouhodobý hmotný majetek}$$
+$$\vz{obrat stálých aktiv}{tržby}{dlouhodobý hmotný majetek} \scite{mendelu}$$
 
 %-------------------------------------------------------
 \subsubsection{Obrat zásob}
@@ -265,7 +267,7 @@ Při použití tohoto ukazatele je nutné si uvědomit, že tržby vyjadřují t
 
 Ukazatel pro zásoby výrobků nebo zboží je rovněž ukazatelem likvidnosti těchto zásob (udává, jak dlouho trvá přeměna zásob na finanční prostředky).
 
-$$\vz{obrat zásob}{tržby}{zásoby}$$
+$$\vz{obrat zásob}{tržby}{zásoby} \scite{mendelu}$$
 
 
 %-------------------------------------------------------
@@ -274,7 +276,7 @@ V tomto případě je směrodatnější spíše doba trvání pohledávky než p
 
 Hodnota ukazatele dlouhodobě vyšší než hodnota stanovená platebními podmínkami pro klienta může znamenat problémové portfolio odběratelů, kteří nejsou schopni plnit své závazky včas.
 
-mozna spojit tyto sekce? + ruzne vzorce, sedlacek vynechava rychlost
+$$\vz{doba obratu pohledávek}{prům. stav pohledávek}{prům. denní tržby} \scite{mendelu}$$
 
 \subsubsection{Doba obratu závazků}
 Průměrná doba odkladu plnění závazků. Nabízí se porovnání s dobou obratu pohledávky. 
@@ -290,7 +292,11 @@ Zadluženost podniku souvísí s velikostí podílu cizích zdrojů na všech zd
 
 V praxi se běžně nesetkáme s většími podniky, které by byly financovány výhradně z vlastních nebo výhradně z cizích zdrojů, jsou tedy do jisté míry zadluženy. Zadluženost obecně není negativní charakteristikou -- využití cizích zdrojů vede k zesílení tzv. finančního pákového efektu, který pozitivně přispívá k rentabilitě vlastního kapitálu\cite{kisling}. S rostoucím procentem vyjadřujícím zadluženost však roste i riziko věřitelů. Čím vyšší bude riziko věřitelů, tím obtížněji bude podnik další cizí zdroje získávat a tím nevýhodnější budou podmínky jeho poskytnutí\cite{mendelu}. Jedním z důležitých cílů finanční analýzy je nalezení ideální míry zadluženosti respektive ideálního rozložení finanční struktury. Vzhledem k poměrně rozšířenému leasingovému financování zmíním, že by bylo vhodné takto pořízený majetek zohlednit a přičíst k cizímu kapitálu, má-li významnější objem.
 
-cizí kapitál je levnější - úroky se počítají do nákladů, platí se z nezdaněného zisku
+\begin{figure}
+  \centering
+  \includegraphics[width=15cm]{img/tab.eps}
+  \caption{Srovnání výnosnosti při různém poměru vlastního a cízího kapitálu}
+\end{figure}
 
 %-------------------------------------------------------
 \subsubsection{Celková zadluženost}
@@ -299,13 +305,13 @@ debt ratio
 Základním ukazatelem zadluženosti je celková zadluženost jako podíl cizího kapitálu na celkových aktivech. S rostoucí hodnotou tohoto ukazatele roste i riziko věřitelů a cena za cizí kapitál (výše úroků). Věřitelé preferují nižší hodnoty -- v případě likvidace podniku mohou být pohledávky (nejen) věřitelů uhrazeny z vlastního kapitálu podniku (takzvaný finanční polštář).
 Z hlediska vlastníků akcií jsou vysoké hodnoty ukazatele příznivé, dokud podnik dosahuje vyššího procenta rentability než je procento úroku na cizí kapitál, což znamená, že výsledné zhodnocení kapitálu je vyšší než jeho pořizovací cena\cite{such}. 
 
-$$\vz{DR}{cizí kapitál}{celková aktiva}$$
+$$\vz{DR}{cizí kapitál}{celková aktiva} \scite{sedl}$$
 
 \vspace{3mm}
 Doplňkovým ukazatelem k celkové zadluženosti je ukazatel poměru vlastního kapitálu (equity ratio, ER). Jejich součet by měl být DR$+$ER$
 \doteq 1$
 
-$$\vz{ER}{vlastní kapitál}{celková aktiva}$$
+$$\vz{ER}{vlastní kapitál}{celková aktiva} \scite{sedl}$$
 
 %-------------------------------------------------------
 \subsubsection{Koeficient (míra) zadluženosti}
@@ -313,7 +319,7 @@ debt to equity ratio
 
 Dá se spočítat jako poměr hodnoty cízího kapitálu k hodnotě vlastního. Stejný výsledek bychom získali poměrem předchozích dvou ukazatelů. V případě, že podnik využívá ve větším objemu? leasingového financování?, musíme tuto skutečnost zohlednit přičtením objemu k cizímu kapitálu. 
 
-$$\vz{DtE}{cizí kapitál}{vlastní kapitál}$$
+$$\vz{DtE}{cizí kapitál}{vlastní kapitál} \scite{sedl}$$
 
 \vspace{3mm}
 Ve finanční analýze se používá i převrácená hodnota ukazatele, která by se dala nazvat jako míra finanční samostatnosti podniku.
@@ -324,7 +330,7 @@ interest coverage
 
 Ukazatel vyjadřuje, kolikrát podnik pokryje úroky plynoucí ze závazků věřitelům poté, co uhradí všechny náklady na provoz (tzn. z provozního zisku). Dá se tedy chápat jako dopad zadlužení na zisk. Obecně platí, že čím vyšší je jeho hodnota, tím lépe pro podnik. Pokud by byla hodnota IC$<1$, znamená to, že podnik hospodaří se ztrátou (není schopen ani pokrýt úroky). Pokud by vyšla hodnota ukazatele IC$=1$, znamená to, že se veškerý zisk použije k uhrazení úroků za vypůjčený kapitál a k vyplacení vlastních investorů nebo k reinvestici do kapitálu nezbudou žádné prostředky.
 
-$$\vz{IC}{EBIT}{nákladové úroky}$$
+$$\vz{IC}{EBIT}{nákladové úroky} \scite{sedl}$$
 
 
 
@@ -440,10 +446,8 @@ Kromě toho bude nástroj schopen sledovat a upozorňovat na rizikové faktory.
 
 V nástroji bude také sekce, kde bude možné s hodnotami libobolně manipulovat a sledovat, jak se výsledné hodnoty ukazatelů mění, což může být využito při rozhodování a plánování.
 
-- porovnání s ukazateli v odvětví
 - mezipodnikove porovnani
 - co nejvice ukazatelu - komplexni
-- kolacovy graf pro kapitalovou strukturu
 - osetreni krajinich, extremnich pripadu (hospodaření se ztrátou, ...)
 - moznost naklikani vlastniho ukazatele? js math input
 
@@ -474,15 +478,11 @@ Po výběru podniku se uživatel dostane na obrazovku s přehledem nahraných z�
 
 Uživateli bude pro snadnější práci umožněno vytoření vlastního účtu. Systém tak bude schopen personalizovat obsah dle nastavených předvoleb. S účtem budou svázana i data za jednotlivá časová obdoví v minulosti, která lze nahrát a uchovat pro další použití, například porovnání nebo zpřesnění analýzy v budoucnu.
 
-Přihlášením k uživatelskému účtu systém pozná, kdo s ním pracuje, což přináší mnoho možností personalizace.
-
-- stupnice na ktere budou ukazatele umistovany
-- vysvetlivky, alternativni oznaceni ekonomickych pojmu
-- co kdyz
+Přihlášením k uživatelskému účtu systém pozná, kdo s ním pracuje, což přináší mnoho možností personalizace. 
 
 
 \subsection{Personalizace}
-Uživatelský účet je představuje finančního analytika. Pod uživatelským účtem bude možno evidovat různé podniky. V rámci podniku bude umožněno uložit libovolný počet uzávěrek. Ty mohou být použity k meziročnímu srovnání.
+Uživatelský účet je konstruovaný pro potřeby finančního analytika nebo manažera. Pod uživatelským účtem bude možno evidovat různé podniky, v rámci podniku bude umožněno uložit libovolný počet uzávěrek. Ty mohou být použity k meziročnímu srovnání.
 Uživatel bude mít možnost provádět i porovnání mezi podniky.
 
 Jelikož různé podniky sledují různé ukazatele, je žádoucí, aby nástroj uživateli umožnil vybrat zobrazované/preferované ukazatele. 
@@ -490,18 +490,15 @@ Jelikož různé podniky sledují různé ukazatele, je žádoucí, aby nástroj
 U všech poměrových ukazatelů se dá určit nějaká optimální hodnota. Tyto hodnoty však nelze zjistit obecně. Kromě používání různých ukazatelů se pro odvětví nebo konkrétní podnik mohou lišit také hraniční hodnoty jednotlivých ukazatelů.
 
 
-- explicitni osetreni krajnich pripadu (rizikove faktory)
 - vyber polozky vysledovky (checkbox/selectbox ...?)
 - checkboxy pro roky
 
 
 \subsection{Serverová část}
-Serverová část bude sloužit především k uchovávání persisentních dat. Těmi jsou uživatelem nahrané výkazy a jeho nastavení, taktéž databáze uživatelů samotných.
-Kromě toho bude vyřizovat požadavky klientů. Vzhledem k tomu, že je nástroj koncipován jako SPA (single page application), ke stažení javascriptového kódu ke klientovi bude sloužit jeden jediný endpoint. Klient tak bude moci s nástrojem pracovat bez dodatečného volání serveru. Server bude dále zpřístupňovat rozhraní pro CRUD operace s persistentními daty, jimiž jsou pouze výkazy a uživatelské předolby. V poslední řadě budou na serverové části endpointy pro pro práci s uživatelskými účty (vytváření, přihlašování, mazání).
+Serverová část bude sloužit především k uchovávání persisentních dat, jimiž jsou uživatelem nahrané výkazy a jeho nastavení, taktéž databáze uživatelů samotných.
+Dále bude server obsluhovat požadavky klienta. Vzhledem k tomu, že je nástroj koncipován jako SPA (single page application), ke stažení JavaScriptového kódu ke klientovi bude sloužit jeden jediný endpoint. Klient tak bude moci s nástrojem pracovat bez dodatečného volání serveru. Server bude dále zpřístupňovat rozhraní pro CRUD operace nad persistentními daty, jimiž jsou pouze výkazy a uživatelské předvolby. V poslední řadě budou na serverové části endpointy pro pro práci s uživatelskými účty (vytváření, přihlašování).
 
-Zda se budou výpočty provádět na straně serveru nebo klienta se rozhodne až při implementaci a testování. Preferovaný je výpočet na straně klienta, je však potřeba dbát na to, aby zátež na klientovi nebyla znát.
-
-single page application, API pro kod aplikace, logovani, praci s VZZ a R, nastavenimi
+Zda se budou výpočty provádět na straně serveru nebo klienta se rozhodne až při implementaci a testování. Preferovaný je výpočet na straně klienta, je však potřeba dbát na to, aby zátež na klientovi nebyla znát. Při analýze se neprovádějí žádné iterativní nebo jiné náročné výpočty a objem zpracovávaných dat je relativně malý.
 
 \subsection{Knihovny a technologie}
 K implementaci bude použita kombinace programovacích, skriptovacích, značkovacích a dotazovacích jazyků. Pro klientskou část jsou to HTML, CSS a Javascript (přesněji TypeScript). Kód serveru bude v jazyce PHP s připojením na MySQL databázi.
@@ -513,17 +510,18 @@ React je populární frontendová knihovna v jazyce JavaScript vyvíjená spole�
 Její
 (Redux,Navigation,bootstrap,nextjs)
 
-\subsubsection{Chart.js}
-Pro velkou část výstupů finanční analýzy je vhodná intepretace grafem. Z předchozí zkušenosti jsem se rozhodl pro použití knihovny Chart.js.
 
 \subsubsection{Typescript}
-Jedná se o nadstavbu nad jazykem JavaScript vyvíjený spoleností Microsoft, jejíž hlavním přínosem je statické typování a další techniky známé z objektově orientovaného programování -- třídy (ačkoliv ty jsou podle nejnovější specifikace ECMAScript součástí samotného JavaScriptu), rozhraní, moduly a podobně.
+Jedná se o nadstavbu nad jazykem JavaScript vyvíjenou společností Microsoft, jejíž hlavním přínosem je statické typování a další techniky známé z objektově orientovaného programování -- třídy (ačkoliv ty jsou podle nejnovější specifikace ECMAScript součástí samotného JavaScriptu), rozhraní, moduly a podobně.
 
-Jelikož se jedná o nástavbu, lze používat i čistý JavaScript bez použítí typů, otypování kódu však zvyšuje jeho přehlednost, otevírá nové možnosti pro vývojová prostředí (našeptávání,) , proto budeme vyvíjet striktně typovaný kód.
+Jelikož se jedná o nástavbu, lze používat i čistý JavaScript bez použítí typů, otypování kódu však zvyšuje jeho přehlednost, snižuje chybovost, otevírá nové možnosti pro vývojová prostředí (našeptávání, refaktorizace kódu) a tím urychluje vývoj. Proto budeme vyvíjet striktně typovaný kód.
 
 
--Firebase?
+\subsubsection{Ostatní}
+Pro velkou část výstupů finanční analýzy je vhodná intepretace grafem. Z předchozí zkušenosti jsem se rozhodl pro použití knihovny Chart.js.
+Pro zadávání vzorců vlastních ukazatelů bude využito exisující knihovny math-input.
 
--navrh testů (rozvaha,ZZ,vypočítané uk)
-
-% rozsireni: du pont analyza (pyramidove rozlozeni), cash flow
+% rozsireni: 
+% du pont analyza (pyramidove rozlozeni), cash flow
+% ulozeni ukazazelu odvetvi, porovnani s odvetvim
+% sirsi zaber mezipodnikoveho srovnani, nejen vykaz
