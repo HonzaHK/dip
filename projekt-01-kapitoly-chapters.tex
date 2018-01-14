@@ -4,13 +4,13 @@ Druhým tématickým celkem je popis nástroje, který finanční analýzu prov�
 
 Text práce je členěn do pěti kapitol. Jelikož je finanční analýza poměrně rozsáhlá oblast, celá příští kapitola je věnována prvnímu celku, teorii. 
 
-Ve třetí kapitole jsou ještě před vytvářením návrhu podrobeny testování již existující nástroje, abychom si mohli udělat obrázek o tom, jak tuto problematiku řešili jiní. Následně je na základě zjištěných poznatků vypracován návrh programového řešení vlastního nástroje -- architektura, entity?, implementační jazyk, užitečné knihovny, podoba vstupu a výstupu.
+Ve třetí kapitole jsou ještě před vytvářením návrhu podrobeny testování již existující nástroje, abychom si mohli udělat obrázek o tom, jak tuto problematiku řešili jiní. Na základě zjištěných poznatků je vypracován návrh programového řešení vlastního nástroje -- architektura, entity?, implementační jazyk, užitečné knihovny, podoba prostředí, vstupu a výstupu.
 
 Čtvrtá kapitola se zabývá realizací návrhu, implementačními detaily, fungováním nástroje a také jeho testováním. 
 
 V závěrečné kapitole jsou shrnuty a zhodnoceny dosažené výsledky, přínosy této práce a návrhy na její možná rozšíření.
 
-Pro lepší demonstraci budou v této práci analyzovány výsledky hospodaření společnosti ?, která se zabývá ?. Výsledky hospodaření lze najít ?.
+Pro lepší demonstraci budou v této práci analyzovány výsledky hospodaření společnosti ?, která se zabývá ?. Výkaz zisku a ztráty a rozvahu lze najít v příloze.
 
 
 
@@ -47,7 +47,9 @@ různý výstup analýzy - čísla, grafy, peníze, textová forma
 \section{Předmět, motivace a cíle}
 Finanční analýza podniku je metoda hodnocení finančního hospodaření podniku, při které se získaná data třídí, agregují, poměřují mezi sebou navzájem, kvantifikují se vztahy mezi nimi, hledají se mezi nimi kauzální souvisloti a určuje se jejich vývoj. Tím se zvyšuje vypovídací schopnost zpracovávaných dat, zvyšuje se jejich informační hodnota\cite{sedl}.
 
-Motivací je zhodnocení hospodaření, vyvozování závěrů o vlastnostech podniku, zhodnocení podniku a vyvozování dalších užitečných informací.
+Motivací je posouzení finanční situace podniku a její příčiny, odhalení důsledků vlastních rozhodnutí, identifikaci slabých míst, plánování, zhodnocení hospodaření, vyvozování závěrů o vlastnostech podniku, zhodnocení podniku a vyvozování dalších užitečných informací.
+
+Mimo to se v praxi můžeme
 
 Při finanční analýze se používají dva navzájem propojené přístupy\cite{kova}:
 \begin{enumerate}
@@ -61,7 +63,7 @@ Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budem
 \subsubsection{Účtová osnova}
 Právnické osoby, fyzické osoby zapsané v obchodním rejistříku a některé další subjekty jsou ze zákona o účetnictví? povinny vést podvojné účetnictví (proti daňová evidence), což zároveň implikuje povinnost účtovat podle účtové osnovy.
 
-finanční výkazy tvořící účetní uzávěrku - VZZ a R.
+finanční výkazy tvořící účetní závěrku - VZZ a R.
 
 google - zverejneni ucetni uzaverky
 každoročně účetní závěrku. Ta má v ČR dvě povinné části - výkaz zisku a ztráty a rozvaha. Hodnoty jejich položek jsou vypočítány právě z dat jednotlivých účtů.
@@ -381,11 +383,9 @@ internal rate of return
 
 
 \section{Existující software}
-Před návrhem řešení bylo vhodné prozkoumat existující řešení. Plné verze nástrojů pro tyto účely bývají zpoplatněny, závěry jsou tedy vyvozeny ze zkušebních verzí, pochopitelně s omezenou funcionalitou, případně z náhledů a uživatelských dokumentací software.
+Před návrhem řešení bylo vhodné prozkoumat existující řešení. Plné verze nástrojů pro tyto účely bývají zpoplatněny, závěry jsou tedy vyvozeny ze zkušebních verzí, pochopitelně s omezenou funkcionalitou, případně z náhledů a uživatelských dokumentací software.
 
 Všechny testované nástroje jsou ve formě desktopových aplikací určených pouze pro platformu Windows.
-
--vysledky jsou v textové formě, ve formě grafů a stupnic
 
 \subsubsection{FAF -- Finanční analýza firmy}
 Software nelze bez zakoupení jakkoliv používat, nicméně na webových stránkách je dostupné instruktážní video a uživtelská přiručka popisující jak nástroj vypadá, jak se s ním pracuje a co všechno dokáže. Uživatelské rozhraní vypadá na první pohled zastarale, to ale nijak neubírá na přehlednosti.
@@ -396,7 +396,7 @@ Ukazatele jsou i na obrazovce s trendy, ta mimo ukazatele obsahuje i trendy polo
 
 Nástroj dále umožňuje vertikální analýzu, horizontální analýzu, analýzu cash flow a výpočet hodnoty firmy.
 
-Funkcionalita, která mě nejvíce zaujala, byla zvaná \uv{Co když}. Spočívá v umožnění uživateli jednoduše manipulovat se vstupními daty analýzy a zároveň sledovat, jak by se měnily ukazatele.
+Funkcionalita, která mě nejvíce zaujala, je nazvaná \uv{Co když}. Spočívá v umožnění uživateli jednoduše manipulovat se vstupními daty analýzy a zároveň sledovat, jak by se měnily ukazatele.
 
 Hodnoty z VZZ a R jsou zadávány do tabulky. Instruktážní video ani uživatelská příručka nehovoří o tom, zda nástroj podporuje automatizované načítání výstupních dat z některých jiných nástrojů z oblasti financí (např. účetních).
 
@@ -412,11 +412,9 @@ Nástroj si pamatuje naposledy ovtevřené dokumenty a má různá nastavení a 
 
 
 \subsubsection{FinAnalysis}
-Nástroj je realizován v jako přednastavená šablona v tabulkovém prostředí MS Excel. Toto řešení může být rýchlé a efektivní, nicméně pro naše účely naprosto nevyhovující, jelikož jeho používání je podmíněno používáním MS Excel.
+Nástroj je realizován jako přednastavená šablona v tabulkovém prostředí MS Excel. Toto řešení může být rýchlé a efektivní, nicméně pro naše účely naprosto nevyhovující, jelikož jeho používání je podmíněno používáním MS Excel. Nástroj je prostředím svého běhu omezen -- veškerá rozšíření je nutné implementovat funkcemi Excelu.
 
-Přesto se lze v nástroji inspirovat možnostmi provádení základních analýz, výpočty mnoha ukazatelů a interpretací výsledků. Jednotlivé sekce jsou realizovány jako listy v Excelu. První tři listy (list s VZZ, rozvahou a list se základními údaji jako například počet zaměstnanců) tedy slouží k zadávání dat. Zbývající listy s výsledky jsou pouze pro čtení a představují rozdělení podle jednotlivých typů analýzy.  
-
-Je třeba si však uvědomit, že je omezen prostředím svého běhu -- veškerá rozšíření je nutné implementovat funkcemi Excelu. Toto řešení se mi jeví jako nevhodné i z důvodu, že ne všechna data v analýze jsou tabulkového charakteru.
+Přesto nástroj plní svůj ůčel a lze se v něm inspirovat možnostmi provádení základních analýz, výpočty mnoha ukazatelů a interpretací výsledků. Jednotlivé sekce jsou realizovány jako listy v Excelu. První tři listy (list s VZZ, rozvahou a list se základními údaji jako například počet zaměstnanců)slouží k zadávání dat. Zbývající listy obsahují výsledky, jsou pouze pro čtení a odpovídají rozdělení podle jednotlivých typů analýzy.
 
 
 
@@ -473,8 +471,8 @@ Vzhledem k nejedotné terminologii napříč celou finanční analýzou je žád
 
 Pokud bude se systémem pracovat nepřihlášený uživatel, bude mu umožněno pouze jednorázové zpracování dat - načtení vstupu a prohlížení výsledků, případně dodatečné upravení vsutpu.
 
-Domovskou stránkou pro přihlášeného uživatele bude obrazovka s přehledem podniků, které jsou pod jeho účtem evidovány. Podniky mohou být přidávány a odebírány, slouží jen pro seskupování uzávěrek.
-Po výběru podniku se uživatel dostane na obrazovku s přehledem nahraných uzávěrek. Uzávěrky lze přidávat, upravovat a odebírat. Při přidávání lze zvolit mezi načtením z XML souboru nebo ručním vyplněním buněk tabulky. Ta bude použita i pro editaci již zadaných dat.  
+Domovskou stránkou pro přihlášeného uživatele bude obrazovka s přehledem podniků, které jsou pod jeho účtem evidovány. Podniky mohou být přidávány a odebírány, slouží jen pro seskupování účetních závěrek.
+Po výběru podniku se uživatel dostane na obrazovku s přehledem nahraných závěrek. Závěrky lze přidávat, upravovat a odebírat. Při přidávání lze zvolit mezi načtením z XML souboru nebo ručním vyplněním buněk tabulky. Ta bude použita i pro editaci již zadaných dat.  
 
 Uživateli bude pro snadnější práci umožněno vytoření vlastního účtu. Systém tak bude schopen personalizovat obsah dle nastavených předvoleb. S účtem budou svázana i data za jednotlivá časová obdoví v minulosti, která lze nahrát a uchovat pro další použití, například porovnání nebo zpřesnění analýzy v budoucnu.
 
@@ -508,13 +506,17 @@ Zda se budou výpočty provádět na straně serveru nebo klienta se rozhodne a�
 single page application, API pro kod aplikace, logovani, praci s VZZ a R, nastavenimi
 
 \subsection{Knihovny a technologie}
-HTML, CSS, JavaScript, PHP?, MySQL?
+K implementaci bude použita kombinace skriptovacích, značkovacích a dotazovacích jazyků. Pro klientskou část jsou to HTML, CSS a Javascript. Kód serveru bude v jazyce PHP s připojením na MySQL databázi.
+
 
 \subsubsection{React}
+React je populární frontendová knihovna v jazyce JavaScript vyvíjená společností Facebook. 
 
+Její
 (Redux,Navigation,bootstrap,nextjs)
 
 \subsubsection{Chart.js}
+Jeden z důvodů volby webového rozhraní
 \subsubsection{Typescript}
 
 
