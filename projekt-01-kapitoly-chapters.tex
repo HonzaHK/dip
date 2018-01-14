@@ -38,7 +38,7 @@ Pro lepší demonstraci budou v této práci analyzovány výsledky hospodařen�
 
 
 
-\chapter{Problematika finanční analýzy}
+\chapter{Finanční analýza}
 
 
 Finanční analýza podniku je proces, při kterém jsou získaná data (...?) podrobena rozboru a s využitím různých metod jsou vypočtena nová data s novou vypovídací hodnotou, mimo jiné i o finančním zdraví podniku. Tato data se nazývají finanční ukazatele. Lze je využít k nalezení příčin současného stavu podniku, ..., a do jisté míry? i k predikci stavu podniku v budoucnu.
@@ -49,33 +49,30 @@ Finanční analýza podniku je metoda hodnocení finančního hospodaření podn
 
 Motivací je posouzení finanční situace podniku a její příčiny, odhalení důsledků vlastních rozhodnutí, identifikaci slabých míst, plánování, zhodnocení hospodaření, vyvozování závěrů o vlastnostech podniku, zhodnocení podniku a vyvozování dalších užitečných informací.
 
-Mimo to se v praxi můžeme
+Mimo to se v praxi můžeme setkat s případ kdy po nás banka chce fin uk
 
 Při finanční analýze se používají dva navzájem propojené přístupy\cite{kova}:
 \begin{enumerate}
 	\item kvalitativní (fundamentální) analýza, založená na znalostech souvislostí mezi ekonomickými i mimoekonomickými jevy, zkušenostech odborníků a na jejich subjektivních odhadech
 	\item kvantitativní (technickou) analýza, která využívá matematické, statistické a jiné algoritmizovatelné postupy
 \end{enumerate}
-V této práci se budeme zabývat především kvantitativní analýzou právě z důvodu možnosti její algoritmizace.
+V této práci se budeme zabývat především kvantitativní analýzou právě z důvodu kvůli možnosti její algoritmizace.
 
 \section{Vstupní data}
 Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budeme vycházet. Množina vstupních dat není nijak omezena a může být vskutku rozsáhlá -- při výpočtu a odvozování závěrů lze zohlednit nejrůznější faktory. Pro nás budou však klíčová především data o vlastním hospodaření podniku, za jejichž evidenci je zodpovědná účetní jednotka podniku, která je v průběhu roku zapisuje do takzvané účtové osnovy.
+
 \subsubsection{Účtová osnova}
-Právnické osoby, fyzické osoby zapsané v obchodním rejistříku a některé další subjekty jsou ze zákona o účetnictví? povinny vést podvojné účetnictví (proti daňová evidence), což zároveň implikuje povinnost účtovat podle účtové osnovy.
+Právnické osoby, fyzické osoby zapsané v obchodním rejistříku a některé další subjekty jsou ze zákona o účetnictví? povinny vést podvojné účetnictví, což implikuje povinnost účtovat podle účtové osnovy.
+Všechny peněžní toky jsou evidovány na příslušném účtu. Přestože je účtů nespočet, obecně se dají rozdělit do dvou skupin -- rozvahové a výsledkové. Tyto subjekty jsou dále povinny každoročně vypracovat a zveřejnit účetní závěrku, která je tvořena dvěmi finančními výkazy, rozvaha a výkaz zisku a ztráty (výsledovka).
+Hodnoty jejich položek plynou právě z hodnot jednotlivých účtů účtové osnovy (rozvahových pro rozvahu, výsledovkových pro výsledovku).
 
-finanční výkazy tvořící účetní závěrku - VZZ a R.
-
-google - zverejneni ucetni uzaverky
-každoročně účetní závěrku. Ta má v ČR dvě povinné části - výkaz zisku a ztráty a rozvaha. Hodnoty jejich položek jsou vypočítány právě z dat jednotlivých účtů.
 \subsubsection{Výkaz zisku a ztráty}
-Tuto skutečnost vyjadřujeme označením toková data.
+Výkaz zisku a ztráty, také výsledovka, se vztahuje k určitému časovému období. Skládá ze záznamů o pěněžních tocích za celé účetní období, z nichž každý je buď výnosem nebo nákladem (není to samé jako příjmy a výdaje). Výsledkem hospodaření se rozumí buďto zisk (výnosy převyšují náklady) nebo ztráta (naopak).
 
 \subsubsection{Rozvaha}
-Narozdíl od výkazu zisku a ztráty jsou při sestavování? rozvahy data? vázána k jednomu určitému okamžiku, takzvanému rozvahovému dni, který je posledním dnem účetního období, zpravidla tedy posledním dnem kalendářního roku. Data mají tedy statickou povahu.
--aktiva
--pasiva
+Narozdíl od výkazu zisku a ztráty jsou při sestavování rozvahy data vázána k jednomu určitému okamžiku, takzvanému rozvahovému dni, který je posledním dnem účetního období, zpravidla tedy posledním dnem kalendářního roku. Data mají tedy statickou povahu.
+Hlavními složkami rozvahy jsou aktiva a pasiva. Aktiva představují majetek společnosti (budovy, stroje, materiál, vozidla, \dots, ale i software nebo know-how), pasiva jsou zdrojem krytí těchto aktiv (kapitál).
 
--spousta zkratek, názvů, překladů
 %#########################################################################
 \section{Absolutní ukazatele}
 
@@ -305,7 +302,8 @@ Z hlediska vlastníků akcií jsou vysoké hodnoty ukazatele příznivé, dokud 
 $$\vz{DR}{cizí kapitál}{celková aktiva}$$
 
 \vspace{3mm}
-Doplňkovým ukazatelem k celkové zadluženosti je ukazatel poměru vlastního kapitálu (equity ratio, ER). Jejich součet by měl být DR$+$ER$=1$
+Doplňkovým ukazatelem k celkové zadluženosti je ukazatel poměru vlastního kapitálu (equity ratio, ER). Jejich součet by měl být DR$+$ER$
+\doteq 1$
 
 $$\vz{ER}{vlastní kapitál}{celková aktiva}$$
 
