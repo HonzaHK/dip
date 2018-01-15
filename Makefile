@@ -51,7 +51,7 @@ rename:
 	
 # Pozor, vlna neresi vse (viz popis.txt) / Warning - vlna is not solving all problems (see description.txt)
 vlna:
-	vlna -l $(CO)-*.tex
+	vlna -l -m -n $(CO)-*.tex
 
 # Spocita normostrany / Count of standard pages
 normostrany:
