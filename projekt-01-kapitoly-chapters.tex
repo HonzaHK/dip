@@ -1,7 +1,7 @@
 \chapter{Úvod}
-Cílem práce je navrhnout nástroj, který podporuje provádění finanční analýzy podniku. Finanční analýza je v~podnikové sféře technika umožňující zjistit a vyhodnotit finanční situaci podniku na základě dat o~jeho hospodaření. Její provádění a zkoumání výsledků je jedním z~předpokladů pro kvalitní a komplexní vedení podniku. Cílovou skupinu produktu tedy tvoří finanční analytici, manažeři společností i běžní podnikatelé, jimž má provádění této činnosti usnadnit.
+Cílem práce je navrhnout nástroj, který podporuje provádění finanční analýzy podniku. Finanční analýza je v~podnikové sféře soubor činností umožňující zjistit a vyhodnotit finanční situaci podniku na základě dat o~jeho hospodaření. Její provádění a zkoumání výsledků je jedním z~předpokladů pro kvalitní a komplexní vedení podniku. Cílovou skupinu produktu tedy tvoří finanční analytici, manažeři společností i běžní podnikatelé, jimž má usnadnit provádění této činnosti.
 
-Tato práce obsahuje dva tematické celky. Nejprve bude provedeno shrnutí teorie spojené s~prováděním finanční analýzy -- co je to finanční analýza, jaké jsou její cíle, jaká jsou vstupní data a co je výstupem, vysvětlení pojmů, používaných metod a strategií, konstrukcí a vypočtů jednotlivých ukazatelů finanční analýzy a intepretací jejich hodnot. 
+Práce obsahuje dva tematické celky. Nejprve bude provedeno shrnutí teorie spojené s~prováděním finanční analýzy -- co je to finanční analýza, jaké jsou její cíle, jaká jsou vstupní data a co je výstupem, vysvětlení pojmů, používaných metod a strategií, konstrukcí a vypočtů jednotlivých ukazatelů finanční analýzy a intepretací jejich hodnot. 
 Druhým tematickým celkem je popis nástroje, který finanční analýzu provádí a který bude v~rámci této diplomové práce implementován. 
 
 Text práce je členěn do pěti kapitol. Jelikož je finanční analýza poměrně rozsáhlá oblast, celá příští kapitola je věnována prvnímu celku, teorii. 
@@ -12,10 +12,7 @@ Ve třetí kapitole jsou ještě před vytvářením návrhu podrobeny testován
 
 V~závěrečné kapitole jsou shrnuty a zhodnoceny dosažené výsledky, přínosy této práce a návrhy na její možná rozšíření.
 
-Pro lepší demonstraci budou v~této práci analyzovány výsledky hospodaření společnosti ?, která se zabývá ?. Výkaz zisku a ztráty a rozvahu lze najít v~příloze.
-
-
-
+Pro lepší demonstraci budou v~této práci analyzovány výsledky hospodaření společnosti abc, která se zabývá def. Výkaz zisku a ztráty a rozvahu lze najít v~příloze.
 
 
 
@@ -43,63 +40,69 @@ Pro lepší demonstraci budou v~této práci analyzovány výsledky hospodařen�
 \chapter{Finanční analýza}
 
 
-Finanční analýza podniku je proces, při kterém jsou získaná data (...?) podrobena rozboru a s~využitím různých metod jsou vypočtena nová data s~novou vypovídací hodnotou, mimo jiné i o~finančním zdraví podniku. Tato data se nazývají finanční ukazatele. Lze je využít k~nalezení příčin současného stavu podniku, ..., a do jisté míry? i k~predikci stavu podniku v~budoucnu.
-různý výstup analýzy - čísla, grafy, peníze, textová forma
-
 \section{Předmět, motivace a cíle}
 Finanční analýza podniku je metoda hodnocení finančního hospodaření podniku, při které se získaná data třídí, agregují, poměřují mezi sebou navzájem, kvantifikují se vztahy mezi nimi, hledají se mezi nimi kauzální souvisloti a určuje se jejich vývoj. Tím se zvyšuje vypovídací schopnost zpracovávaných dat, zvyšuje se jejich informační hodnota\cite{sedl}.
 
-Motivací je posouzení finanční situace podniku a její příčiny, odhalení důsledků vlastních rozhodnutí, identifikaci slabých míst, plánování, zhodnocení hospodaření, vyvozování závěrů o~vlastnostech podniku, zhodnocení podniku a vyvozování dalších užitečných informací.
+Motivací je posouzení finanční situace podniku a její příčiny, do jisté míry i k~predikci stavu podniku v~budoucnu, odhalení důsledků vlastních rozhodnutí, identifikaci slabých míst, plánování, zhodnocení hospodaření, vyvozování závěrů o~vlastnostech podniku, ohodnocení podniku a vyvozování dalších užitečných informací.
 
-Mimo to se v~praxi můžeme setkat s~případ kdy po nás banka chce fin uk
+Mimo to se v~praxi lze setkat s~případy, kdy je pro dosažení podnikatelského záměru provedení finanční analýzy nezbytné. Její výsledky jsou směrodatné například při rozhodování banky mezi poskytnutím a neposkytnutím úvěru, nebo pro vyměření výše úroků.
 
 Při finanční analýze se používají dva navzájem propojené přístupy\cite{kova}:
 \begin{enumerate}
 	\item kvalitativní (fundamentální) analýza, založená na znalostech souvislostí mezi ekonomickými i mimoekonomickými jevy, zkušenostech odborníků a na jejich subjektivních odhadech
 	\item kvantitativní (technická) analýza, která využívá matematické, statistické a jiné algoritmizovatelné postupy
 \end{enumerate}
-V~této práci se budeme zabývat především kvantitativní analýzou právě z~důvodu kvůli možnosti její algoritmizace.
+
+V~této práci se budeme zabývat především kvantitativní analýzou právě z~důvodu možnosti její algoritmizace.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm]{img/ccf.png}
+  \caption{Schéma finančních toků podniku}
+  \label{ccf}
+\end{figure}
 
 \section{Vstupní data}
-Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budeme vycházet. Množina vstupních dat není nijak omezena a může být vskutku rozsáhlá -- při výpočtu a odvozování závěrů lze zohlednit nejrůznější faktory. Pro nás budou však klíčová především data o~vlastním hospodaření podniku, za jejichž evidenci je zodpovědná účetní jednotka podniku, která je v~průběhu roku zapisuje do takzvané účtové osnovy.
+Abychom mohli provést finanční analýzu, musíme mít data, ze kterých budeme vycházet. Množina vstupních dat není nijak omezena a může být vskutku rozsáhlá -- při výpočtu a odvozování závěrů lze zohlednit nejrůznější faktory, finanční i nefinanční. Pro nás budou však klíčová především data o~vlastním hospodaření podniku, za jejichž evidenci je zodpovědná účetní jednotka podniku, která je v~průběhu roku zapisuje do takzvané účtové osnovy.
 
 \subsubsection{Účtová osnova}
-Právnické osoby, fyzické osoby zapsané v~obchodním rejistříku a některé další subjekty jsou ze zákona o~účetnictví? povinny vést podvojné účetnictví, což implikuje povinnost účtovat podle účtové osnovy.
-Všechny peněžní toky jsou evidovány na příslušném účtu. Přestože je účtů nespočet, obecně se dají rozdělit do dvou skupin -- rozvahové a výsledkové. Tyto subjekty jsou dále povinny každoročně vypracovat a zveřejnit účetní závěrku, která je tvořena dvěmi finančními výkazy, rozvaha a výkaz zisku a ztráty (výsledovka).
-Hodnoty jejich položek plynou právě z~hodnot jednotlivých účtů účtové osnovy (rozvahových pro rozvahu, výsledovkových pro výsledovku).
+Právnické osoby, fyzické osoby zapsané v~obchodním rejistříku a některé další subjekty jsou ze zákona o~účetnictví povinny vést podvojné účetnictví, což implikuje povinnost účtovat podle účtové osnovy.
+Všechny peněžní toky a prostředky musí být evidovány na příslušném účtu. Přestože je účtů nespočet, obecně se dají rozdělit do dvou skupin -- rozvahové a výsledovkové. Tyto subjekty jsou dále povinny každoročně vypracovat a zveřejnit účetní závěrku, která je tvořena dvěmi finančními výkazy, rozvaha a výkaz zisku a ztráty (výsledovka).
+Hodnoty jejich položek plynou právě ze sumy hodnot jednotlivých účtů účtové osnovy (rozvahových pro rozvahu, výsledovkových pro výsledovku).
 
 \subsubsection{Výkaz zisku a ztráty}
-Výkaz zisku a ztráty, také výsledovka, se vztahuje k~určitému časovému období. Skládá ze záznamů o~pěněžních tocích za celé účetní období, z~nichž každý je buď výnosem nebo nákladem (není to samé jako příjmy a výdaje). Výsledkem hospodaření se rozumí buďto zisk (výnosy převyšují náklady) nebo ztráta (naopak).
+Výkaz zisku a ztráty, také výsledovka, ukazuje, jakého hospodářského výsledku bylo dosaženo v~daném účetním období. Data výsledovky jsou počítány z~dat výsledovkových účtů. Jednotlivé účty jsou kategorizovány podle jejich účelu a položky výsledovky jsou sumy účtů dané kategorie. Je to jakási agregace záznamů o~pěněžních tocích za celé účetní období, z~nichž každý je buď výnosem nebo nákladem (pozn. není to to samé jako příjmy a výdaje). Výsledkem hospodaření se rozumí buďto zisk (výnosy převyšují náklady) nebo ztráta (náklady převyšují výnosy).
 
 \subsubsection{Rozvaha}
-Narozdíl od výkazu zisku a ztráty jsou při sestavování rozvahy data vázána k~jednomu určitému okamžiku, takzvanému rozvahovému dni, který je posledním dnem účetního období, zpravidla tedy posledním dnem kalendářního roku. Data mají tedy statickou povahu.
-Hlavními složkami rozvahy jsou aktiva a pasiva. Zatímco aktiva představují majetek společnosti (budovy, stroje, materiál, vozidla, \dots, ale i software nebo know-how), pasiva jsou zdrojem krytí těchto aktiv (kapitál).
+Také označována termínem bilance. Narozdíl od výkazu zisku a ztráty jsou při sestavování rozvahy data vázána k~jednomu určitému okamžiku, takzvanému rozvahovému dni, který je posledním dnem účetního období, zpravidla posledním dnem kalendářního roku. Data mají tedy statickou povahu.
+
+Hlavními složkami rozvahy jsou aktiva a pasiva. Zatímco aktiva představují majetek společnosti (budovy, stroje, materiál, vozidla, \dots, ale i software nebo know-how), pasiva jsou zdrojem krytí těchto aktiv (kapitál). V~průběhu roku se hodnota aktiv a pasiv liší právě o~hodnotu, o~kterou se liší náklady a výnosy. Při sestavování závěrky se rozdíl nákladů a výnosů po zdanění přenese na rozvahový účet (představující pasivum) s~názvem hospodářský výsledek ve schvalovacím řízení, čímž se aktiva a pasiva vyrovnají. Část zisku musí být investována do fondů (ze zákona, případně stanov společnosti), valná hromada poté rozhodne, co se zbytkem. Může navýšit vlastní jmění podniku nebo zisk rozdělit mezi vlastní investory, což je znázorněno na obrázku \ref{ccf}. Hlavním rozdělením aktiv je na krátkodobá a dlouhodobá, hlavním rozdělením pasiv je na vlastní a cizí kapitál.
 
 %#########################################################################
 \section{Absolutní ukazatele}
 
 \subsection{Horizontální analýza}
-Při horizontální analýze je určitá položka (řádek) finančního výkazu porovnávána se stejnou položkou za jiné časové období. Při výpočtu tedy porovnáváme výsledky jedné položky napříč různými obdobími - proto horizontální analýza. U~jednotlivých položek zvlášť je vypočtena absolutní hodnota meziroční změny a její procentuální vyjádření. Tento postup je proti ostatním velmi? přímočarý?, ilustrativní a působivý. Při posuzování výsledků by měl analytik zohlednit významné meziroční změny, které mají vliv na výsledek -- změny v~daňové soustavě, podmínek na trhu, změna politické situace, míra inflace a podobně. Výsledek je běžně interpretován pomocí sloupcového nebo spojnicového grafu. 
+Při horizontální analýze je určitá položka (řádek) finančního výkazu porovnávána se stejnou položkou za jiné časové období. Při výpočtu tedy porovnáváme výsledky jedné položky napříč různými obdobími - proto horizontální analýza. U~jednotlivých položek zvlášť je vypočtena absolutní hodnota meziroční změny a její procentuální vyjádření. Tento postup je proti ostatním velmi ilustrativní, působivý a přímočarý. 
+
+Při posuzování výsledků by měl analytik zohlednit významné meziroční změny, které mají vliv na výsledek -- změny v~daňové soustavě, podmínek na trhu, změna politické situace, míra inflace a podobně. Výsledek je běžně interpretován pomocí sloupcového nebo spojnicového grafu. 
 
 
 \subsection{Vertikální analýza}
-Přívlastek vertikální vychází tak jako u~horizontální analýzy ze způsobu zpracování finančních výkazů. Dáváme tak do poměru jednotlivé položky výkazů. Narozdíl od poměrových ukazatelů zmíněných dále se však při vertikální analýze dává do poměru část celku k~celku samotnému. Dalo by se tedy říct, že vyčíslováním podílu vybrané části na celku vertikální analýza popisuje strukturální rozložení sledované entity? (například aktiv nebo pasiv). 
+Přívlastek vertikální vychází tak jako u~horizontální analýzy ze způsobu zpracování finančních výkazů. Dáváme tak do poměru jednotlivé položky výkazů. Narozdíl od poměrových ukazatelů zmíněných dále se však při vertikální analýze dává do poměru část celku k~celku samotnému. Dalo by se tedy říct, že vyčíslováním podílu vybrané části na celku vertikální analýza popisuje strukturální rozložení sledované entity (například aktiv nebo pasiv). 
 Výhodou vertikální analýzy je, že není ovlivněna meziroční inflací a výsledky se tak dají provnávat s~výsledky za jiné časové období, mimo to i s~výsledky jiných podniků\cite{sedl}.
 %#########################################################################
 \section{Poměrové ukazatele}
-Výpočet je opět založen na datech z~rozvahy a výsledovky. Narozdíl od horizontální a vertikální analýzy, při kterých je sledován vývoj jedné veličiny v~čase případně vývoj ve vztahu k~určité vztažné veličině (nadřazenému celku), při výpočtu poměrových ukazatelů zkoumáme vztah mezi jednotlivými veličinami navzájem, čímž získáváme zase jinou vypovídající hodnotu?.
+Výpočet je opět založen na datech z~rozvahy a výsledovky. Narozdíl od horizontální a vertikální analýzy, při kterých je sledován vývoj jedné veličiny v~čase případně vývoj ve vztahu k~určité vztažné veličině (nadřazenému celku), při výpočtu poměrových ukazatelů zkoumáme vztah mezi jednotlivými veličinami navzájem, čímž získáváme zase jinou vypovídací hodnotu.
 
 Existuje několik různých ukazatelů. Různé ukazatele slouží různým účelům, různé společnosti se řídí různými ukazateli. Podle účelu a povahy ukazatele ho lze zařadit do některé ze skupin soustavy ukazatelů. V~této práci budou zmíněny základní skupiny ukazatelů -- rentability, likvidity, aktivity, a zadluženosti, v~rámci nichž budou popsány i jednotlivé ukazatele.
 
 Jak plyne z~názvu, při výpočtu hodnoty ukazatele se obecně používá nějakého poměru, tedy zlomku. Možností, které hodnoty dát do poměru, je takřka neomezeně. Nicméně při konstrukci jednotlivých ukazatelů bychom se měli zamyslet nad tím, co při vybraných entitách vlastně vztah vyčísluje -- zda má konkrétní volba význam pro účel analýzy\cite{kisling}.
 
-hospodarsky vysledek ve schvalovacim rizeni - tj po zdaneni
-cast z~toho se usi automaticky investovat do fondů (ze zákona pripadne stanov spolecnosti)
-valná hromada rozhodne co se zbytkem - muze navysit vlastní jmnění podniku nebo rozdělit mezi vlastníky podniku
-
 %-------------------------------------------------------
 \subsection{Ukazatele rentability}
 profitability ratios
+
 Ukazatele rentability (výnosnosti, ziskovosti, návratnosti) patří v~praxi mezi nejsledovanější ukazatele. Vyjadřují míru efektivity hospodaření podniku poměřením výsledku hospodaření se zdroji, které byly na hospodaření vynaloženy.
 
 $$\zl{výsledek hospodaření}{zdroje}$$
@@ -152,8 +155,6 @@ Investor by se měl také zajímat, zda je procentuální hodnota ROE vyšší n
 
 Výpočet má pochopitelně smysl zejména s~čistým ziskem (EAT) v~čitateli, avšak ve jmenovateli můžeme uvažovat nad odečtením fondů, ze kterých investor ve výsledku těžit nebude.
 
-tabulka? zmeny kapitalove struktury a vliv na ROE
-
 $$\vz{ROE}{čistý zisk}{vlastní kapitál} \scite{sedl}$$ 
 
 
@@ -169,10 +170,20 @@ V~čitateli se nejčastěji používá hodnota EBIT nebo EAT
 $$\vz{ROS}{EBIT}{tržby} \scite{sedl} \hspace{2cm} \vz{ROS}{EAT}{tržby} \scite{sedl}$$ 
 
 %-------------------------------------------------------
-\subsubsection{Některé další ukazatele:}
+
+
+\subsubsection{ROI -- rentabilita investice}
+return on investment
+
+Další z~často používaných ukazatelů. Jak napovídá název, ukazatel vyjadřuje rentabilitu spíše z~pohledu konkrétního investičního projektu, z~výše sumy investic provedených během vymezeného období, nežli z~celopodnikového pohledu. Oba přístupy by pojednávaly o~tom samém v~případě, že by se jednalo o~investici do koupi podniku. Rentabilita této investice by pak byla stejná jako rentabilita vlastního kapitálu, v~případě nezadluženého podniku i stejná jako rentabilita celého podniku.
+
+$$\vz{ROI}{výnos investice}{náklady na investici} \scite{sedl} $$ 
+
+%-------------------------------------------------------
+\subsubsection{Některé další ukazatele rentability:}
 \begin{itemize}
 \item{ROC -- rentabilita nákladů} -- return on costs
-\item{ROCE -- rentabilita investovaného kapitálu} -- return on capital employed
+\item{ROCE -- rentabilita dlouhodobě investovaného kapitálu} -- return on capital employed
 \end{itemize}
 
 
@@ -317,7 +328,7 @@ $$\vz{ER}{vlastní kapitál}{celková aktiva} \scite{sedl}$$
 \subsubsection{Koeficient (míra) zadluženosti}
 debt to equity ratio
 
-Dá se spočítat jako poměr hodnoty cízího kapitálu k~hodnotě vlastního. Stejný výsledek bychom získali poměrem předchozích dvou ukazatelů. V~případě, že podnik využívá ve větším objemu? leasingového financování?, musíme tuto skutečnost zohlednit přičtením objemu k~cizímu kapitálu. 
+Dá se spočítat jako poměr hodnoty cízího kapitálu k~hodnotě vlastního. Stejný výsledek bychom získali poměrem předchozích dvou ukazatelů. V~případě, že podnik využívá ve větším objemu leasingového financování, je vhodné tuto skutečnost zohlednit přičtením objemu k~cizímu kapitálu. 
 
 $$\vz{DtE}{cizí kapitál}{vlastní kapitál} \scite{sedl}$$
 
@@ -341,10 +352,21 @@ $$\vz{IC}{EBIT}{nákladové úroky} \scite{sedl}$$
 
 \subsection{Další ukazatele}
 
-\subsubsection{IRR -- Vnitřní výnosové procento}
+\subsubsection{IRR -- vnitřní výnosové procento}
 internal rate of return
 
+Vnitřní výnosové procento vyjadřuje míru výnosnosti investice, tedy ROI, se současným zohledněním proměnné hodnoty peněz v~čase (diskontace). Ve světě patří spolu s~NPV (net present value, čistá současná hodnota) mezi nejpoužívanější ukazatele pro zhodnocení a výběr investice. Podle průzkumu VŠE je v~ČR preferován spíše ukazatel doby návratnosti investice\cite{businessvize_irr}.
 
+NPV slouží k~přiblížení, kolik peněz nám projekt, jehož investování zvažujeme, za sledované období přinese nebo sebere. Nebere přitom nijak v~úvahu výnosy a náklady nebo hodnotu společnosti, proto je nevhodný pro strategické projekty. Nevýhodou NPV a tím pádem i IRR je nutnost odhadu nejen budoucích finančních toků, které sledovaný projekt přinese, ale také výše diskontu. Odhad hodnoty lze zpřesnit různými technikami (viz doporučená literatura). Důležitá je také odhadovaná doba životnosti projektu, přidáním nebo odebráním jednoho období se může změnit ztráta na zisk i opačně.
+
+Nejprve si uvedeme vzorec pro výpočet čisté současné hodnoty: 
+\\($r=$diskont, $t=$pořadí období, $CF_t$=suma toků v~období, $IN=$vstupní investice)
+$$NPV=\sum\limits_{t=0}^{n} \dfrac{CF_t}{(1+r)^t} = \sum\limits_{t=1}^{n} \dfrac{CF_t}{(1+r)^t} - IN\scite{businessvize_irr}$$
+
+Matematicky lze IRR vyjádřit hodnotou diskontní sazby, při které je čistá současná hodnota (NPV) rovna nule. Dostáváme tedy následující vzorec:
+$$\sum\limits_{t=1}^{n} \dfrac{CF_t}{(1+IRR)^t} - IN = 0 \scite{businessvize_irr}$$
+
+Z~uvedeného vzorce lze usoudit, že nalezení hodnoty analytickým řešením není triviální. Rovnice se řeší numericky, iterativními výpočty.
 
 
 
@@ -424,7 +446,7 @@ Přesto nástroj plní svůj ůčel a lze se v~něm inspirovat možnostmi prová
 
 %--------------------------------------------------------
 \section{Vybrané metody vyhodnocování}
-Nástroj by měl být schopen provádět analýzu alespoň v~rozsahu teoretické části této práce.
+Nástroj by měl být schopen provádět analýzu alespoň v~rozsahu teoretické části této práce. Podoba výstupu se mění v~závislosti na vybrané analýze nebo ukazateli. Výstupem může být absolutní hodnota, finanční částka, procentuální podíl, graf s~vývojem hodnoty v~čase. 
 
 
 \subsubsection{Vertikální a horizontální analýza}
@@ -442,25 +464,28 @@ Pro interpretaci výsledků budou využity:
 	\item grafy (sloupcové, spojnicové, koláčové a další)
 \end{itemize}
 
-Kromě toho bude nástroj schopen sledovat a upozorňovat na rizikové faktory.
+Kromě toho bude nástroj schopen sledovat a upozorňovat na rizikové faktory. 
 
-V~nástroji bude také sekce, kde bude možné s~hodnotami libobolně manipulovat a sledovat, jak se výsledné hodnoty ukazatelů mění, což může být využito při rozhodování a plánování.
+V~nástroji bude také sekce \uv{co když} inspirovaná funkcionalitou z~programu FAF, kde bude možné s~hodnotami libobolně manipulovat a sledovat, jak se tyto změny odrazí na výsledných hodnotách ukazatelů, což může být využito při rozhodování a plánování.
+
 
 - mezipodnikove porovnani
 - co nejvice ukazatelu - komplexni
 - osetreni krajinich, extremnich pripadu (hospodaření se ztrátou, ...)
 - moznost naklikani vlastniho ukazatele? js math input
-
+DPPDP8
+VZZ a R
+architektura - serverova cast / klient
 
 
 %---------------------------------------------------------
 \section{Návrh programového řešení}
 
-Nástoroj nebude sloužit vyloženě jen pro dávkové zpracování souborů. Půjde o~systém pro manažery a analytiky, ve kterém bude možné pod určitým uživatelským účtem vést informace o~hospodaření různých podniků za různá časová období. Nástroj bude schopen načtená data uložit a svázat s~daným uživatelským účtem, což umožní nejen jednoduchý přístup k~těmto datům a jejich kvantitativní analýze, ale i jednoduchou správu dat pro meziroční a mezipodnikové srovnání. Díky webovému rozhraní, což činí tento nástroj jedinečným, bude možné přistupovat k~systému a využívat jeho služeb kdykoliv a odkudkoliv.
+Nástoroj nebude sloužit vyloženě jen pro dávkové zpracování dat. Půjde o~systém pro manažery a analytiky, ve kterém bude možné pod určitým uživatelským účtem vést informace o~hospodaření různých podniků za různá časová období. Nástroj bude schopen načtená data uložit a svázat s~daným uživatelským účtem, což umožní nejen jednoduchý přístup k~těmto datům a jejich kvantitativní analýze, ale i jednoduchou správu dat pro meziroční a mezipodnikové srovnání. Díky webovému rozhraní, což činí tento nástroj jedinečným, bude možné přistupovat k~systému a využívat jeho služeb kdykoliv a odkudkoliv.
 
 \subsection{Načítání zdrojových dat}
 Vstupem kvantitativní finanční analýzy jsou data z~dokumentů výkaz zisku a ztráty a rozvaha. Při hledání vhodného způsobu automatizace načítání vstupních dat bylo zjištěno, že jsou subjekty zapsané v~obchodním rejistříku ze zákona povinny každoročně tyto dva dokumenty odevzdávat pro evidenci státním orgánům. 
-Odevzdávají se ve dvou formách. Pvní z~nich je ve formátu PDF na krajský soud, v~jehož obchodním rejistříku je subjekt evidován. Naštěstí pro nás jsou odevzdávány na daňovém portálu spolu s~daňovým přiznáním ve strukturovaném formátu XML. Přestože se pro účtování používají v~podnicích různé nástroje (Pohoda, MRP, \dots), dá se očekávat, že většina z~nich bude schopna tyto dva dokumenty vytvořit ve shodě s~uváděnou specifikací.
+Odevzdávají se ve dvou formách. Pvní z~nich je ve formátu PDF na krajský soud, v~jehož obchodním rejistříku je subjekt evidován. Naštěstí pro nás jsou odevzdávány na daňovém portálu spolu s~daňovým přiznáním ve strukturovaném formátu XML. Přestože se v~podnikové sféře používají pro účtování různé nástroje (Pohoda, MRP, \dots), dá se očekávat, že většina z~nich bude schopna tyto dva dokumenty vytvořit ve shodě s~uváděnou specifikací.
 
 Vzhledem k~této skutečnosti bude v~nástroji umožněno automatické načítání těchto souborů implementací odpovídajícího parseru,  čímž výrazně usnadníme zadávání.
 
@@ -496,6 +521,14 @@ U~všech poměrových ukazatelů se dá určit nějaká optimální hodnota. Tyt
 
 \subsection{Serverová část}
 Serverová část bude sloužit především k~uchovávání persisentních dat, jimiž jsou uživatelem nahrané výkazy a jeho nastavení, taktéž databáze uživatelů samotných.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=15cm]{img/erd.png}
+  \caption{ERD na fyzické úrovni}
+\end{figure}
+
 Dále bude server obsluhovat požadavky klienta. Vzhledem k~tomu, že je nástroj koncipován jako SPA (single page application), ke stažení JavaScriptového kódu ke klientovi bude sloužit jeden jediný endpoint. Klient tak bude moci s~nástrojem pracovat bez dodatečného volání serveru. Server bude dále zpřístupňovat rozhraní pro CRUD operace nad persistentními daty, jimiž jsou pouze výkazy a uživatelské předvolby. V~poslední řadě budou na serverové části endpointy pro pro práci s~uživatelskými účty (vytváření, přihlašování).
 
 Zda se budou výpočty provádět na straně serveru nebo klienta se rozhodne až při implementaci a testování. Preferovaný je výpočet na straně klienta, je však potřeba dbát na to, aby zátež na klientovi nebyla znát. Při analýze se neprovádějí žádné iterativní nebo jiné náročné výpočty a objem zpracovávaných dat je relativně malý.
@@ -507,19 +540,20 @@ K~implementaci bude použita kombinace programovacích, skriptovacích, značkov
 \subsubsection{React}
 React je populární frontendová knihovna v~jazyce JavaScript vyvíjená společností Facebook. 
 
-Její
-(Redux,Navigation,bootstrap,nextjs)
+Zcela zapouzřuje DOM
+
+Knihovna sama o~sobě přináší pouze deklarativní způsob zápisu 
+(Redux,Navigation,bootstrap/material-ui,nextjs)
 
 
 \subsubsection{Typescript}
 Jedná se o~nadstavbu nad jazykem JavaScript vyvíjenou společností Microsoft, jejíž hlavním přínosem je statické typování a další techniky známé z~objektově orientovaného programování -- třídy (ačkoliv ty jsou podle nejnovější specifikace ECMAScript součástí samotného JavaScriptu), rozhraní, moduly a podobně.
 
-Jelikož se jedná o~nástavbu, lze používat i čistý JavaScript bez použítí typů, otypování kódu však zvyšuje jeho přehlednost, snižuje chybovost, otevírá nové možnosti pro vývojová prostředí (našeptávání, refaktorizace kódu) a tím urychluje vývoj. Proto budeme vyvíjet striktně typovaný kód.
+Jelikož se jedná o~nástavbu, lze používat i čistý JavaScript bez použítí typů, což nám umožní použít i knihovny, které jsou implementovány v~čistém JavaScriptu. Otypování kódu však zvyšuje jeho přehlednost, snižuje chybovost, otevírá nové možnosti pro vývojová prostředí (našeptávání, refaktorizace kódu) a tím urychluje vývoj. Proto budeme vyvíjet striktně typovaný kód. 
 
 
 \subsubsection{Ostatní}
-Pro velkou část výstupů finanční analýzy je vhodná intepretace grafem. Z~předchozí zkušenosti jsem se rozhodl pro použití knihovny Chart.js.
-Pro zadávání vzorců vlastních ukazatelů bude využito exisující knihovny math-input.
+Pro velkou část výstupů finanční analýzy je vhodná intepretace grafem. Z~předchozí zkušenosti jsem se rozhodl pro použití knihovny Chart.js. 
 
 % rozsireni: 
 % du pont analyza (pyramidove rozlozeni), cash flow
