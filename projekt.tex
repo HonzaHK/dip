@@ -165,8 +165,15 @@
 %hk macros--------------------
 \newcommand{\zl}[2]{\dfrac{\text{#1}}{\text{#2}}}
 \newcommand{\vz}[3]{\text{#1} = \zl{#2}{#3}}
+
 %space and cite, for formulas
 \newcommand{\scite}[1]{\hspace{6mm}\cite{#1}} 
+
+%table fixed cell width
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 %-----------------------------
 
 \begin{document}
