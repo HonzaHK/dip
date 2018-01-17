@@ -420,13 +420,13 @@ Software nelze bez zakoupení jakkoliv používat, nicméně na webových strán
 
 Uživatelské rozhraní kromě grafů využívá také stupnic, na které umisťuje ukazatele. Je zde obrazovka \uv{rating}, což jsou různé ukazatele, každý z~ukazatelů je zobrazen za různá časová období a v~konkrétním časové období na stupnici od 1 do 10. Všechny ukazatele pohromadě lze zobrazit v~tabulce pro jedno časové období.
 
-Ukazatele jsou i na obrazovce s~trendy, ta mimo ukazatele obsahuje i trendy položek VZZ a R. Je zde také zobrazen seznam rizikových faktorů. Ty se od ukazatelů liší tím, že jsou buďto v~pořádku nebo ne, nic mezi tím (např. skutečnost, že podnik hospodaří se ztrátou).
+Ukazatele jsou i na obrazovce s~trendy, ta mimo ukazatele obsahuje i trendy položek výkazu zisku a ztráty a rozvahy. Je zde také zobrazen seznam rizikových faktorů. Ty se od ukazatelů liší tím, že jsou buďto v~pořádku nebo ne, nic mezi tím (např. skutečnost, že podnik hospodaří se ztrátou).
 
 Nástroj dále umožňuje vertikální analýzu, horizontální analýzu, analýzu cash flow a výpočet hodnoty firmy.
 
-Funkcionalita, která mě nejvíce zaujala, je nazvaná \uv{Co když}. Spočívá v~umožnění uživateli jednoduše manipulovat se vstupními daty analýzy a zároveň sledovat, jak by se měnily ukazatele.
+Funkcionalita, která mě nejvíce zaujala, je nazvaná \uv{co když}. Spočívá v~umožnění uživateli jednoduše manipulovat se vstupními daty analýzy a zároveň sledovat, jaký dopad by se měla tato změna na hodnotu ukazatelů.
 
-Hodnoty z~VZZ a R jsou zadávány do tabulky. Instruktážní video ani uživatelská příručka nehovoří o~tom, zda nástroj podporuje automatizované načítání výstupních dat z~některých jiných nástrojů z~oblasti financí (např. účetních).
+Hodnoty z~ výkazu zisku a ztráty a rozvahy jsou zadávány do tabulky. Instruktážní video ani uživatelská příručka nehovoří o~tom, zda nástroj podporuje automatizované načítání výstupních dat z~některých jiných nástrojů z~oblasti financí (např. účetních).
 
 Dalším nedostatkem byla sekce s~vysvětlením pojmů. Všechny pojmy jsou na jedné hromadě, na konkrétní pojem se nelze prokliknout.
 
@@ -434,27 +434,27 @@ Dalším nedostatkem byla sekce s~vysvětlením pojmů. Všechny pojmy jsou na j
 \subsubsection{Equanta}
 Zatímco FAF je pravděpodobně výtvorem jednoho nebo malé skupiny vývojářů a jsou v~něm obsaženy pouze klíčové metody a ukazatele finanční analýzy (které ale ve většině případů stačí), Equanta je mnohem sofistikovanějším nástrojem, za jehož vývojem nejspíš stojí větší počet vývojářů -- společnost ATLAS consulting s.r.o. . Ta má ve svém portfoliu i jiné, nejen finančně zaměřené nástroje.
 
-Equanta má o~poznání modernější rozhraní, obsahuje i více sekcí, ukazatelů a pohledů na hospodaření podniku. Obsahuje také automatizované načítání vstupu, a to nejen z~VZZ a R, ale i z~účetních nástrojů jako je Pohoda. V~nástroji je možné provádět mezipodnikové srovnání úzávěrek a ukazatelů, které se v~praxi používá relativně často.
+Equanta má o~poznání modernější rozhraní, obsahuje i více sekcí, ukazatelů a pohledů na hospodaření podniku. Obsahuje také automatizované načítání vstupu, a to nejen z~ výkazu zisku a ztráty a rozvahy ve formátu pro finanční úřad, ale i z~účetních dat nástrojů jako je Pohoda. V~nástroji je možné provádět mezipodnikové srovnání úzávěrek a ukazatelů, které se v~praxi používá relativně často.
 
-Nástroj si pamatuje naposledy ovtevřené dokumenty a má různá nastavení a další možnosti personalizace, což implikuje využití persisentních dat. To je proti nástroji FAF další velkou výhodou. 
+Nástroj si pamatuje naposledy ovtevřené dokumenty, tyto dokumenty lze seskupovat pod projekty, jsou zde zpřístupněna různá nastavení a další možnosti personalizace, což implikuje využití persisentních dat. To je proti nástroji FAF další velkou výhodou. 
 
 
 \subsubsection{FinAnalysis}
-Nástroj je realizován jako přednastavená šablona v~tabulkovém prostředí MS Excel. Toto řešení může být rýchlé a efektivní, nicméně pro naše účely naprosto nevyhovující, jelikož jeho používání je podmíněno používáním MS Excel. Nástroj je prostředím svého běhu omezen -- veškerá rozšíření je nutné implementovat funkcemi Excelu.
+Nástroj je realizován jako přednastavená šablona v~tabulkovém prostředí MS Excel. Toto řešení může být rýchlé a efektivní, nicméně pro naše účely naprosto nevyhovující, jelikož je jeho používání podmíněno používáním MS Excel. Nástroj je prostředím svého běhu omezen -- veškerá rozšíření je nutné implementovat funkcemi Excelu.
 
-Přesto nástroj plní svůj ůčel a lze se v~něm inspirovat možnostmi provádení základních analýz, výpočty mnoha ukazatelů a interpretací výsledků. Jednotlivé sekce jsou realizovány jako listy v~Excelu. První tři listy (list s~VZZ, rozvahou a list se základními údaji jako například počet zaměstnanců)slouží k~zadávání dat. Zbývající listy obsahují výsledky, jsou pouze pro čtení a odpovídají rozdělení podle jednotlivých typů analýzy.
+Přesto nástroj plní svůj ůčel a lze se v~něm inspirovat možnostmi provádení základních analýz, výpočty mnoha ukazatelů a interpretací výsledků. Jednotlivé sekce jsou realizovány jako listy v~Excelu. První tři listy (list s~vúkazem zisku a ztáty, rozvahou a list se základními údaji jako například počet zaměstnanců)slouží k~zadávání dat. Zbývající listy obsahují výsledky, jsou pouze pro čtení a odpovídají rozdělení podle jednotlivých typů analýzy. Použití programu Excel je v~oblasti financí velmi časté.
 
 
 
 %--------------------------------------------------------
 \section{Vybrané metody vyhodnocování}
-Nástroj by měl být schopen provádět analýzu alespoň v~rozsahu teoretické části této práce. Podoba výstupu se mění v~závislosti na vybrané analýze nebo ukazateli. Výstupem může být absolutní hodnota, finanční částka, procentuální podíl, graf s~vývojem hodnoty v~čase. 
+Nástroj by měl být schopen provádět analýzu alespoň v~rozsahu teoretické části této práce. Podoba výstupu se mění v~závislosti na vybrané analýze nebo ukazateli. Výstupem může být absolutní hodnota, finanční částka, procentuální podíl, tabulka s~těmito hodnotami v~čase, graf s~vývojem hodnot v~čase. 
 
 
 \subsubsection{Vertikální a horizontální analýza}
-Hned jako první se nabízí porovnání s~hodnotami za předchozí období, tedy horizontální analýza. Při horizontální analýze jedné položky VZZ nebo R se nejčastěji používá sloupcového (v~případě více sledovaných období spojnicového) grafu. Nástroj bude umožňovat i hromadnou horizontální analýzu -- výsledek bude interpretován tabulkou; meziroční změna u~jednotlivých položek bude vyjádřena absolutní i procentuální hodnotou. 
+Hned jako první se nabízí porovnání s~hodnotami za předchozí období, tedy horizontální analýza. Při horizontální analýze jedné položky výkazu zisku a ztráty nebo rozvahy se nejčastěji používá sloupcového (v~případě více sledovaných období spojnicového) grafu. Nástroj bude umožňovat i hromadnou horizontální analýzu -- výsledek bude interpretován tabulkou; meziroční změna u~jednotlivých položek bude vyjádřena absolutní i procentuální hodnotou. 
 
-Podobně i pro vertikální analýzu. Pokud bychom chtěli analyzovat pouze užší část VZZ nebo R, můžeme výsledky interpretovat v~grafech. Výsledky hromadné analýzy budou zobrazeny v~tabulce s~vyjádřením změn absolutní i procentuální hodnotou.
+Podobně i pro vertikální analýzu. Pokud bychom chtěli analyzovat pouze užší část vákazu zisku a ztráty nebo rozvahy, můžeme výsledky interpretovat v~grafech. Výsledky hromadné analýzy budou zobrazeny v~tabulce s~vyjádřením změn absolutní i procentuální hodnotou.
 
 \subsubsection{Poměrové ukazatele}
 Možnosti zobrazení poměrových ukazatelů budou podobné jako v~testovaných nástrojích. Ukazatele budou na
@@ -466,99 +466,108 @@ Pro interpretaci výsledků budou využity:
 	\item grafy (sloupcové, spojnicové, koláčové a další)
 \end{itemize}
 
-Kromě toho bude nástroj schopen sledovat a upozorňovat na rizikové faktory. 
+
+
+Kromě toho bude nástroj schopen sledovat a upozorňovat na rizikové faktory, budou ošetřeny i krajní, extrémní případy (hospodaření se ztátou apod.).
 
 V~nástroji bude také sekce \uv{co když} inspirovaná funkcionalitou z~programu FAF, kde bude možné s~hodnotami libobolně manipulovat a sledovat, jak se tyto změny odrazí na výsledných hodnotách ukazatelů, což může být využito při rozhodování a plánování.
-
-
-- mezipodnikove porovnani
-- co nejvice ukazatelu - komplexni
-- osetreni krajinich, extremnich pripadu (hospodaření se ztrátou, ...)
-- moznost naklikani vlastniho ukazatele? js math input
-DPPDP8
-VZZ a R
-architektura - serverova cast / klient
-
 
 %---------------------------------------------------------
 \section{Návrh programového řešení}
 
-Nástoroj nebude sloužit vyloženě jen pro dávkové zpracování dat. Půjde o~systém pro manažery a analytiky, ve kterém bude možné pod určitým uživatelským účtem vést informace o~hospodaření různých podniků za různá časová období. Nástroj bude schopen načtená data uložit a svázat s~daným uživatelským účtem, což umožní nejen jednoduchý přístup k~těmto datům a jejich kvantitativní analýze, ale i jednoduchou správu dat pro meziroční a mezipodnikové srovnání. Díky webovému rozhraní, což činí tento nástroj jedinečným, bude možné přistupovat k~systému a využívat jeho služeb kdykoliv a odkudkoliv.
+Nástoroj nebude sloužit vyloženě jen pro dávkové zpracování dat. Půjde o~systém pro podnikatele, manažery a analytiky, ve kterém bude možné pod určitým uživatelským účtem evidovat informace o~hospodaření různých podniků za různá časová období. Nástroj bude schopen načtená data uložit a svázat s~daným uživatelským účtem, což umožní nejen jednoduchý přístup k~těmto datům a jejich kvantitativní analýze, ale i jednoduchou správu dat pro meziroční a mezipodnikové srovnání. Díky webovému rozhraní, což činí tento nástroj jedinečným, bude možné přistupovat k~systému a využívat jeho služeb kdykoliv a odkudkoliv.
 
 \subsection{Načítání zdrojových dat}
 Vstupem kvantitativní finanční analýzy jsou data z~dokumentů výkaz zisku a ztráty a rozvaha. Při hledání vhodného způsobu automatizace načítání vstupních dat bylo zjištěno, že jsou subjekty zapsané v~obchodním rejistříku ze zákona povinny každoročně tyto dva dokumenty odevzdávat pro evidenci státním orgánům. 
-Odevzdávají se ve dvou formách. Pvní z~nich je ve formátu PDF na krajský soud, v~jehož obchodním rejistříku je subjekt evidován. Naštěstí pro nás jsou odevzdávány na daňovém portálu spolu s~daňovým přiznáním ve strukturovaném formátu XML. Přestože se v~podnikové sféře používají pro účtování různé nástroje (Pohoda, MRP, \dots), dá se očekávat, že většina z~nich bude schopna tyto dva dokumenty vytvořit ve shodě s~uváděnou specifikací.
+Odevzdávají se ve dvou formách. Pvní z~nich je ve formátu PDF na krajský soud, v~jehož obchodním rejistříku je subjekt evidován. Formát PDF je určen spíše ke čtení člověkem, pro parsování dat není vhodný. Naštěstí pro nás jsou subjekty povinny dokumenty odevzdávat také na daňovém portálu, spolu s~daňovým přiznáním, ve strukturovaném formátu XML. Přestože se v~podnikové sféře používají pro účtování různé nástroje (Pohoda, MRP, \dots), dá se očekávat, že většina z~nich bude schopna tyto dva dokumenty vytvořit ve shodě s~uváděnou specifikací s~názvem DPPDP8, případně nižší verze pro starší závěrky.
 
-Vzhledem k~této skutečnosti bude v~nástroji umožněno automatické načítání těchto souborů implementací odpovídajícího parseru,  čímž výrazně usnadníme zadávání.
+Vzhledem k~této skutečnosti bude v~nástroji umožněno automatické načítání těchto souborů implementací odpovídajícího parseru, čímž výrazně usnadníme zadávání.
 
-Uživateli bude samozřejmě ponechána možnost hodnotu všech položek rozvahy a výsledovky vyplnit ručně. Údaje ostatních společností jsou sice zveřejňovány, nicméně už jen ve formátu PDF, v~tomto případě je tedy ruční zadávání nezbytné pro mezipodnikové srovnání.
-
-
-\subsection{Uživatelské rozhraní}
-Program bude mít webové rozhraní, což má samozřejmě své výhody -- uživatel může k~programu přistupovat odkudkoliv (i z~různých platforem), používání programu není podmíněno jeho instalací a z~pohledu vývojáře je mnohem jednodušší jeho údržba (vydávání nových verzí). Nutnost připojení k~internetu by v~dnešní době neměla být výrazným omezením.
-
-Vzhledem k~nejedotné terminologii napříč celou finanční analýzou je žádoucí, aby při zobrazování výstupu uživatel bezpečně zjistil, co se daným pojmem myslí, co daný výsledek reprezentuje. To bude zajištěno výčtem alternativních označení (a možností výběru vlastního označení), případně možností přímo přejít do sekce, kde jsou jednotlivé ukazatele detailně vysvětleny. K~tomuto účelu může být použit text z~teoretické části této práce.
-
-Pokud bude se systémem pracovat nepřihlášený uživatel, bude mu umožněno pouze jednorázové zpracování dat - načtení vstupu a prohlížení výsledků, případně dodatečné upravení vsutpu.
-
-Domovskou stránkou pro přihlášeného uživatele bude obrazovka s~přehledem podniků, které jsou pod jeho účtem evidovány. Podniky mohou být přidávány a odebírány, slouží jen pro seskupování účetních závěrek.
-Po výběru podniku se uživatel dostane na obrazovku s~přehledem nahraných závěrek. Závěrky lze přidávat, upravovat a odebírat. Při přidávání lze zvolit mezi načtením z~XML souboru nebo ručním vyplněním buněk tabulky. Ta bude použita i pro editaci již zadaných dat.  
-
-Uživateli bude pro snadnější práci umožněno vytoření vlastního účtu. Systém tak bude schopen personalizovat obsah dle nastavených předvoleb. S~účtem budou svázana i data za jednotlivá časová obdoví v~minulosti, která lze nahrát a uchovat pro další použití, například porovnání nebo zpřesnění analýzy v~budoucnu.
-
-Přihlášením k~uživatelskému účtu systém pozná, kdo s~ním pracuje, což přináší mnoho možností personalizace. 
+Uživateli bude samozřejmě ponechána možnost hodnotu všech položek rozvahy a výsledovky vyplnit ručně. Údaje ostatních společností jsou sice zveřejňovány, nicméně už jen ve formátu PDF, pro možnost mezipodnikového srovnání je tedy ruční zadávání dat závěrky nezbytné.
 
 
-\subsection{Personalizace}
-Uživatelský účet je konstruovaný pro potřeby finančního analytika nebo manažera. Pod uživatelským účtem bude možno evidovat různé podniky, v~rámci podniku bude umožněno uložit libovolný počet uzávěrek. Ty mohou být použity k~meziročnímu srovnání.
-Uživatel bude mít možnost provádět i porovnání mezi podniky.
-
-Jelikož různé podniky sledují různé ukazatele, je žádoucí, aby nástroj uživateli umožnil vybrat zobrazované/preferované ukazatele. 
-
-U~všech poměrových ukazatelů se dá určit nějaká optimální hodnota. Tyto hodnoty však nelze zjistit obecně. Kromě používání různých ukazatelů se pro odvětví nebo konkrétní podnik mohou lišit také hraniční hodnoty jednotlivých ukazatelů.
 
 
-- vyber polozky vysledovky (checkbox/selectbox ...?)
-- checkboxy pro roky
 
 
-\subsection{Serverová část}
-Serverová část bude sloužit především k~uchovávání persisentních dat, jimiž jsou uživatelem nahrané výkazy a jeho nastavení, taktéž databáze uživatelů samotných.
+%-----------------------------------------------------------
+\subsection{Architektura}
+Byla zvolena architektura klient-server, s~webovým uživatelským rozhraním. V~dnešní době, kdy je vysokorychlostní internet spíše pravidlem nežli vyjímkou, je tato architektura využívána stále více. Motivací je také fakt, že žádný z~hledaných analytických nástrojů tuto architekturu nevyužívá, přestože při zběžném průzkumu vyšlo najevo, že všichni dotazovaní by tuto možnost uvítali.
+
+Webové rozhraní má samozřejmě své výhody -- uživatel může k~programu přistupovat odkudkoliv (i z~různých platforem), používání programu není podmíněno jeho instalací a z~pohledu vývojáře je mnohem jednodušší jeho údržba (vydávání nových verzí). 
+
+Nevýhodou je samozřejmě nutnost připojení k~internetu, tu však částečně odbourává koncept SPA popsaný dále a možnost uložení veškerého kódu spojeného s~aplikací do lokálního uložiště, tato možnost ale nebude součástí základního návrhu. Problémem by se mohlo zdát i prostředí běhu, webový prohlížeč. Efektivita intepretace, nebo spíše překladu JavaScript kódu se však neustále zdokonaluje a skutečnost, že aplikace není v~nativním kódu, je téměř nepostřehnutelná. 
+
+Nástroj bude koncipován jako single page application (SPA). To znamená, že při interakci s~uživatelem bude stránka překreslována dynamicky na straně klienta, namísto opakovaného nahrávání programového kódu (webových stránek) ze serveru. Tato technika vyžaduje načtení veškerého kódu aplikace při jediném načtení stránky a dodatečné načítání uživatelských dat ve chvíli, kdy jsou potřeba. Přináší však mnohem lepší UX, které se blíží desktopovému provedení -- odezva aplikace se zdá plynulejší, uživatel nemusí čekat při akci vedoucí ke změně UI, která by normálně vedla k~načtení veškerého kódu stránky ze serveru. To je také důvod, proč je SPA v~dnešní době široce využíváno při implementaci rozsáhlejších aplikací nebo systémů běžících na architektuře klient-server. 
 
 
 \begin{figure}
   \centering
-  \includegraphics[width=15cm]{img/erd.png}
+  \includegraphics[width=8cm]{img/spa.png}
+  \caption{Schéma datového toku single page application (SPA)}
+\end{figure}
+
+%-----------------------------------------------------------
+\subsubsection{Uživatelské rozhraní}
+
+Pokud bude se systémem pracovat nepřihlášený uživatel, bude mu umožněno pouze jednorázové zpracování dat -- načtení vstupu a prohlížení výsledků, případně dodatečné upravení vsutpu.
+
+Uživateli bude umožněno vytoření vlastního účtu pro zpřístupnění rozšířené funkcionality. Přihlášením k~uživatelskému účtu systém pozná, kdo s~ním pracuje. To přináší mnoho možností personalizace a možnost přizpůsobit obsah dle nastavených předvoleb. Uživatelský účet představuje osobu finančního analytika, manažera nebo podnikatele. S~účtem budou svázana i data za jednotlivá časová obdoví v~minulosti, která lze nahrát a uchovat pro další použití, například porovnání nebo zpřesnění analýzy v~budoucnu. Je žádoucí, aby přihlášení přetrvalo mezi jednotlivými chody aplikace, při znovunačtení stránky i při vypnutí a zapnutí prohlížeče. K~tomuto účelu bude využito lokální uložiště (local storage), které umožňuje zápis limitovaného objemu dat do zařízení klienta. Ukládat se samozřejmě nebude jméno ani heslo, ale takzvaný session id (identifikátor sezení), který je uživateli udělen serverem při přihlášení.
+
+Domovskou stránkou pro přihlášeného uživatele bude obrazovka s~přehledem podniků, které jsou pod jeho účtem evidovány. Podniky mohou být přidávány a odebírány, slouží jen pro seskupování účetních závěrek.
+Po výběru podniku se uživatel dostane na obrazovku s~přehledem nahraných závěrek, přičemž závěrkou se myslí právě výkaz zisku a ztrát a rozvaha. Závěrky lze přidávat, odebírat a upravovat jejich data, v~základu tedy jedna závěrka na jedno účetní období, čili jeden rok. Při přidávání závěrek lze zvolit mezi načtením dat z~XML souboru se strukturou DPPDP nebo ručním vyplněním buněk tabulek. Ty bude použita i pro editaci již nahraných nebo zadaných dat.  
+
+Vzhledem k~nejedotné terminologii napříč celou finanční analýzou je žádoucí, aby při zobrazování výstupu uživatel bezpečně zjistil, co se daným pojmem myslí, co daný výsledek reprezentuje. To bude zajištěno výčtem alternativních označení (a možností vložení a výběru vlastního označení), případně možností přímo přejít do sekce, kde jsou jednotlivé ukazatele detailně vysvětleny. K~tomuto účelu může být použit text z~teoretické části této práce.
+
+Jelikož různé podniky sledují různé ukazatele, je žádoucí, aby nástroj uživateli umožnil vybrat zobrazované/preferované ukazatele. S~podniky a odvětvími se liší také optimální hodnota konkrétního ukazatele, případně hodnoty hraniční. Tyto hodnoty nelze stanovit obecně, možnost jejich nastavení
+
+%-----------------------------------------------------------
+\subsubsection{Serverová část}
+Serverová část bude sloužit k~uchovávání persisentních dat a uspokojování požadavků klienta. Persistentními daty jsou vytvořené podniky, nahrané výkazy a nastavení, rovněž je nutné vést databázi uživatelů samotných.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm]{img/erd.png}
   \caption{ERD na fyzické úrovni}
 \end{figure}
 
-Dále bude server obsluhovat požadavky klienta. Vzhledem k~tomu, že je nástroj koncipován jako SPA (single page application), ke stažení JavaScriptového kódu ke klientovi bude sloužit jeden jediný endpoint. Klient tak bude moci s~nástrojem pracovat bez dodatečného volání serveru. Server bude dále zpřístupňovat rozhraní pro CRUD operace nad persistentními daty, jimiž jsou pouze výkazy a uživatelské předvolby. V~poslední řadě budou na serverové části endpointy pro pro práci s~uživatelskými účty (vytváření, přihlašování).
+Dále bude server obsluhovat požadavky klienta. Vzhledem k~tomu, že je nástroj koncipován jako SPA (single page application), ke stažení veškerého kódu aplikace ke klientovi bude sloužit jeden jediný endpoint. Klient tak bude moci s~nástrojem pracovat bez dodatečného volání serveru, vyjma operací nad daty, jejichž uložiště ja na serveru. Server bude dále zpřístupňovat rozhraní pro CRUD operace nad těmito daty, jimiž jsou pouze výkazy a uživatelské předvolby. V~poslední řadě budou na serverové části endpointy pro pro práci s~uživatelskými účty (vytváření, přihlašování).
 
-Zda se budou výpočty provádět na straně serveru nebo klienta se rozhodne až při implementaci a testování. Preferovaný je výpočet na straně klienta, je však potřeba dbát na to, aby zátež na klientovi nebyla znát. Při analýze se neprovádějí žádné iterativní nebo jiné náročné výpočty a objem zpracovávaných dat je relativně malý.
+Zda se budou výpočty provádět na straně serveru nebo klienta se rozhodne až při implementaci a testování. Preferovaný je výpočet na straně klienta, při většině metod analýzy se neprovádějí náročné výpočty a objem zpracovávaných dat je relativně malý. Přesto je však potřeba dbát na to, aby zátež na klientovi nebyla znát. 
 
+
+
+%----------------------------------------------------------
 \subsection{Knihovny a technologie}
 K~implementaci bude použita kombinace programovacích, skriptovacích, značkovacích a dotazovacích jazyků. Pro klientskou část jsou to HTML, CSS a Javascript (přesněji TypeScript). Kód serveru bude v~jazyce PHP s~připojením na MySQL databázi.
 
 
 \subsubsection{React}
-React je populární frontendová knihovna v~jazyce JavaScript vyvíjená společností Facebook. 
+React je populární frontendová knihovna v~jazyce JavaScript vyvíjená společností Facebook. Jejím jediným cílem je tvorba uživatelského rozhraní pomocí komponent, jejichž kód je zapsán deklarativně -- spíše definujeme, co se má udělat (jak má komponenta vypadat) a ne jak se to má udělat (to za nás řeší životní cyklus komponent). Při změně modelu React na základě definice komponent pozná, které komponenty (a na pozadí tedy i uzly DOM) to ovlivní, a překreslí pouze ty. Velkou výhodou je tedy oddělení modelu od prezentační vrstvy (v~případě jQuery je model uložen přímo v~HTML).
 
-Zcela zapouzřuje DOM
+Systém komponent nás kompletně odstíní od manipulace s~DOM, což bývá v~případě komplexních UI, i s~pomocí jQuery, velmi nepohodlné. Aplikace manipulující přímo s~DOM jsou také velmi náročné na údržbu (změna na jednom místě vede k~změnám na mnoha jiných místech) a její části hůře znovupoužitelné.
 
-Knihovna sama o~sobě přináší pouze deklarativní způsob zápisu 
+
 (Redux,Navigation,bootstrap/material-ui,nextjs)
 
 
 \subsubsection{Typescript}
 Jedná se o~nadstavbu nad jazykem JavaScript vyvíjenou společností Microsoft, jejíž hlavním přínosem je statické typování a další techniky známé z~objektově orientovaného programování -- třídy (ačkoliv ty jsou podle nejnovější specifikace ECMAScript součástí samotného JavaScriptu), rozhraní, moduly a podobně.
 
-Jelikož se jedná o~nástavbu, lze používat i čistý JavaScript bez použítí typů, což nám umožní použít i knihovny, které jsou implementovány v~čistém JavaScriptu. Otypování kódu však zvyšuje jeho přehlednost, snižuje chybovost, otevírá nové možnosti pro vývojová prostředí (našeptávání, refaktorizace kódu) a tím urychluje vývoj. Proto budeme vyvíjet striktně typovaný kód. 
+Jelikož se jedná o~nástavbu, lze používat i čistý JavaScript bez použítí typů, což nám umožní použít i knihovny, které jsou implementovány v~čistém JavaScriptu. Otypování kódu však zvyšuje jeho přehlednost, snižuje chybovost, otevírá nové možnosti pro vývojová prostředí (našeptávání, refaktorizace kódu) a tím zkvalitňuje vývoj. Proto budeme vyvíjet striktně typovaný kód. 
 
 
 \subsubsection{Ostatní}
-Pro velkou část výstupů finanční analýzy je vhodná intepretace grafem. Z~předchozí zkušenosti jsem se rozhodl pro použití knihovny Chart.js. 
+\begin{itemize}
+	\item Next.js -- startovní balíček postavený na knihovně React, obsahuje ostatní užitečné knihovny (Redux, routování, volání serveru, dynamické importování)
+	\item Bootstrap -- sada přednastavených šablon, usnadní nám design uživatelského rozhraní
+	\item Chart.js -- knihovna pro práci s~grafy
+\end{itemize} 
 
 % rozsireni: 
 % du pont analyza (pyramidove rozlozeni), cash flow
 % ulozeni ukazazelu odvetvi, porovnani s odvetvim
 % sirsi zaber mezipodnikoveho srovnani, nejen vykaz
+% offline rezim
+% 
