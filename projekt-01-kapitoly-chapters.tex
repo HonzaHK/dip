@@ -607,10 +607,51 @@ Při dalším postupu bude ze všeho nejdříve připraveno vývojové prostřed
 
 
 
+\chapter{Implementace}
+
+\begin{comment}
+aktiva: 
+	17+16;
+	15+14 +13[nazvy]+12+11+10[nazvy]
+
+pasiva:
+	17+16;
+	15+14 +13[nazvy,radek_58_chybi]+12[radek_57_chybi]+11[radek_56_chybi]+10[nazvy]
+
+vzz:
+	17+16;
+	15+14 +13[nazvy]+12+11+10
+
+kms-mrp
+kazdy rok nove zakony - nema smysl prizpusobovat do budoucna
+proto kazdy ekon/ucetni program placeny pausalne - rocne
+moznosti - parse do predem definovane struktury X parse do dane dppdp8_20XX struktury, tahani pomoci definovanych funkci
+upgrade kazdy rok
+
+tabulky aktiv/pasiv/vzz nelze stahnout ze zadneho endpointu (kontrolovano i v dotazech prohlizece) - muselo by se parsovat HTML cele stranky - nakonec vytvoren jednoduchy parser
+
+aby vse fungovalo jak ma - prepocet nadrazenych polozek - musime znat strom - ten taky neni mozne automatizovane vytvorit
+
+nemoznost vytvorit strom na zaklade atributu "oznaceni" - napr pasiva 2016 obsahuje B.+C. -> strom musi byt explicitne zapsan
 
 
-% rozsireni: 
-% du pont analyza (pyramidove rozlozeni), cash flow
-% ulozeni ukazazelu odvetvi, porovnani s odvetvim
-% sirsi zaber mezipodnikoveho srovnani, nejen vykaz
-% offline rezim
+jelikoz podle struktury tabulek MF jsou c_radku pomichana a obecne nejdou postupne za sebou, tabulku ulozime radeji jako objekt, nez pole; atributy objektu budou jednotliva cisla radku; bude se nam potom podle vykazu lepe vytahovat hodnota, nez pokazde zjistovat, jaky index v poli to je; dalsi varianta je ulozit vykaz do pole a potom pomoci funkce .find hledat prislusny radek; prvni varianta- rychlejsi, primy odkaz do objektu, jen bude nutne pomoci helperu inteligentne prekonvertovat objekt na pole, aby se dalo v sablone nad timto objektem iterovat pomoci map; js nezarucuje zachovani poradi atributu objektu - kazdy prohlizec jiny pristup, napr chrome seradi, proto je nutne v mape ulozit do array c_radku tak, jak jdou ve vykazu za sebou - array zachova poradi
+mapa poslouzi i pri vytvareni prazdnych dokumentu pr vyplneni v budoucnu
+
+vyber polozek - reknu co chci (trzby) a fce pozna, ktere polozky vytahnout podle roku
+prevodova tabulka - pdf email
+
+client side routing (react-router)
+firebase config
+material-ui-next
+
+analyza vybraneho podniku + vystup nastroje
+
+
+rozsireni: 
+du pont analyza (pyramidove rozlozeni), cash flow
+ulozeni ukazazelu odvetvi, porovnani s odvetvim
+sirsi zaber mezipodnikoveho srovnani, nejen vykaz
+offline rezim
+
+\end{comment}
