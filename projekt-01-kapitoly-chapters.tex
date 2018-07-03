@@ -80,7 +80,7 @@ Hodnoty jejich položek plynou právě ze sumy hodnot jednotlivých účtů úč
 Výkaz zisku a~ztráty, také výsledovka, ukazuje, jakého hospodářského výsledku bylo dosaženo v~daném účetním období. Data výsledovky jsou počítány z~dat výsledovkových účtů. Jednotlivé účty jsou kategorizovány podle jejich účelu a~položky výsledovky jsou sumy účtů dané kategorie. Je to jakási agregace záznamů o~pěněžních tocích za celé účetní období, z~nichž každý je buď výnosem nebo nákladem (pozn. není to to samé jako příjmy a~výdaje). Výsledkem hospodaření se rozumí buďto zisk (výnosy převyšují náklady) nebo ztráta (náklady převyšují výnosy).
 
 \subsubsection{Rozvaha}
-Také označována termínem bilance. Narozdíl od výkazu zisku a~ztráty jsou při sestavování rozvahy data vázána k~jednomu určitému okamžiku, takzvanému rozvahovému dni, který je posledním dnem účetního období, zpravidla posledním dnem kalendářního roku. Data mají tedy statickou povahu.
+Také označována termínem bilance. Na rozdíl od výkazu zisku a~ztráty jsou při sestavování rozvahy data vázána k~jednomu určitému okamžiku, takzvanému rozvahovému dni, který je posledním dnem účetního období, zpravidla posledním dnem kalendářního roku. Data mají tedy statickou povahu.
 
 Hlavními složkami rozvahy jsou aktiva a~pasiva. Zatímco aktiva představují majetek společnosti (budovy, stroje, materiál, vozidla, \dots, ale i software nebo know-how), pasiva jsou zdrojem krytí těchto aktiv (kapitál). V~průběhu roku se hodnota aktiv a~pasiv liší právě o~hodnotu, o~kterou se liší náklady a~výnosy. Při sestavování závěrky se rozdíl nákladů a~výnosů po zdanění přenese na rozvahový účet (představující pasivum) s~názvem hospodářský výsledek ve schvalovacím řízení, čímž se aktiva a~pasiva vyrovnají. Část zisku musí být investována do fondů (ze zákona, případně stanov společnosti), valná hromada poté rozhodne, co se zbytkem. Může navýšit vlastní jmění podniku nebo zisk rozdělit mezi vlastní investory, což je znázorněno na obrázku \ref{ccf}. Hlavním rozdělením aktiv je na krátkodobá a~dlouhodobá, hlavním rozdělením pasiv je na vlastní a~cizí kapitál.
 
@@ -98,7 +98,7 @@ Při posuzování výsledků by měl analytik zohlednit významné meziroční z
 
 
 \subsection{Vertikální analýza}
-Přívlastek vertikální vychází tak jako u~horizontální analýzy ze způsobu zpracování finančních výkazů. Dáváme tak do poměru jednotlivé položky výkazů. Narozdíl od poměrových ukazatelů zmíněných dále se však při vertikální analýze dává do poměru část celku k~celku samotnému. Dalo by se tedy říct, že vyčíslováním podílu vybrané části na celku vertikální analýza popisuje strukturální rozložení sledované entity (například aktiv nebo pasiv či jejich složek). 
+Přívlastek vertikální vychází tak jako u~horizontální analýzy ze způsobu zpracování finančních výkazů. Dáváme tak do poměru jednotlivé položky výkazů. Na rozdíl od poměrových ukazatelů zmíněných dále se však při vertikální analýze dává do poměru část celku k~celku samotnému. Dalo by se tedy říct, že vyčíslováním podílu vybrané části na celku vertikální analýza popisuje strukturální rozložení sledované entity (například aktiv nebo pasiv či jejich složek). 
 Výhodou vertikální analýzy je, že není ovlivněna meziroční inflací a~výsledky se tak dají provnávat s~výsledky za jiné časové období, mimo to i s~výsledky jiných podniků\cite{sedl}.
 
 
@@ -108,7 +108,7 @@ Výhodou vertikální analýzy je, že není ovlivněna meziroční inflací a~v
 
 %-----
 \section{Poměrové ukazatele}
-Výpočet je opět založen na datech z~rozvahy a~výsledovky. Narozdíl od horizontální a~vertikální analýzy, při kterých je sledován vývoj jedné veličiny v~čase případně vývoj ve vztahu k~určité vztažné veličině (nadřazenému celku), při výpočtu poměrových ukazatelů zkoumáme vztah mezi jednotlivými veličinami navzájem, čímž získáváme zase jinou vypovídací hodnotu.
+Výpočet je opět založen na datech z~rozvahy a~výsledovky. Na rozdíl od horizontální a~vertikální analýzy, při kterých je sledován vývoj jedné veličiny v~čase případně vývoj ve vztahu k~určité vztažné veličině (nadřazenému celku), při výpočtu poměrových ukazatelů zkoumáme vztah mezi jednotlivými veličinami navzájem, čímž získáváme zase jinou vypovídací hodnotu.
 
 Existuje několik různých ukazatelů. Různé ukazatele slouží různým účelům, různé společnosti se řídí různými ukazateli. Podle účelu a~povahy ukazatele ho lze zařadit do některé ze skupin soustavy ukazatelů. V~této práci budou zmíněny základní skupiny poměrových ukazatelů -- rentability, likvidity, aktivity a~zadluženosti, v~rámci nichž budou popsány i jednotlivé ukazatele.
 
@@ -607,9 +607,94 @@ Při dalším postupu bude ze všeho nejdříve připraveno vývojové prostřed
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \chapter{Implementace}
 
+\subsection{Načítání a uložení persisentních dat}
+
+\subsubsection{Parsování DPPDP8}
+Pro automatizované načítání souborů se syntaxí? DPPDP8 byl implementován parser. Nejprve je pomocí knihovny ? řetězec s obsahem XML souboru přetransformován na odpovídající JSON, což umožňuje s tímto obsahem dále pracovat jako s javascriptovým objektem.
+
+Každý rok, respektive každá skupina roků se stejnou strukturou výkazů, je parsován pomocí předdefinovaných map. Pomocí těchto map se s výkazy i dále pracuje. Mapa obsahuje následující položky (pro každou tabulku zvlášť):
+
+\begin{itemize}
+\item pořadí řádků ve výkazu -- reprezentováno polem
+\item označení a plný název položky s daným číslem řádku -- reprezentováno objektem
+\item strom zanoření
+\item mapa 
+\end{itemize} 
+
+Označení a plné názvy všech položek jsou uloženy v objektu, jehož klíče tvoří čísla řádků těchto položek, což umožňuje rychlý přístup -- pokud máme k dispozici číslo řádku, s nímž chceme pracovat, data spjatá s tímto řádkem lze získat přímým přístupem do objektu přes daný klíč. Pokud by byly řádky a s nimi spojená data uloženy v poli, pokaždé bychom museli iterovat celým polem, dokud bychom nenarazili na data odpovídající vybranému řádku.
+
+Při práci s tabulkou, například jejím renderování, je však žádoucí dodržet pořadí stanovené na stránkách daňového protálu? cit?, které bohužel není obecně konzistentní. Například u tabulky pasiv je běžné, že se mezi prvními položkami s čísly řádků tvořícími posloupnost přirozených čísel najednou objeví položka s číslem řádku o několik desitek vyšším. To je evidentně způsobeno dodatečným přidáváním nových položek. Ty jsou umisťovány k souvisejícím položkám (nikoliv na konec), nicméně čísla řádků následujících položek zůstávají a tak nová položka dostane? úplně nové, nejvyšší číslo řádku. Jinými slovy, pořadí položky v tabulce obecně neodpovídá atributu číslo řádku? této položky. 
+
+
+Mapa s označením a plnými názvy položek sice obsahuje všechna čísla řádků, jelikož jsou to ale klíče objektu, pro jejich získání by se muselo použít konstrukce \texttt{for .. in}, která bohužel v prohlížeči Chrome nezachovává pořadí, v jakém jsou klíče zadány. Standard ECMAScript? pořadí klíčů při jejich výčtu nijak nespecifikuje cit?, to je tak ponecháno na vývojářích. Abychom byli schopni vypsat řádky nejen všechny, ale i ve správném pořadí, obsahuje mapa také pole čísel představující toto pořadí. Na rozdíl od objektu, pole pořadí svých položek zachovává.
+
+
+\subsection{Ohodnocení poměrových? ukazatelů}
+Pro některé? ukazatele, například ukazatele likvidity, lze najít doporučené hodnoty ve většině zdrojů?. Bohužel jsou tyto hodnoty různé v závislosti na vybraném zdroji. V praxi toto platí dvojnásob -- hodnoty ukazatelů mohou nabývat? extrémních odchylek, přičemž to nemusí nutně signalizovat? špatnou situaci podniku. ?Jako příklad si můžeme uvést společnost Alza.cz a.s. Ta disponuje ..., který je však kryt? vlastními zdroji z pouhých X? procent.? 
+
+Nejlépe odpovíjdajícími? referenčními hodnotami jsou výsledky finanční analýzy podnikové sféry prováděné Ministerstvem průmyslu a obchodu. 
+
+\section{Možnosti rozšíření nástroje}
+* nejen roční, ale i kvartální apod výkazy - srovnání v různých časových obdobích
+
+
+
 \begin{comment}
+alza 	- jsou hodnoty ukazatelu vazne spatne? - odchylene od normalu (neni tam jen obrovska financni paka, coz je vlastne dobre?) 
+
+
 aktiva: 
 	17+16;
 	15+14 +13[nazvy]+12+11+10[nazvy]
@@ -628,24 +713,42 @@ proto kazdy ekon/ucetni program placeny pausalne - rocne
 moznosti - parse do predem definovane struktury X parse do dane dppdp8_20XX struktury, tahani pomoci definovanych funkci
 upgrade kazdy rok
 
+co programatora zaskoci je redundance dat v odevzdavanem XML - jsou ulozeny jak polozky souctu, tak i jeho vysledky
+
+Pro testovani vystupy Pohoda, jehoz export je v souladu se specifikaci DPPDP, V praxi spis hodne ruznych vstupu a nebo zkracena rozvaha/vzz
+
 tabulky aktiv/pasiv/vzz nelze stahnout ze zadneho endpointu (kontrolovano i v dotazech prohlizece) - muselo by se parsovat HTML cele stranky - nakonec vytvoren jednoduchy parser
 
 aby vse fungovalo jak ma - prepocet nadrazenych polozek - musime znat strom - ten taky neni mozne automatizovane vytvorit
 
 nemoznost vytvorit strom na zaklade atributu "oznaceni" - napr pasiva 2016 obsahuje B.+C. -> strom musi byt explicitne zapsan
 
-
 jelikoz podle struktury tabulek MF jsou c_radku pomichana a obecne nejdou postupne za sebou, tabulku ulozime radeji jako objekt, nez pole; atributy objektu budou jednotliva cisla radku; bude se nam potom podle vykazu lepe vytahovat hodnota, nez pokazde zjistovat, jaky index v poli to je; dalsi varianta je ulozit vykaz do pole a potom pomoci funkce .find hledat prislusny radek; prvni varianta- rychlejsi, primy odkaz do objektu, jen bude nutne pomoci helperu inteligentne prekonvertovat objekt na pole, aby se dalo v sablone nad timto objektem iterovat pomoci map; js nezarucuje zachovani poradi atributu objektu - kazdy prohlizec jiny pristup, napr chrome seradi, proto je nutne v mape ulozit do array c_radku tak, jak jdou ve vykazu za sebou - array zachova poradi
 mapa poslouzi i pri vytvareni prazdnych dokumentu pr vyplneni v budoucnu
 
+funkce pro parsovani HTML nedostupnych dat (c_radku,oznaceni,nazev)
+
+spolecne polozky napric roky jsou maximalni pocet (pro co nejdetailnejsi analyzu) pri soucasnem zachovani vzajemne disjunktnosti
+
 vyber polozek - reknu co chci (trzby) a fce pozna, ktere polozky vytahnout podle roku
 prevodova tabulka - pdf email
+
+zpusob vypoctu jednotlivych ukazatelu se mezi ruznymi zdroji lisi, kvuli implementaci ohodnoceni / srovnani s prumernymi hodnotami z MPO bylo pouzito jejich zpusobu
+
+atributy podniku jsou zachyceny v urcity okamzik -> mohou byt zavadejici
+
+ohodnoceni - neexistuji presne dane hodnoty (napr Alza), lze se odrazit pouze od prumeru pro dany obor
+MPO - pro nektere ukazatele primo hodnoty, pro jine data pro jejich vypocet, pro ostatni ani to ne
 
 client side routing (react-router)
 firebase config
 material-ui-next
 
 analyza vybraneho podniku + vystup nastroje
+
+GUI ====================================================================================================
+* prohlizec - vzhledem k puvodnimu ucelu vyska dokumentu (aplikace) roste s obsahem X desktopova aplikace - vyska je odvozena od vysky monitoru respektive okna (je to tak?); je zadouci mit fixni header
+========================================================================================================
 
 
 rozsireni: 
