@@ -680,15 +680,49 @@ Při práci s tabulkou, například jejím renderování, je však žádoucí do
 
 Mapa s označením a plnými názvy položek sice obsahuje všechna čísla řádků, jelikož jsou to ale klíče objektu, pro jejich získání by se muselo použít konstrukce \texttt{for .. in}, která bohužel v prohlížeči Chrome nezachovává pořadí, v jakém jsou klíče zadány. Standard ECMAScript? pořadí klíčů při jejich výčtu nijak nespecifikuje cit?, to je tak ponecháno na vývojářích. Abychom byli schopni vypsat řádky nejen všechny, ale i ve správném pořadí, obsahuje mapa také pole čísel představující toto pořadí. Na rozdíl od objektu, pole pořadí svých položek zachovává.
 
+* detailni rozpis pri zadavani/editaci vykazu a pro horizontalni analyzu, pro zbytek vybrane polozky (minimalni a zaroven disjunktni)
 
-\subsection{Ohodnocení poměrových? ukazatelů}
+\subsubsection{Ruční zadávání dat}
+Sekce
+Pro případ, že uživatel nemá možnost dodat? výkazová data ve formátu XML,
+
+
+
+\section{Implementace finanční analýzy}
+
+\subsection{Společené položky napříč různými strukturami výkazů}
+
+
+\subsection{Horizontální analýza}
+* analyzovany jsou A, P i VZZ
+Horizontální analýza je na nejvyšší úrovni prováděna dvěma způsoby. Ve zdrojovém kódu je uložena informace o tom, které roky? mají stejnou strukturu finančních výkazů. Díky tomu lze uložené výkazy seskupit a provést horizontální analýzu na detailní úrovni -- pro výkazy se stejnou strukturou je analyzována každá z položek těchto výkazů; potřebné informace, jako jsou názvy, označení a pořadí položek jsou uloženy přímo v mapě struktury těchto výkazů.
+
+Tímto způsobem však nejsme schopni analyzovat delší časové období, vzhledem k podporovaným letem? v implementovaném nástroji jsou to maximálně 2 roky. Abychom mohli analyzovat ?? v delším časovém horizontu, využijeme mapy společných položek napříč různými strukturami výkazů. Pro účely horizontální analýzy je nutné definovat v rámci každého z výkazů? (a/p/vzz) pořadí těchto společných položek. Při výpočtu konkrétních hodnot položek tak stačí nad uloženým pořadím iterovat a přes odpovídající funkci zjistit název položky a její hodnotu pro daný rok.
+
+
+
+Podobně jako u ostatních druhů analýz, výsledek není uložen v běžném (indexovaném) poli, nýbrž v poli asociativním. Nevýhodou je sice nutnost explicitní iterace nad jednotlivými výsledky analýzy, tento způsob uložení je však velmi příznivý při znovupoužití vypočítaných výsledků -- například při výpočtu rozdílu hodnot jedné položky v různých letech nebo srovnání podniků v rámci horizontální analýzy. Nejprve se vypočítají výsledky pro všechny srovnávané podniky, poté je nutné podnikové výsledky nahrát do jedné společné struktury. Pokud by byly výsledky pro podnik uloženy v běžném poli, museli bychom pro každou z položek respektive pro každý z analyzovaných roků procházet všechny položky respektive roky a hledat mezi nimi ten, který se právě chystáme zpracovat. Díky asociativnímu poli můžeme na hledanou hodnotu přistoupit přímo, přes klíč položky a následně klíč roku, neprobíhá tedy žádné vyhledávání. Přesněji neprobíhá vyhledávání na úrovni naší implementace, ale na úrovni interpretu JavaScriptu.
+
+
+\subsection{Vertikální analýza}
+VER AN
+
+\subsection{Poměrové ukazatele}
+PU
+\subsubsection{Ohodnocení poměrových? ukazatelů}
 Pro některé? ukazatele, například ukazatele likvidity, lze najít doporučené hodnoty ve většině zdrojů?. Bohužel jsou tyto hodnoty různé v závislosti na vybraném zdroji. V praxi toto platí dvojnásob -- hodnoty ukazatelů mohou nabývat? extrémních odchylek, přičemž to nemusí nutně signalizovat? špatnou situaci podniku. ?Jako příklad si můžeme uvést společnost Alza.cz a.s. Ta disponuje ..., který je však kryt? vlastními zdroji z pouhých X? procent.? 
 
 Nejlépe odpovíjdajícími? referenčními hodnotami jsou výsledky finanční analýzy podnikové sféry prováděné Ministerstvem průmyslu a obchodu. 
 
-\section{Možnosti rozšíření nástroje}
-* nejen roční, ale i kvartální apod výkazy - srovnání v různých časových obdobích
+\section{Vývoj}
+* pouziti prepinace pro mockovani dat - urychleni vyvoje, moznost vyvijet offline
 
+\section{Možnosti rozšíření nástroje}
+* nejen roční, ale i kvartální apod výkazy - srovnání v různých časových obdobích (i data z mpo jsou kvartal?)
+* krome pomerovych ukazatelu lze z dat mpo zjistit i oborove prumerne hodnoty pro vertikalni analyzu (podily slozek na celku)
+* jsou pravdive pocty podniku v odvetvi? pokud ano, lze zjistit i prumerne hodnoty vybranych polozek a/p/vzz - pro hor an
+* struktura abstraktni syntakticky strom, parser a evaluator pro ulozeni vypoctu jednotlivych ukazatelu nebo polozek vykazu - na kazdem miste tak bude mozne zobrazit nejen vysledek, ale take jednotlivé složky a způsob výpočtu - pokud by uzivatel chtel jasne vedet, jak se dany ukazatel vypocital - nyni reseno explicitnim popisem - coz by se sloucilo s vypoctem
+* vice roku - nemoznost zobrazit vse - vymyslet, jak by se to dalo zobrazovat
 
 
 \begin{comment}
@@ -752,7 +786,6 @@ GUI ============================================================================
 
 
 rozsireni: 
-du pont analyza (pyramidove rozlozeni), cash flow
 ulozeni ukazazelu odvetvi, porovnani s odvetvim
 sirsi zaber mezipodnikoveho srovnani, nejen vykaz
 offline rezim
