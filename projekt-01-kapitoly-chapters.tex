@@ -666,7 +666,7 @@ Při dalším postupu bude ze všeho nejdříve připraveno vývojové prostřed
 \chapter{Implementace}
 
 
-\subsection{Načítání a uložení persisentních dat}
+\subsection{Načítání a uložení vstupních dat}
 
 \subsubsection{Parsování DPPDP8}
 Pro automatizované načítání souborů se syntaxí? DPPDP8 byl implementován parser. Nejprve je pomocí knihovny ? řetězec s obsahem XML souboru přetransformován na odpovídající JSON, což umožňuje s tímto obsahem dále pracovat jako s javascriptovým objektem.
@@ -781,9 +781,39 @@ Vstupem pro všechny doposud zmíněné analýzy jsou roční výkazy podniku --
 routovani:
 * casti url adresy odpovidaji architektonickym vrstvam
 * client side routing - url zpracovava aplikace (knihovna), nevyhody vyhody najit na netu, prohlizec nenajde jednotlive komponenty - jen hlavni
+* react - ale to je spise prezentacni vrstva - vic v sekci uzivatelske rozhrani
+
+\subsubsection{React}
+* od fb
+* prezentacni vrstva, ne uplne mVc
+* deklarativni zpusob zapisu
+
+\subsubsection{Redux}
+Pro správu dat na aplikační vrstvě je využito knihovny Redux, jelikož samotný React je spíše ??prezentacni, mVc?? a pro účely správy stavu komplexnější aplikace začíná být nedostačující /spis spaghetti?. Redux je tedy kontejner pro globální stav aplikace??. Může sloužit jako cache, tedy pro uložení dat obdržených od serveru (databáze) ale i dat lokálně vytvořených, například uživatelských vstupů. lokálního charakteru?. 
+
+
+Vzhledem ke stromové hierarchii React komponent? je tok dat v běžné reactí? aplikaci jednosměrný, data jsou předávána z rodičovského uzlu na své potomky. To s sebou nese jisté nevýhody. Komponenty aplikace jsou sice logicky členěné, pokud však mají dvě komponenty přistupovat na stejná data a tato data také zapisovat,  
+
+* 3 principles of redux
+* diagram + popis (store, view, user action, dispatch)
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm]{img/redux.pdf}
+  \caption{Změna stavu aplikace -- rozdíl bez a s využitím knihovny Redux \cite{redux}}
+\end{figure}
+
+
 
 \subsection{Uživatelské rozhraní}
-Prostředím běhu aplikace je webový prohlížeč, aplikace byla vyvíjena primárně pro Google Chrome. 
+
+Prostředím běhu aplikace je webový prohlížeč, aplikace byla vyvíjena primárně pro Google Chrome.
+
+jazyk popisující vzhled jednotlivých komponent je JSX. 
+
+Jelikož samotné HTML ?velmi nehezke prostredi, mozna z historickych duvodu? a vytvoření i základního designu webové aplikace ?muze byt velky ukol?. 
+
+
 * material-ui next
 * prevazne tabularni data
 * obrazovky
@@ -796,27 +826,23 @@ Prostředím běhu aplikace je webový prohlížeč, aplikace byla vyvíjena pri
 
 \section{Možnosti rozšíření nástroje}
 
-Vzhledem k tomu, že se způsoby výpočtu některých ukazatelů v různých literaturách liší, bylo by vhodné uživateli zobrazit způsob výpočtu, který je použit v tomto nástroji. Při současné implementaci by se dal ke každé metodě provádějící výpočet přidat také popis výpočtu, například ve formě řetězce. Tyto dvě věci? by však nebyly propojeny na programové úrovni? a vývojář by tak musel při každé změně algoritmu pro výpočet adekvátně měnit popis. Vzhledem k tomu, že se jedná o víceméně jednoduché matematické rovnice, nabízí se mnohem lepší řešení -- uložit rovnice pro výpočet do odpovídajícího abstraktního syntaktického stromu (AST). Tato struktura by umožnila obojí -- vypočítat výsledek i vygenerovat popis výpočtu a jeho složek na základě jednotného zdroje.
+Vzhledem k tomu, že se způsoby výpočtu některých ukazatelů v různých literaturách liší, bylo by vhodné uživateli zobrazit způsob výpočtu, který je použit v tomto nástroji. Při současné implementaci se jeví jako nejjednodušší řešení ke každé metodě provádějící výpočet přiřadit také popis výpočtu, například ve formě řetězce. Popis výpočtu a výpočet samotný by však nevycházely ze stejného zdroje a nebyly tak sémanticky propojeny, vývojář by musel při každé změně algoritmu pro výpočet adekvátně měnit popis. Vzhledem k tomu, že se jedná o víceméně jednoduché matematické rovnice, nabízí se mnohem lepší řešení -- uložit rovnice pro výpočet do odpovídajícího abstraktního syntaktického stromu (AST). Tato struktura by umožnila obojí -- vypočítat výsledek i vygenerovat popis výpočtu a jeho složek na základě jednotného zdroje. Tento způsob by také otevřel další možnosti rozšíření, pomocí vhodného rozhraní by uživatel mohl editovat vzorce existujících ukazatelů podle svých potřeb či vytvářet úplně nové.
 
-Nástroj pro jednoduchost podporuje pouze meziroční analýzu. Lze však vyvodit, že se v praxi může provádět analýza obecně různých časových obodbí, například pro sezónní podniky?. Ke zkvalitnění by se dalo použít i dat z analýzy podnikové sféry prováděné MPO, která uvádí statistiky kvartálně (momentálně jsou využity pouze roční? statistiky).
+Nástroj pro jednoduchost podporuje pouze meziroční analýzu. Lze však vyvodit, že se v praxi může provádět analýza obecně různých časových obodbí. K částečnému zkvalitnění tohoto rozšíření by se dalo použít i dat z analýzy podnikové sféry prováděné MPO, která uvádí statistiky kvartálně (momentálně jsou využity pouze roční statistiky).
 
-Ve statistikách MPO jsou uvedeny také oborové sumy za většinu hlavních položek finančních výkazů. Porovnáním adekvátních položek (částí k celku) by bylo teoreticky možné zjistit průměrné oborové hodnoty v rámci vertikální analýzy a tyto v nástroji uvést. Dále je ve statistikách uveden také počet podniků v odvětví, vydělením sumy položky počtem podniků by tak šlo získat průměrnou hodnotu položky pro dané odvětví -- průměrné hodnoty pro horizontální analýzu.
+Ve statistikách MPO jsou uvedeny také oborové sumy za většinu hlavních položek finančních výkazů. Porovnáním adekvátních položek (částí k celku) by bylo teoreticky možné zjistit průměrné oborové hodnoty v rámci vertikální analýzy a tyto v nástroji uvést. Dále je ve statistikách uveden také počet podniků v odvětví, vydělením sumy položky počtem podniků by tak šlo získat průměrnou hodnotu položky pro dané odvětví -- průměrné hodnoty pro horizontální analýzu. V souvislosti s daty MPO by se také nástroj dal rozšířit o práci se zbývajícími poměrovými ukazateli, pro které jsou uváděny průměrné hodnoty v odvětví, nebo alespoň hodnoty potřebné k jejich výpočtu.
 
-+ obsahuje nektere dalsi pomerove ukazatele, pripadne data potrebna pro jejich vypocet - dalo by se taky vyuzit
+Jelikož jsou tyto statistiky uloženy jako velmi rozsáhlá tabulární data programu Excel, ruční výpočet a zapisování do zdrojového kódu je velmi zdlouhavé. Nabízí se proto automatizované zpracování či umožnění vyplnění hodnot samotným uživatelem v případě jeho zájmu.
 
-Jelikož jsou však tato data uložena jako ?velmi rozsáhlé tabulky programu Excel?, ruční výpočet a zapisování do zdrojového kódu by bylo velmi zdlouhavé. Nabízí se proto automatizované zpracování či umožnění vyplnění těchto hodnot samotným uživatelem v případě jeho zájmu.
-
+Z oblasti finanční analýzy se dále nabízí možnost čerpat zdrojová data přímo z účetnictví (nikoliv z účetní závěrky), pokud existuje nějaký standardizovaný formát exportu těchto dat. To by umožnilo detailnější analýzu. Nebo naopak, umožnit uživateli vyplnit pouze data nezbytná k výpočtu ukazatelů a nenutit jej tak nahrávat celé výkazy, které ani nemusí mít k dispozici. Kromě zobrazování referenčních hodnot by nástroj také mohl hlásit evidentní rizikové faktory, jako příklad můžeme uvést hospodaření se ztrátou. Díky způsobu implementace a struktury výsledků jednotlivých analýz je nástroj připraven pro širší záběr v rámci mezipodnikového srovnání rozšířením modulu na práci se všemi druhy podporovaných analýz.
 
 
 
 * vice roku - nemoznost zobrazit vse - vymyslet, jak by se to dalo zobrazovat
-* výpočet položek přes účty - detailnější, možnost \"cast polozky\" - otazka je, zda existuje nejaky standardizovany format
 * relační databáze (mysql) namísto objektové - větší kontrola při změnách aplikace
 * výkon - ulozeni vysledku analyzy a jejich sprava, aby se nemuselo pocitat pri kazdem spusteni aplikace
-* upozorneni na evidentni veci - hospodareni se ztratou apod
-* sirsi zaber mezipodnikoveho srovnani - nejen to co je
 
-* pro usnadneni ovladani: offline?, cashflow - preddefinovane polozky, pomerove uk: moznost tvorby vlastnich/editace + moznost zadat primo cleny vypoctu (ne cele vykazy)
+* pro usnadneni ovladani: offline?, cashflow - preddefinovane polozky
 * samozrejmost - dukladnejsi osetreni uzivatelskych vstupu + rozsireni importu - zkracene vykazy / ucelove cleneni vzz apod
 * v dalsim roce se muze opet menit legislativa - aktualizace kodu
 
