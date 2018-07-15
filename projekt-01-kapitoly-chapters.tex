@@ -712,6 +712,8 @@ Další implementovanou funkcionalitou je výpočet vnitřního výnosového pro
 
 Díky mapování rozdílných struktur finančních výkazů na strukturu společnou pro všechny podporované roky je možné sledovat vývoj výsledků analýz v průběhu času.
 
+* všechny analyzy: mapa + funkce + zdrojova data (vykazy) - jednoduche zmeny/rozsireni, prehlednejsi
+
 \subsection{Společené položky napříč různými strukturami výkazů}
 Jedním z největších problému týkajících se finanční analýzy, se kterým jsem se při implementaci setkal, je měnící se struktura finančních výkazů v čase. Abychom mohli cokoliv analyzovat a porovnávat výsledky analýzy za různá časová období, je nutné nejprve v každém z těchto období získat odpovídající, srovnatelná data?. Do roku 2015 včetně, byly změny struktur minimální, zejména se jednalo o rozpad nějaké ze stávajících položek na více podpoložek. V roce 2016 však došlo k významným změnám?, k přesunům celých položek a především jejich částí pod jiné položky.
 
@@ -748,7 +750,9 @@ Při vertikální analýze se nezohledňuje různá struktura výkazů z různý
 Jako části byly položky, které jsou vzájemně disjunktní, jinak by se mohlo stát, že suma procentuálního zastoupení všech částí by přesáhla 100\%. Kvůli různým strukturám výkazů a problému nastíněném v sekci ? je však situace spíš opačná -- některé celky nelze úplně rozložit?.
 
 \subsection{Poměrové ukazatele}
-PU
+Tak jako u ostatních analýz, i výpočet poměrových ukazatelů je realizován pomocí funkce, která se řídí mapou pro provádění výpočtů? a podle této mapy získává hodnoty z dodaných výkazů. Mapa na nejvyšší úrovni obsahuje skupiny, či spíše druhy poměrových ukazatelů (rentabilita, likvidita atd.). V rámci každé skupiny je uloženo pole prvků výčtového typu. Tyto prvky představují konkrétní ukazatele, přesněji jsou to klíče, přes něž lze k datům spojeným s daným ukazatelem přistupovat -- momentálně jsou to název a způsob výpočtu ukazatele, klíč je využíván i ke zjištění průměrné hodnoty ukazatele v odvětví.
+
+
 \subsubsection{Ohodnocení poměrových? ukazatelů}
 Pro některé? ukazatele, například ukazatele likvidity, lze najít doporučené hodnoty ve většině zdrojů?. Bohužel jsou tyto hodnoty různé v závislosti na vybraném zdroji. V praxi toto platí dvojnásob -- hodnoty ukazatelů mohou nabývat? extrémních odchylek, přičemž to nemusí nutně signalizovat? špatnou situaci podniku. ?Jako příklad si můžeme uvést společnost Alza.cz a.s. Ta disponuje ..., který je však kryt? vlastními zdroji z pouhých X? procent.? 
 
@@ -763,6 +767,8 @@ Nejlépe odpovíjdajícími? referenčními hodnotami jsou výsledky finanční 
 Pro implementaci byl vybrán pyramidový rozklad rentability vlastního kapitálu. Většina prvků rozkladu jsou hodnoty již zmíněných ukazatelů (ukazatele představují uzly diagramu) či položek finančních výkazů (položky představují listy diagramu). Přesto byl pro tuto analýzu vytvořen separátní modul. V něm jsou doplněny především metody pro výpočet ukazatelů, které nebyly implementovány v rámci analýzy poměrových ukazatelů. Modul funguje také jako mezivrstva -- pokud bychom chtěli výslednou hodnotu ukazatele upravit speciálně pro účely Du Pont analýzy, můžeme to udělat zde. 
 
 Jelikož jsou při grafické interpretaci pyramidového rozkladu zobrazeny také matematické rovnice pro výpočet jednotlivých uzlů, v modulu jsou uloženy i tyto rovnice. Řešením by mohlo být uložení rovnice do abstraktního syntaktického stromu, čímž by se získával popis výpočtu i výpočet samotný z jednoho místa?.
+
+* svg
 
 \subsection{Vnitřní výnosové procento}
 \label{irr}
