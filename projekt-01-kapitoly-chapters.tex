@@ -734,13 +734,15 @@ Horizontální analýza je na nejvyšší úrovni prováděna dvěma způsoby. V
 Tímto způsobem však nejsme schopni analyzovat delší časové období, vzhledem k podporovaným letem? v implementovaném nástroji jsou to maximálně 2 roky. Abychom mohli analyzovat ?? v delším časovém horizontu, využijeme mapy společných položek napříč různými strukturami výkazů. Pro účely horizontální analýzy je nutné definovat v rámci každého z výkazů? (a/p/vzz) pořadí těchto společných položek. Při výpočtu konkrétních hodnot položek tak stačí nad uloženým pořadím iterovat a přes odpovídající funkci zjistit název položky a její hodnotu pro daný rok.
 
 Kromě konkrétních hodnot položek v daných letech jsou vypočítány i meziroční rozdíly hodnot -- absolutní a relativní (procentuální). Ze vzorce pro výpočet relativního rozdílu vyplývá nutnost explicitně ošetřit prípad, kdy je hodnota položky v předchozím roce nulová.
-* vzorec pro výpočet absolutního rozdílu
-* vzorec pro výpočet relativního rozdílu
+
 $$d_{ABS}=h_{n}-h_{n-1}$$
 $$d_{REL}=(h_{n}-h_{n-1})/h_{n-1}$$
 
 
 Podobně jako u ostatních druhů analýz, výsledek není uložen v běžném (indexovaném) poli, nýbrž v poli asociativním. Nevýhodou je sice nutnost explicitní iterace nad jednotlivými výsledky analýzy, tento způsob uložení je však velmi příznivý při znovupoužití vypočítaných výsledků -- například při výpočtu rozdílu hodnot jedné položky v různých letech nebo srovnání podniků v rámci horizontální analýzy. Nejprve se vypočítají výsledky pro všechny srovnávané podniky, poté je nutné podnikové výsledky nahrát do jedné společné struktury. Pokud by byly výsledky pro podnik uloženy v běžném poli, museli bychom pro každou z položek respektive pro každý z analyzovaných roků procházet všechny položky respektive roky a hledat mezi nimi ten, který se právě chystáme zpracovat. Díky asociativnímu poli můžeme na hledanou hodnotu přistoupit přímo, přes klíč položky a následně klíč roku, neprobíhá tedy žádné vyhledávání. Přesněji neprobíhá vyhledávání na úrovni naší implementace, ale na úrovni interpretu JavaScriptu.
+
+* jedno z implementovanych mezipodnikovych srovnani, 
+* demonstrace ulozeni vykazu na nejdetailnejsi uroven
 
 
 \subsection{Vertikální analýza}
@@ -758,7 +760,7 @@ Pro některé? ukazatele, například ukazatele likvidity, lze najít doporučen
 
 Nejlépe odpovíjdajícími? referenčními hodnotami jsou výsledky finanční analýzy podnikové sféry prováděné Ministerstvem průmyslu a obchodu. 
 
-* nelze rict obecne rict, od jakych hodnot dobre/spatne...? , obecne cim vyssi tim lepsi, lze se odrazit od prumeru pro dany obor - dobra vypovidajici hodnota
+* nelze rict obecne rict, od jakych hodnot dobre/spatne...? , zejmena u rentability cim vyssi tim lepsi, ale v zadnem pripade z teto hodnoty nelze bez lidskeho faktoru vyvozovat zavery a tedy výslednou hodnotu jednoznačně ohodnotit; naopak, vyvozování závěrů necháme na uživateli, přičemž k podpoře této činnosti se pokusíme dodat co nejvíce relvantních informací. lze se odrazit od prumeru pro dany obor - dobra vypovidajici hodnota. dale take mezipodnikove srovnani
 * zpusob vypoctu jednotlivych ukazatelu se mezi ruznymi zdroji lisi, kvuli implementaci ohodnoceni / srovnani s prumernymi hodnotami z MPO bylo pouzito jejich zpusobu
 * MPO - pro nektere ukazatele (vetsinu z vybranych v tomto reseni) primo hodnoty, pro jine data pro jejich vypocet, pro ostatni ani to ne
 
@@ -789,6 +791,9 @@ routovani:
 * client side routing - url zpracovava aplikace (knihovna), nevyhody vyhody najit na netu, prohlizec nenajde jednotlive komponenty - jen hlavni
 * react - ale to je spise prezentacni vrstva - vic v sekci uzivatelske rozhrani
 
+* ES6
+* vykon - aplikace je client - server, kvuli pouzitym technologiim server pouze storage, vse se pocita u klienta ale beh aplikace je plynuly alespon na V8, ktery ma efektivni prekladac nebo tak neco, efektivnejsi sprava dat (udrzovani vysledku analyz) ci implementace serveru, pokud by nemela vykon stacit.
+
 \subsubsection{React}
 * od fb
 * prezentacni vrstva, ne uplne mVc
@@ -811,7 +816,7 @@ Vzhledem ke stromové hierarchii React komponent? je tok dat v běžné reactí?
 
 
 
-\subsection{Uživatelské rozhraní}
+\section{Uživatelské rozhraní}
 
 Prostředím běhu aplikace je webový prohlížeč, aplikace byla vyvíjena primárně pro Google Chrome.
 
@@ -819,16 +824,32 @@ jazyk popisující vzhled jednotlivých komponent je JSX.
 
 Jelikož samotné HTML ?velmi nehezke prostredi, mozna z historickych duvodu? a vytvoření i základního designu webové aplikace ?muze byt velky ukol?. 
 
+\subsection{Obrazovky}
+
+Po spuštění aplikace se uživatel musí přihlásit, zobrazeno je pouze modální dialogové okno pro vyplnění přihlašovacích údajů nebo registraci. Při úspěšném přihlášení je přesměrován na hlavní obrazovku a je mu zpřístupněna fixní horní lišta aplikace, v níž lze přepínat mezi obrazovkami. V liště je také tlačítko pro odhlášení. Na domovské stránce se lze pomocí horní lišty přepínat mezi dvěma obrazovkami -- seznamem podnků (pro analýzu) a seznamem investic (výpčet vnitřního výnosového procenta).
+
+** jak vypadá screenflow pro IRR **
+
+Na obrazovce se seznamem podniků jsou vykresleny karty s jednotlivými podniky a tlačítko pro možnost přidání nového podniku. V rámci konkrétního podniku lze pokračovat na seznam jeho evidovaných výkazů, jednu z obrazovek s analýzou nebo na obrazovku srovnání *buďto přes kartu nebo horni listu*. 
+
+Na obrazovce se seznamem výkazů se lze přepínat mezi výkazy 
+
 
 * material-ui next
 * prevazne tabularni data
 * obrazovky
+* uzivatel se prihlasuje, pod uzivatelem jsou evidovana data - podniky/vykazy + investice
+* svg - spise vztahy nez presne souradnice - snadnejsi zmeny, skalovatelnost
+* topbar
 
 
 \section{Vývoj}
-* git
-* webstorm
-* pouziti prepinace pro mockovani dat - urychleni vyvoje, moznost vyvijet offline
+Pro ověření správnosti navrženého řešení byl v každé z oblastí finanční analýzy nejprve implementován prototyp se zúženým výběrem položek a omezenou funkcionalitou. Úplné doplnění funkcionality a položek proběhlo až v dalších fazích implementace. Tento postup byl zvolen i při implementaci persistence dat. Ve zdrojovém kódu je možnost volby mezi nahráváním dat z databáze a jejich podvržením za pomocí definice jednotného rozhraní dat. Pokud zrovna neimplementujeme modul zajišťující persistenci dat, využití ukázkových dat je velmi výhodné z důvodu urychlení vývojářského cyklu a možnosti vyvíjet bez připojení k internetu.
+
+Jako vývojové prostředí bylo použito IDE WebStorm od společnosti JetBrains, jehož licence je poskytována studentům zdarma. Kromě mnoha dalších, nástroj má podporu pro všechny technologie využité při implementaci a jejím usnadnění, především jazyky JavaScript, TypeScript a JSX.
+
+* v tomto IDE je také zabudován git modul pro správu verzí. Celý projekt byl průběžně verzován.
+* nejprve vydz napraseno, potom refaktorovano
 
 \section{Možnosti rozšíření nástroje}
 
@@ -838,18 +859,21 @@ Nástroj pro jednoduchost podporuje pouze meziroční analýzu. Lze však vyvodi
 
 Ve statistikách MPO jsou uvedeny také oborové sumy za většinu hlavních položek finančních výkazů. Porovnáním adekvátních položek (částí k celku) by bylo teoreticky možné zjistit průměrné oborové hodnoty v rámci vertikální analýzy a tyto v nástroji uvést. Dále je ve statistikách uveden také počet podniků v odvětví, vydělením sumy položky počtem podniků by tak šlo získat průměrnou hodnotu položky pro dané odvětví -- průměrné hodnoty pro horizontální analýzu. V souvislosti s daty MPO by se také nástroj dal rozšířit o práci se zbývajícími poměrovými ukazateli, pro které jsou uváděny průměrné hodnoty v odvětví, nebo alespoň hodnoty potřebné k jejich výpočtu.
 
-Jelikož jsou tyto statistiky uloženy jako velmi rozsáhlá tabulární data programu Excel, ruční výpočet a zapisování do zdrojového kódu je velmi zdlouhavé. Nabízí se proto automatizované zpracování či umožnění vyplnění hodnot samotným uživatelem v případě jeho zájmu.
+Jelikož jsou tyto statistiky uloženy jako velmi rozsáhlá tabulární data programu Excel, ruční výpočet a zapisování do zdrojového kódu je velmi zdlouhavé. To může být vyřešeno automatizovaným zpracováním těchto souborů či umožněním uživateli vyplnit hodnoty v případě jeho zájmu.
 
-Z oblasti finanční analýzy se dále nabízí možnost čerpat zdrojová data přímo z účetnictví (nikoliv z účetní závěrky), pokud existuje nějaký standardizovaný formát exportu těchto dat. To by umožnilo detailnější analýzu. Nebo naopak, umožnit uživateli vyplnit pouze data nezbytná k výpočtu ukazatelů a nenutit jej tak nahrávat celé výkazy, které ani nemusí mít k dispozici. Kromě zobrazování referenčních hodnot by nástroj také mohl hlásit evidentní rizikové faktory, jako příklad můžeme uvést hospodaření se ztrátou. Díky způsobu implementace a struktury výsledků jednotlivých analýz je nástroj připraven pro širší záběr v rámci mezipodnikového srovnání rozšířením modulu na práci se všemi druhy podporovaných analýz.
+Z oblasti finanční analýzy se dále nabízí rozšíření importu o zkrácené výkazy, účelové členění nebo možnost čerpat zdrojová data přímo z účetnictví (nikoliv z účetní závěrky), pokud existuje nějaký standardizovaný formát exportu těchto dat. To by umožnilo ještě detailnější analýzu. Nebo naopak, umožnit uživateli vyplnit pouze data nezbytná k výpočtu ukazatelů a nenutit jej tak nahrávat celé výkazy, které ani nemusí mít k dispozici. Kromě zobrazování referenčních hodnot by nástroj také mohl hlásit evidentní rizikové faktory, jako příklad můžeme uvést hospodaření se ztrátou. Díky způsobu implementace a struktury výsledků jednotlivých analýz je nástroj připraven pro širší záběr v rámci mezipodnikového srovnání rozšířením modulu na práci se všemi druhy podporovaných analýz.
 
 
 
 * vice roku - nemoznost zobrazit vse - vymyslet, jak by se to dalo zobrazovat
 * relační databáze (mysql) namísto objektové - větší kontrola při změnách aplikace
 * výkon - ulozeni vysledku analyzy a jejich sprava, aby se nemuselo pocitat pri kazdem spusteni aplikace
+* lepsi cache dat - pokazde se vse znovunacita pro jednoduchost
+* jine ukazatele, rozsireni analyzy podniku i analyzy v oblasti investic
+* scrolovani tabulek scrolluje celou stranku - vylepsit layout
 
-* pro usnadneni ovladani: offline?, cashflow - preddefinovane polozky
-* samozrejmost - dukladnejsi osetreni uzivatelskych vstupu + rozsireni importu - zkracene vykazy / ucelove cleneni vzz apod
+* pro usnadneni ovladani: offline?, cashflow - preddefinovane polozky, razeni / vyhledavani v tabulkach
+* samozrejmost - dukladnejsi osetreni uzivatelskych vstupu
 * v dalsim roce se muze opet menit legislativa - aktualizace kodu
 
 \begin{comment}
@@ -865,7 +889,9 @@ Uživateli se snaží práci co nejvíce usnadnit - uložiště, přístup, při
 
 Nástroj je implementován jako webová aplikace - není nutné instalovat,javascript , uživatelé, data uložena vzdáleně - přístup odkudkoliv
 
+* reseni je originalni jak po technicke tak po funkcni strance?. 
 
+* zpusob implementace je ..lehce rozsiritelne.., coz se kvuli menicim se vykazum ?hodi?
 
 
 
@@ -888,7 +914,11 @@ vzz:
 	15+14 +13[nazvy]+12+11+10
 
 
-* navrh - srovnani softwaru - po diskuzi s lidmi z praxe je velmi casto pouzivan pouze excel
+* cilova skupina - podnikatele - analyza z vlastni iniciativy, nebo financni analytici, kteri budou chtit evidovat vice podniku
+
+* navrh
+	- srovnani softwaru - po diskuzi s lidmi z praxe je velmi casto pouzivan pouze excel
+	- analyza pozadavku - use case diagram
 
 \end{comment}
 
