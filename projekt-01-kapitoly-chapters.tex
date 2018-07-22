@@ -1,18 +1,17 @@
 \chapter{Úvod}
-Cílem práce je ?nejen!? navrhnout nástroj, který podporuje provádění finanční analýzy podniku. Finanční analýza je v~podnikové sféře soubor činností umožňující zjistit a~vyhodnotit finanční situaci podniku na základě dat o~jeho hospodaření. Její provádění a~zkoumání výsledků je jedním z~předpokladů pro kvalitní a~komplexní vedení podniku. Cílovou skupinu produktu tedy tvoří finanční analytici, manažeři společností i běžní podnikatelé, jimž má usnadnit provádění této činnosti.
+Cílem této práce je popis technické realizace nástroje, který je zaměřen na provádění finanční analýzy vybraných ekonomických objektů. Součástí práce je i teorie spojená s finanční analýzou v rozsahu, který implementovaný nástroj pokrývá.
 
-Práce obsahuje dva tematické celky. Nejprve bude provedeno shrnutí teorie spojené s~prováděním finanční analýzy -- co je to finanční analýza, jaké jsou její cíle, jaká jsou vstupní data a~co je výstupem, vysvětlení pojmů, používaných metod a~strategií, konstrukcí a~vypočtů jednotlivých ukazatelů finanční analýzy a~intepretací jejich hodnot. 
-Druhým tematickým celkem je popis nástroje, který finanční analýzu provádí a~který bude v~rámci této diplomové práce implementován. 
+Finanční analýza je v~podnikové sféře soubor činností umožňující zjistit a~vyhodnotit finanční situaci podniku na základě dat o~jeho hospodaření. Existuje mnoho způsobů jak analýzu provádět a objektem analýzy můžou být i jiné entity z oblasti ekonomie. Její provádění a~zkoumání výsledků je jedním z~předpokladů pro kvalitní a~komplexní vedení podniku. Cílovou skupinu produktu tedy tvoří finanční analytici, manažeři společností i běžní podnikatelé, jimž má usnadnit provádění této činnosti.
+
+Práce obsahuje dva tematické celky. Nejprve bude provedeno shrnutí teorie spojené s~prováděním finanční analýzy -- co je to finanční analýza, jaké jsou její cíle, jaká jsou vstupní data a~co je výstupem, vysvětlení pojmů, používaných metod a~strategií, konstrukcí a~vypočtů jednotlivých ukazatelů finanční analýzy a~intepretací jejich hodnot. Druhým tematickým celkem je popis nástroje, který finanční analýzu provádí a~který bude v~rámci této diplomové práce implementován. 
 
 Text práce je členěn do pěti kapitol. Jelikož je finanční analýza poměrně rozsáhlá oblast, celá příští kapitola je věnována prvnímu celku, teorii. 
 
 Ve třetí kapitole jsou ještě před vytvářením vlastní koncepce podrobeny testování již existující nástroje, abychom si mohli udělat obrázek o~tom, jak tuto problematiku řešili jiní. Na základě zjištěných poznatků je vypracován návrh programového řešení vlastního nástroje.
 
-Čtvrtá kapitola se zabývá realizací návrhu, implementačními detaily a fungováním nástroje. 
+Čtvrtá kapitola se zabývá realizací návrhu, implementačními detaily a fungováním nástroje. Jsou zde zmíněny i návrhy na možná rozšíření.
 
-V~závěrečné kapitole jsou shrnuty a~zhodnoceny dosažené výsledky, přínosy této práce a~návrhy na její možná rozšíření.
-
-Pro lepší demonstraci budou v~této práci analyzovány výsledky hospodaření společnosti Krajči, která se zabývá def. Výkaz zisku a~ztráty a~rozvahu lze najít v~příloze.
+V~závěrečné kapitole jsou shrnuty a~zhodnoceny dosažené výsledky a přínosy této práce.
 
 
 
@@ -85,13 +84,14 @@ Tyto dva výkazy jsou spolu s~přehledem o~pěněžních tocích stěžejním v�
 \end{itemize}
 
 \pagebreak
+
 \begin{figure}
   \centering
   \includegraphics[width=14cm]{img/vykazy.png}
-  \caption{Výkazy uzávěrky a jejich obsah \cite{komplex}}
+  \caption{Výkazy učetní závěrky a jejich obsah \cite{komplex}}
 \end{figure}
 
-Níže se zle dočíst, že součástí strukturovaných, každoročně odevzdávaných souborů jsou pouze výkaz zisku a ztrát a rozvaha, přehled o~pěněžních tocích (cashflow) nikoliv. Lze jej však z~uvedených výkazů spočítat pomocí tzv. cashflow analýzy. Dále bývá často do uzávěrek zahrnut také přehled o~změnách vlastního kapitálu.
+Níže se zle dočíst, že součástí strukturovaných, každoročně odevzdávaných souborů jsou pouze výkaz zisku a ztrát a rozvaha, přehled o~pěněžních tocích (cashflow) nikoliv. Lze jej však z~uvedených výkazů spočítat pomocí tzv. cashflow analýzy. Dále bývá často do závěrek zahrnut také přehled o~změnách vlastního kapitálu.
 
 \subsubsection{Výkaz zisku a~ztráty}
 Výkaz zisku a~ztráty, také výsledovka, ukazuje, jakého hospodářského výsledku bylo dosaženo v~daném účetním období. Data výsledovky jsou počítány z~dat výsledovkových účtů. Jednotlivé účty jsou kategorizovány podle jejich účelu a~položky výsledovky jsou sumy účtů odpovídající kategorie. Je to jakási agregace záznamů o~pěněžních tocích za celé účetní období, z~nichž každý je buď výnosem nebo nákladem (pozn. není to to samé jako příjmy a~výdaje). Výnosy i náklady jsou dále rozděleny na provozní a finanční činnost. Po sečtení výsledků za obě činnosti získáme pro mnohé nejdůležitější informaci o~hospodaření podniku -- výsledek hospodaření. Tím se rozumí buďto zisk (výnosy převyšují náklady) nebo ztráta (náklady převyšují výnosy). V~případě zisku je navíc subjekt ze zákona povinen odvést daň ze zisku, čímž teprve získáme hodnotu čistého zisku.
@@ -202,6 +202,7 @@ V~čitateli se nejčastěji používá hodnota EBIT nebo EAT
 $$\vz{ROS}{EBIT}{tržby} \scite{sedl} \hspace{2cm} \vz{ROS}{EAT}{tržby} \scite{sedl}$$ 
 
 %-----
+\pagebreak
 \subsubsection{ROI -- rentabilita investice}
 return on investment
 
@@ -405,7 +406,7 @@ Rozvaha zachycuje stav majetku a jeho krytí (kapitálu) ve chvíli jejího vytv
 Přehled peněžních toků jsme schopni vytvořit z~výkazu zisku a ztrát a rozvahy. Peněžní toky lze rozdělit do celkem tří kategorií podle druhu činnosti podniku, pod které spadají. Jsou to:
 
 \begin{itemize}
-  \item provozní činnost -- 
+  \item provozní činnost -- provozní činnost podniku bez vlivu nepeněžních a mimořádných operací, obecně peněžní operace, které nelze zařadit do investiční činnosti či financování podniku
   \item investiční činnost -- poskytuje přehled o pohybu peněžních prostředků v souvislosti s dlouhodobými aktivy a také dalšími skupinami, které hrají významnou roli při vytváření zisků v budoucnu
   \item financování podniku -- pohyby peněžních prostředků ovlivňující strukturu a velikost vlastního či cizího jmění podniku
 \end{itemize}
@@ -486,7 +487,7 @@ Z~uvedeného vzorce lze usoudit, že nalezení hodnoty analytickým řešením n
 \section{Existující software}
 Před návrhem řešení bylo vhodné prozkoumat existující řešení. Plné verze nástrojů pro tyto účely bývají zpoplatněny, závěry jsou tedy vyvozeny ze zkušebních verzí, pochopitelně s~omezenou funkcionalitou, případně z~náhledů a~uživatelských dokumentací software.
 
-Všechny testované nástroje jsou ve formě desktopových aplikací určených pouze pro platformu Windows. Po rozpravě s~analytikem? z~praxe, velmi často je k~účelům analýzy používán program Excel. Příčinou je nejspíš široká základna uživatelů, kteří v~jeho prostředí zvládají alespoň základní úkony s~daty a také široké spektrum funkcionality, které zahrnuje i výpočty z~oblasti finanční analýzy.
+Všechny testované nástroje jsou ve formě desktopových aplikací určených pouze pro platformu Windows. Po rozpravě s~osobou z~praxe, velmi často je k~účelům analýzy používán program Excel. Příčinou je nejspíš široká základna uživatelů, kteří v~jeho prostředí zvládají alespoň základní úkony s~daty a také široké spektrum funkcionality, které zahrnuje i výpočty z~oblasti finanční analýzy. Velmi často jsou v tomto programu také uchovávána vstupní data analýzy -- výkazy.
 
 \subsubsection{FAF -- Finanční analýza firmy}
 Software nelze bez zakoupení jakkoliv používat, nicméně na webových stránkách je dostupné instruktážní video a~uživtelská přiručka popisující jak nástroj vypadá, jak se s~ním pracuje a~co všechno dokáže. Uživatelské rozhraní vypadá na první pohled zastarale, to ale nijak neubírá na přehlednosti.
@@ -521,16 +522,23 @@ Přesto nástroj plní svůj ůčel a~lze se v~něm inspirovat možnostmi prová
 
 %-----
 \section{Vybrané metody vyhodnocování}
-Nástroj by měl být schopen provádět analýzu alespoň v~rozsahu teoretické části této práce. Podoba výstupu se mění v~závislosti na vybrané analýze nebo ukazateli. Výstupem může být absolutní hodnota, finanční částka, procentuální podíl, tabulka s~těmito hodnotami v~čase, graf s~vývojem hodnot v~čase. 
+Nástroj by měl být schopen provádět analýzu alespoň v~rozsahu teoretické části této práce. Podoba výstupu se mění v~závislosti na vybrané analýze nebo ukazateli. Výstupem může být finanční částka, absolutní nebo relativní hodnota, procentuální podíl, tabulka s~těmito hodnotami v~čase, graf s~vývojem hodnot v~čase.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm]{img/ucd.pdf}
+  \caption{Use case diagram navrhované aplikace}
+\end{figure}
 
 
 \subsubsection{Vertikální a~horizontální analýza}
-Hned jako první se nabízí porovnání s~hodnotami za předchozí období, tedy horizontální analýza. Při horizontální analýze jedné položky výkazu zisku a~ztráty nebo rozvahy se nejčastěji používá sloupcového (v~případě více sledovaných období spojnicového) grafu. Nástroj bude umožňovat i hromadnou horizontální analýzu -- výsledek bude interpretován tabulkou; meziroční změna u~jednotlivých položek bude vyjádřena absolutní i procentuální hodnotou. 
+Hned jako první se nabízí porovnání s~hodnotami za předchozí období, tedy horizontální analýza. Při horizontální analýze jedné položky výkazu zisku a~ztráty nebo rozvahy se nejčastěji používá sloupcového (v~případě více sledovaných období spojnicového) grafu. Nástroj bude umožňovat i hromadnou horizontální analýzu -- výsledek bude interpretován tabulkou; meziroční změna u~jednotlivých položek bude vyjádřena absolutní i procentuální hodnotou.
 
 Podobně i pro vertikální analýzu. Pokud bychom chtěli analyzovat pouze užší část vákazu zisku a~ztráty nebo rozvahy, můžeme výsledky interpretovat v~grafech. Výsledky hromadné analýzy budou zobrazeny v~tabulce s~vyjádřením změn absolutní i procentuální hodnotou.
 
 \subsubsection{Poměrové ukazatele}
-Možnosti zobrazení poměrových ukazatelů budou podobné jako v~testovaných nástrojích.
+Možnosti zobrazení poměrových ukazatelů budou podobné jako v~testovaných nástrojích. 
+
 Pro interpretaci hodnot poměrových ukazatelů budou využity:
 \begin{itemize}
 	\item stupnice
@@ -539,14 +547,9 @@ Pro interpretaci hodnot poměrových ukazatelů budou využity:
 	\item grafy (sloupcové, spojnicové, koláčové a~další)
 \end{itemize}
 
-Hodnoty ukazatelů půjde porovnat meziročně i mezipodnikově. Jelikož  Velmi vhodné by bylo také zobrazení a porovnání s~průměrnými hodnotami v~odvětví, které jsou počítány kvartálně MPO v~rámci finanční analýzy podnikové sféry.
+Hodnoty ukazatelů půjde porovnat meziročně i mezipodnikově. Velmi vhodné by bylo také zhodnocení výstupních hodnot. V literatuře lze pro některé ukazatele nalézt referenční hodnoty, pro jiné nikoliv. Hodnoty se však v různých zdrojích liší, z principu je nelze jednoznačně stanovit. Nabízí se zobrazení a porovnání s~průměrnými hodnotami v~odvětví, které jsou počítány kvartálně MPO\footnote{Ministerstvo průmyslu a obchodu České republiky} v~rámci finanční analýzy podnikové sféry\footnote{\url{https://www.mpo.cz/cz/rozcestnik/analyticke-materialy-a-statistiky/analyticke-materialy/}}. Tato možnost bude při dalším postupu prozkoumána a zvážena.
 
 
-\begin{figure}
-  \centering
-  \includegraphics[width=14cm]{img/ucd.pdf}
-  \caption{Use case diagram navrhované aplikace}
-\end{figure}
 
 %-----
 \section{Návrh programového řešení}
@@ -581,6 +584,7 @@ Nástroj bude koncipován jako single page application (SPA). To znamená, že p
 \end{figure}
 
 %-----
+\pagebreak
 \subsubsection{Uživatelské rozhraní}
 
 
@@ -619,7 +623,7 @@ Zda se budou výpočty provádět na straně serveru nebo klienta se rozhodne a�
 
 
 %-----
-\subsection{Knihovny a~technologie}
+\subsection{Klíčkové knihovny a~technologie}
 K~implementaci bude použita kombinace programovacích, skriptovacích, značkovacích a~dotazovacích jazyků. Pro klientskou část jsou to HTML, CSS a~Javascript (přesněji TypeScript). Kód serveru bude v~jazyce PHP s~připojením na MySQL databázi.
 
 
@@ -740,43 +744,40 @@ Nástroj je schopen podle parametrů zadaných v~mapě načíst jednotlivé polo
 * kazdy rok nova legislativa, nejlepe zapsat do kodu bez vetsiho zobecneni
 
 \subsubsection{Ruční zadávání dat}
-Pro případ, že uživatel nemá možnost dodat? výkazová data ve formátu XML, 
+Pro případ, že uživatel nemá možnost dodat výkazová data ve formátu XML, je mu umožněno také ruční zadávání. Hodnoty položek vyplňuje do předchystané tabulky, avšak její naplňování a ukládání hodnot není tak přímočaré, jak by se mohlo zdát. Jelikož jsou výkazy určeny primárně pro zpracování člověkem, jsou v nich i v jejich XML reprezentaci uložena redundantní data, zejména hodnoty položek s hodnotou součtu těchto položek představujícího nadřazenou položku. 
 
-* co programatora zaskoci je redundance dat v~odevzdavanem XML - jsou ulozeny jak polozky souctu, tak i jeho vysledky - to je pri nacitani ignorovano, pri rucnim zadavani prepocet
-* prepocet -> strom / hierarchie / zanoreni
+Po úvaze byla do kódu uložena pro každou ze struktur výkazů také jejich hierarchie, schéma vzájemného zanoření položek. Toto řešení mi přijde vhodné, jelikož při editaci položky be se měla logicky postupně přepočítat i hodnota všech nadřazených položek. Pokud by naopak uživatel editoval neterminální položku, pro udržení konzistence výkazu by bylo nutné navýšit některou z podpoložek -- neznámo kterou. Do tabulky je tím pádem možné zapisovat pouze listové položky, přičemž dojde k automatickému přepočtu všech nadřazených položek.
 
-
-
+Při nahrávání výkazů není tato technika aplikována, řádky jsou do struktury v aplikaci nahrány z XML jedna ku jedné. Informace o struktuře výkazů a funkce pro výpočet hodnoty nadřazené položky by se v tomto případě mohlo využít pro zjišťování a následném signalizování nekonzistencí ve výkazu.
 
 
 \section{Implementace finanční analýzy}
 Po implementaci načítaní a uložení dat potřebných pro analýzu bylo možné začít s~implementací modulu pro provádění samotné analýzy. Ten podporuje druhy analýz zmíněné v~teoretické části. Jmenovitě jsou to analýza finančních toků (cashflow), horizontální analýza, vertikální analýza, analýza poměrových ukazatelů a zobrazení Du Pont rozkladu. Při těchto analýzách jsou zdrojová data čerpána z~finančních výkazů. 
 
-Další implementovanou funkcionalitou je výpočet vnitřního výnosového procenta investice, jehož zdrojová data s~finančními výkazy nesouvisí a jsou tedy zadávána zvlášť, ručně.
+Další implementovanou funkcionalitou je výpočet vnitřního výnosového procenta investice, jehož vstupní data s~finančními výkazy podniku nesouvisí a jsou tedy zadávána zvlášť, ručně.
 
-Díky mapování rozdílných struktur finančních výkazů na strukturu společnou pro všechny podporované roky je možné sledovat vývoj výsledků analýz v~průběhu času pro všechny vybrané veličiny.
+Díky mapování rozdílných struktur finančních výkazů na strukturu společnou pro všechny podporované roky je možné sledovat vývoj výsledků analýz v~průběhu času pro všechny vybrané veličiny. Vzhledem k rozsahu vzorku, na kterém byla aplikace při vývoji testována, jsou podporovány roky 2014 až 2017. Po zběžném prozkoumání starších struktur výkazů jsem došel k závěru, že implementace podpory pro tyto struktury by neměla být problémem, stejnětak jako rozšíření pro podporu nových struktur v budoucnu.
 
 Analýzy, jejichž výsledky jsou tabulární data, fungují na podobném principu. Každá z~nich má svůj vlastní popis -- objekt, ve kterém jsou uloženy všechny potřebné informace: seskupování a hirerarchie výsledků, pořadí výsledků, způsob jejich výpočtu, označení a jednotka. Pro práci s~objektem je implementována funkce vykonávající analýzu nad konkrétními daty. Funkce odpovídající objekt systematicky prochází a čerpá z~něj informace pro výpočet, do kterého dosazuje data získané ze svého jediného parametru -- finančních výkazů. Výsledek uloží do struktury opět podle informací z~objektu.
 
-Popisovaný objekt je uložen jako tzv. Plain JavaScript Object, což si lze představit jako jednoduché asociativní pole klíč-hodnota. Tento způsob implementace byl použit na více místech, jelikož přináší ?flexibilní, parametrizace, kompaktní zápis při rozsáhlém větvení?.
+Popisovaný objekt je uložen jako tzv. Plain JavaScript Object, což si lze představit jako jednoduché asociativní pole klíč-hodnota. Tento způsob implementace byl použit na více místech, ?flexibilní, parametrizace, zmenšní? vazby mezi funkcí provádšjící analýzu, kompaktní zápis při rozsáhlém větvení?, prehlednejsi. jednoduche zmeny
 
-* všechny analyzy: mapa + funkce + zdrojova data (vykazy) - jednoduche zmeny/rozsireni, prehlednejsi
 * implementace porovnani - prozatim jen horiz a pomer uk, implementace je vsak v~tomto smeru snadno rozsiritelna (id v~objektu)
 
 \subsection{Společené položky napříč různými strukturami výkazů}
 Jedním z~největších problému týkajících se finanční analýzy, se kterým jsem se při implementaci setkal, je měnící se struktura finančních výkazů v~čase. Abychom mohli cokoliv analyzovat a porovnávat výsledky analýzy za různá časová období, je nutné nejprve v~každém z~těchto období získat odpovídající, srovnatelná data. Do roku 2015 včetně, byly změny struktur minimální, zejména se jednalo o~rozpad nějaké ze stávajících položek na více podpoložek. V~roce 2016 však došlo k~významným změnám?, k~přesunům celých položek a především jejich částí pod jiné položky. Některé položky zůstaly nezměněny, u~některých došlo ke změnám, které lze pomocí výpočtu eliminovat a získat tak srovnatelná data pro všechna období, u~ostatních položek změna znemožňuje jejich použití. 
 
-* Výčet změn je v~převodovém můstku/prevodove tabulce? 
 * v~budoucnu muzou byt ve specifikacich zase zmeny - struktury a funkce s~nimi pracujici implementovat tak, aby se daly snadno rozsirit
 
-Tam, kde je v~převodovém můstku u~odpovídající položky z~minulých let napsáno kurzívou \uv{\textit{(část položky)}}, máme bohužel smůlu. Změna je totiž na úrovni učetnictví a z~dodaných výkazů není možné vypočítat, o~jak velkou část položky se jedná. Tyto položky tedy musely být úplně vynechány.
+V mnoha případech jsou položky, u kterých došlo ke změně, pojmenovány stejně. Nalezení změny tedy spočívá v porovnání seznamu účtů účetní osnovy použité k tvorbě dané položky. Kompletní procházení všech výkazů a následné kontroly na změnu nám ulehčí převodový můstek vypracovaný v Českém účetním standardu pro podnikatele, který lze nalézt ve Finančním zpravodaji (2015, 6) vydávaném Minsterstvem financí ČR. Tam, kde je v~převodovém můstku u~odpovídající položky z~minulých let napsáno kurzívou \uv{\textit{(část položky)}}, máme bohužel smůlu. Změna je totiž na úrovni učetnictví a z~dodaných výkazů není možné vypočítat, o~jak velkou část položky se jedná. Tyto položky tedy musely být úplně vynechány.
 
-Tyto společné položky se používají pro všechny druhy analýzy, původní výčet položek v~jednotlivých letech je využit zejména při ukládání, zobrazování a editaci účetních výkazů.
+V případě ostatních byly vytvořeny vybrané společné položky
+
+Tyto společné položky se používají pro všechny druhy analýzy, původní výčet položek v~jednotlivých letech je využit zejména při ukládání, zobrazování a editaci účetních výkazů, pro demonstraci také při horizontální analýze.
 
 
 \subsection{Horizontální analýza}
-* analyzovany jsou A, P i VZZ
-Horizontální analýza je na nejvyšší úrovni prováděna dvěma způsoby. Ve zdrojovém kódu je uložena informace o~tom, které roky? mají stejnou strukturu finančních výkazů. Díky tomu lze uložené výkazy seskupit a provést horizontální analýzu na detailní úrovni -- pro výkazy se stejnou strukturou je analyzována každá z~položek těchto výkazů; potřebné informace, jako jsou názvy, označení a pořadí položek jsou uloženy přímo v~mapě struktury těchto výkazů.
+Horizontální analýza je prováděna nad položkamy výkazu zisku a ztráty, aktivy i pasivy. Na nejvyšší úrovni je tato analýza prováděna dvěma způsoby. Ve zdrojovém kódu je uložena informace o~tom, které finanční výkazy mají stejnou strukturu (podle roku). Díky tomu lze uložené výkazy seskupit a provést nad těmito skupinami separátně horizontální analýzu na detailní úrovni -- pro výkazy se stejnou strukturou je analyzována každá z~položek těchto výkazů; potřebné informace, jako jsou názvy, označení a pořadí položek jsou uloženy přímo v~mapě struktury těchto výkazů. Počet skupin se stejnou strukturou je stejný jako počet výsledných struktur. Je to, pro demonstraci, jediná z analýz, ve které je zohledněna různá struktura výkazů z různých let (tato skutečnost je zohledněna samozřejmě také v editoru výkazů).
 
 Tímto způsobem však nejsme schopni analyzovat delší časové období, vzhledem k~podporovaným letem? v~implementovaném nástroji jsou to maximálně 2 roky. Abychom mohli analyzovat ?? v~delším časovém horizontu, využijeme mapy společných položek napříč různými strukturami výkazů. Pro účely horizontální analýzy je nutné definovat v~rámci každého z~výkazů? (a/p/vzz) pořadí těchto společných položek. Při výpočtu konkrétních hodnot položek tak stačí nad uloženým pořadím iterovat a přes odpovídající funkci zjistit název položky a její hodnotu pro daný rok.
 
@@ -788,9 +789,7 @@ $$d_{REL}=(h_{n}-h_{n-1})/h_{n-1}$$
 
 Podobně jako u~ostatních druhů analýz, výsledek není uložen v~běžném (indexovaném) poli, nýbrž v~poli asociativním. Nevýhodou je sice nutnost explicitní iterace nad jednotlivými výsledky analýzy, tento způsob uložení je však velmi příznivý při znovupoužití vypočítaných výsledků -- například při výpočtu rozdílu hodnot jedné položky v~různých letech nebo srovnání podniků v~rámci horizontální analýzy. Nejprve se vypočítají výsledky pro všechny srovnávané podniky, poté je nutné podnikové výsledky nahrát do jedné společné struktury. Pokud by byly výsledky pro podnik uloženy v~běžném poli, museli bychom pro každou z~položek respektive pro každý z~analyzovaných roků procházet všechny položky respektive roky a hledat mezi nimi ten, který se právě chystáme zpracovat. Díky asociativnímu poli můžeme na hledanou hodnotu přistoupit přímo, přes klíč položky a následně klíč roku, neprobíhá tedy žádné vyhledávání. Přesněji neprobíhá vyhledávání na úrovni naší implementace, ale na úrovni interpretu JavaScriptu.
 
-* jedno z~implementovanych mezipodnikovych srovnani, 
-* demonstrace ulozeni vykazu na nejdetailnejsi uroven
-
+Díky této technice bylo v rámci horizontální analýzy implementováno i mezipodnikové srovnání (dále ještě pro analýzu poměrových ukazatelů).
 
 \subsection{Vertikální analýza}
 * A, P i VZZ
@@ -963,6 +962,25 @@ Ukazatelé rentability ve sledovaném období nás ujišťují o~tom, že ve fir
 Co se týče ukazatelů likvidity a zadluženosti, které jsou ostře sledované konkurencí a bankovními institucemi, které jsou věřiteli firmy, lze říci, že zejména likvidita prvního stupně – tzv. okamžitá likvidita se za sledovaná léta zvýšila více než trojnásobně ( z~0,66 na 2,07), přičemž minimální doporučená hodnota pro potravinářskou výrobu je 0,16. Likvidita druhého a třetího stupně, která je při ukončení činnosti firmy daleko hůře proveditelná, se v~tomto případě pohybuje také v~červených číslech a nad doporučenými hodnotami. Ukazatelé zadluženosti nám přinášejí informace o~úvěrovém zatížení a o~jiných závazcích společnosti. V~našem případě je zřejmé, že celkový vlastní kapitál převyšuje hodnotu cizích zdrojů. Vyjímkou je samozřejmě rok 2014, který se datuje jako počátek podnikání nové právní formy společnosti a v~tomto roce se poprvé vytváří čistý zisk, který ovlivní výši vlastního kapitálu až v~roce 2015. Z~výše uvedeného vidíme, že kromě startovacího roku 2014, jsou poměry cizího a vlastního kapitálu naprosto v~pořádku. 
 Pokud bych shrnul výsledky finanční analýzy sledované firmy v~období od 2014 – 2017, hodnoty všech
 ukazatelů se pohybují bezpečně nad hranicemi doporučených hodnot. Tím se společnost jednoznačně řadí mezi finančně zdravé podniky.
+
+
+
+* horizontalni analyza - da se rict ze vsechny polozky rostou, nicmene pro podnik kladne polozky rostou rychleji nez zaporne a tak podnik generuje stale vetsi zisk 
+
+* vzz - rostouci trzby a tim padem obrat, s nimi ale samozrejme i rostouci naklady. Vynosy vsak rostou rychleji a tak vysledek hospodareni vykazuje rust, v poslednich trech letech se pokazde zhruba zdvojnasobil.
+
+* to same i u celkovych aktiv, u pasiv si lze vsimnout predevsim obrovskeho narustu hodnoty dlouhodobych zavazku v roce 2016.
+%_-----------------------------------------------
+* slozeni aktiv na nejvyssi urovni vicemene stejne - 1/3 dlouhodoby majetek, 2/3 obezna
+* dlouhodoby - pouze hmotny, neeviduje zadny nehmotny ci financni
+* ani struktura obeznych se prilis nemeni, zasoby tvori asi 10 procent, zbytek je zhruba stejnymi dily rozdelen mezi kratkodobe pohl a penezni prostredky.
+
+* co se tyce pasiv, rozlozeni na nejvyssi urovni lze sledovat spise pomoci ukazatelu zadluzenosti (jsou zde pouze vlastni a cizi kapital)
+* veskere cizi zdroje jsou zavazky uverovym institucim, v prvnich dvou sledovanych letech vyrazne prevazovaly kratkodobe, v dalsich dvou letech je hodnota kratkodobych skoro rovna hodnote dlouhodobych
+
+* co se tyce vynosu za sledovane obdobi, vetsinu z nich (80 a vice procent) tvori trzby za prodej vyrobku a sluzeb, zbytek je z prodeje zbozi. Naklady jsou rozdeleny mezi vsechny podpolozky, nejvetsi cast tvori polozka \uv{Spotřeba materiálu a energie}
+%_-----------------------------------------------
+
 %%************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
 \chapter{Závěr}
 V~rámci této diplomové práce se podařilo implementovat nástroj umožňující provádět fundamentální úkony? v~oblasti finanční analýzy.
@@ -990,7 +1008,7 @@ Jedna se
 o~ačkoliv
 položka
 mapa
-různ odliš (z~ruznych zrdoju ruzne hodnoty)
+různ odliš (z~ruznych zrdoju / literat ruzne hodnoty)
 router
 JavaScript
 TypeScript
