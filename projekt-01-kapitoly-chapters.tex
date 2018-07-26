@@ -774,10 +774,30 @@ Při dalším postupu bude ze všeho nejdříve připraveno vývojové prostřed
 
 \chapter{Implementace}
 
-V této kapitole bude popsáno technické řešení nástroje pro provádění finanční analýzy. Nejprve bude probrána implementace činností spojených s finanční analýzou, poté implementace kódu tvořící kostru nástroje a jejich společná integrace. 
+V této kapitole bude popsáno technické řešení nástroje pro provádění finanční analýzy. Nejprve bude probrána implementace činností spojených s finanční analýzou, poté implementace kódu tvořící kostru nástroje a jejich společná integrace do výsledné aplikace.
 
 \section{Implementace finanční analýzy}
-Po implementaci načítaní a uložení dat potřebných pro analýzu bylo možné začít s~implementací modulu pro provádění samotné analýzy. Ten podporuje druhy analýz zmíněné v~teoretické části. Jmenovitě jsou to analýza finančních toků (cashflow), horizontální analýza, vertikální analýza, analýza poměrových ukazatelů a zobrazení Du Pont rozkladu. Při těchto analýzách jsou zdrojová data čerpána z~finančních výkazů.
+Nástroj bude podporovat většinu typů analýzy zmíněných v teoretické části. Jmenovitě to jsou: 
+
+\begin{itemize}
+  \item podnik (čerpá data z výkazů účetní závěrky)
+  \begin{itemize}
+    \item analýza finančních toků (cashflow)
+    \item horizontální analýza
+    \item vertikální analýza
+    \item analýza poměrových ukazatelů
+    \item Du Pont rozklad rentab. vlastního kapitálu 
+  \end{itemize}
+  \item investice (počáteční investice, délka, peněžní toky, diskontní sazba)
+  \begin{itemize}
+    \item výpočet vnitřního výnosového procenta
+    \item výpočet čisté současné hodnoty
+  \end{itemize}
+\end{itemize}
+
+Tento výběr nám ukládá pracovat se dvěma druhy vstupních dat. Pro podnik jsou vstupními daty výkazy účetní závěrky, pro investici vlastní výběr nejdůležitějších aspektů investice.
+
+Po implementaci načítaní a uložení dat potřebných pro analýzu bylo možné začít s~implementací modulu pro provádění samotné analýzy.
 
 Další implementovanou funkcionalitou je výpočet vnitřního výnosového procenta investice, jehož vstupní data s~finančními výkazy podniku nesouvisí a jsou tedy zadávána zvlášť, ručně.
 
@@ -970,16 +990,20 @@ Na obrazovce se seznamem podniků jsou vykresleny karty s~jednotlivými podniky 
 
 Na obrazovce se seznamem výkazů se lze přepínat mezi výkazy z~různých let, případně výkaz smazat nebo přidat nový, což je nezbytný krok i při importu dat. Na kartě s~výkazem lze ručně vyplnit údaje nebo použít tlačítko pro import. Výkazem se zde rozumí trojice dokumentů -- výkaz zisku a ztrát, tabulka aktiv, tabulka pasiv.
 
-Pokud jsou nahrány potřebné výkazy, lze se přepínat mezi obrazovkami s analýzou. Výsledkem všech analýz, až na rozklad Du Pont, jsou tabulární data. U horizontální a vertikální analýzy jsou to tři sady tabulárních dat podle rozdělení na výkaz zisku a ztrát, aktiva a pasiva, přepínat se lze pomocí tabů. Při výběru položky horizontální analýzy je zobrazen sloupcový graf s hodnotami ve všech zaznamenaných letech. Při výběru položky na obrazovce vertikální analýzy je zaznamenán celek, do kterého položka patří, a také rok, který nás zajímá. Zobrazen je koláčový graf ilustrující rozložení celku na části v daném roku. 
+Pokud jsou nahrány potřebné výkazy, lze se přepínat mezi obrazovkami s analýzou. Výsledkem všech analýz, až na rozklad Du Pont, jsou tabulární data. U horizontální a vertikální analýzy jsou to tři sady tabulárních dat podle rozdělení na výkaz zisku a ztrát, aktiva a pasiva, přepínat se lze pomocí tabů. Při výběru položky horizontální analýzy je zobrazen sloupcový graf s hodnotami ve všech zaznamenaných letech. Při výběru položky na obrazovce vertikální analýzy je zaznamenán celek, do kterého položka patří, a také rok, který nás zajímá. Zobrazen je koláčový graf ilustrující rozložení celku na části v daném roku. Obrazovka s analýzou poměrových ukazatelů obsahuje všechny skupiny ukazatelů i jejich položky v jedné tabulce. Pro vybranou položku je zobrazen sloupcový graf. U položek, jejichž průměrná hodnota v odvětví je známa a zadána, jsou tyro průměrné hodnoty zobrazovány vedle hodnot vypočítaných pro vybraný podnik.
 
-* diagram obrazovek? obrazovky == url klidne do diagramu
+Na obrazovce s analýzou Du Pont jsou data reprezentována jako vizuální rozklad. Výstup analýzy by mohl být reprezentován i tabulkou či rovnicí, zvolený způsob je ale dle mého názoru mnohem názornější a je také použit v mnoha studovaných zdrojích. Vizualizací stromu rozkladu jsou obdélníky s prvky rozkladu, terminálními i neterminálními, propojené čarami. Vizualizace je realizována pomocí jazyka SVG, který je ve většině webových prohlížečů podporován. Proporce vizuálních prvků jsou uloženy v proměnných, ty jsou na sobě relativně závislé. To umožňuje jednoduchou škálovatelnost výsledku.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=13.5cm]{img/screens.png}
+  \caption{Diagram návaznosti obrazovek aplikace}
+\end{figure}
 
 \section{Vývoj}
-Pro ověření správnosti navrženého řešení byl v~každé z~oblastí finanční analýzy nejprve implementován prototyp se zúženým výběrem položek a omezenou funkcionalitou. Úplné doplnění funkcionality a položek proběhlo až v~dalších fazích implementace, stejnětak jako opakovaná refaktorizace. Tento postup byl zvolen i při implementaci persistence dat. Ve zdrojovém kódu je možnost volby mezi nahráváním dat z~databáze a jejich podvržením pomocí definice jednotného rozhraní dat. Pokud zrovna neimplementujeme modul zajišťující persistenci dat, využití podvržených dat je velmi výhodné z~důvodu urychlení vývojářského cyklu a možnosti vyvíjet bez připojení k~internetu.
+Pro ověření správnosti navrženého řešení byl v~každé z~oblastí finanční analýzy nejprve implementován prototyp se zúženým výběrem analyzovaných položek a omezenou funkcionalitou. Úplné doplnění položek a funkcionality proběhlo až v~dalších fazích implementace, stejnětak jako opakovaná refaktorizace. Tento postup byl zvolen i při implementaci persistence dat. Ve zdrojovém kódu je možnost volby mezi čerpáním uživatelských dat z~databáze, nebo jejich podvržením pomocí definice jednotného rozhraní těchto dat. Pokud zrovna neimplementujeme modul zajišťující persistenci dat, využití podvržených dat je velmi výhodné z~důvodu urychlení vývojářského cyklu a možnosti vyvíjet bez připojení k~internetu.
 
-Jako vývojové prostředí bylo použito IDE WebStorm od společnosti JetBrains, jehož licence je poskytována studentům zdarma. Kromě mnoha dalších, nástroj má podporu pro všechny technologie využité při implementaci a jejím usnadnění, především jazyky JavaScript, TypeScript a JSX.
-
-* v~tomto IDE je také zabudován git modul pro správu verzí. Celý projekt byl průběžně verzován.
+Jako vývojové prostředí bylo použito IDE WebStorm od společnosti JetBrains, jehož licence je poskytována studentům zdarma. Kromě mnoha dalších, nástroj má podporu pro všechny technologie využité při implementaci a jejím usnadnění, zejména jazyky JavaScript, TypeScript a JSX. Celý projekt byl průběžně verzován pomocí nástroje Git, jež má ve zmíněném IDE grafické rozhraní.
 
 Po stažení složky s projektem z repozitáře je pro vývoj nezbytná instalace závislostí.
 Po spuštění skriptu je rozhraní aplikace otvevřeno v prohlížeči.
@@ -1099,12 +1123,14 @@ vzhledem
 odpovidajic
 rovnice -> vzorec
 respektive
+hned - smazat
 **
 
 * TESTY
 * muzu dat vykazy do prilohy? je to vubec potreba? je to napsane v~uvodu, ze to tam bude
 * predelat ERD, doplnit investice
 * ucd - extend
+* diagram obrazovek - dve sipky, jedna na detail, druha zpet na prehled podniku
 
 aktiva: 
 	17+16;
