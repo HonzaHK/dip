@@ -654,6 +654,7 @@ Aplikace se tedy skládá z~komponent. Komponenty jsou do sebe hierarchicky vno�
 
 
 \subsubsection{Redux}
+\label{redux}
 Velkým trendem současných aplikací napsaných s~využitím knihovny React je současné použití knihovny React Redux, což je knihovna Redux přizpůsobená pro integraci do React aplikace. Hned na začátku zmíním, že React a Redux jsou dvě zcela odlišné knihovny, které mohou fungovat jedna bez druhé. Zatímco React je zaměřen na jednoduchou tvorbu komponent uživatelského rozhraní a jejich hierarchizaci v~aplikaci, Redux se spíše zaměřuje na správu dat na aplikační úrovni. Tato knihovna elegantně řeší uložení a práci s~globálním stavem aplikace na základě tří principů:
 
 \begin{enumerate}
@@ -879,8 +880,10 @@ Technickým řešením bylo tedy tyto položky stanovit a poté zapsat jejich v�
 Tyto společné položky se používají pro všechny druhy analýzy, původní výčet položek v~jednotlivých letech je využit zejména při ukládání, zobrazování a editaci účetních výkazů a pro účely demonstrace také při horizontální analýze. Cílem bylo vytvořit maximální počet společných položek s~postupným rozpadem na menší a menší části, čímž se maximalizuje počet různých výpočtů a tím pádem počet výsledků analýzy. Při vertikální analýze je potřeba dbát na to, aby byly vybrané položky vzájemně disjunktní -- počítáme procentuální zastoupení částí na celku a proto by se části neměly překrývat. ?proc tady, dat k~vertik?
 
 
-\subsection{Provádění analýzy}
+\subsection{Provádění analýzy?}
 Podařilo se implementovat všechny typy analýz zmíněné na začátku této kapitoly. Kromě toho bylo navíc implementováno mezipodnikové srovnání -- prozatím jen v~rámci výsledků horizontální analýzy a analýzy poměrových ukazatelů, implementace je však v~tomto směru snadno rozšiřitelná ?id obj?. 
+
+* mezipodnikové srovnání je implementováno obecně a není omezeno počtem podniků. Způsob prezentace výsledků srovnání většího počtu podniků v delším časovém období však zatím není vyřešen, ??zmensit detail výsledků / interaktivní prezentace výsledků?? 
 
 ??
 %===================
@@ -900,7 +903,7 @@ Kromě konkrétních hodnot položek v~daných letech jsou vypočítány i mezir
 $$d_{ABS}=h_{n}-h_{n-1}$$
 $$d_{REL}=(h_{n}-h_{n-1})/h_{n-1}$$
 
-V~rámci této analýzy bylo implementováno také mezipodnikové srovnání.
+V~rámci horizontální analýzy bylo implementováno také mezipodnikové srovnání, je tak možné porovnávat vlastnosti podniků plynoucí z finančních výkazů (tržby, náklady,)
 
 
 \subsubsection{Vertikální analýza}
@@ -909,10 +912,11 @@ Při vertikální analýze se nezohledňuje různá struktura výkazů z~různý
 Jako části jednoho celku byly použity položky, které jsou vzájemně disjunktní, jinak by se mohlo stát, že suma procentuálního zastoupení všech částí by přesáhla 100 \%. Kvůli různým strukturám výkazů a problému nastíněném v~sekci \ref{spol} je však situace spíš opačná -- při rozložení některých celků na části netvoří tyto části celý celek.??
 
 \subsubsection{Poměrové ukazatele}
-Tak jako u~ostatních analýz, i výpočet poměrových ukazatelů je realizován pomocí funkce, která se řídí mapou pro provádění analýzy a podle této mapy získává hodnoty z~dodaných výkazů. Mapa na nejvyšší úrovni obsahuje skupiny, či spíše druhy poměrových ukazatelů (rentabilita, likvidita atd.). V~rámci každé skupiny je uloženo pole prvků výčtového typu. Tyto prvky představují konkrétní ukazatele, přesněji jsou to klíče, přes něž lze k~datům spojeným s~daným ukazatelem přistupovat -- momentálně jsou to název a způsob výpočtu ukazatele. Stejný klíč je využíván i ke zjištění průměrné hodnoty ukazatele v~odvětví.
+Tak jako u~ostatních analýz, i výpočet poměrových ukazatelů je realizován pomocí funkce, která se řídí mapou pro provádění analýzy a podle této mapy získává hodnoty z~dodaných výkazů. Mapa na nejvyšší úrovni obsahuje skupiny, či spíše druhy poměrových ukazatelů (rentabilita, likvidita atd.). V~rámci každé skupiny je uloženo pole prvků výčtového typu. Tyto prvky představují konkrétní ukazatele, přesněji jsou to klíče, přes něž lze k~datům spojeným s~daným ukazatelem přistupovat -- momentálně jsou to název a způsob výpočtu ukazatele. Stejný klíč je využíván i ke zjištění průměrné hodnoty ukazatele v~odvětví. Uložením klíču v~poli je stanoveno jejich pořadí při analýze.
 
+V rámci analýzy poměrových ukazatelů, která tvoří stěžejní oblast finanční analýzy podniku, bylo implementováno také mezipodnikové srovnání.
 
-\subsubsection{Ohodnocení poměrových ukazatelů??}
+\subsubsection{Ohodnocení poměrových ukazatelů?}
 
 Tato volba nám také stanovuje přesný vzorec výpočtu daného ukazatele. V~literaturách se do vzorců 
 
@@ -935,14 +939,17 @@ Jelikož tato implementace dále s~výsledky cashflow analýzy nepracuje, jsou p
 
 Dosavadní implementace umožní analytikovi sledovat peněžní toky za různá období. Tok nese kromě hodnoty také informaci o~tom, proč vůbec vznikl a dále je také zařazen mezi jednu ze tří klíčových činností. Samozřejmě je vyčíslena i suma toků pro každou z~činností a celková suma toků.
 
-\subsubsection{Analýza investice}
+\subsubsection{Analýza investice?}
 \label{irr}
-Vstupem pro všechny doposud zmíněné analýzy jsou roční výkazy podniku -- rozvaha a výkaz zisku a ztrát. Pro výpočet vnitřního výnosového procenta určité investice či projektu se však používají spíše peněžní toky výhradně s~ním spojené. Prvním pěněžním tokem obvykle bývá počáteční investice, která je intuitivně evidována zvlášť. Zbývající pěněžní toky je nutné začlenit do období, ve kterém proběhnou, určit jejich hodnotu a pro vlastní potřeby také jejich účel.
+Vstupem pro všechny doposud zmíněné analýzy jsou roční výkazy podniku -- rozvaha a výkaz zisku a ztrát. Pro výpočet vnitřního výnosového procenta určité investice či projektu se však používají spíše peněžní toky výhradně s~ním spojené. Prvním pěněžním tokem obvykle bývá počáteční investice, která je intuitivně evidována zvlášť. Zbývající pěněžní toky je nutné začlenit do období, ve kterém proběhnou. Dalším vstupním parametrem je tedy délka trvání investičního projektu. Tyto toky mají také finanční hodnotu (kladnou či zápornou) a pro potřeby uživatele může být textem specifikován jejich účel.
 
-Výpočet NPV je přímočarý, spočívá v~pouhém dosazení do vzorce. Analytické řešení výpočtu VVP však není známé?, budeme jej řešit numericky. 
-* krome irr i npv - uzce spolu souviseji, pri vypoctu irr je pouzito vzorce npv
-* npv i irr - pocitat pro vsechny roky, nejen pro posledni - taky do rozsireni
-* metoda puleni intervalu
+Při analýze investice budeme zjišťovat hodnotu její čisté současné hodnoty a hodnotu vnitřního výnosového procenta, které spolu úzce souvisí. Výpočet ČSH je přímočarý, spočívá v~pouhém dosazení do vzorce při dodatečné specifikaci úrokové sazby. Analytické řešení výpočtu VVP však není známé, budeme jej řešit numericky.
+
+*metoda puleni intervalu 
+
+Vhodným vylepšením této analýzy by byl výpočet ČSH i VVP v~průběhu celé investice, tedy jejich hodnot na konci každého z~období. To by pomohlo investorovi zvážit změnu délky trvání investice.
+
+* zbavit se veci dokud ještě přináší požadované procento výnosu
 
 
 
@@ -957,7 +964,9 @@ Jak je vidět na obrázku \ref{spa}, serverová část v~mém návrhu měla slou
 
 Dalším velkou výhodou služby Firebase je správa uživatelů aplikace a zajištění procesu autentizace. Přes funkce poskytované knihovnou je tak možné velmi jednoduše vytvářet nové uživatelské účty či zajistit celý proces automatického přihlášení, tedy i jeho persistence. Tato služba v~oblasti autentizace a autorizace nabízí mnohem více, my se však omezíme na funkcionalitu, kterou jsem zmínil. Posledním důležitým prvkem je jednoznačný uživatelský identifikátor, který je automaticky vygenerován při vytvoření uživatelského účtu. Ten slouží jako klíč v~databázi, pod kterým jsou uložena veškerá data spojená s~tímto účtem -- podniky a investice. 
 
-Při přihlášení uživatele dojde ke stažení těchto dat do reducerů?. Všechna uložená vstupní data jsou tak dostupná přímo v~aplikaci, uživateli jsou zpřístupněny podniky či investice, které může analyzovat a editovat. Při jejich editaci dojde nejprve k~zápisu změny do databáze, poté jsou z~ní znovu načteny všechny podniky či investice. Řešení je sice velmi neúsporné s~ohledem na nadbytečné využití prostředků, je to však nejjednodušší způsob synchronizace databázových a aplikačních dat. Pokud by měl být nástroj nasazen, bylo by vhodné objem přenesených dat minimalizovat. 
+Při přihlášení uživatele dojde ke stažení těchto dat do aplikace, uživateli jsou zpřístupněny evidované podniky a investice, které může analyzovat a editovat. Při jejich editaci dojde nejprve k~zápisu změny do databáze, poté jsou z~ní znovu načteny všechny podniky či investice. Řešení je sice velmi neúsporné s~ohledem na nadbytečné využití prostředků, je to však nejjednodušší způsob synchronizace databázových a aplikačních dat. Pokud by měl být nástroj nasazen, bylo by vhodné objem přenesených dat minimalizovat. 
+
+Podle konceptu Redux, popsaném v sekci \ref{redux}, jsou všechna data na aplikační vrstvě ukládána do reducerů, jediných zdrojů informací o stavu aplikace. 
 
 * kazda analyza - pri vykresleni prislusne obrazovky se nastroj pokusi o~analyzu, v~pripade neuspechu ulozi error, ktery pak prislusna komponenta vykresli
 
@@ -1095,7 +1104,7 @@ ukazatelů se pohybují bezpečně nad hranicemi doporučených hodnot. Tím se 
 
 * co se tyce vynosu za sledovane obdobi, vetsinu z~nich (80 a vice procent) tvori trzby za prodej vyrobku a sluzeb, zbytek je z~prodeje zbozi. Naklady jsou rozdeleny mezi vsechny podpolozky, nejvetsi cast tvori polozka \uv{Spotřeba materiálu a energie}
 %_-----------------------------------------------
-
+* du pont - pro vsechna sledovana obdobi vicemene stejna situace, podnik disponuje majetkem, ktery je z poloviny financovan cizimi zrdoji, coz je bezna situace. Umi s nim vsak velmi dobre hospodarit, coz se odrazi na vysoke hodnote rentability trzeb i rentability celkovych aktiv, po zohledneni zdroju kryti majetku zustava rentabilita vlastniho kapitalu stale velmi vysoka
 %%************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
 \chapter{Závěr}
 V~rámci této diplomové práce se podařilo implementovat prakticky využitelný nástroj umožňující provádět vybrané úkony z~oblasti finanční analýzy. Implementaci předcházelo studium problematiky finanční analýzy i průzkum současných softwarových možností jejího provádění. Na základě zjištěných poznatků byl vypracován návrh vlastní programové koncepce, který byl poté realizován. Nástroj se zaměřuje na analýzu dvou entit, podniku a investice, přičemž se snaží k~vytvoření závěrů o~situaci analyzovaných entit poskytnout co nejužitečnější informace.
@@ -1104,7 +1113,7 @@ Nad podnikem umožňuje provádět analýzu horizontální a vertikální, anal�
 
 Cílovou skupinu nástroje tvoří podnikatelé a finanční analytici, jimž se snaží práci maximálně usnadnit. Prostředím běhu je webový prohlížeč, což umožňuje nástroj používat odkudkoliv, bez nutnosti jeho instalace. Dodržování požadavků plynoucích z~legislativy ČR zajišťuje jednoznačnost při zadávání vstupních dat i možnost jejich automatizovaného načítání. Díky podpoře uživatelských účtů je možné nahraná data s~uživatelským účtem spojit, uložit a k~analýze se opakovaně vracet.
 
-Řešení je kvalitní nejen z~pohledu provádění finanční analýzy a uživatelské přívětivosti, ale i z~pohledu vývojáře. Díky použitým technologiím a způsobu implementace je zdrojový kód především robustní ke změnám a tím pádem dlouhodobě udržitelný, což je pro budoucí vývoj, zejména v~oblasti finanční analýzy, obrovskou výhodou.
+Řešení je kvalitní nejen z~pohledu provádění finanční analýzy a uživatelské přívětivosti, ale i z~pohledu vývojáře. Díky implementaci testů, použitým technologiím a způsobu implementace je zdrojový kód především robustní ke změnám a tím pádem dlouhodobě udržitelný, což je pro budoucí vývoj, zejména v~oblasti finanční analýzy, obrovskou výhodou.
 
 
 
