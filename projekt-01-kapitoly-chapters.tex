@@ -850,8 +850,13 @@ Pro zajištění konzistence položek při ručním vyplňování nově vytvoře
 
 Lze vydedukovat, že rozdílná struktura výkazů v~různých letech bude mít velký dopad na porovnatelnost položek a tedy výpočet významově identických hodnot pro všechny podporované roky. Tento fakt byl jednou z~největších překážek při implementaci. Byla potřeba především nastudovat legislativu k~pochopení těchto změn, vymyslet způsob, jakým vytvářet srovnatelné položky a nakonec jej přepsat do zdrojového kódu. Řešení je popsáno v~sekci \ref{spol}. Mapa s~informacemi, jak společné položky vytvářet, je poslední částí mapy výkazu.
 
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=13.5cm]{img/dppdp8_maps.png}
+  \caption{Mapa pro práci s různou strukturou výkazů a její využití}
+\end{figure}
 
-\subsubsection{Parsování DPPDP8}
+\subsubsection{Načítání souborů podle specifikace DPPDP8}
 Pro automatizované načítání souborů se syntaxí DPPDP8 pro účely analýzy podniku byl implementován parser. Nejprve je pomocí knihovny fast-xml-parser řetězec s~obsahem XML souboru přetransformován na odpovídající JSON řetězec. Podle tohoto řetězce je vestavěnou funkcí \texttt{JSON.parse()} sestaven odpovídající JavaScript objekt, se kterým můžeme dále pohodlně pracovat tak, jak jsme v~JavaScriptu zvyklí. Jelikož je před zpracováním výkazu známý jeho ročník (zadává uživatel), můžeme si z~příslušné mapy načíst pole představující pořadí řádků ve výkazu a podle tohoto pole poté načíst hodnoty ze vstupu.
 
 
@@ -880,18 +885,25 @@ Technickým řešením bylo tedy tyto položky stanovit a poté zapsat jejich v�
 Tyto společné položky se používají pro všechny druhy analýzy, původní výčet položek v~jednotlivých letech je využit zejména při ukládání, zobrazování a editaci účetních výkazů a pro účely demonstrace také při horizontální analýze. Cílem bylo vytvořit maximální počet společných položek s~postupným rozpadem na menší a menší části, čímž se maximalizuje počet různých výpočtů a tím pádem počet výsledků analýzy. Při vertikální analýze je potřeba dbát na to, aby byly vybrané položky vzájemně disjunktní -- počítáme procentuální zastoupení částí na celku a proto by se části neměly překrývat. ?proc tady, dat k~vertik?
 
 
-\subsection{Provádění analýzy?}
+\subsection{Provádění analýzy}
 Podařilo se implementovat všechny typy analýz zmíněné na začátku této kapitoly. Kromě toho bylo navíc implementováno mezipodnikové srovnání -- prozatím jen v~rámci výsledků horizontální analýzy a analýzy poměrových ukazatelů, implementace je však v~tomto směru snadno rozšiřitelná ?id obj?. 
 
-* mezipodnikové srovnání je implementováno obecně a není omezeno počtem podniků. Způsob prezentace výsledků srovnání většího počtu podniků v delším časovém období však zatím není vyřešen, ??zmensit detail výsledků / interaktivní prezentace výsledků?? 
+* mezipodnikové srovnání je implementováno obecně a není omezeno počtem podniků. Způsob prezentace výsledků srovnání většího počtu podniků v delším časovém období však zatím není vyřešen, ?zmensit detail výsledků / interaktivní prezentace výsledků?
 
-??
+?
 %===================
-Podobně jako u~ostatních druhů analýz, výsledek není uložen v~běžném (indexovaném) poli, nýbrž v~poli asociativním. Nevýhodou je sice nutnost explicitní iterace nad jednotlivými výsledky analýzy, tento způsob uložení je však velmi příznivý při znovupoužití vypočítaných výsledků -- například při výpočtu rozdílu hodnot jedné položky v~různých letech nebo srovnání podniků v~rámci horizontální analýzy. Nejprve se vypočítají výsledky pro všechny srovnávané podniky, poté je nutné podnikové výsledky nahrát do jedné společné struktury. Pokud by byly výsledky pro podnik uloženy v~běžném poli, museli bychom pro každou z~položek respektive pro každý z~analyzovaných roků procházet všechny položky respektive?? roky a hledat mezi nimi ten, který se právě chystáme zpracovat. Díky asociativnímu poli můžeme na hledanou hodnotu přistoupit přímo, přes klíč položky a následně klíč roku, neprobíhá tedy žádné vyhledávání. Přesněji neprobíhá vyhledávání na úrovni naší implementace, ale na úrovni interpretu JavaScriptu.
+Podobně jako u~ostatních druhů analýz, výsledek není uložen v~běžném (indexovaném) poli, nýbrž v~poli asociativním. Nevýhodou je sice nutnost explicitní iterace nad jednotlivými výsledky analýzy, tento způsob uložení je však velmi příznivý při znovupoužití vypočítaných výsledků -- například při výpočtu rozdílu hodnot jedné položky v~různých letech nebo srovnání podniků v~rámci horizontální analýzy. Nejprve se vypočítají výsledky pro všechny srovnávané podniky, poté je nutné podnikové výsledky nahrát do jedné společné struktury. Pokud by byly výsledky pro podnik uloženy v~běžném poli, museli bychom pro každou z~položek respektive pro každý z~analyzovaných roků procházet všechny položky respektive? roky a hledat mezi nimi ten, který se právě chystáme zpracovat. Díky asociativnímu poli můžeme na hledanou hodnotu přistoupit přímo, přes klíč položky a následně klíč roku, neprobíhá tedy žádné vyhledávání. Přesněji neprobíhá vyhledávání na úrovni naší implementace, ale na úrovni interpretu JavaScriptu.
 %===================
 
 
 Všechny podporované analýzy jsou implementovýny podobným principem, který byl použit i při práci se vstupními daty. Každá z~analýz má svůj vlastní popis -- \textit{mapu} (objekt), ve které jsou uloženy všechny potřebné informace: seskupování a hirerarchie výsledků, pořadí výsledků, způsob jejich výpočtu, označení a jednotka. Pro práci s~mapou je implementována funkce vykonávající analýzu nad konkrétními daty. Funkce odpovídající mapu systematicky prochází a čerpá z~ní informace pro výpočet, do kterého dosazuje data získané ze svého jediného parametru -- finančních výkazů. Výsledek uloží do struktury opět podle informací z~mapy. Tento způsob implementace považuji za flexibilní a velmi dobře parametrizovatelný, zároveň zredukuje vazby mezi funkcí provádějící celkovou analýzu jistého typu a analýzou jedné konkrétní položky.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=15cm]{img/analysis.png}
+  \caption{Diagram provádění analýzy}
+\end{figure}
+
 
 \subsubsection{Horizontální analýza}
 Horizontální analýza je prováděna nad položkamy výkazu zisku a ztráty, aktivy i pasivy, výsledné hodnoty jsou rozděleny stejným způsobem. Na nejvyšší úrovni je tato analýza prováděna dvěma způsoby. Ve zdrojovém kódu je uložena informace o~tom, které finanční výkazy mají stejnou strukturu (podle roku). Díky tomu lze uložené výkazy seskupit a provést nad těmito skupinami separátně horizontální analýzu na detailní úrovni -- pro výkazy se stejnou strukturou je analyzována každá z~položek těchto výkazů; potřebné informace, jako jsou názvy, označení a pořadí položek jsou uloženy přímo v~mapě struktury těchto výkazů. Analýza určitého počtu skupin se stejnou strukturou přináší stejný počet struktur s~výsledky. Je to, pro demonstraci, jediná z~analýz, ve které je zohledněna různá struktura výkazů z~různých let (tato skutečnost je zohledněna samozřejmě také v~editoru výkazů).
@@ -903,20 +915,20 @@ Kromě konkrétních hodnot položek v~daných letech jsou vypočítány i mezir
 $$d_{ABS}=h_{n}-h_{n-1}$$
 $$d_{REL}=(h_{n}-h_{n-1})/h_{n-1}$$
 
-V~rámci horizontální analýzy bylo implementováno také mezipodnikové srovnání, je tak možné porovnávat vlastnosti podniků plynoucí z finančních výkazů (tržby, náklady,)
+V~rámci horizontální analýzy bylo implementováno také mezipodnikové srovnání, je tak možné porovnávat atributy podniků a jejich hospodaření plynoucí přímo z finančních výkazů.
 
 
 \subsubsection{Vertikální analýza}
 Při vertikální analýze se nezohledňuje různá struktura výkazů z~různých let, používají se pouze společné položky. Jedna položka vertikální analýzy obsahuje vždy vztažnou veličinu a pole částí, z~nichž je složena a jejichž procentuální zastoupení chceme vyjádřit. Tyto položky jsou obsaženy pro každý z~výkazů -- pro aktiva, pasiva i výkaz zisku a ztrát. Při výpočtu algoritmus iteruje nad výkazy, v~rámci výkazů dále iteruje nad položkami. U~každé položky nejprve spočte hodnotu všech jejích častí, poté hodnotu položky samotné (vztažné veličiny), z~nichž lze vypočítat podíl částí na celku.
 
-Jako části jednoho celku byly použity položky, které jsou vzájemně disjunktní, jinak by se mohlo stát, že suma procentuálního zastoupení všech částí by přesáhla 100 \%. Kvůli různým strukturám výkazů a problému nastíněném v~sekci \ref{spol} je však situace spíš opačná -- při rozložení některých celků na části netvoří tyto části celý celek.??
+Jako části jednoho celku byly použity položky, které jsou vzájemně disjunktní, jinak by se mohlo stát, že suma procentuálního zastoupení všech částí by přesáhla 100 \%. Kvůli různým strukturám výkazů a problému nastíněném v~sekci \ref{spol} je však situace spíš opačná -- při rozložení některých celků na části netvoří tyto části celý celek.?
 
 \subsubsection{Poměrové ukazatele}
 Tak jako u~ostatních analýz, i výpočet poměrových ukazatelů je realizován pomocí funkce, která se řídí mapou pro provádění analýzy a podle této mapy získává hodnoty z~dodaných výkazů. Mapa na nejvyšší úrovni obsahuje skupiny, či spíše druhy poměrových ukazatelů (rentabilita, likvidita atd.). V~rámci každé skupiny je uloženo pole prvků výčtového typu. Tyto prvky představují konkrétní ukazatele, přesněji jsou to klíče, přes něž lze k~datům spojeným s~daným ukazatelem přistupovat -- momentálně jsou to název a způsob výpočtu ukazatele. Stejný klíč je využíván i ke zjištění průměrné hodnoty ukazatele v~odvětví. Uložením klíču v~poli je stanoveno jejich pořadí při analýze.
 
 V rámci analýzy poměrových ukazatelů, která tvoří stěžejní oblast finanční analýzy podniku, bylo implementováno také mezipodnikové srovnání.
 
-\subsubsection{Ohodnocení poměrových ukazatelů?}
+\subsubsection{Ohodnocení poměrových ukazatelů}
 
 Tato volba nám také stanovuje přesný vzorec výpočtu daného ukazatele. V~literaturách se do vzorců 
 
@@ -949,16 +961,17 @@ Při analýze investice budeme zjišťovat hodnotu její čisté současné hodn
 
 Vhodným vylepšením této analýzy by byl výpočet ČSH i VVP v~průběhu celé investice, tedy jejich hodnot na konci každého z~období. To by pomohlo investorovi zvážit změnu délky trvání investice.
 
-* zbavit se veci dokud ještě přináší požadované procento výnosu
+* zbavit se veci dokud ještě přináší požadované procento výnosu - odprodej
 
 
 
 \section{Implementace prostředí}
+Doposud byla popsána implementace modulů provádějících činnosti spojené s finanční analýzou. V této sekci bude popsán 
 
 \subsection{Datový tok}
 Při implementaci architektury a persistence dat jsem se mírně odchýlil od návrhu. Původním záměrem byla implementace vlastní serverové části s~napojením na MySQL databázi. Po přezkoumání možností mi přišlo výhodnější využít služby Firebase poskytované společností Google. Činnosti jako instalace, konfigurace, zprovoznění a implementace vlastního serveru a jeho další úpravy při změnách na straně klienta by přinesly poměrně velké množství práce navíc, přičemž způsob technického řešení nástroje není předmětem zadání.
 
-Jak je vidět na obrázku \ref{spa}, serverová část v~mém návrhu měla sloužit pouze pro stažení kódu aplikace při jejím spuštění a dále už jen pro manipulaci s~uloženými uživatelskými daty. Přesně toto nám umožňuje služba Firebase, která poskytuje jak hostování kódu aplikace, tak přímý přístup na databázi. ???dotazy v~app, skoro jak sql, jen nad strukturami/kolekcemi (docs, collection), objektova db???. Z~uvedeného popisu vyplývá, že mezi klientskou částí aplikace a databází není žádná programovatelná vrstva -- server, na kterém bychom chtěli spouštět svůj vlastní kód. I~pro tento problém má Firebase řešení, službu Cloud Functions. My jej však nevyužijeme, jelikož se ukázalo, že provádění veškerých implementovaných operací u~klienta nepředstavuje výkonnostní zátěž.
+Jak je vidět na obrázku \ref{spa}, serverová část v~mém návrhu měla sloužit pouze pro stažení kódu aplikace při jejím spuštění a dále už jen pro manipulaci s~uloženými uživatelskými daty. Přesně toto nám umožňuje služba Firebase, která poskytuje jak hostování kódu aplikace, tak přímý přístup na databázi. ?dotazy v~app, skoro jak sql, jen nad strukturami/kolekcemi (docs, collection), objektova db?. Z~uvedeného popisu vyplývá, že mezi klientskou částí aplikace a databází není žádná programovatelná vrstva -- server, na kterém bychom chtěli spouštět svůj vlastní kód. I~pro tento problém má Firebase řešení, službu Cloud Functions. My jej však nevyužijeme, jelikož se ukázalo, že provádění veškerých implementovaných operací u~klienta nepředstavuje výkonnostní zátěž.
 
 - objektove schema pouzivane databaze (asi jen json)
 
@@ -966,19 +979,24 @@ Dalším velkou výhodou služby Firebase je správa uživatelů aplikace a zaji
 
 Při přihlášení uživatele dojde ke stažení těchto dat do aplikace, uživateli jsou zpřístupněny evidované podniky a investice, které může analyzovat a editovat. Při jejich editaci dojde nejprve k~zápisu změny do databáze, poté jsou z~ní znovu načteny všechny podniky či investice. Řešení je sice velmi neúsporné s~ohledem na nadbytečné využití prostředků, je to však nejjednodušší způsob synchronizace databázových a aplikačních dat. Pokud by měl být nástroj nasazen, bylo by vhodné objem přenesených dat minimalizovat. 
 
-Podle konceptu Redux, popsaném v sekci \ref{redux}, jsou všechna data na aplikační vrstvě ukládána do reducerů, jediných zdrojů informací o stavu aplikace. 
+Podle konceptu knihovny Redux, popsaném v sekci \ref{redux}, jsou všechna data na aplikační vrstvě ukládána do reducerů, jediných zdrojů informací o stavu aplikace. Při spuštění jsou nahrána data tří reducerů:
+\begin{itemize}
+  \item user reducer -- uživatelská data
+  \item company reducer -- data spojená s podniky
+  \item investment reducer -- data spojená s investicemi
+\end{itemize}
 
 * kazda analyza - pri vykresleni prislusne obrazovky se nastroj pokusi o~analyzu, v~pripade neuspechu ulozi error, ktery pak prislusna komponenta vykresli
 
-Proces výpočtu a zpracování výsledků je téměř u~všech analýz stejný, liší se pouze způsobem výpočtu. Tento proces je prováděn speciálním objektem, který jsem nazval \textit{data manager}.
+Ostatní implementované reducery slouží pro uložení výsledků jednotlivých analýz. Tok dat při výpočtu a zpracování výsledků je téměř u~všech analýz stejný, liší se pouze způsobem výpočtu. Celý proces výpočtu a adekvátní změny globálního stavu je prováděn speciálním objektem, který jsem nazval \textit{data manager}.
 
 \subsection{Uživatelské rozhraní}
 
 Prostředím běhu aplikace je webový prohlížeč, aplikace byla vyvíjena primárně pro Google Chrome. Vzhled aplikace definují jazyky HTML a CSS, kód je však psán v~jazyce JSX. Ten je syntaktickým rozšířením jazyka JavaScript umožňujícím v~kódu pracovat s~šablonou jako s~proměnnou Javascriptu, přičemž šablona má podobu kódu HTML ve kterém je možné použít JavaScriptové konstrukce pro iteraci, selekci a podobně. Před vykreslením je JavaScriptový kód interpretován a konečný vzhled odpovídajícím způsobem sestaven.
 
-Použití samotných prvků HTML bez dodatečného nastylování je k~tvorbě vzhledných aplikací nedostačující, což je nejspíše způsobeno prapůvodním záměrem tohoto jazyka. Design webových stránek nebo aplikací je však poměrně rozsáhlá oblast, bylo proto vhodné sáhnout po knihovně hotových, nastylovaných prvků. Z~počátku byla zvažována knihovna Bootstrap, nakonec jsem se rozhodl pro modernější knihovnu Material UI.
+Použití samotných prvků HTML bez dodatečného nastylování je k~tvorbě vzhledných aplikací nedostačující, což je nejspíše způsobeno prapůvodním záměrem tohoto jazyka. Design webových stránek nebo aplikací je však poměrně rozsáhlá oblast, bylo proto vhodné sáhnout po knihovně hotových, nastylovaných prvků. Z~počátku byla zvažována knihovna Bootstrap, nakonec jsem se rozhodl pro modernější knihovnu Material UI, která programátorovi poskytuje ?.
 
-S~touto knihovnou je možné tvořit aplikace s~, které ?? po designové stránce.
+S~touto knihovnou je možné tvořit aplikace s~, které ? po designové stránce. Nabízí nejen nastylované komponenty, ale také řešení rozložení aplikace, ... a v neposlední řadě sadu ikon, kterou jsem v designu aplikace použil také.
 
 Výsledkem většiny analýz jsou tabulární data, sledujeme vývoj souboru položek analýzy v~různých letech. Při výběru některé z~položek je zobrazen její detail, který obsahuje vhodný graf zobrazující současnou situaci či vývoj položky. Pro vykreslování a práci s~grafy byla použita knihovna Chart.js
 
@@ -1005,7 +1023,7 @@ Po spuštění aplikace se uživatel musí přihlásit, zobrazeno je pouze modá
 
 Po výběru investice ze seznamu je uživatel přesměrován do detailu investice, kde je možné nastavit její parametry -- počáteční rok, velikost počáteční investice a při výpočtu čisté současné hodnoty i hodnotu úrokové sazby. Nezbytnými parametry jsou také peněžní toky v~jednotlivých časových obdobích, uživateli je tak umožněno přidávat další roky trvání investice, v~rámci nichž zadává libovolně pojmenované výnosy a výdaje. Pokud jsou zadány nevyhovující parametry, je uživatel upozorněn. Pokud jsou k~dispozici výsledky, může přepínat mezi zobrazením hodnoty čisté současné hodnoty a vnitřního výnosového procenta.
 
-Na obrazovce se seznamem podniků jsou vykresleny karty s~jednotlivými podniky a tlačítko pro možnost přidání nového podniku. V~rámci konkrétního podniku lze pokračovat na seznam jeho evidovaných výkazů, jednu z~obrazovek s~analýzou nebo na obrazovku srovnání. 
+Na obrazovce se seznamem podniků jsou vykresleny karty s~jednotlivými podniky a tlačítko pro možnost přidání nového podniku. V~rámci konkrétního podniku lze pokračovat na seznam jeho evidovaných výkazů, jednu z~obrazovek s~analýzou nebo na obrazovku srovnání s jiným podnikem. 
 
 Na obrazovce se seznamem výkazů se lze přepínat mezi výkazy z~různých let, případně výkaz smazat nebo přidat nový, což je nezbytný krok i při importu dat. Na kartě s~výkazem lze ručně vyplnit údaje nebo použít tlačítko pro import. Výkazem se zde rozumí trojice dokumentů -- výkaz zisku a ztrát, tabulka aktiv, tabulka pasiv.
 
@@ -1033,7 +1051,7 @@ Po stažení složky s~projektem z~repozitáře je pro vývoj nezbytná instalac
 
 $$\texttt{npm run install \&\& npm run start}$$
 
-Tento příkaz zůstává spuštěn?XXX?, na pozadí běží kontrola na změny souborů se zdrojovými kódy, TypeScript watcher. Při změně je TypeScript kód automaticky překompilován na JavaScript kód, poté je kód dále transformován, například pro funkčnost v~co nejvíce prohlížečích či jejich verzích. Po doběhnutí dojde ke znovunačtení aplikace v~prohlížeči -- aktualizace stránky. Díky knihovně React Router, která pro navigaci využívá URL adresu, se při aktualizaci stránky stav navigace uchová a aplikace se spustí na původní obrazovce, pouze si znovu načte vykreslovaná data. Watcher funguje i při testování, stačí tedy uložit zdrojové kódy a příslušné testy se spustí znovu.
+Tento příkaz zůstává spuštěn?, na pozadí běží kontrola na změny souborů se zdrojovými kódy, TypeScript watcher. Při změně je TypeScript kód automaticky překompilován na JavaScript kód, poté je kód dále transformován, například pro funkčnost v~co nejvíce prohlížečích či jejich verzích. Po doběhnutí dojde ke znovunačtení aplikace v~prohlížeči -- aktualizace stránky. Díky knihovně React Router, která pro navigaci využívá URL adresu, se při aktualizaci stránky stav navigace uchová a aplikace se spustí na původní obrazovce, pouze si znovu načte vykreslovaná data. Watcher funguje i při testování, stačí tedy uložit zdrojové kódy a příslušné testy se spustí znovu.
 
 Zkompilování kódu do balíčku pro nasazení je prováděno příkazem \texttt{npm run build}. Po správné konfiguraci nástroje firebase je možné aplikaci jednoduše nasadit do provozu na veřejné adrese pomocí příkazu \texttt{firebase deploy}.
 
@@ -1068,11 +1086,7 @@ Z~oblasti finanční analýzy se dále nabízí rozšíření importu o~zkrácen
 * samozrejmost - dukladnejsi osetreni uzivatelskych vstupu
 * v~dalsim roce se muze opet menit legislativa - aktualizace kodu
 
-\begin{comment}
-\chapter{Testování}
-\section{??? nejake bezne testovani}
-\section{Demonstrace na zvoleném vzorku dat}
-\end{comment}
+
 
 \section{Demonstrace na vybraném vzorku dat}
 Firma, na které aplikuji ve své diplomové práci finanční analýzu, je firma Krajči plus s. r. o. Jedná se o~ryze českou společnost, která byla založena již v~roce 1995. Společnost začínala
