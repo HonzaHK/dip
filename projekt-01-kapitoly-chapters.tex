@@ -70,16 +70,16 @@ V~této práci se budeme zabývat především kvantitativní analýzou, právě
 \section{Vstupní data}
 Abychom mohli provést finanční analýzu podniku nebo investice, musíme mít data, ze kterých budeme vycházet. Množina vstupních dat není nijak omezena a~může být vskutku rozsáhlá -- při výpočtu a~odvozování závěrů lze zohlednit nejrůznější faktory, ekonomické i mimoekenomické. Pro nás budou však klíčová především data o~vlastním hospodaření podniku, za jejichž evidenci je zodpovědná účetní jednotka podniku, která je v~průběhu roku zapisuje do takzvané účtové osnovy. 
 
-Při analýze investice se vychází především z~atributů investice, jako je například doba investice, úroková sazba a výnosy a výdaje s~investicí spojené.
+Při analýze investice se vychází především z~atributů investice, jako je například doba investice, úroková sazba nebo výnosy a výdaje s~investicí spojené.
 
 \subsubsection{Účtová osnova}
-Právnické osoby, fyzické osoby zapsané v~obchodním rejistříku a~některé další subjekty jsou ze zákona o~účetnictví povinny vést podvojné účetnictví, což implikuje povinnost účtovat podle účtové osnovy. Všechny peněžní toky a~prostředky musí být evidovány na příslušném účtu. Přestože je účtů nespočet, obecně se dají rozdělit do dvou skupin -- rozvahové a~výsledovkové. Tyto subjekty jsou dále povinny každoročně vypracovat a~zveřejnit účetní závěrku, která je tvořena dvěmi finančními výkazy, rozvaha a~výkaz zisku a~ztráty (výsledovka). Hodnoty položek ve výkazu plynou právě ze sumy hodnot jednotlivých účtů účtové osnovy (rozvahových pro rozvahu, výsledovkových pro výsledovku).
+Právnické osoby, fyzické osoby zapsané v~obchodním rejistříku a~některé další subjekty jsou ze zákona o~účetnictví povinny vést podvojné účetnictví, což implikuje povinnost účtovat podle účtové osnovy. Všechny peněžní toky a~prostředky musí být evidovány na příslušném účtu. Přestože je účtů nespočet, obecně se dají rozdělit do dvou skupin -- rozvahové a~výsledovkové. Tyto subjekty jsou dále povinny každoročně vypracovat a~zveřejnit účetní závěrku, která je tvořena dvěmi finančními výkazy, jimiž jsou rozvaha a~výkaz zisku a~ztráty (výsledovka). Hodnoty položek ve výkazu plynou právě ze sumy hodnot jednotlivých účtů účtové osnovy (rozvahových pro rozvahu, výsledovkových pro výsledovku).
 
 Tyto dva výkazy jsou spolu s~přehledem o~pěněžních tocích stěžejním výstupem účetnictví:
 
 \begin{itemize}
-	\item výkaz zisku a ztrát -- finanční výkonnost podniku, zachycuje hodnoty a vztahy mezi výnosy podniku a náklady potřebných na jejich vytvoření
-	\item rozvaha -- finanční pozice podniku, soupis majetku podniku v~peněžním vyjádření a zdrojů jeho financování
+	\item výkaz zisku a ztrát -- představuje finanční výkonnost podniku, zachycuje hodnoty a vztahy mezi výnosy podniku a náklady potřebných na jejich vytvoření
+	\item rozvaha -- představuje finanční pozici podniku, soupis majetku podniku v~peněžním vyjádření a zdrojů jeho financování
 	\item přehled o~peněžních tocích -- zachycuje schopnosti a způsoby vytváření peněžních prostředků a jejich využití
 \end{itemize}
 
@@ -148,7 +148,7 @@ V~rámci jednoho ukazatele však existuje několik dalších variant výpočtu. 
 
 \item EBT -- earnings before taxes, hrubý zisk -- zisk před zdaněním, t.j. po odečtení úroků, odpisech a~amortizaci
 
-\item EBIT -- earnings before interest and taxes, provozní zisk -- zisk před zdaněním a~zúročením. Uzití této hodnoty je vhodné například při srovnávání dvou podniků s~různou výší daně z~příjmu a~různou kapitálovou strukturou
+\item EBIT -- earnings before interest and taxes, provozní zisk -- zisk před zdaněním a~zúročením. Užití této hodnoty je vhodné například při srovnávání dvou podniků s~různou výší daně z~příjmu a~různou kapitálovou strukturou
 
 \item EBITDA -- earnings before interest, taxes, depreciation and amortization -- zisk před zdaněním, úroky, odpisy a~amortizací
 
@@ -226,9 +226,9 @@ $$\vz{rentabilita investice}{výnos investice}{náklady na investici} \scite{sed
 %-----
 \subsection{Ukazatele likvidity}
 \textit{luqiudity ratios}
-Pojem likvidita bývá nesprávně zaměňován s~úzce souvisejícími pojmy likvidnost a~solventnost. Likvidnost je vlastnost jednotlivých složek aktiv podniku vyjadřující schopnost přeměny těchto složek v~peněžní prostředky v~co nejkratším čase a~s~minimálními ztrátami.\cite{nyvlt} Přeměnou můžeme rozumět například prodej zásob nebo inkasování pohledávek. 
+Pojem likvidita bývá nesprávně zaměňován s~úzce souvisejícími pojmy likvidnost a~solventnost. Likvidnost je vlastnost jednotlivých složek aktiv podniku, vyjadřující schopnost přeměny těchto složek v~peněžní prostředky v~co nejkratším čase a~s~minimálními ztrátami.\cite{nyvlt} Přeměnou můžeme rozumět například prodej zásob nebo inkasování pohledávek. 
 
-Solventnost neboli platební schopnost je definována jako schopnost subjektu, v~našem případě podniku, včas splácet své finanční závazky. Má-li být podnik solventní, musí kromě stálého generování zisku také zajistit, aby byla část aktiv vázána ve formě, kterou může uhradit své závazky.
+Solventnost, neboli platební schopnost, je definována jako schopnost subjektu (v~našem případě podniku) včas splácet své finanční závazky. Má-li být podnik solventní, musí kromě stálého generování zisku také zajistit, aby byla část aktiv vázána ve formě, kterou může uhradit své závazky.
 
 Likvidita podniku dává tyto pojmy do souvislosti -- ukazatele likvidity vyjadřují schopnost podniku přeměnit vybraná aktiva na peněžní prostředky (využít jejich likvidnosti) za účelem včasného uhrazení všech splatných závazků (a tím pádem být dočasně solventní).\cite{schol} Proto bývají také označovány jako ukazatele platební schopnosti.
 
@@ -250,7 +250,7 @@ $$\vz{běžná likvidita}{oběžná aktiva}{krátkodobé závazky} \scite{sedl}$
 \textit{quick asset ratio, QAR}
 
 Pokud bychom zkoumali strukturu oběžných aktiv, zjistili bychom, že se likvidnost jednotlivých složek liší. Výpočet běžné likvidity zahrnuje i zásoby, nicméně ty při výpočtu pohotové likvidity nejsou zahrnuty, jelikož většinou bývají nezbytné pro zachování chodu podniku a~navíc jejich likvidnost nemusí být dostačující.
-V~čitateli tak zbude součet objemu peněžních prostředků, ekvivalentů a~pohledávek. Pro zpřesnění výsledku je vhodné odečíst nedobytné pohledávky.
+V~čitateli tak zbyde součet objemu peněžních prostředků, ekvivalentů a~pohledávek. Pro zpřesnění výsledku je vhodné odečíst nedobytné pohledávky.
 Dá se předpokládat, že podniky z~oblasti služeb nebudou mít v~zásobách mnoho aktiv a~proto se bude hodnota ukazatele blížit hodnotě běžné likvidity. U~výrobních podniků se naopak tyto dvě hodnoty budou spíše lišit.
 
 $$\vz{pohotová likvidita}{oběžná aktiva $-$ zásoby}{krátkodobé závazky} \scite{sedl}$$
@@ -259,8 +259,8 @@ $$\vz{pohotová likvidita}{oběžná aktiva $-$ zásoby}{krátkodobé závazky} 
 \subsubsection{Hotovostní likvidita (likvidita I. stupně)}
 \textit{cash position ratio, CPR}
 
-Při výpočtu hotovostní likvidity dosazujeme do čitatele součet jen těch nejlikvidnější složek oběžných aktiv, kterými jsou pěněžní prostředky (peníze v~hotovosti a~na běžných účtech) a~jejich ekvivalenty (například šeky nebo obchdovatlné cenné papíry).
-Přestože tento ukazatel nejlépe vypovídá o~platební schopnosti podniku k~určitému datu, nebere v~potaz strkuturu krátkodobých závazků, především z~pohledu jejich skutečné splatnosti.\cite{mendelu} Pokud bychom chtěli tuto skutečnost zohlednit, měli bychom do jmenovatele zahrnout pouze okamžitě splatné závazky. Taková varianta bývá označována jako okamžitá likvidita.
+Při výpočtu hotovostní likvidity dosazujeme do čitatele součet jen těch nejlikvidnější složek oběžných aktiv, kterými jsou pěněžní prostředky (peníze v~hotovosti a~na běžných účtech) a~jejich ekvivalenty (například šeky nebo obchodovatelné cenné papíry).
+Přestože tento ukazatel nejlépe vypovídá o~platební schopnosti podniku k~určitému datu, nebere v~potaz strukturu krátkodobých závazků, především z~pohledu jejich skutečné splatnosti.\cite{mendelu} Pokud bychom chtěli tuto skutečnost zohlednit, měli bychom do jmenovatele zahrnout pouze okamžitě splatné závazky. Taková varianta bývá označována jako okamžitá likvidita.
 
 
 $$\vz{hotovostní likvidita}{peněžní prostředky $+$ ekvivalenty}{krátkodobé závazky} \scite{sedl}$$
@@ -337,7 +337,7 @@ Průměrná doba odkladu plnění závazků. Nabízí se porovnání s~dobou obr
 
 Zadluženost podniku souvísí s~velikostí podílu cizích zdrojů na všech zdrojích financování podniku, jelikož cizí zdroje pro podnik zpravidla znamenají dluh, závazek. Měří tedy dopady financování cizími zdroji. Využití cizích zdrojů se vyplácí, dokud zajistí výnos vyšší, než jsou náklady na tyto zdroje -- úroky.
 
-V~praxi se běžně nesetkáme s~většími podniky, které by byly financovány výhradně z~vlastních nebo výhradně z~cizích zdrojů, jsou tedy do jisté míry zadluženy. Zadluženost obecně není negativní charakteristikou -- využití cizích zdrojů vede k~zesílení tzv. finančního pákového efektu, který pozitivně přispívá k~rentabilitě vlastního kapitálu.\cite{kisling} S~rostoucím procentem vyjadřujícím zadluženost však roste i riziko věřitelů. Čím vyšší bude riziko věřitelů, tím obtížněji bude podnik další cizí zdroje získávat a~tím nevýhodnější budou podmínky jeho poskytnutí.\cite{mendelu} Jedním z~důležitých cílů finanční analýzy je nalezení ideální míry zadluženosti respektive ideálního rozložení finanční struktury. Vzhledem k~poměrně rozšířenému leasingovému financování zmíním, že by bylo vhodné takto pořízený majetek zohlednit a~přičíst k~cizímu kapitálu, má-li významnější objem.
+V~praxi se běžně nesetkáme s~většími podniky, které by byly financovány výhradně z~vlastních nebo výhradně z~cizích zdrojů, jsou tedy do jisté míry zadluženy. Zadluženost obecně není negativní charakteristikou -- využití cizích zdrojů vede k~zesílení tzv. finančního pákového efektu, který pozitivně přispívá k~rentabilitě vlastního kapitálu.\cite{kisling} S~rostoucím procentem vyjadřujícím zadluženost však roste i riziko věřitelů. Čím vyšší bude riziko věřitelů, tím obtížněji bude podnik další cizí zdroje získávat a~tím nevýhodnější budou podmínky jeho poskytnutí.\cite{mendelu} Jedním z~důležitých cílů finanční analýzy je nalezení ideální míry zadluženosti, respektive ideálního rozložení finanční struktury. Vzhledem k~poměrně rozšířenému leasingovému financování zmíním, že by bylo vhodné takto pořízený majetek zohlednit a~přičíst k~cizímu kapitálu, má-li významnější objem.
 
 \begin{figure}
   \centering
@@ -345,26 +345,15 @@ V~praxi se běžně nesetkáme s~většími podniky, které by byly financovány
   \caption{Srovnání výnosnosti při různém poměru vlastního a~cízího kapitálu}
 \end{figure}
 
-% \begin{figure}
-%   \centering
-%   \begin{tabular}{ C{11mm}  C{13mm}  C{12mm}  C{11mm}  C{11mm}  C{18mm}  C{11mm}  C{11mm}  C{12mm} }
-%     \hline
-%     Firma & Vlastní kapitál & Cizí kapitál & ROA (20\%) & Úroky (8\%) & Zisk nezdaněný & Daň (40\%) & Zisk čistý & ROE \\ 
-%     \hline
-%     A & 2000 & -- & 400 & 0 & 400 & 160 & 240 & 12\% \\
-%     B & 1000 & 1000 & 400 & 80 & 320 & 128 & 192 & 19,20\% \\
-%     \hline
-%   \end{tabular}
-%   \caption{Srovnání výnosnosti při různém poměru vlastního a~cízího kapitálu}
-% \end{figure}
+
 
 
 %-----
 \subsubsection{Celková zadluženost}
 \textit{debt ratio, DR}
 
-Základním ukazatelem zadluženosti je celková zadluženost jako podíl cizího kapitálu na celkových aktivech. S~rostoucí hodnotou tohoto ukazatele roste i riziko věřitelů a~cena za cizí kapitál (výše úroků). Věřitelé preferují nižší hodnoty -- v~případě likvidace podniku mohou být pohledávky (nejen) věřitelů uhrazeny z~vlastního kapitálu podniku (takzvaný finanční polštář).
-Z~hlediska vlastníků akcií jsou vysoké hodnoty ukazatele příznivé, dokud podnik dosahuje vyššího procenta rentability než je procento úroku na cizí kapitál, což znamená, že výsledné zhodnocení kapitálu je vyšší než jeho pořizovací cena.\cite{such}
+Základním ukazatelem zadluženosti je celková zadluženost, jako podíl cizího kapitálu na celkových aktivech. S~rostoucí hodnotou tohoto ukazatele roste i riziko věřitelů a~cena za cizí kapitál (výše úroků). Věřitelé preferují nižší hodnoty -- v~případě likvidace podniku mohou být pohledávky (nejen) věřitelů uhrazeny z~vlastního kapitálu podniku (takzvaný finanční polštář).
+Z~hlediska vlastníků akcií jsou vysoké hodnoty ukazatele příznivé, dokud podnik dosahuje vyššího procenta rentabilitym než je procento úroku na cizí kapitál, což znamená, že výsledné zhodnocení kapitálu je vyšší, než jeho pořizovací cena.\cite{such}
 
 $$\vz{celková zadluženost}{cizí kapitál}{celková aktiva} \scite{sedl}$$
 
@@ -496,17 +485,17 @@ Před návrhem řešení bylo vhodné prozkoumat existující řešení. Plné v
 Všechny testované nástroje jsou ve formě desktopových aplikací určených pouze pro platformu Windows. Po rozpravě s~osobou z~praxe bylo zjištěno, že je velmi často k~účelům analýzy používán program Excel. Příčinou je nejspíš široká základna uživatelů, kteří v~jeho prostředí zvládají alespoň základní úkony s~daty a také široké spektrum funkcionality, které zahrnuje i výpočty z~oblasti finanční analýzy. Velmi často jsou v~souborech určených pro tento program také uchovávána vstupní data analýzy.
 
 \subsubsection{FAF -- Finanční analýza firmy}
-Software nelze bez zakoupení jakkoliv používat, nicméně na webových stránkách je dostupné instruktážní video a~uživtelská přiručka popisující jak nástroj vypadá, jak se s~ním pracuje a~co všechno dokáže. Uživatelské rozhraní vypadá na první pohled zastarale, to ale nijak neubírá na přehlednosti.
+Software nelze bez zakoupení jakkoliv používat, nicméně na webových stránkách je dostupné instruktážní video a~uživatelská přiručka popisující jak nástroj vypadá, jak se s~ním pracuje a~co všechno dokáže. Uživatelské rozhraní vypadá na první pohled zastarale, to ale nijak neubírá na přehlednosti.
 
-Uživatelské rozhraní kromě grafů využívá také stupnic, na které umisťuje ukazatele. Je zde obrazovka \uv{rating}, což jsou různé ukazatele, každý z~ukazatelů je zobrazen za různá časová období a~v~konkrétním časové období na stupnici od 1 do 10. Všechny ukazatele pohromadě lze zobrazit v~tabulce pro jedno časové období.
+Uživatelské rozhraní kromě grafů využívá také stupnic, na které umisťuje ukazatele. Je zde obrazovka \uv{rating}, ve které je hodnota každého z~ukazatelů zobrazena za různá časová období a~v~konkrétním časovém období na stupnici od 1 do 10. Všechny ukazatele pohromadě lze zobrazit v~tabulce pro jedno časové období.
 
-Ukazatele jsou i na obrazovce s~trendy, ta mimo ukazatele obsahuje i trendy položek výkazu zisku a~ztráty a~rozvahy. Je zde také zobrazen seznam rizikových faktorů. Ty se od ukazatelů liší tím, že jsou buďto v~pořádku nebo ne, nic mezi tím (např. skutečnost, že podnik hospodaří se ztrátou).
+Ukazatele jsou i na obrazovce s~trendy, ta mimo ukazatele obsahuje i trendy položek výkazu zisku a~ztráty a~rozvahy. Je zde také zobrazen seznam rizikových faktorů. Ty se od ukazatelů liší tím, že jsou buď v~pořádku nebo nikoliv, nic mezi tím (např. skutečnost, že podnik hospodaří se ztrátou).
 
 Nástroj dále umožňuje vertikální analýzu, horizontální analýzu, analýzu cash flow a~výpočet hodnoty firmy.
 
-Funkcionalita, která mě nejvíce zaujala, je nazvaná \uv{co když}. Spočívá v~umožnění uživateli jednoduše manipulovat se vstupními daty analýzy a~zároveň sledovat, jaký dopad by se měla tato změna na hodnotu ukazatelů.
+Funkcionalita, která mě nejvíce zaujala, je nazvaná \uv{co když}. Spočívá v~umožnění uživateli jednoduše manipulovat se vstupními daty analýzy a~zároveň sledovat, jaký dopad by měla tato změna na hodnotu ukazatelů.
 
-Hodnoty z~ výkazu zisku a~ztráty a~rozvahy jsou zadávány do tabulky. Instruktážní video ani uživatelská příručka nehovoří o~tom, zda nástroj podporuje automatizované načítání výstupních dat z~některých jiných nástrojů z~oblasti financí (např. účetních).
+Hodnoty z~výkazu zisku a~ztráty a~rozvahy jsou zadávány do tabulky. Instruktážní video ani uživatelská příručka nehovoří o~tom, zda nástroj podporuje automatizované načítání výstupních dat z~některých jiných nástrojů z~oblasti financí (např. účetních).
 
 Dalším nedostatkem byla sekce s~vysvětlením pojmů. Všechny pojmy jsou na jedné hromadě, na konkrétní pojem se nelze prokliknout.
 
@@ -514,15 +503,15 @@ Dalším nedostatkem byla sekce s~vysvětlením pojmů. Všechny pojmy jsou na j
 \subsubsection{Equanta}
 Zatímco FAF je pravděpodobně výtvorem jednoho nebo malé skupiny vývojářů a~jsou v~něm obsaženy pouze klíčové metody a~ukazatele finanční analýzy (které ale ve většině případů stačí), Equanta je mnohem sofistikovanějším nástrojem, za jehož vývojem nejspíš stojí větší počet vývojářů -- společnost ATLAS consulting s.r.o. . Ta má ve svém portfoliu i jiné, nejen finančně zaměřené nástroje.
 
-Equanta má o~poznání modernější rozhraní, obsahuje i více sekcí, ukazatelů a~pohledů na hospodaření podniku. Obsahuje také automatizované načítání vstupu, a~to nejen z~ výkazu zisku a~ztráty a~rozvahy ve formátu pro finanční úřad, ale i z~účetních dat nástrojů jako je Pohoda. V~nástroji je možné provádět mezipodnikové srovnání úzávěrek a~ukazatelů, které se v~praxi používá relativně často.
+Equanta má o~poznání modernější rozhraní, obsahuje i více sekcí, ukazatelů a~pohledů na hospodaření podniku. Obsahuje také automatizované načítání vstupu, a~to nejen z~výkazu zisku a~ztráty a~rozvahy ve formátu pro finanční úřad, ale i z~účetních dat nástrojů jako je Pohoda. V~nástroji je možné provádět mezipodnikové srovnání úzávěrek a~ukazatelů, které se v~praxi používá relativně často.
 
-Nástroj si pamatuje naposledy ovtevřené dokumenty, tyto dokumenty lze seskupovat pod projekty, jsou zde zpřístupněna různá nastavení a~další možnosti personalizace, což implikuje využití persisentních dat. To je proti nástroji FAF další velkou výhodou. 
+Nástroj si pamatuje naposledy otevřené dokumenty, tyto dokumenty lze seskupovat pod projekty, jsou zde zpřístupněna různá nastavení a~další možnosti personalizace, což implikuje využití persistentních dat. To je proti nástroji FAF další velkou výhodou. 
 
 
 \subsubsection{FinAnalysis}
-Nástroj je realizován jako přednastavená šablona v~tabulkovém prostředí MS Excel. Toto řešení může být rýchlé a~efektivní, nicméně pro naše účely naprosto nevyhovující, jelikož je jeho používání podmíněno používáním MS Excel. Nástroj je prostředím svého běhu omezen, veškerá rozšíření je nutné implementovat funkcemi Excelu.
+Nástroj je realizován jako přednastavená šablona v~tabulkovém prostředí MS Excel. Toto řešení může být rychlé a~efektivní, nicméně pro naše účely naprosto nevyhovující, jelikož je jeho používání podmíněno používáním MS Excel. Nástroj je prostředím svého běhu omezen, veškerá rozšíření je nutné implementovat funkcemi Excelu.
 
-Přesto nástroj plní svůj ůčel a~lze se v~něm inspirovat možnostmi provádení základních analýz, výpočty mnoha ukazatelů a~interpretací výsledků. Jednotlivé sekce jsou realizovány jako listy v~Excelu. První tři listy (list s~vúkazem zisku a~ztáty, rozvahou a~list se základními údaji jako například počet zaměstnanců) slouží k~zadávání dat. Zbývající listy obsahují výsledky, jsou pouze pro čtení a~odpovídají rozdělení podle jednotlivých typů analýzy. Jak již bylo zmíněno, použití programu Excel je v~oblasti financí velmi časté.
+Přesto nástroj plní svůj ůčel a~lze se v~něm inspirovat možnostmi provádení základních analýz, výpočty mnoha ukazatelů a~interpretací výsledků. Jednotlivé sekce jsou realizovány jako listy v~Excelu. První tři listy (list s~výkazem zisku a~ztráty, rozvahou a~list se základními údaji jako například počet zaměstnanců) slouží k~zadávání dat. Zbývající listy obsahují výsledky, jsou pouze pro čtení a~odpovídají rozdělení podle jednotlivých typů analýzy. Jak již bylo zmíněno, použití programu Excel je v~oblasti financí velmi časté.
 
 
 
@@ -598,17 +587,17 @@ Nástroj bude koncipován jako single page application (SPA). To znamená, že p
 \subsubsection{Uživatelské rozhraní}
 
 
-Uživateli bude umožněno vytoření vlastního účtu pro zpřístupnění rozšířené funkcionality. Přihlášením k~uživatelskému účtu systém pozná, kdo s~ním pracuje. To přináší mnoho možností personalizace a~možnost přizpůsobit obsah dle nastavených předvoleb. Uživatelský účet představuje osobu finančního analytika, manažera nebo podnikatele. S~účtem budou svázana i data za jednotlivá časová obdoví v~minulosti, která lze nahrát a~uchovat pro další použití, například porovnání nebo zpřesnění analýzy v~budoucnu. Bude také zváženo jednorázové zpracování dat pro nepřihlášeného uživatele -- načtení vstupu a~prohlížení výsledků, případně dodatečné upravení vsutpu, který se však po skončení běhu aplikace zahazuje.
+Uživateli bude umožněno vytoření vlastního účtu pro zpřístupnění rozšířené funkcionality. Přihlášením k~uživatelskému účtu systém pozná, kdo s~ním pracuje. To přináší mnoho možností personalizace a~možnost přizpůsobit obsah dle nastavených předvoleb. Uživatelský účet představuje osobu finančního analytika, manažera nebo podnikatele. S~účtem budou svázana i data za jednotlivá časová obdoví v~minulosti, která lze nahrát a~uchovat pro další použití, například porovnání nebo zpřesnění analýzy v~budoucnu. Bude také zváženo jednorázové zpracování dat pro nepřihlášeného uživatele -- načtení vstupu a~prohlížení výsledků, případně dodatečné upravení vstupu, který se však po skončení běhu aplikace zahazuje.
 
-Je žádoucí, aby přihlášení přetrvalo mezi jednotlivými chody aplikace, při znovunačtení stránky i při vypnutí a~zapnutí prohlížeče. K~tomuto účelu bude využito lokální uložiště (local storage), které umožňuje zápis limitovaného objemu dat do zařízení klienta. Ukládat se samozřejmě nebude jméno ani heslo, ale takzvaný api token pro komunikaci, který je uživateli udělen serverem po úspěšné autentizaci.
+Je žádoucí, aby přihlášení přetrvalo mezi jednotlivými chody aplikace, při znovunačtení stránky i při vypnutí a~zapnutí prohlížeče. K~tomuto účelu bude využito lokální uložiště (local storage), které umožňuje zápis limitovaného objemu dat do zařízení klienta. Ukládat se samozřejmě nebude jméno ani heslo, ale takzvaný \textit{api token} pro komunikaci, který je uživateli udělen serverem po úspěšné autentizaci.
 
 Domovskou stránkou pro přihlášeného uživatele bude obrazovka s~přehledem podniků, které jsou pod jeho účtem evidovány. Podniky mohou být přidávány a~odebírány, slouží především pro seskupování účetních závěrek a jejich následnou analýzou. Po výběru podniku se uživatel dostane na obrazovku s~přehledem nahraných závěrek, přičemž závěrkou se myslí právě výkaz zisku a~ztrát a~rozvaha. Závěrky lze přidávat, odebírat a~upravovat jejich data, v~základu jedna závěrka na jedno účetní období, čili jeden rok. Při přidávání závěrek lze zvolit mezi načtením dat z~XML souboru se strukturou DPPDP nebo ručním vyplněním buněk tabulek. Ty bude použita i pro editaci již nahraných nebo zadaných dat. V~detailu podniku se bude dále možné přepínat mezi jednotlivými druhy analýz nad těmito závěrkami.
 
 Kromě podniků budou pod účtem evidovány také investice. Detail investice bude tvořit jediná obrazovka, na které budou zobrazeny výsledné hodnoty i zadané parametry, které půjde editovat.
 
-Vzhledem k~nejedotné terminologii napříč celou finanční analýzou je žádoucí, aby při zobrazování výstupu uživatel bezpečně zjistil, co se daným pojmem myslí, co daný výsledek reprezentuje. To bude zajištěno výčtem alternativních označení (a možností vložení a~výběru vlastního označení), případně možností přímo přejít do sekce, kde jsou jednotlivé ukazatele detailně vysvětleny. K~tomuto účelu může být použit text z~teoretické části této práce.
+Vzhledem k~nejednotné terminologii napříč celou finanční analýzou je žádoucí, aby při zobrazování výstupu uživatel bezpečně zjistil, co se daným pojmem myslí, co daný výsledek reprezentuje. To bude zajištěno výčtem alternativních označení (a možností vložení a~výběru vlastního označení), případně možností přímo přejít do sekce, kde jsou jednotlivé ukazatele detailně vysvětleny. K~tomuto účelu může být použit text z~teoretické části této práce.
 
-Jelikož různé podniky sledují různé ukazatele, je žádoucí, aby nástroj uživateli umožnil vybrat zobrazované/preferované ukazatele. S~podniky a~odvětvími se liší také optimální hodnota konkrétního ukazatele, případně hodnoty hraniční. Tyto hodnoty nelze stanovit obecně, v~literatuře se různí.
+Jelikož různé podniky sledují různé ukazatele, bylo by vhodné, aby nástroj uživateli umožnil vybrat zobrazované/preferované ukazatele. S~podniky a~odvětvími se liší také optimální hodnota konkrétního ukazatele, případně hodnoty hraniční. Tyto hodnoty nelze stanovit obecně, v~literatuře se různí.
 
 
 \begin{figure}
@@ -619,7 +608,7 @@ Jelikož různé podniky sledují různé ukazatele, je žádoucí, aby nástroj
 
 %-----
 \subsubsection{Serverová část}
-Serverová část bude sloužit k~uchovávání persisentních dat a~uspokojování požadavků klienta. Persistentními daty jsou vytvořené investice, data investic, podniky, v~rámci podniku nahrané výkazy, rovněž je nutné vést databázi uživatelů samotných.
+Serverová část bude sloužit k~uchovávání persistentních dat a~uspokojování požadavků klienta. Persistentními daty jsou vytvořené investice, data investic, podniky, v~rámci podniku nahrané výkazy, rovněž je nutné vést databázi uživatelů samotných.
 
 
 \begin{figure}
@@ -685,14 +674,14 @@ Velkým trendem současných aplikací napsaných s~využitím knihovny React je
   \caption{Diagram změny stavu s~použitím knihovny Redux (převzato z~internetu)}
 \end{figure}
 
-Pojmem stav aplikace jsou myšlena jak data ze serveru, tak i data lokálního charakteru, například uživatelské vstupy, ve větších aplikacích také veškerá nastavení ovlivňující vykreslování komponent, jelikož s~rostoucí aplikací se tato nastavení zesložiťují. Díky přístupu Reduxu lze se stavem aplikace velmi pohodlně pracovat, za největší výhodu považuji jeho dlouhodobou udržovatelnost. Uložením stavu na jedno jediné místo je ulehčena jeho inspekce a debugování, díky němu je také možné jednoduchým způsobem uchovat stav aplikace pro další spuštění, což významně urychluje vývojářský cyklus, či porovnávat jednotilvé stavy mezi sebou pro sledování změn. 
+Pojmem stav aplikace jsou myšlena jak data ze serveru, tak i data lokálního charakteru, například uživatelské vstupy, ve větších aplikacích také veškerá nastavení ovlivňující vykreslování komponent, jelikož s~rostoucí aplikací se tato nastavení zesložiťují. Díky přístupu Reduxu lze se stavem aplikace velmi pohodlně pracovat, za největší výhodu považuji jeho dlouhodobou udržovatelnost. Uložením stavu na jedno jediné místo je ulehčena jeho inspekce a ladění, díky němu je také možné jednoduchým způsobem uchovat stav aplikace pro další spuštění, což významně urychluje vývojářský cyklus, či porovnávat jednotlivé stavy mezi sebou pro sledování změn. 
 
 Princip akcí zase zajišťuje to, že žádný kus kódu nevyvolá změnu stavu jinak než pomocí funkce \textit{dispatch}, které předá objekt akce popisující požadovanou změnu. Tím je zajištěna centralizace provádění změn a lze tak snadno sledovat postupně vyvolané požadavky na změnu stavu. Jelikož jsou akce popsány pomocí Pain JavaScript Object, jsou snadno serializovatelné a mohou tak být zalogovány či uloženy pro pozdější inspekci. 
 
-Při tvorbě reducerů si musíme dát pozor, abychom nemodifikovali stav přímo a nepůsobovali tak tzv. vedlejší efekty (což bychom nejspíš ve spojitosti s~imperativním programováním intuitivně udělali), ale namísto toho vraceli stav nový, s~provedenými modifikacemi. Pokud je tato zásada dodržena při zpracovávání všech akcí, je zajištěno, že pro každou stejnou dvojici argumentů (\textit{stav},\textit{akce}) bude mít funkce stejnou návratovou hodnotu. To je opět výhodné při ladění aplikace, zejména pokud chceme vyzkoušet vyvolání určité akce ve chvíli, kdy je aplikace v~určitém stavu.
+Při tvorbě reducerů si musíme dát pozor, abychom nemodifikovali stav přímo a nezpůsobovali tak tzv. vedlejší efekty (což bychom nejspíš ve spojitosti s~imperativním programováním intuitivně udělali), ale namísto toho vraceli stav nový, s~provedenými modifikacemi. Pokud je tato zásada dodržena při zpracovávání všech akcí, je zajištěno, že pro každou stejnou dvojici argumentů (\textit{stav},\textit{akce}) bude mít funkce stejnou návratovou hodnotu. To je opět výhodné při ladění aplikace, zejména pokud chceme vyzkoušet vyvolání určité akce ve chvíli, kdy je aplikace v~určitém stavu.
 
 \subsubsection{React-Redux}
-Pomocí samotného Reactu, bez výhod zmíněných v~předchozí sekci, bychom udržovali stav naší aplikace velmi těžko a zesložitili si tak i vývoj. Knihovna zmíněná v~nadpise nám přináší pohodlné napojení Reduxu do React aplikace, čímž zpřístupní všechny jeho výhody. Pro jeho použití stačí knihovnu naimportovat a obalit vybraný podstrom JSX kódu (obvykle ale kód celé aplikace) elementem, který předtsavuje propojení všech jeho obsažených komponent s~kontejnerem stavu (\textit{store}). Tento element přijímá právě objekt typu \textit{Store}, ve kterém je naše definice stavu pro tento podstrom. Přesněji se jedná o~možnost propojení. Tento úmysl musí být poté ještě u~komponenty explicitně vyjádřen pomocí funkce \textit{connect}. Ta má běžně jeden parametr -- deklarativní popis toho, kterou část kontejneru (které proměnné) chce komponenta sledovat. Propojené komponenty jsou poté automaticky upozorňovány na změny a pomocí deklarativního popisu React komponent se změna stavu odpovídajícím způsobem promítne ve změně uživatelského rozhraní.
+Pomocí samotného Reactu, bez výhod zmíněných v~předchozí sekci, bychom udržovali stav naší aplikace velmi těžko a zesložitili si tak i vývoj. Knihovna zmíněná v~nadpise nám přináší pohodlné napojení Reduxu do React aplikace, čímž zpřístupní všechny jeho výhody. Pro jeho použití stačí knihovnu naimportovat a obalit vybraný podstrom JSX kódu (obvykle ale kód celé aplikace) elementem, který představuje propojení všech jeho obsažených komponent s~kontejnerem stavu (\textit{store}). Tento element přijímá právě objekt typu \textit{Store}, ve kterém je naše definice stavu pro tento podstrom. Přesněji se jedná o~možnost propojení. Tento úmysl musí být poté ještě u~komponenty explicitně vyjádřen pomocí funkce \textit{connect}. Ta má běžně jeden parametr -- deklarativní popis toho, kterou část kontejneru (které proměnné) chce komponenta sledovat. Propojené komponenty jsou poté automaticky upozorňovány na změny a pomocí deklarativního popisu React komponent se změna stavu odpovídajícím způsobem promítne ve změně uživatelského rozhraní.
 
 Na obrázku \ref{reared} je tok dat aplikací při změně zobrazen graficky. Vzhledem ke stromové hierarchii komponent je tok dat v~běžné React aplikaci jednosměrný, data jsou předávána z~rodičovského uzlu na své potomky. To s~sebou nese jisté nevýhody. Komponenty aplikace jsou sice logicky členěné, pokud však jedna z~komponent iniciuje změnu dat, aktualizace ostatních komponent závislých na těchto datech je prováděna velmi složitou cestou, která musí být v~kódu specifikována. Tento řetězec změn je velmi neprůhledný a může vést k~cyklickým závislostem. Napravo je zobrazen tok dat s~využitím reduxu. Nejprve je pomocí funkce \textit{dispatch} vyvolána změna stavu, na změny jsou poté upozorněny všechny komponenty, kterých se tato změna dotkne.
 
@@ -722,7 +711,7 @@ Na obrázku \ref{reared} je tok dat aplikací při změně zobrazen graficky. Vz
 \section{Shrnutí a~další postup}
 V~dosavadním textu byly zmíněny základy finanční analýzy podniku -- její definice, praktický i teoretický význam, byla popsána také vstupní data analýzy. Dále byly zmíněny a~popsány pojmy horizontální a~vertikální analýza a~výběr těch nejzákladnějších poměrových ukazatelů spolu se vzorcem výpočtu a~popisem jejich významu. Z~oblasti podnikové analýzy byla zmíněna také analýza peněžních toků a Du Pont rozklad. Z~oblasti investic bylo popsáno vnitřní výnosové procento a sním související čistá současná hodnota.
 
-Ještě před návrhem vlastního programového řešení byl proveden průzkum současných možností v~této oblasti. Na jeho základě byl vypracován vlastní návrh, zohledňující přednosti i nedostatky vybraných nástrojů. Hlavním rozdílem je architektura aplikace (klient-server) a~prostředí běhu (webový prohlížeč). Tento výběr následuje trend moderních aplikací a činí nástroj dostupnějším. Dalším významným rozdílem je výběr technologií, které učiní kód strukturovaným, lehce rozšiřielným, dlouhodobě udržovatelným a~vysoce znovupoužitelným. Co do oblasti finanční analýzy, hlavním rozdílem bude vlastní přístup k~ohodnocení výsledných poměrových ukazatelů i její technické řešení umožňující jednoduchou parametrizovatelnost a rozšiřitelnost analýzy.
+Ještě před návrhem vlastního programového řešení byl proveden průzkum současných možností v~této oblasti. Na jeho základě byl vypracován vlastní návrh, zohledňující přednosti i nedostatky vybraných nástrojů. Hlavním rozdílem je architektura aplikace (klient-server) a~prostředí běhu (webový prohlížeč). Tento výběr následuje trend moderních aplikací a činí nástroj dostupnějším. Dalším významným rozdílem je výběr technologií, které učiní kód strukturovaným, lehce rozšiřitelným, dlouhodobě udržovatelným a~vysoce znovupoužitelným. Co do oblasti finanční analýzy, hlavním rozdílem bude vlastní přístup k~ohodnocení výsledných poměrových ukazatelů i její technické řešení umožňující jednoduchou parametrizovatelnost a rozšiřitelnost analýzy.
 
 Při dalším postupu bude ze všeho nejdříve připraveno vývojové prostředí (devstack). To obnáší instalaci, zprovoznění a~nastavení IDE, serveru, databáze, instalace správce balíčků a~balíčků samotných, vytvoření repozitáře, obstarání testovacích sad. Následně může začít implementace klienta, zcela nezávisle na implementaci serveru. Detaily implementace budou uvedeny dále v~této zprávě.
 
@@ -792,7 +781,7 @@ Nástroj bude podporovat většinu typů analýzy zmíněných v~teoretické č�
     \item horizontální analýza
     \item vertikální analýza
     \item analýza poměrových ukazatelů
-    \item Du Pont rozklad rentab. vlastního kapitálu 
+    \item Du Pont rozklad rentability vlastního kapitálu 
   \end{itemize}
   \item \textbf{investice} (počáteční investice, délka, peněžní toky, diskontní sazba)
   \begin{itemize}
@@ -805,14 +794,14 @@ Tento výběr nám ukládá pracovat se dvěma druhy vstupních dat. Vstupními 
 
 Nejprve tedy specifikujeme struktury pro popis vstupních dat. Implementaci jejich načítání a uložení můžeme odložit na později, z~počátku si vystačíme s~uměle vytvořenými daty. Jakmile jsou struktury specifikovány, můžeme začít s~implementací modulu pro provádění analýzy, jejichž vstupem jsou tyto struktury.
 
-Vzhledem k~rozsahu vzorku podnikových dat, na kterém byla aplikace po celou dobu vývoje testována, jsou podporovány roky 2014 až 2017. Po prozkoumání specifikace struktur z~těchto let si lze všimnout, že nejsou zdaleka identické. Mapování rozdílných struktur finančních výkazů na strukturu společnou pro všechny podporované roky bylo jednou z~největších výzev tohoto projektu. Problém se však podařilo vyřešit, což je popsáno v~následujícím textu. Řešení tak umožňuje sledovat vývoj výsledných položek analýzy podniku napříč všemi podporovanými roky. Po zběžném prozkoumání specifikace starších struktur výkazů jsem došel k~závěru, že díky zvolenému řešení by rozšíření podpory pro tyto struktury nemělo být problémem, stejnětak jako rozšíření pro podporu nových struktur v~budoucnu.
+Vzhledem k~rozsahu vzorku podnikových dat, na kterém byla aplikace po celou dobu vývoje testována, jsou podporovány roky 2014 až 2017. Po prozkoumání specifikace struktur z~těchto let si lze všimnout, že nejsou zdaleka identické. Mapování rozdílných struktur finančních výkazů na strukturu společnou pro všechny podporované roky bylo jednou z~největších výzev tohoto projektu. Problém se však podařilo vyřešit, což je popsáno v~následujícím textu. Řešení tak umožňuje sledovat vývoj výsledných položek analýzy podniku napříč všemi podporovanými roky. Po zběžném prozkoumání specifikace starších struktur výkazů jsem došel k~závěru, že díky zvolenému řešení by rozšíření podpory pro tyto struktury nemělo být problémem, stejně tak jako rozšíření pro podporu nových struktur v~budoucnu.
 
 \subsection{Vnitřní reprezentace vstupních dat}
 Jelikož jsou vstupními daty finanční analýzy podniku účetní data podniku, která mají oporu v~legislativě, budeme dodržovat legislativou stanovený formát. To uživateli nejen zpřehlední jejich zadávání, ale také umožní implementaci jejich automatizovaného načítání dle specifikace DPPDP8. Co se týče investic, zde žádný rozšířený standard není, atributy investice budou zadávány ručně.
 
 Vnitřní reprezenrace vstupních dat nepředstavuje žádnou složitou strukturu. Naopak, všechny potřebné hodnoty, informace a závislosti jsou uloženy jako několik struktur s~jejich výčtem. Vzhledem k~nespočtu změn a vyjímek ve specifikaci výkazů z~různých let by uložení a popis všech těchto vlastností jednou sofistikovanou strukturou tvořilo tuto strukturu opravdu velmi komplexní. I~kdyby se nám podařilo veškerou sémantiku výkazů do struktury zakódovat, takové řešení by nejspíš bylo při další změně legislativy, která je velmi pravděpodobná, velmi těžké modifikovat.
 
-Namísto toho si definujeme pro každou ze specifikací několik jednoduchých struktur pro různé účely a k~nim funkce s~těmito strukturami pracující. Funkce se strukturou modelují pouze určitou část specifikace v~daném roce a tak je možné v~nich dělat jednoduše změny, případně implementovat další. Soubor těchto struktur pro určitou specifikaci nazývám \textit{mapa}, v~kódu reprezentován čistým JavaScript objektem, což lze přirovnat k~asociativnímu poli klíč-hodnota. Každý uložený výkaz potom obsahuje kromě hodnot položek také odkaz na mapu (jsou spojeny přes ročník výkazu), která definuje, jak se má s~výkazem pracovat. Mapa obsahuje následující položky (pro aktiva, pasiva a výkaz zisku a ztráty zvlášť):
+Namísto toho si definujeme pro každou ze specifikací několik jednoduchých struktur pro různé účely a k~nim funkce s~těmito strukturami pracující. Funkce se strukturou modelují pouze určitou část specifikace v~daném roce a tak je možné v~nich dělat jednoduše změny, případně implementovat další. Soubor těchto struktur pro určitou specifikaci nazývám \textit{mapa}. V~kódu je mapa reprezentován čistým JavaScript objektem, který lze přirovnat k~asociativnímu poli klíč-hodnota. Každý uživatelem uložený výkaz potom obsahuje kromě hodnot položek také odkaz na mapu (jsou spojeny přes ročník výkazu), která definuje, jak se má s~výkazem pracovat. Mapa obsahuje následující položky (pro aktiva, pasiva a výkaz zisku a ztráty zvlášť):
 
 \begin{itemize}
 \item pořadí řádků ve výkazu (reprezentováno polem)
@@ -840,11 +829,11 @@ Namísto toho si definujeme pro každou ze specifikací několik jednoduchých s
 \end{itemize} 
 
 
-Označení a plné názvy všech položek jsou uloženy v~objektu, jehož klíče tvoří čísla řádků těchto položek, což umožňuje rychlý přístup -- pokud máme k~dispozici číslo řádku, s~nímž chceme pracovat, data spjatá s~tímto řádkem lze získat přímým přístupem do objektu přes daný klíč. Pokud by byly řádky a s~nimi spojená data uloženy v~poli, což se ve spojitosti s~řádky určitě nabízí, pokaždé bychom museli iterovat celým polem, dokud bychom nenarazili na data odpovídající vybranému řádku.
+Všechna data spojená s~položkami výkazů jsou uložena v~objektu, jehož klíče tvoří čísla řádků těchto položek. To umožňuje rychlý přístup -- pokud máme k~dispozici číslo řádku, s~nímž chceme pracovat, data spjatá s~tímto řádkem lze získat přímým přístupem do objektu přes daný klíč. Pokud by byly řádky a s~nimi spojená data uloženy v~poli, což se ve spojitosti s~řádky určitě nabízí, pokaždé bychom museli iterovat celým polem, dokud bychom nenarazili na data odpovídající vybranému řádku.
 
-Při práci s~hodnotami, například jejich výpisu do tabulky, je však žádoucí dodržet pořadí stanovené na stránkách daňového protálu\footnote{\url{https://adisepo.mfcr.cz/adistc/adis/idpr_pub/hlib/uv_info/uv_info.faces}}, jehož číselná řada bohužel není konzistentní. Například u~tabulky pasiv je běžné, že se mezi prvními položkami s~čísly řádků tvořícími posloupnost přirozených čísel najednou objeví položka s~číslem řádku o~několik desítek vyšším. To je evidentně způsobeno dodatečným přidáváním nových položek. Ty jsou umisťovány k~souvisejícím položkám (nikoliv na konec), nicméně čísla řádků následujících položek zůstávají a tak je nová položka označena úplně novým, nejvyšším číslem řádku. Jinými slovy, atribut číslo řádku položky obecně neodpovídá pořadí položky v~tabulce a tím pádem ani pořadí v~poli.
+Při práci s~položkami, například jejich výpisu do tabulky, je žádoucí dodržet pořadí stanovené na stránkách daňového protálu\footnote{\url{https://adisepo.mfcr.cz/adistc/adis/idpr_pub/hlib/uv_info/uv_info.faces}}, jehož číselná řada však není konzistentní. Například u~tabulky pasiv je běžné, že se mezi prvními položkami s~čísly řádků tvořícími posloupnost přirozených čísel najednou objeví položka s~číslem řádku o~několik desítek vyšším. To je evidentně způsobeno dodatečným přidáváním nových položek. Ty jsou umisťovány k~souvisejícím položkám (nikoliv na konec), nicméně čísla řádků následujících položek zůstávají a tak je nová položka označena úplně novým, nejvyšším číslem řádku. Jinými slovy, atribut \textit{číslo řádku} položky ve specifikaci obecně neodpovídá pořadí položky tamtéž a tím pádem ani pořadí v~poli.
 
-Mapa s~označením a plnými názvy položek sice obsahuje všechna čísla řádků, jelikož jsou to ale klíče objektu, pro jejich iteraci by se muselo použít konstrukce \texttt{for .. in} (případně \texttt{Object.keys()}), která bohužel v~prohlížeči Chrome nezachovává pořadí, v~jakém jsou klíče zadány. Standard ECMAScript pořadí klíčů při jejich výčtu nijak nespecifikuje \cite{proporder}, to je tak ponecháno na vývojářích. Abychom byli schopni vypsat řádky nejen všechny, ale i ve správném pořadí, obsahuje mapa také pole čísel představující toto pořadí. Na rozdíl od objektu, pole pořadí svých položek zachovává. Nástroj dále využívá pole s~pořádím řádku ve výkazu při automatizovaném načítání jednotlivých výkazů a jejich uložení do vnitřní reprezentace, což je popsáno v~následující podsekci. 
+Mapa s~označením a plnými názvy položek sice obsahuje všechna čísla řádků, jelikož jsou to ale klíče objektu, pro jejich iteraci by se muselo použít konstrukce \texttt{for .. in} (případně \texttt{Object.keys()}), která však v~prohlížeči Chrome nezachovává pořadí, v~jakém jsou klíče zadány. Standard ECMAScript pořadí klíčů při jejich výčtu nijak nespecifikuje \cite{proporder}, to je tak ponecháno na vývojářích. Abychom byli schopni vypsat řádky nejen všechny, ale i ve správném pořadí, obsahuje mapa také pole čísel představující toto pořadí. Na rozdíl od objektu, pole pořadí svých položek zachovává. Nástroj dále využívá pole s~pořádím řádku ve výkazu při automatizovaném načítání jednotlivých výkazů a jejich uložení do vnitřní reprezentace, což je popsáno v~následující podsekci. 
 
 Pro zajištění konzistence položek při ručním vyplňování nově vytvořených výkazů (t.j. výkazů s~nulovými hodnotami) či editaci již stávajících výkazů je zase důležitý zmíněný strom zanoření, což je opět popsáno v~příslušné podsekci.
 
@@ -853,11 +842,11 @@ Lze vydedukovat, že rozdílná struktura výkazů v~různých letech bude mít 
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=13.5cm]{img/dppdp8_maps.png}
-  \caption{Mapa pro práci s různou strukturou výkazů a její využití}
+  \caption{Mapa pro práci s~různou strukturou výkazů a její využití}
 \end{figure}
 
 \subsubsection{Načítání souborů podle specifikace DPPDP8}
-Pro automatizované načítání souborů se syntaxí DPPDP8 pro účely analýzy podniku byl implementován parser. Nejprve je pomocí knihovny fast-xml-parser řetězec s~obsahem XML souboru přetransformován na odpovídající JSON řetězec. Podle tohoto řetězce je vestavěnou funkcí \texttt{JSON.parse()} sestaven odpovídající JavaScript objekt, se kterým můžeme dále pohodlně pracovat tak, jak jsme v~JavaScriptu zvyklí. Jelikož je před zpracováním výkazu známý jeho ročník (zadává uživatel), můžeme si z~příslušné mapy načíst pole představující pořadí řádků ve výkazu a podle tohoto pole poté načíst hodnoty ze vstupu.
+Pro automatizované načítání souborů se syntaxí DPPDP8 pro účely analýzy podniku byl implementován parser. Nejprve je pomocí knihovny fast-xml-parser řetězec s~obsahem XML souboru přetransformován na odpovídající JSON řetězec. Podle tohoto řetězce je vestavěnou funkcí \texttt{JSON.parse()} sestaven odpovídající JavaScript objekt, se kterým můžeme dále pohodlně pracovat tak, jak jsme v~JavaScriptu zvyklí. Jelikož je před zpracováním výkazu známý jeho ročník (zadává uživatel), můžeme si z~příslušné mapy načíst pole představující pořadí řádků ve výkazu a podle tohoto pole poté načíst položky ze vstupního souboru.
 
 
 \subsubsection{Ruční zadávání dat}
@@ -865,7 +854,7 @@ Pro případ, že uživatel nemá možnost dodat výkazová data ve formátu XML
 
 Po úvaze byla do kódu uložena pro každou ze struktur výkazů také jejich hierarchie, schéma vzájemného zanoření položek. Toto řešení mi přijde vhodné, jelikož při editaci položky be se měla logicky postupně přepočítat i hodnota všech nadřazených položek. Pokud by naopak uživatel editoval neterminální položku, pro udržení konzistence výkazu by bylo nutné navýšit některou z~podpoložek -- neznámo kterou. Do tabulky je tím pádem možné zapisovat pouze listové položky, přičemž dojde k~automatickému přepočtu všech nadřazených položek.
 
-Při nahrávání výkazů není tato technika aplikována, řádky jsou do struktury v~aplikaci nahrány z~XML jedna ku jedné. Informace o~struktuře výkazů a funkce pro výpočet hodnoty nadřazené položky by se v~tomto případě mohlo využít pro zjišťování a následném signalizování nekonzistencí ve výkazu, které by měl uživatel ve vlastním zájmu eliminovat.
+Při nahrávání výkazů není tato technika aplikována, řádky jsou do struktury v~aplikaci nahrány z~XML jedna ku jedné. Informace o~struktuře výkazů a funkce pro výpočet hodnoty nadřazené položky by se v~tomto případě mohly využít pro zjišťování a následném signalizování nekonzistencí ve výkazu, které by měl uživatel ve vlastním zájmu eliminovat.
 
 Stejně jako musely být všechna čísla řádků, označení a názvy položek uloženy explicitně, tak i strom musí být zapsán v~kódu kompletním výčtem. Při pohledu na finanční výkazy by se dalo usoudit, že je možné jeho automatické vygenerování na základě označení položek. To je však bohužel možné jen do jisté míry, kvůli nekonzistencím tento způsob rozhodně nefunguje pro všechny položky výkazů. Nejsme schopni z~nich odvodit všechny potřebné souvislosti, tj. jaké jsou všechny podpoložky dané položky a zda jsou jednotlivé podpoložky kladné či záporné.
 
@@ -880,27 +869,21 @@ Samotné výkazy nám situaci neulehčují, v~mnoha případech jsou totiž polo
 
 Na řádcích převodového můstku, kde je u~odpovídající položky z~minulých let napsáno kurzívou \uv{\textit{(část položky)}}, máme bohužel smůlu. Změna je totiž na úrovni učetnictví a z~dodaných výkazů není možné vypočítat, o~jak velkou část položky se jedná. Tyto položky tedy musely být vynechány také. V~případě ostatních položek byly vybrány či vytvořeny takové, jejichž hodnota půjde v~každém z~roků nějakým způsobem získat. 
 
-Technickým řešením bylo tedy tyto položky stanovit a poté zapsat jejich výpočet pro každou specifikaci zvlášť. Výpočet je realizován opět funkcí a strukturou. Ve struktuře je ke každé z~těchto vybraných společných položek uloženo pole kladných a pole záporných položek dané specifikace, výsledek tedy získáme sčítáním a odečítáním položek. Funkce jen vzájemně odečte sumy hodnot obou polí, čímž získáme výsledek.
+Technickým řešením bylo tedy tyto položky stanovit a poté zapsat jejich výpočet pro každou specifikaci zvlášť. Výpočet je realizován opět funkcí a strukturou. Ve struktuře je ke každé z~těchto vybraných společných položek uloženo pole kladných a pole záporných položek dané specifikace. Výsledek tedy získáme sčítáním a odečítáním položek -- vzájmeného rozdílu sumy hodnot obou polí.
 
-Tyto společné položky se používají pro všechny druhy analýzy, původní výčet položek v~jednotlivých letech je využit zejména při ukládání, zobrazování a editaci účetních výkazů a pro účely demonstrace také při horizontální analýze. Cílem bylo vytvořit maximální počet společných položek s~postupným rozpadem na menší a menší části, čímž se maximalizuje počet různých výpočtů a tím pádem počet výsledků analýzy. Při vertikální analýze je potřeba dbát na to, aby byly vybrané položky vzájemně disjunktní -- počítáme procentuální zastoupení částí na celku a proto by se části neměly překrývat. ?proc tady, dat k~vertik?
+Tyto společné položky se používají pro všechny druhy analýzy, původní výčet položek v~jednotlivých letech je využit zejména při ukládání, zobrazování a editaci účetních výkazů a pro účely demonstrace také při horizontální analýze. Cílem bylo vytvořit maximální počet společných položek s~postupným rozpadem na menší a menší části, čímž se maximalizuje počet možných výpočtů a tím pádem počet výsledků analýzy.
 
 
 \subsection{Provádění analýzy}
-Podařilo se implementovat všechny typy analýz zmíněné na začátku této kapitoly. Kromě toho bylo navíc implementováno mezipodnikové srovnání -- prozatím jen v~rámci výsledků horizontální analýzy a analýzy poměrových ukazatelů, implementace je však v~tomto směru snadno rozšiřitelná ?id obj?. 
+Podařilo se implementovat všechny typy analýz zmíněné na začátku této kapitoly. Navíc bylo implementováno také mezipodnikové srovnání. To sice není omezeno počtem podniků, ale způsob prezentace výsledků srovnání většího počtu podniků v~delším časovém období zatím není vyřešen. Mezipodnikové srovnání lze provést v~rámci horizontální analýzy a analýzy poměrových ukazatelů, implementace je však v~tomto směru snadno rozšiřitelná i na ostatní typy analýzy díky způsobu uložení výsledků.
 
-* mezipodnikové srovnání je implementováno obecně a není omezeno počtem podniků. Způsob prezentace výsledků srovnání většího počtu podniků v delším časovém období však zatím není vyřešen, ?zmensit detail výsledků / interaktivní prezentace výsledků?
-
-?
-%===================
-Podobně jako u~ostatních druhů analýz, výsledek není uložen v~běžném (indexovaném) poli, nýbrž v~poli asociativním. Nevýhodou je sice nutnost explicitní iterace nad jednotlivými výsledky analýzy, tento způsob uložení je však velmi příznivý při znovupoužití vypočítaných výsledků -- například při výpočtu rozdílu hodnot jedné položky v~různých letech nebo srovnání podniků v~rámci horizontální analýzy. Nejprve se vypočítají výsledky pro všechny srovnávané podniky, poté je nutné podnikové výsledky nahrát do jedné společné struktury. Pokud by byly výsledky pro podnik uloženy v~běžném poli, museli bychom pro každou z~položek respektive pro každý z~analyzovaných roků procházet všechny položky respektive? roky a hledat mezi nimi ten, který se právě chystáme zpracovat. Díky asociativnímu poli můžeme na hledanou hodnotu přistoupit přímo, přes klíč položky a následně klíč roku, neprobíhá tedy žádné vyhledávání. Přesněji neprobíhá vyhledávání na úrovni naší implementace, ale na úrovni interpretu JavaScriptu.
-%===================
-
+Výsledek není uložen v~běžném (indexovaném) poli, ale v~poli asociativním. Nevýhodou je sice nutnost explicitní iterace nad jednotlivými výsledky analýzy, tento způsob uložení je však velmi příznivý při znovupoužití vypočítaných výsledků -- například při výpočtu rozdílu hodnot jedné položky v~různých letech nebo srovnání podniků v~rámci některé z~analýz. Nejprve se vypočítají výsledky pro všechny srovnávané podniky, poté je nutné podnikové výsledky nahrát do jedné společné struktury. Pokud by byly výsledky pro podnik uloženy v~běžném poli, museli bychom pro každou z~položek respektive pro každý z~analyzovaných roků procházet všechny položky respektive roky a hledat mezi nimi ten, který se právě chystáme zpracovat. Díky asociativnímu poli můžeme na hledanou hodnotu přistoupit přímo, přes klíč položky a následně klíč roku, neprobíhá tedy žádné vyhledávání na úrovni naší implementace.
 
 Všechny podporované analýzy jsou implementovýny podobným principem, který byl použit i při práci se vstupními daty. Každá z~analýz má svůj vlastní popis -- \textit{mapu} (objekt), ve které jsou uloženy všechny potřebné informace: seskupování a hirerarchie výsledků, pořadí výsledků, způsob jejich výpočtu, označení a jednotka. Pro práci s~mapou je implementována funkce vykonávající analýzu nad konkrétními daty. Funkce odpovídající mapu systematicky prochází a čerpá z~ní informace pro výpočet, do kterého dosazuje data získané ze svého jediného parametru -- finančních výkazů. Výsledek uloží do struktury opět podle informací z~mapy. Tento způsob implementace považuji za flexibilní a velmi dobře parametrizovatelný, zároveň zredukuje vazby mezi funkcí provádějící celkovou analýzu jistého typu a analýzou jedné konkrétní položky.
 
 \begin{figure}[!htb]
   \centering
-  \includegraphics[width=15cm]{img/analysis.png}
+  \includegraphics[width=14cm]{img/analysis.png}
   \caption{Diagram provádění analýzy}
 \end{figure}
 
@@ -910,36 +893,31 @@ Horizontální analýza je prováděna nad položkamy výkazu zisku a ztráty, a
 
 Tímto způsobem však nejsme schopni analyzovat delší časové období, vzhledem k~podporovaným letem v~implementovaném nástroji jsou to maximálně 2 roky. Abychom mohli analyzovat výkazy v~delším časovém horizontu, využijeme mapy společných položek napříč různými strukturami výkazů. Pro účely horizontální analýzy je nutné definovat v~rámci každého z~výkazů pořadí těchto společných položek. Při výpočtu konkrétních hodnot položek tak stačí nad uloženým pořadím iterovat a přes odpovídající funkce zjistit název položky a vypočítat její hodnotu pro daný rok.
 
-Kromě konkrétních hodnot položek v~daných letech jsou vypočítány i meziroční rozdíly hodnot -- absolutní a relativní (procentuální). Ze vzorce pro výpočet relativního rozdílu vyplývá nutnost explicitně ošetřit prípad, kdy je hodnota položky v~předchozím roce nulová.
+Kromě konkrétních hodnot položek v~daných letech jsou vypočítány i meziroční rozdíly hodnot -- absolutní a relativní (procentuální). Ze vzorce pro výpočet relativního rozdílu vyplývá nutnost explicitně ošetřit případ, kdy je hodnota položky v~předchozím roce nulová.
 
 $$d_{ABS}=h_{n}-h_{n-1}$$
 $$d_{REL}=(h_{n}-h_{n-1})/h_{n-1}$$
 
-V~rámci horizontální analýzy bylo implementováno také mezipodnikové srovnání, je tak možné porovnávat atributy podniků a jejich hospodaření plynoucí přímo z finančních výkazů.
+V~rámci horizontální analýzy bylo implementováno také mezipodnikové srovnání, je tak možné porovnávat atributy podniků a jejich hospodaření plynoucí přímo z~finančních výkazů.
 
 
 \subsubsection{Vertikální analýza}
 Při vertikální analýze se nezohledňuje různá struktura výkazů z~různých let, používají se pouze společné položky. Jedna položka vertikální analýzy obsahuje vždy vztažnou veličinu a pole částí, z~nichž je složena a jejichž procentuální zastoupení chceme vyjádřit. Tyto položky jsou obsaženy pro každý z~výkazů -- pro aktiva, pasiva i výkaz zisku a ztrát. Při výpočtu algoritmus iteruje nad výkazy, v~rámci výkazů dále iteruje nad položkami. U~každé položky nejprve spočte hodnotu všech jejích častí, poté hodnotu položky samotné (vztažné veličiny), z~nichž lze vypočítat podíl částí na celku.
 
-Jako části jednoho celku byly použity položky, které jsou vzájemně disjunktní, jinak by se mohlo stát, že suma procentuálního zastoupení všech částí by přesáhla 100 \%. Kvůli různým strukturám výkazů a problému nastíněném v~sekci \ref{spol} je však situace spíš opačná -- při rozložení některých celků na části netvoří tyto části celý celek.?
+Při vertikální analýze je potřeba dbát na to, aby byly vybrané položky vzájemně disjunktní -- počítáme procentuální zastoupení částí na celku a proto by se části neměly překrývat. Jinak by se mohlo stát, že suma procentuálního zastoupení všech částí by přesáhla 100~\%. Kvůli různým strukturám výkazů a problému nastíněném v~sekci \ref{spol} je však situace spíš opačná -- při rozložení některých celků na části nejsme schopni celek pokrýt.
 
-\subsubsection{Poměrové ukazatele}
-Tak jako u~ostatních analýz, i výpočet poměrových ukazatelů je realizován pomocí funkce, která se řídí mapou pro provádění analýzy a podle této mapy získává hodnoty z~dodaných výkazů. Mapa na nejvyšší úrovni obsahuje skupiny, či spíše druhy poměrových ukazatelů (rentabilita, likvidita atd.). V~rámci každé skupiny je uloženo pole prvků výčtového typu. Tyto prvky představují konkrétní ukazatele, přesněji jsou to klíče, přes něž lze k~datům spojeným s~daným ukazatelem přistupovat -- momentálně jsou to název a způsob výpočtu ukazatele. Stejný klíč je využíván i ke zjištění průměrné hodnoty ukazatele v~odvětví. Uložením klíču v~poli je stanoveno jejich pořadí při analýze.
+\subsubsection{Analýza poměrových ukazatelů}
+Tak jako u~ostatních analýz, i výpočet poměrových ukazatelů je realizován pomocí funkce, která se řídí mapou pro provádění analýzy a podle této mapy získává hodnoty z~dodaných výkazů. Mapa na nejvyšší úrovni obsahuje skupiny, či spíše druhy poměrových ukazatelů (rentabilita, likvidita atd.). V~rámci každé skupiny je uloženo pole prvků výčtového typu. Tyto prvky představují konkrétní ukazatele, přesněji jsou to klíče, přes něž lze k~datům spojeným s~daným ukazatelem přistupovat -- momentálně jsou to název a způsob výpočtu ukazatele. Stejný klíč je využíván i ke zjištění průměrné hodnoty ukazatele v~odvětví. Uložením klíčů v~poli je stanoveno jejich pořadí při analýze.
 
-V rámci analýzy poměrových ukazatelů, která tvoří stěžejní oblast finanční analýzy podniku, bylo implementováno také mezipodnikové srovnání.
+V~rámci analýzy poměrových ukazatelů, která tvoří stěžejní oblast finanční analýzy podniku, bylo implementováno také mezipodnikové srovnání.
 
 \subsubsection{Ohodnocení poměrových ukazatelů}
 
-Tato volba nám také stanovuje přesný vzorec výpočtu daného ukazatele. V~literaturách se do vzorců 
+Pro některé ukazatele, například ukazatele likvidity, lze najít doporučené hodnoty ve většině zdrojů. Pakliže porovnáme hodnoty z~těchto zdrojů, zjistíme, že se různí. Pro jiné ukazatele není optimální hodnota uváděna vůbec. V~žádném případě nelze pouze z~jeho hodnoty, která za sebou skrývá mnoho souvislostí, bez lidského faktoru vyvozovat závěry a výslednou hodnotu jednoznačně ohodnotit. V~praxi toto platí dvojnásob -- hodnoty ukazatelů mohou nabývat extrémních odchylek, přičemž to nemusí nutně signalizovat špatnou situaci podniku. Vyvozování závěrů tak necháme na uživateli, přičemž k~podpoře této činnosti se pokusíme dodat co nejrelevantnější informace.
 
-Pro některé? ukazatele, například ukazatele likvidity, lze najít doporučené hodnoty ve většině zdrojů?. Bohužel jsou tyto hodnoty různé v~závislosti na vybraném zdroji. V~praxi toto platí dvojnásob -- hodnoty ukazatelů mohou nabývat extrémních odchylek, přičemž to nemusí nutně signalizovat špatnou situaci podniku. 
+Za velmi užitečné referenční hodnoty pro tento účel považuji výsledky finanční analýzy podnikové sféry, prováděné kvartálně Ministerstvem průmyslu a obchodu. Tato volba nám také stanovuje přesný vzorec výpočtu jednotlivých ukazatelů z~mnoha variant -- aby byly hodnoty porovnatelné, při výpočtu se budeme řídit metodikou MPO. Pro většinu ukazatelů použitých v~mé implementaci jsou ve výsledcích celorepublikové analýzy přímo hodnoty, pro jiné jsou zde hodnoty potřebné pro jejich výpočet a pro ostatní nelze průměr zjistit nijak.
 
-Nejlépe odpovíjdajícími? referenčními hodnotami jsou výsledky finanční analýzy podnikové sféry prováděné Ministerstvem průmyslu a obchodu. 
-
-* nelze rict obecne rict, od jakych hodnot dobre/spatne...? , zejmena u~rentability cim vyssi tim lepsi, ale v~zadnem pripade z~teto hodnoty nelze bez lidskeho faktoru vyvozovat zavery a tedy výslednou hodnotu jednoznačně ohodnotit; naopak, vyvozování závěrů necháme na uživateli, přičemž k~podpoře této činnosti se pokusíme dodat co nejvíce relvantních informací. lze se odrazit od prumeru pro dany obor - dobra vypovidajici hodnota. dale take mezipodnikove srovnani
-* zpusob vypoctu jednotlivych ukazatelu se mezi ruznymi zdroji lisi, kvuli implementaci ohodnoceni / srovnani s~prumernymi hodnotami z~MPO bylo pouzito jejich zpusobu
-* MPO - pro nektere ukazatele (vetsinu z~vybranych v~tomto reseni) primo hodnoty, pro jine data pro jejich vypocet, pro ostatni ani to ne
-
+V~analýze podnikové sféry se statistiky dělí podle tzv. klasifikace ekonomických činností \uv{CZ-NACE}, která nabývá číselných hodnot -- každé odvětví má své číselné označení. V~kódu aplikace jsou tyto statistiky uloženy jako asociativní pole, jehož klíče tvoří čísla CZ-NACE. Číslo CZ-NACE je uloženo i u~podniku. Při jeho analýze tak víme, pod jakým klíčem ve statistikách hledat. Statistiky pro vybrané odvětví jsou opět reprezentovány asociativním polem, tentokrát kvůli rozdělení statistik na hodnoty jednotlivých ukazatelů. 
 
 \subsubsection{Du Pont rozklad}
 Pro implementaci byl z~pyramidových rozkladů vybrán rozklad rentability vlastního kapitálu. Většina prvků rozkladu jsou hodnoty již zmíněných poměrových ukazatelů (ukazatele představují uzly diagramu) či položek finančních výkazů (položky představují listy diagramu). Přesto byl pro tuto analýzu vytvořen separátní modul. V~něm jsou doplněny především metody pro výpočet ukazatelů, které nebyly implementovány v~rámci analýzy poměrových ukazatelů. Modul funguje také jako mezivrstva -- pokud bychom chtěli výslednou hodnotu ukazatele upravit speciálně pro účely Du Pont analýzy, nebo ji doplnit o~další informace, můžeme to udělat zde. 
@@ -951,175 +929,268 @@ Jelikož tato implementace dále s~výsledky cashflow analýzy nepracuje, jsou p
 
 Dosavadní implementace umožní analytikovi sledovat peněžní toky za různá období. Tok nese kromě hodnoty také informaci o~tom, proč vůbec vznikl a dále je také zařazen mezi jednu ze tří klíčových činností. Samozřejmě je vyčíslena i suma toků pro každou z~činností a celková suma toků.
 
-\subsubsection{Analýza investice?}
+\subsubsection{Analýza investice}
 \label{irr}
 Vstupem pro všechny doposud zmíněné analýzy jsou roční výkazy podniku -- rozvaha a výkaz zisku a ztrát. Pro výpočet vnitřního výnosového procenta určité investice či projektu se však používají spíše peněžní toky výhradně s~ním spojené. Prvním pěněžním tokem obvykle bývá počáteční investice, která je intuitivně evidována zvlášť. Zbývající pěněžní toky je nutné začlenit do období, ve kterém proběhnou. Dalším vstupním parametrem je tedy délka trvání investičního projektu. Tyto toky mají také finanční hodnotu (kladnou či zápornou) a pro potřeby uživatele může být textem specifikován jejich účel.
 
-Při analýze investice budeme zjišťovat hodnotu její čisté současné hodnoty a hodnotu vnitřního výnosového procenta, které spolu úzce souvisí. Výpočet ČSH je přímočarý, spočívá v~pouhém dosazení do vzorce při dodatečné specifikaci úrokové sazby. Analytické řešení výpočtu VVP však není známé, budeme jej řešit numericky.
-
-*metoda puleni intervalu 
+Při analýze investice budeme zjišťovat hodnotu její čisté současné hodnoty a hodnotu vnitřního výnosového procenta, které spolu úzce souvisí. Výpočet ČSH je přímočarý, spočívá v~pouhém dosazení do vzorce při dodatečné specifikaci úrokové sazby. Analytické řešení výpočtu VVP však není známé, výpočet provedeme numericky. Pro tento účel jsem zvolil metodu půlení intervalu, která mi přijde ze všech numerických řešení nejnázornější a nejjednodušší na implementaci. 
 
 Vhodným vylepšením této analýzy by byl výpočet ČSH i VVP v~průběhu celé investice, tedy jejich hodnot na konci každého z~období. To by pomohlo investorovi zvážit změnu délky trvání investice.
-
-* zbavit se veci dokud ještě přináší požadované procento výnosu - odprodej
 
 
 
 \section{Implementace prostředí}
-Doposud byla popsána implementace modulů provádějících činnosti spojené s finanční analýzou. V této sekci bude popsán 
+Doposud byla popsána implementace modulů provádějících činnosti spojené s~finanční analýzou, v~této sekci bude popsána implementace nástroje jako celku.
 
 \subsection{Datový tok}
-Při implementaci architektury a persistence dat jsem se mírně odchýlil od návrhu. Původním záměrem byla implementace vlastní serverové části s~napojením na MySQL databázi. Po přezkoumání možností mi přišlo výhodnější využít služby Firebase poskytované společností Google. Činnosti jako instalace, konfigurace, zprovoznění a implementace vlastního serveru a jeho další úpravy při změnách na straně klienta by přinesly poměrně velké množství práce navíc, přičemž způsob technického řešení nástroje není předmětem zadání.
+Při implementaci architektury a persistence dat jsem se mírně odchýlil od návrhu. Původním záměrem byla implementace vlastní serverové části s~napojením na MySQL databázi. Po přezkoumání možností mi přišlo výhodnější využít služby Firebase poskytované společností Google. Činnosti jako instalace, konfigurace, zprovoznění a implementace vlastního serveru a jeho další úpravy při změnách na straně klienta by přinesly poměrně velké množství práce navíc, přičemž způsob technického řešení nástroje není předmětem zadání. Zvolená databáze je objektová, její schéma zhruba odpovídá ERD diagramu v~kapitole návrhu. Vystupují zde ty samé entity s~těmi samými atributy, data jsou pouze jinak strukturovaná. 
 
-Jak je vidět na obrázku \ref{spa}, serverová část v~mém návrhu měla sloužit pouze pro stažení kódu aplikace při jejím spuštění a dále už jen pro manipulaci s~uloženými uživatelskými daty. Přesně toto nám umožňuje služba Firebase, která poskytuje jak hostování kódu aplikace, tak přímý přístup na databázi. ?dotazy v~app, skoro jak sql, jen nad strukturami/kolekcemi (docs, collection), objektova db?. Z~uvedeného popisu vyplývá, že mezi klientskou částí aplikace a databází není žádná programovatelná vrstva -- server, na kterém bychom chtěli spouštět svůj vlastní kód. I~pro tento problém má Firebase řešení, službu Cloud Functions. My jej však nevyužijeme, jelikož se ukázalo, že provádění veškerých implementovaných operací u~klienta nepředstavuje výkonnostní zátěž.
+Jak je vidět na obrázku \ref{spa}, serverová část v~mém návrhu měla sloužit pouze pro stažení kódu aplikace při jejím spuštění a dále už jen pro manipulaci s~uloženými uživatelskými daty. Přesně toto nám umožňuje služba Firebase, která poskytuje jak hostování kódu aplikace, tak přímý přístup na databázi. Přímým přístupem se zde myslí rozhraní na úrovni aplikace, které umožňuje pokládat dotazy nad daty (strukturami a kolekcemi). Z~uvedeného popisu vyplývá, že mezi klientskou částí aplikace a databází není žádná programovatelná vrstva -- server, na kterém bychom chtěli spouštět svůj vlastní kód. I~pro tento problém má Firebase řešení, službu Cloud Functions. My ji však nevyužijeme, jelikož se ukázalo, že provádění veškerých implementovaných operací u~klienta nepředstavuje výkonnostní zátěž.
 
-- objektove schema pouzivane databaze (asi jen json)
-
-Dalším velkou výhodou služby Firebase je správa uživatelů aplikace a zajištění procesu autentizace. Přes funkce poskytované knihovnou je tak možné velmi jednoduše vytvářet nové uživatelské účty či zajistit celý proces automatického přihlášení, tedy i jeho persistence. Tato služba v~oblasti autentizace a autorizace nabízí mnohem více, my se však omezíme na funkcionalitu, kterou jsem zmínil. Posledním důležitým prvkem je jednoznačný uživatelský identifikátor, který je automaticky vygenerován při vytvoření uživatelského účtu. Ten slouží jako klíč v~databázi, pod kterým jsou uložena veškerá data spojená s~tímto účtem -- podniky a investice. 
+Další velkou výhodou služby Firebase je správa uživatelů aplikace a zajištění procesu autentizace. Přes funkce poskytované knihovnou je tak možné velmi jednoduše vytvářet nové uživatelské účty či zajistit celý proces automatického přihlášení, tedy i jeho persistence. Tato služba v~oblasti autentizace a autorizace nabízí mnohem více, my se však omezíme na funkcionalitu, kterou jsem zmínil. Posledním důležitým prvkem je jednoznačný uživatelský identifikátor, který je automaticky vygenerován při vytvoření uživatelského účtu. Ten slouží jako klíč v~databázi, pod kterým jsou uložena veškerá data spojená s~tímto účtem -- podniky a investice. 
 
 Při přihlášení uživatele dojde ke stažení těchto dat do aplikace, uživateli jsou zpřístupněny evidované podniky a investice, které může analyzovat a editovat. Při jejich editaci dojde nejprve k~zápisu změny do databáze, poté jsou z~ní znovu načteny všechny podniky či investice. Řešení je sice velmi neúsporné s~ohledem na nadbytečné využití prostředků, je to však nejjednodušší způsob synchronizace databázových a aplikačních dat. Pokud by měl být nástroj nasazen, bylo by vhodné objem přenesených dat minimalizovat. 
 
-Podle konceptu knihovny Redux, popsaném v sekci \ref{redux}, jsou všechna data na aplikační vrstvě ukládána do reducerů, jediných zdrojů informací o stavu aplikace. Při spuštění jsou nahrána data tří reducerů:
+Podle konceptu knihovny Redux, popsaném v~sekci \ref{redux}, jsou všechna data na aplikační vrstvě ukládána do reducerů, jediných zdrojů informací o~stavu aplikace. Při spuštění jsou nahrána data tří reducerů:
 \begin{itemize}
-  \item user reducer -- uživatelská data
-  \item company reducer -- data spojená s podniky
-  \item investment reducer -- data spojená s investicemi
+  \item \textit{user reducer} -- uživatelská data
+  \item \textit{company reducer} -- data spojená s~podniky
+  \item \textit{investment reducer} -- data spojená s~investicemi
 \end{itemize}
 
-* kazda analyza - pri vykresleni prislusne obrazovky se nastroj pokusi o~analyzu, v~pripade neuspechu ulozi error, ktery pak prislusna komponenta vykresli
+Ostatní implementované reducery slouží pro uložení výsledků jednotlivých analýz. Ty čerpají vstupní data z~\textit{company reduceru} a \textit{investment reduceru}. Schéma datového toku při výpočtu a zpracování výsledků je téměř u~všech analýz stejný, liší se pouze způsobem výpočtu. Celý proces výpočtu a adekvátní změny globálního stavu je prováděn speciálním objektem, který jsem nazval \textit{data manager}. Výsledkem analýzy jsou buď data, nebo popis problému, kvůli kterému se analýza nezdařila. Schéma je znázorněno na obrázku \ref{adf}.
 
-Ostatní implementované reducery slouží pro uložení výsledků jednotlivých analýz. Tok dat při výpočtu a zpracování výsledků je téměř u~všech analýz stejný, liší se pouze způsobem výpočtu. Celý proces výpočtu a adekvátní změny globálního stavu je prováděn speciálním objektem, který jsem nazval \textit{data manager}.
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=13.5cm]{img/analysis_dataflow.png}
+  \caption{Tok dat v~aplikaci}
+  \label{adf}
+\end{figure}
+
 
 \subsection{Uživatelské rozhraní}
 
 Prostředím běhu aplikace je webový prohlížeč, aplikace byla vyvíjena primárně pro Google Chrome. Vzhled aplikace definují jazyky HTML a CSS, kód je však psán v~jazyce JSX. Ten je syntaktickým rozšířením jazyka JavaScript umožňujícím v~kódu pracovat s~šablonou jako s~proměnnou Javascriptu, přičemž šablona má podobu kódu HTML ve kterém je možné použít JavaScriptové konstrukce pro iteraci, selekci a podobně. Před vykreslením je JavaScriptový kód interpretován a konečný vzhled odpovídajícím způsobem sestaven.
 
-Použití samotných prvků HTML bez dodatečného nastylování je k~tvorbě vzhledných aplikací nedostačující, což je nejspíše způsobeno prapůvodním záměrem tohoto jazyka. Design webových stránek nebo aplikací je však poměrně rozsáhlá oblast, bylo proto vhodné sáhnout po knihovně hotových, nastylovaných prvků. Z~počátku byla zvažována knihovna Bootstrap, nakonec jsem se rozhodl pro modernější knihovnu Material UI, která programátorovi poskytuje ?.
+Použití samotných prvků HTML bez dodatečného nastylování je k~tvorbě vzhledných aplikací nedostačující, což je nejspíše způsobeno původním záměrem tohoto jazyka. Design webových stránek nebo aplikací je však poměrně rozsáhlá oblast, bylo proto vhodné sáhnout po knihovně hotových, nastylovaných prvků. Z~počátku byla zvažována knihovna Bootstrap, nakonec jsem se rozhodl pro modernější knihovnu Material UI. Knihovna programátorovi poskytuje nejen nastylované komponenty, ale také řešení rozložení těchto komponent na stránce či sadu ikon. Díky této knihovně bylo možné poměrně snadno vytvořit webovou aplikaci, která vypadá obstojně i po designové stránce.
 
-S~touto knihovnou je možné tvořit aplikace s~, které ? po designové stránce. Nabízí nejen nastylované komponenty, ale také řešení rozložení aplikace, ... a v neposlední řadě sadu ikon, kterou jsem v designu aplikace použil také.
-
-Výsledkem většiny analýz jsou tabulární data, sledujeme vývoj souboru položek analýzy v~různých letech. Při výběru některé z~položek je zobrazen její detail, který obsahuje vhodný graf zobrazující současnou situaci či vývoj položky. Pro vykreslování a práci s~grafy byla použita knihovna Chart.js
-
-
-* material design google - sada ikon
+Výsledkem většiny analýz jsou tabulární data, sledujeme vývoj souboru položek analýzy v~různých letech. Při výběru některé z~položek je zobrazen její detail, který obsahuje vhodný graf zobrazující současnou situaci či vývoj položky. Pro vykreslování a práci s~grafy byla použita knihovna Chart.js.
 
 \subsubsection{Navigace}
 Aplikace je v~souladu s~návrhem koncipována jako single page application. Pokud uživatel přistoupí na kořenovou adresu aplikace s~jakýmkoliv suffixem, server vždy vrátí kód představující celou aplikaci, což vyžaduje jeho konfiguraci. Jelikož je tentot typ aplikací mezi webovými aplikacemi poměrně rozšířený, možnost tohoto nastavení je zpřístupněna v~samotném průvodci konfigurací firebase. Suffix adresy tak není zpracováván serverem, nýbrž aplikací na straně klienta, jedná se tedy o~client side routing.
 
-
-
-Pro routování na straně klienta, tedy uspořádání obrazovek a pohyb mezi nimi, byla použita knihovna React Router.
-
-Části URL adresy odpovídají architektonickým vrstvám aplikace, lze podle nich zjistit, s~jakými entitami pracuje.
-
-routovani (navigace):
-* client side routing - url zpracovava aplikace (knihovna), nevyhody vyhody najit na netu, prohlizec nenajde jednotlive komponenty - jen hlavni
-* obrazovky + url
-* url vpodstate udava stav aplikace svym tvarem (vime, kterou obrazovku zobrazit + id atd), spustenim aplikace s~urcitym url ji vlastne spoustime v~urcitem stavu, do url se da ulozit vpodstate cokoliv, my se omezime na prepinani obrazovek a predavani idcek
+Pro routování na straně klienta, tedy uspořádání obrazovek a pohyb mezi nimi, byla použita knihovna React Router. Části URL adresy jsou pro uživatele popisné. Lze podle nich zjistit, s~jakými entitami se pracuje a co se s~nimi provádí. URL adresa svým tvarem v~podstatě udává stav aplikace -- při jejím přečtení víme, kterou obrazovku zobrazit a jakými daty ji vyplnit. Do URL se dá uložit vpodstatě jakákoliv informace, my se omezíme na ukládání obrazovek a identifikátorů entit.
 
 \subsubsection{Obrazovky}
 
 Po spuštění aplikace se uživatel musí přihlásit, zobrazeno je pouze modální dialogové okno pro vyplnění přihlašovacích údajů nebo registraci. Při úspěšném přihlášení je přesměrován na hlavní obrazovku a je mu zpřístupněna fixní horní lišta aplikace, která slouží jako navigace. V~liště je také tlačítko pro odhlášení. Na domovské stránce se lze pomocí horní lišty přepínat mezi dvěma obrazovkami -- seznamem podnků a seznamem investic.
 
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=14cm]{img/scr_log_reg.png}
+  \caption{Dialog pro přihlášení a registraci}
+\end{figure}
+
 Po výběru investice ze seznamu je uživatel přesměrován do detailu investice, kde je možné nastavit její parametry -- počáteční rok, velikost počáteční investice a při výpočtu čisté současné hodnoty i hodnotu úrokové sazby. Nezbytnými parametry jsou také peněžní toky v~jednotlivých časových obdobích, uživateli je tak umožněno přidávat další roky trvání investice, v~rámci nichž zadává libovolně pojmenované výnosy a výdaje. Pokud jsou zadány nevyhovující parametry, je uživatel upozorněn. Pokud jsou k~dispozici výsledky, může přepínat mezi zobrazením hodnoty čisté současné hodnoty a vnitřního výnosového procenta.
 
-Na obrazovce se seznamem podniků jsou vykresleny karty s~jednotlivými podniky a tlačítko pro možnost přidání nového podniku. V~rámci konkrétního podniku lze pokračovat na seznam jeho evidovaných výkazů, jednu z~obrazovek s~analýzou nebo na obrazovku srovnání s jiným podnikem. 
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=14cm]{img/scr_inv.png}
+  \caption{Rozhraní pro práci s~investicí}
+\end{figure}
+
+Na obrazovce se seznamem podniků jsou vykresleny karty s~jednotlivými podniky a tlačítko pro možnost přidání nového podniku. V~rámci konkrétního podniku lze pokračovat na seznam jeho evidovaných výkazů, jednu z~obrazovek s~analýzou nebo na obrazovku srovnání s~jiným podnikem. 
 
 Na obrazovce se seznamem výkazů se lze přepínat mezi výkazy z~různých let, případně výkaz smazat nebo přidat nový, což je nezbytný krok i při importu dat. Na kartě s~výkazem lze ručně vyplnit údaje nebo použít tlačítko pro import. Výkazem se zde rozumí trojice dokumentů -- výkaz zisku a ztrát, tabulka aktiv, tabulka pasiv.
 
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=14cm]{img/scr_editor.png}
+  \caption{Zobrazení výkazu dle specifikace a možnost jeho editace}
+\end{figure}
+
 Pokud jsou nahrány potřebné výkazy, lze se přepínat mezi obrazovkami s~analýzou. Výsledkem všech analýz, až na rozklad Du Pont, jsou tabulární data. U~horizontální a vertikální analýzy jsou to tři sady tabulárních dat podle rozdělení na výkaz zisku a ztrát, aktiva a pasiva, přepínat se lze pomocí tabů. Při výběru položky horizontální analýzy je zobrazen sloupcový graf s~hodnotami ve všech zaznamenaných letech. Při výběru položky na obrazovce vertikální analýzy je zaznamenán celek, do kterého položka patří, a také rok, který nás zajímá. Zobrazen je koláčový graf ilustrující rozložení celku na části v~daném roku. Obrazovka s~analýzou poměrových ukazatelů obsahuje všechny skupiny ukazatelů i jejich položky v~jedné tabulce. Pro vybranou položku je zobrazen sloupcový graf. U~položek, jejichž průměrná hodnota v~odvětví je známa a zadána, jsou tyro průměrné hodnoty zobrazovány vedle hodnot vypočítaných pro vybraný podnik.
 
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=14.5cm]{img/scr_ver.png}
+  \caption{Obrazovka vertikální analýzy}
+\end{figure}
+
+\pagebreak
 Na obrazovce s~analýzou Du Pont jsou data reprezentována jako vizuální rozklad. Výstup analýzy by mohl být reprezentován i tabulkou či rovnicí, zvolený způsob je ale dle mého názoru mnohem názornější a je také použit v~mnoha studovaných zdrojích. Vizualizací stromu rozkladu jsou obdélníky s~prvky rozkladu, terminálními i neterminálními, propojené čarami. Vizualizace je realizována pomocí jazyka SVG, který je ve většině webových prohlížečů podporován. Proporce vizuálních prvků jsou uloženy v~proměnných, ty jsou na sobě relativně závislé. To umožňuje jednoduchou škálovatelnost výsledného zobrazení.
 
 \begin{figure}[!htb]
   \centering
-  \includegraphics[width=13.5cm]{img/screens.png}
+  \includegraphics[width=13cm]{img/scr_dupont.png}
+  \caption{Grafická reprezentace Du Pont rozkladu}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=14cm]{img/screens.png}
   \caption{Diagram návaznosti obrazovek aplikace}
 \end{figure}
 
 \section{Testování}
-K~nástroji byla implementována i sada unit testů. Ty pokrývají testování správnosti výsledků analýz. Jako vstupní data jsou použita data vybraného podniku, pro který byly vyčísleny hodnoty, kterých by měly jednotilvé analýzy dosahovat. Po provedení analýzy je ověřována jejich shodnost s~těmi vypočítanými.
+Kód nástroje je plně testovatelný, testování je prováděno knihovnou Jest. Pro demonstraci byla implementována sada unit testů. 
 
-Jelikož se jedná o~nástroj, který je schopen více něž jen dávkového zpracování dat, bylo by vhodné implementovat také itegrační testy.
+Unit testy pokrývají testování správnosti výsledků většiny analýz. Jako vstupní data jsou použita data konkrétního podniku, pro který byly vyčísleny hodnoty, kterých by měly jednotlivé typy analýzy dosahovat. Po provedení analýzy je ověřována jejich shodnost s~těmi vypočítanými.
+
+Jelikož se jedná o~nástroj, který je schopen více něž jen dávkového zpracování dat, bylo by v~rámci rozšíření vhodné implementovat také testy integrační. S~kombinací knihoven Jest a React lze integrační testy psát velmi pohodlně. Testy by simulovaly různé scénáře interakce uživatele s~nástrojem.
+
+\pagebreak
+Scénáře testů plynou z~use-case diagramu:
+
+\begin{itemize}
+  \item testy analýzy
+  \begin{itemize}
+    \item zobrazení výsledků analýzy validních vstupních dat
+    \item zobrazení chyby analýzy nevalidních vstupních dat
+  \end{itemize}
+  \item testy správy uživatelů
+  \begin{itemize}
+    \item{test registrace uživatele}
+    \item{test autentizace uživatele}
+  \end{itemize} 
+  \item testy nástroje
+  \begin{itemize}
+    \item{test persistence změn při modifikaci dat}
+    \item{test synchronizace mezi aplikací a databází při modifikaci dat}
+    \item{automatická aktualizace výsledků analýzy při modifikaci dat}
+  \end{itemize}
+\end{itemize}
+
 
 \section{Vývoj}
-Pro ověření správnosti navrženého řešení byl v~každé z~oblastí finanční analýzy nejprve implementován prototyp se zúženým výběrem analyzovaných položek a omezenou funkcionalitou. Úplné doplnění položek a funkcionality proběhlo až v~dalších fazích implementace, stejnětak jako opakovaná refaktorizace. Tento postup byl zvolen i při implementaci persistence dat. Ve zdrojovém kódu je možnost volby mezi čerpáním uživatelských dat z~databáze, nebo jejich podvržením pomocí definice jednotného rozhraní těchto dat. Pokud zrovna neimplementujeme modul zajišťující persistenci dat, využití podvržených dat je velmi výhodné z~důvodu urychlení vývojářského cyklu a možnosti vyvíjet bez připojení k~internetu.
+Pro ověření správnosti navrženého řešení byl v~každé z~oblastí finanční analýzy nejprve implementován prototyp se zúženým výběrem analyzovaných položek a omezenou funkcionalitou. Úplné doplnění položek a funkcionality proběhlo až v~dalších fazích implementace, stejně tak jako opakovaná refaktorizace. Tento postup byl zvolen i při implementaci persistence dat. 
 
-Jako vývojové prostředí bylo použito IDE WebStorm od společnosti JetBrains, jehož licence je poskytována studentům zdarma. Kromě mnoha dalších, nástroj má podporu pro všechny technologie využité při implementaci a jejím usnadnění, zejména jazyky JavaScript, TypeScript a JSX. Celý projekt byl průběžně verzován pomocí nástroje Git, jež má ve zmíněném IDE také grafické rozhraní.
+Ve zdrojovém kódu je možnost volby mezi čerpáním uživatelských dat z~databáze, nebo jejich podvržením pomocí definice jednotného rozhraní těchto dat. Pokud zrovna neimplementujeme modul zajišťující persistenci dat, využití podvržených dat je velmi výhodné z~důvodu urychlení vývojářského cyklu a možnosti vyvíjet bez připojení k~internetu.
 
-Po stažení složky s~projektem z~repozitáře je pro vývoj nezbytná instalace závislostí. Po spuštění skriptu je rozhraní aplikace otvevřeno v~prohlížeči.
+Jako vývojové prostředí bylo použito IDE WebStorm od společnosti JetBrains, jehož licence je poskytována studentům zdarma. Kromě mnoha dalších, nástroj má podporu pro všechny technologie využité při implementaci a jejím usnadnění, zejména jazyky JavaScript, TypeScript a JSX. Celý projekt byl průběžně verzován pomocí nástroje Git, jež má ve zmíněném IDE grafické rozhraní.
 
-$$\texttt{npm run install \&\& npm run start}$$
+\begin{itemize}
+  \item \texttt{npm run install} -- instalace závislostí (jsou uvedeny v~souboru \textit{package.json})
+  \item \texttt{npm run start} -- spuštění aplikace pro vývoj
+  \item \texttt{npm run test} -- spuštění testů
+  \item \texttt{npm run build} -- zkompilování kódu do balíčku pro nasazení
+  \item \texttt{firebase deploy} -- nasazení aplikace do provozu na veřejné adrese
+\end{itemize}
 
-Tento příkaz zůstává spuštěn?, na pozadí běží kontrola na změny souborů se zdrojovými kódy, TypeScript watcher. Při změně je TypeScript kód automaticky překompilován na JavaScript kód, poté je kód dále transformován, například pro funkčnost v~co nejvíce prohlížečích či jejich verzích. Po doběhnutí dojde ke znovunačtení aplikace v~prohlížeči -- aktualizace stránky. Díky knihovně React Router, která pro navigaci využívá URL adresu, se při aktualizaci stránky stav navigace uchová a aplikace se spustí na původní obrazovce, pouze si znovu načte vykreslovaná data. Watcher funguje i při testování, stačí tedy uložit zdrojové kódy a příslušné testy se spustí znovu.
-
-Zkompilování kódu do balíčku pro nasazení je prováděno příkazem \texttt{npm run build}. Po správné konfiguraci nástroje firebase je možné aplikaci jednoduše nasadit do provozu na veřejné adrese pomocí příkazu \texttt{firebase deploy}.
-
-
-
-* vsechny knihovny pres npm, jejich seznam v~package.json
+Při spuštění aplikace pro vývoj zůstává na pozadí běžet kontrola na změny souborů se zdrojovými kódy, tzv. watcher. Při změně je TypeScript kód automaticky překompilován na JavaScript kód, poté je kód dále transformován, například pro funkčnost v~co nejvíce prohlížečích či jejich verzích. Po doběhnutí dojde ke znovunačtení aplikace v~prohlížeči -- aktualizace stránky. Díky knihovně React Router, která pro navigaci využívá URL adresu, se při aktualizaci stránky stav navigace uchová a aplikace se spustí na původní obrazovce, pouze si znovu načte vykreslovaná data. Watcher funguje i při testování, stačí tedy uložit zdrojové kódy a příslušné testy se automaticky spustí znovu.
 
 
 \section{Možnosti rozšíření nástroje}
+V~předchozím textu byla popsána některá možná rozšíření nástroje. Zde se je pokusím shrnout. Kromě implementace rozšíření z~vlastní iniciativy by bylo vhodné v~budoucnu implementovat také podporu nových specifikací stanovených legislativou. 
 
-Vzhledem k~tomu, že se způsoby výpočtu některých ukazatelů v~různých literaturách liší, bylo by vhodné uživateli zobrazit způsob výpočtu, který je použit v~tomto nástroji. Při současné implementaci se jeví jako nejjednodušší řešení ke každé metodě provádějící výpočet přiřadit také popis výpočtu, například ve formě řetězce. Popis výpočtu a výpočet samotný by však nevycházely ze stejného zdroje a nebyly tak sémanticky propojeny, vývojář by musel při každé změně algoritmu pro výpočet adekvátně měnit popis. Vzhledem k~tomu, že se jedná o~víceméně jednoduché matematické rovnice, nabízí se mnohem lepší řešení -- uložit rovnice pro výpočet do odpovídajícího abstraktního syntaktického stromu (AST). Tato struktura by umožnila obojí -- vypočítat výsledek i vygenerovat popis výpočtu a jeho složek na základě jednotného zdroje. Tento způsob by také otevřel další možnosti rozšíření, pomocí vhodného rozhraní by uživatel mohl editovat vzorce existujících ukazatelů podle svých potřeb či vytvářet úplně nové.
+\subsubsection{Uložení sémantiky výpočtu}
+Vzhledem k~tomu, že se způsoby výpočtu poměrových ukazatelů v~různých literaturách liší, bylo by vhodné uživateli zobrazit způsob výpočtu, který je použit v~tomto nástroji. Při současné implementaci se jeví jako nejjednodušší řešení ke každé metodě provádějící výpočet přiřadit také popis výpočtu, například ve formě řetězce. Popis výpočtu a výpočet samotný by však nevycházely z~jednotného zdroje informace a nebyly by sémanticky propojeny. Vývojář by tak musel při každé změně algoritmu pro výpočet adekvátně měnit popis. 
 
-Nástroj pro jednoduchost podporuje pouze meziroční analýzu. Lze však vyvodit, že se v~praxi může provádět analýza obecně různých časových obodbí. K~částečnému zkvalitnění tohoto rozšíření by se dalo použít i dat z~analýzy podnikové sféry prováděné MPO, která uvádí statistiky kvartálně (momentálně jsou využity pouze roční statistiky).
+Vzhledem k~tomu, že se jedná o~víceméně jednoduché matematické vzorce, nabízí se mnohem lepší řešení -- uložit vzorec pro výpočet ukazatele do odpovídajícího abstraktního syntaktického stromu (AST). Tato struktura by umožnila obojí -- vypočítat výsledek i vygenerovat popis výpočtu a jeho složek -- na základě jednotného zdroje. V~konečném důsledku by tato struktura umožnila rozklad výpočtu až na konkrétní položky výkazů, přičemž by toto automaticky umožnila nad všemi pojmy v~nástroji. Pomocí vhodného rozhraní by také mohl uživatel editovat vzorce existujících ukazatelů podle svých potřeb či vytvářet úplně nové.
 
-Ve statistikách MPO jsou uvedeny také oborové sumy za většinu hlavních položek finančních výkazů. Porovnáním adekvátních položek (částí k~celku) by bylo teoreticky možné zjistit průměrné oborové hodnoty v~rámci vertikální analýzy a tyto v~nástroji uvést. Dále je ve statistikách uveden také počet podniků v~odvětví, vydělením sumy položky počtem podniků by tak šlo získat průměrnou hodnotu položky pro dané odvětví -- průměrné hodnoty pro horizontální analýzu. V~souvislosti s~daty MPO by se také nástroj dal rozšířit o~práci se zbývajícími poměrovými ukazateli, pro které jsou uváděny průměrné hodnoty v~odvětví, nebo alespoň hodnoty potřebné k~jejich výpočtu.
+Rozšíření by učinilo nástroj v~tomto směru unikátním.
 
-Jelikož jsou tyto statistiky uloženy jako velmi rozsáhlá tabulární data programu Excel, ruční výpočet a zapisování do zdrojového kódu je velmi zdlouhavé. To může být vyřešeno automatizovaným zpracováním těchto souborů či umožněním uživateli vyplnit hodnoty v~případě jeho zájmu.
+\subsubsection{Zkvalitnění provádění analýzy}
+\begin{itemize}
+  \item analýza ruzných časových období (momentálně jen meziročně)
+  \item výpočet dalších ukazatelů
+  \begin{itemize}
+    \item minimálně těch, jejichž průměrné hodnoty jsou uváděny ve statistikách
+    \item ukazatele na bázi cashflow
+  \end{itemize}
+  \item signalizace evidentních rizikových faktorů (např hospodaření se ztrátou)
+  \item implementace dalších typů analýzy, podniku i investice
+  \item zavedení uživatelských nastavení
+  \item podpora změn v~legislativě v~budoucnu
+\end{itemize}
 
-Z~oblasti finanční analýzy se dále nabízí rozšíření importu o~zkrácené výkazy, účelové členění nebo možnost čerpat zdrojová data přímo z~účetnictví (nikoliv z~účetní závěrky), pokud existuje nějaký standardizovaný formát exportu těchto dat. To by umožnilo ještě detailnější analýzu. Nebo naopak, umožnit uživateli vyplnit pouze data nezbytná k~výpočtu ukazatelů a nenutit jej tak nahrávat celé výkazy, které ani nemusí mít k~dispozici. Kromě zobrazování referenčních hodnot by nástroj také mohl hlásit evidentní rizikové faktory, jako příklad můžeme uvést hospodaření se ztrátou. Díky způsobu implementace a struktury výsledků jednotlivých analýz je nástroj připraven pro širší záběr v~rámci mezipodnikového srovnání rozšířením modulu na práci se všemi druhy podporovaných analýz.
+Z~oblasti finanční analýzy se dále nabízí rozšíření importu o~zkrácené výkazy, účelového členění výkazu zisku a ztrát nebo možnost čerpat zdrojová data přímo z~účetnictví (nikoliv z~účetní závěrky), pokud existuje nějaký standardizovaný formát těchto dat. To by umožnilo ještě detailnější analýzu. Nebo naopak, umožnit uživateli vyplnit pouze data nezbytná k~výpočtu ukazatelů a nenutit jej tak nahrávat celé výkazy, které ani nemusí mít k~dispozici. Samozřejmostí je také důkladnější ošetření užvatelských vstupů.
 
-
-* uživateli umožní napříč celou aplikací zjistit, co se daným pojmem myslí a jak přesně se vypočítá jeho hodnota z~různých výkazů
-
-* vice roku - nemoznost zobrazit vse - vymyslet, jak by se to dalo zobrazovat
-* relační databáze (mysql) namísto objektové - větší kontrola při změnách aplikace
-* výkon - ulozeni vysledku analyzy a jejich sprava, aby se nemuselo pocitat pri kazdem spusteni aplikace
-* lepsi cache dat - pokazde se vse znovunacita pro jednoduchost
-* jine ukazatele, rozsireni analyzy podniku i analyzy v~oblasti investic
-* scrolovani tabulek scrolluje celou stranku - vylepsit layout
-
-* pro usnadneni ovladani: offline?, cashflow - preddefinovane polozky, razeni / vyhledavani v~tabulkach, uzivatelske preference
-* samozrejmost - dukladnejsi osetreni uzivatelskych vstupu
-* v~dalsim roce se muze opet menit legislativa - aktualizace kodu
-
-
-
-\section{Demonstrace na vybraném vzorku dat}
-Firma, na které aplikuji ve své diplomové práci finanční analýzu, je firma Krajči plus s. r. o. Jedná se o~ryze českou společnost, která byla založena již v~roce 1995. Společnost začínala
-jako malý regionální výrobce, který dodával své výrobky do blízkého okolí. Postupem času se této společnosti podařilo stát soběstačnou a prosperující firmou ve své oblasti. Do konce roku 2013 podnikala firma jako fyzická osoba, nevedla tedy účetnictví. V~roce 2014 se majitelé rozhodli, že firma změní právní formu na společnost s~ručením omezeným. Od tohoto roku jsem podrobil firmu Krajči plus s.r.o. finanční analýze a jsem přesvědčen, že i do budoucna bude firma mé metody finanční analýzy využívat.
-
-Firma podniká v~potravinářském oboru, zabývá se jednak výrobou bramborových lupínků a krekerů a jednak nákupem a prodejem zboží – tyčinek a suchých plodů. Ve firmě probíhá celý výrobní proces, počínaje nákupem surovin až po distribuci obchodním partnerům – společnost distribuuje své výrobky po celé České a Slovenské republice. Vedení společnosti se zavazuje k~neustálému zlepšování efektivnosti řízení i zvyšování kvality produktů. Tímto zlepšováním jsou míněny jak technologické inovace, které vyžadují nové a nové investice, tak přehodnocování a zkvalitňování jednotlivých procesů ve vedení, výrobě a ve vztazích s~odběrateli a dodavateli.
-
-Výsledky finanční analýzy jsou srovnávány s~doporučenými hodnotami v~daném odvětví podle klasifikace ekonomických činností (CZ – NACE), které jsou závazné jak pro orgány vykonávající státní statistickou službu, tak pro zpravodajské jednotky, které poskytují údaje pro statistická zjišťování prováděná státní statistickou službou patří firma do sekce zpracovatelského průmyslu, konkrétně do části „Výroba potravinářských výrobků“. Analyzovaná společnost Krajči plus s. r. o. dosáhla ve sledovaném období 2014 – 2017 nadprůměrných výsledků. Provozní výsledek hospodaření, který je pro firmu výrobního typu tou nejvýznamnější složkou, se za celé sledované období více než zpětinásobil. Finanční výsledek hospodaření, který je ovlivněn nákladovými úroky a ostatními finančními náklady je po celou dobu sledovanosti mínusový, ale v~žádném případě neměl zásadní vliv na celkový hospodářský výsledek ani v~jednom ze sledovaných roků. Hospodářský výsledek, který je hlavním stavebním kamenem v~celé řadě ekonomických ukazatelů, je podmíněn růstem tržeb. Dokladem expanze na potravinářský trh je viditelný růst prodeje zboží z~původních 5 496 mil Kč v~roce 2014 na 13 168 mil. Kč v~roce 2017 a růst prodeje vlastních výrobků z~původních 28 770 mil. Kč v~roce 2014 na 99 931 mil. Kč v~roce 2017.
-Ukazatelé rentability ve sledovaném období nás ujišťují o~tom, že ve firmě Krajči plus s.r.o. jsou velmi efektivně zhodnocovány prostředky, které firma do podnikání vložila, bez ohledu na to, jestli se jedná o~vlastní nebo cizí zdroje. Rentabilita vlastního kapitálu, která nás samozřejmě zajímá nejvíc je ovlivňována právě kumulací zisku, který je výsledkem hospodaření minulých let. Čím vyšších hodnot rentability je dosahováno, tím je podnik považován za úspěšnější. Vidíme, že hodnoty ukazatelů se ve všech případech pohybují nad odvětvovým průměrem. Pokud se podíváme na rentabilitu tržeb, vidíme že z~jedné koruny tržeb firma dosahuje na počátku podnikání 0,1498 zisku . V~roce 2017 je to již hodnota 0,2452 , což svědčí o~výborných výsledcích.
-
-Co se týče ukazatelů likvidity a zadluženosti, které jsou ostře sledované konkurencí a bankovními institucemi, které jsou věřiteli firmy, lze říci, že zejména likvidita prvního stupně – tzv. okamžitá likvidita se za sledovaná léta zvýšila více než trojnásobně ( z~0,66 na 2,07), přičemž minimální doporučená hodnota pro potravinářskou výrobu je 0,16. Likvidita druhého a třetího stupně, která je při ukončení činnosti firmy daleko hůře proveditelná, se v~tomto případě pohybuje také v~červených číslech a nad doporučenými hodnotami. Ukazatelé zadluženosti nám přinášejí informace o~úvěrovém zatížení a o~jiných závazcích společnosti. V~našem případě je zřejmé, že celkový vlastní kapitál převyšuje hodnotu cizích zdrojů. Vyjímkou je samozřejmě rok 2014, který se datuje jako počátek podnikání nové právní formy společnosti a v~tomto roce se poprvé vytváří čistý zisk, který ovlivní výši vlastního kapitálu až v~roce 2015. Z~výše uvedeného vidíme, že kromě startovacího roku 2014, jsou poměry cizího a vlastního kapitálu naprosto v~pořádku. 
-Pokud bych shrnul výsledky finanční analýzy sledované firmy v~období od 2014 – 2017, hodnoty všech
-ukazatelů se pohybují bezpečně nad hranicemi doporučených hodnot. Tím se společnost jednoznačně řadí mezi finančně zdravé podniky.
+Co do výkonu nástroje, bylo by vhodné ukládat výsledky analýzy do databáze, aby nemusely být znovu počítány při každém spuštění aplikace. Výkon by vylepšila také lepší správa dat na aplikační úrovni -- méně časté dotazy na data a menší objem přenesených dat.
 
 
+% \section{Demonstrace na vybraném vzorku dat}
+% Firma, na které aplikuji ve své diplomové práci finanční analýzu, je firma Krajči plus s. r. o. Jedná se o~ryze českou společnost, která byla založena již v~roce 1995. Společnost začínala
+% jako malý regionální výrobce, který dodával své výrobky do blízkého okolí. Postupem času se této společnosti podařilo stát soběstačnou a prosperující firmou ve své oblasti. Do konce roku 2013 podnikala firma jako fyzická osoba, nevedla tedy účetnictví. V~roce 2014 se majitelé rozhodli, že firma změní právní formu na společnost s~ručením omezeným. Od tohoto roku jsem podrobil firmu Krajči plus s.r.o. finanční analýze a jsem přesvědčen, že i do budoucna bude firma mé metody finanční analýzy využívat.
 
-* horizontalni analyza - da se rict ze vsechny polozky rostou, nicmene pro podnik kladne polozky rostou rychleji nez zaporne a tak podnik generuje stale vetsi zisk 
+% Firma podniká v~potravinářském oboru, zabývá se jednak výrobou bramborových lupínků a krekerů a jednak nákupem a prodejem zboží – tyčinek a suchých plodů. Ve firmě probíhá celý výrobní proces, počínaje nákupem surovin až po distribuci obchodním partnerům – společnost distribuuje své výrobky po celé České a Slovenské republice. Vedení společnosti se zavazuje k~neustálému zlepšování efektivnosti řízení i zvyšování kvality produktů. Tímto zlepšováním jsou míněny jak technologické inovace, které vyžadují nové a nové investice, tak přehodnocování a zkvalitňování jednotlivých procesů ve vedení, výrobě a ve vztazích s~odběrateli a dodavateli.
 
-* vzz - rostouci trzby a tim padem obrat, s~nimi ale samozrejme i rostouci naklady. Vynosy vsak rostou rychleji a tak vysledek hospodareni vykazuje rust, v~poslednich trech letech se pokazde zhruba zdvojnasobil.
+% Výsledky finanční analýzy jsou srovnávány s~doporučenými hodnotami v~daném odvětví podle klasifikace ekonomických činností (CZ – NACE), které jsou závazné jak pro orgány vykonávající státní statistickou službu, tak pro zpravodajské jednotky, které poskytují údaje pro statistická zjišťování prováděná státní statistickou službou patří firma do sekce zpracovatelského průmyslu, konkrétně do části „Výroba potravinářských výrobků“. Analyzovaná společnost Krajči plus s. r. o. dosáhla ve sledovaném období 2014 – 2017 nadprůměrných výsledků. Provozní výsledek hospodaření, který je pro firmu výrobního typu tou nejvýznamnější složkou, se za celé sledované období více než zpětinásobil. Finanční výsledek hospodaření, který je ovlivněn nákladovými úroky a ostatními finančními náklady je po celou dobu sledovanosti mínusový, ale v~žádném případě neměl zásadní vliv na celkový hospodářský výsledek ani v~jednom ze sledovaných roků. Hospodářský výsledek, který je hlavním stavebním kamenem v~celé řadě ekonomických ukazatelů, je podmíněn růstem tržeb. Dokladem expanze na potravinářský trh je viditelný růst prodeje zboží z~původních 5 496 mil Kč v~roce 2014 na 13 168 mil. Kč v~roce 2017 a růst prodeje vlastních výrobků z~původních 28 770 mil. Kč v~roce 2014 na 99 931 mil. Kč v~roce 2017.
+% Ukazatelé rentability ve sledovaném období nás ujišťují o~tom, že ve firmě Krajči plus s.r.o. jsou velmi efektivně zhodnocovány prostředky, které firma do podnikání vložila, bez ohledu na to, jestli se jedná o~vlastní nebo cizí zdroje. Rentabilita vlastního kapitálu, která nás samozřejmě zajímá nejvíc je ovlivňována právě kumulací zisku, který je výsledkem hospodaření minulých let. Čím vyšších hodnot rentability je dosahováno, tím je podnik považován za úspěšnější. Vidíme, že hodnoty ukazatelů se ve všech případech pohybují nad odvětvovým průměrem. Pokud se podíváme na rentabilitu tržeb, vidíme že z~jedné koruny tržeb firma dosahuje na počátku podnikání 0,1498 zisku . V~roce 2017 je to již hodnota 0,2452 , což svědčí o~výborných výsledcích.
 
-* to same i u~celkovych aktiv, u~pasiv si lze vsimnout predevsim obrovskeho narustu hodnoty dlouhodobych zavazku v~roce 2016.
-%_-----------------------------------------------
-* slozeni aktiv na nejvyssi urovni vicemene stejne - 1/3 dlouhodoby majetek, 2/3 obezna
-* dlouhodoby - pouze hmotny, neeviduje zadny nehmotny ci financni
-* ani struktura obeznych se prilis nemeni, zasoby tvori asi 10 procent, zbytek je zhruba stejnymi dily rozdelen mezi kratkodobe pohl a penezni prostredky.
+% Co se týče ukazatelů likvidity a zadluženosti, které jsou ostře sledované konkurencí a bankovními institucemi, které jsou věřiteli firmy, lze říci, že zejména likvidita prvního stupně – tzv. okamžitá likvidita se za sledovaná léta zvýšila více než trojnásobně ( z~0,66 na 2,07), přičemž minimální doporučená hodnota pro potravinářskou výrobu je 0,16. Likvidita druhého a třetího stupně, která je při ukončení činnosti firmy daleko hůře proveditelná, se v~tomto případě pohybuje také v~červených číslech a nad doporučenými hodnotami. Ukazatelé zadluženosti nám přinášejí informace o~úvěrovém zatížení a o~jiných závazcích společnosti. V~našem případě je zřejmé, že celkový vlastní kapitál převyšuje hodnotu cizích zdrojů. Vyjímkou je samozřejmě rok 2014, který se datuje jako počátek podnikání nové právní formy společnosti a v~tomto roce se poprvé vytváří čistý zisk, který ovlivní výši vlastního kapitálu až v~roce 2015. Z~výše uvedeného vidíme, že kromě startovacího roku 2014, jsou poměry cizího a vlastního kapitálu naprosto v~pořádku. 
+% Pokud bych shrnul výsledky finanční analýzy sledované firmy v~období od 2014 – 2017, hodnoty všech
+% ukazatelů se pohybují bezpečně nad hranicemi doporučených hodnot. Tím se společnost jednoznačně řadí mezi finančně zdravé podniky.
 
-* co se tyce pasiv, rozlozeni na nejvyssi urovni lze sledovat spise pomoci ukazatelu zadluzenosti (jsou zde pouze vlastni a cizi kapital)
-* veskere cizi zdroje jsou zavazky uverovym institucim, v~prvnich dvou sledovanych letech vyrazne prevazovaly kratkodobe, v~dalsich dvou letech je hodnota kratkodobych skoro rovna hodnote dlouhodobych
 
-* co se tyce vynosu za sledovane obdobi, vetsinu z~nich (80 a vice procent) tvori trzby za prodej vyrobku a sluzeb, zbytek je z~prodeje zbozi. Naklady jsou rozdeleny mezi vsechny podpolozky, nejvetsi cast tvori polozka \uv{Spotřeba materiálu a energie}
-%_-----------------------------------------------
-* du pont - pro vsechna sledovana obdobi vicemene stejna situace, podnik disponuje majetkem, ktery je z poloviny financovan cizimi zrdoji, coz je bezna situace. Umi s nim vsak velmi dobre hospodarit, coz se odrazi na vysoke hodnote rentability trzeb i rentability celkovych aktiv, po zohledneni zdroju kryti majetku zustava rentabilita vlastniho kapitalu stale velmi vysoka
-%%************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+% * horizontalni analyza - da se rict ze vsechny polozky rostou, nicmene pro podnik kladne polozky rostou rychleji nez zaporne a tak podnik generuje stale vetsi zisk 
+
+% * vzz - rostouci trzby a tim padem obrat, s~nimi ale samozrejme i rostouci naklady. Vynosy vsak rostou rychleji a tak vysledek hospodareni vykazuje rust, v~poslednich trech letech se pokazde zhruba zdvojnasobil.
+
+% * to same i u~celkovych aktiv, u~pasiv si lze vsimnout predevsim obrovskeho narustu hodnoty dlouhodobych zavazku v~roce 2016.
+% %_-----------------------------------------------
+% * slozeni aktiv na nejvyssi urovni vicemene stejne - 1/3 dlouhodoby majetek, 2/3 obezna
+% * dlouhodoby - pouze hmotny, neeviduje zadny nehmotny ci financni
+% * ani struktura obeznych se prilis nemeni, zasoby tvori asi 10 procent, zbytek je zhruba stejnymi dily rozdelen mezi kratkodobe pohl a penezni prostredky.
+
+% * co se tyce pasiv, rozlozeni na nejvyssi urovni lze sledovat spise pomoci ukazatelu zadluzenosti (jsou zde pouze vlastni a cizi kapital)
+% * veskere cizi zdroje jsou zavazky uverovym institucim, v~prvnich dvou sledovanych letech vyrazne prevazovaly kratkodobe, v~dalsich dvou letech je hodnota kratkodobych skoro rovna hodnote dlouhodobych
+
+% * co se tyce vynosu za sledovane obdobi, vetsinu z~nich (80 a vice procent) tvori trzby za prodej vyrobku a sluzeb, zbytek je z~prodeje zbozi. Naklady jsou rozdeleny mezi vsechny podpolozky, nejvetsi cast tvori polozka \uv{Spotřeba materiálu a energie}
+% %_-----------------------------------------------
+% * du pont - pro vsechna sledovana obdobi vicemene stejna situace, podnik disponuje majetkem, ktery je z~poloviny financovan cizimi zrdoji, coz je bezna situace. Umi s~nim vsak velmi dobre hospodarit, coz se odrazi na vysoke hodnote rentability trzeb i rentability celkovych aktiv, po zohledneni zdroju kryti majetku zustava rentabilita vlastniho kapitalu stale velmi vysoka
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \chapter{Závěr}
 V~rámci této diplomové práce se podařilo implementovat prakticky využitelný nástroj umožňující provádět vybrané úkony z~oblasti finanční analýzy. Implementaci předcházelo studium problematiky finanční analýzy i průzkum současných softwarových možností jejího provádění. Na základě zjištěných poznatků byl vypracován návrh vlastní programové koncepce, který byl poté realizován. Nástroj se zaměřuje na analýzu dvou entit, podniku a investice, přičemž se snaží k~vytvoření závěrů o~situaci analyzovaných entit poskytnout co nejužitečnější informace.
 
@@ -1127,7 +1198,7 @@ Nad podnikem umožňuje provádět analýzu horizontální a vertikální, anal�
 
 Cílovou skupinu nástroje tvoří podnikatelé a finanční analytici, jimž se snaží práci maximálně usnadnit. Prostředím běhu je webový prohlížeč, což umožňuje nástroj používat odkudkoliv, bez nutnosti jeho instalace. Dodržování požadavků plynoucích z~legislativy ČR zajišťuje jednoznačnost při zadávání vstupních dat i možnost jejich automatizovaného načítání. Díky podpoře uživatelských účtů je možné nahraná data s~uživatelským účtem spojit, uložit a k~analýze se opakovaně vracet.
 
-Řešení je kvalitní nejen z~pohledu provádění finanční analýzy a uživatelské přívětivosti, ale i z~pohledu vývojáře. Díky implementaci testů, použitým technologiím a způsobu implementace je zdrojový kód především robustní ke změnám a tím pádem dlouhodobě udržitelný, což je pro budoucí vývoj, zejména v~oblasti finanční analýzy, obrovskou výhodou.
+Řešení je kvalitní nejen z~pohledu provádění finanční analýzy a uživatelské přívětivosti, ale i z~pohledu vývojáře. Díky implementaci testů, použitým technologiím a způsobu implementace je zdrojový kód především robustní ke změnám a tím pádem dlouhodobě udržitelný. To je pro budoucí vývoj, zejména v~oblasti finanční analýzy, obrovskou výhodou.
 
 
 
@@ -1160,14 +1231,14 @@ hned - smazat
 co nejvic -> maximalne
 pouze, jen
 však
+přičemž
 **
 
 * TESTY
-* muzu dat vykazy do prilohy? je to vubec potreba? je to napsane v~uvodu, ze to tam bude
-* predelat ERD, doplnit investice
-* ucd - extend
-* diagram obrazovek - dve sipky, jedna na detail, druha zpet na prehled podniku
-* impl - nejvetsi prekazdou menici se legislativa a závsle na ní i specifikace, pouze ceska legislativa
+* datovy tok
+* rozsireni
+* demonstrace
+* projit na cizi slova, kurziva / footnote
 
 aktiva: 
 	17+16;
