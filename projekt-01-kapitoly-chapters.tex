@@ -1046,7 +1046,8 @@ Scénáře testů plynou z~use-case diagramu:
   \item testy analýzy
   \begin{itemize}
     \item zobrazení výsledků analýzy validních vstupních dat
-    \item zobrazení chyby analýzy nevalidních vstupních dat
+    \item zobrazení chybového hlášení při analýze nevalidních vstupních dat
+    \item signalizace nekonzistence dat načtených ze souboru
   \end{itemize}
   \item testy správy uživatelů
   \begin{itemize}
@@ -1209,37 +1210,6 @@ Cílovou skupinu nástroje tvoří podnikatelé a finanční analytici, jimž se
 
 766F6A74617065747231393439
 
-**
-Jedna se
-o~ačkoliv
-položka
-mapa
-různ odliš (z~ruznych zrdoju / literat ruzne hodnoty)
-router
-JavaScript
-TypeScript
-zejmena
-predevsim
-diky
-na zaklade
-vzhledem
-odpovidajic
-rovnice -> vzorec
-respektive
-napric
-hned - smazat
-co nejvic -> maximalne
-pouze, jen
-však
-přičemž
-**
-
-* TESTY
-* datovy tok
-* rozsireni
-* demonstrace
-* projit na cizi slova, kurziva / footnote
-
 aktiva: 
 	17+16;
 	15+14 +13[nazvy]+12+11+10[nazvy]
@@ -1251,25 +1221,6 @@ pasiva:
 vzz:
 	17+16;
 	15+14 +13[nazvy]+12+11+10
-
-
-interface ICompany {
-    id: string
-    name: string
-    czNaceId: string
-    docs: IDoc[]
-
-}
-
-interface IDoc {
-    id: string
-    year: number
-    tables: {
-        aktiva: { [c_radku: number]: number }
-        pasiva: { [c_radku: number]: number }
-        vzz: { [c_radku: number]: number }
-    }
-}
 
 
 \end{comment}
